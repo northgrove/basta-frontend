@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "react"
+import ReactDOM from "react-dom"
 import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import { createBrowserHistory } from 'history'
 class App extends React.Component {
   render() {
-    return <div>Hello franz</div>;
+    return <div>Hello franz</div>
   }
 }
 

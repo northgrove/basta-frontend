@@ -28,6 +28,7 @@
   },
   "scripts": {
     "start": "parcel frontend/src/index.html",
+    "server": "node api/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
