@@ -4,6 +4,7 @@
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
+    "express": "^4.16.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1"
   },
