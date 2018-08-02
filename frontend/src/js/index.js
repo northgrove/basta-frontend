@@ -6,7 +6,13 @@ import store from './store'
 import { createBrowserHistory } from 'history'
 class App extends React.Component {
   render() {
-    return <div>Hello franz</div>;
+    return (
+        <div className="wrapper">
+            <div className="topNav">topNav</div>
+            <div className="sideNav">sideNav</div>
+            <div className="main">main</div>
+            <div className="footer">footer</div>
+    </div>);
   }
 }
 
