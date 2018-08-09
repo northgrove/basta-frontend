@@ -10,12 +10,10 @@ class App extends React.Component {
     return (
         <wrapper>
             <header>
-                <div className={"navBrand"}><span><img className="navLogo" src={bastaLogo} />basta</span></div>
+                <a className="navBrand" href="/"><img className="navLogo" src={bastaLogo} /><div className="navName">basta</div></a>
             </header>
             <navigation>navigation</navigation>
-            <left></left>
             <main>main content</main>
-            <right></right>
             <footer></footer>
     </wrapper>);
   }
