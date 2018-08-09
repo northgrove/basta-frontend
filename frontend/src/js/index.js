@@ -13,10 +13,10 @@ class App extends React.Component {
             <header>
                 <a className="navBrand" href="/"><img className="navLogo" src={bastaLogo} /><div className="navName">basta</div></a>
             </header>
-            <navLeft />
+            <div className="navLeft" />
             <navigation>
             </navigation>
-            <navRight />
+            <div className="navRight" />
             <main>main content</main>
             <footer></footer>
     </wrapper>);

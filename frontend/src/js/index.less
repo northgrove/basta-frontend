@@ -48,9 +48,16 @@ header {
   background: @header-color;
   grid-area: header;
 }
-navLeft, navRight{
+.navLeft, .navRight{
   background-color: @navigation-color;
 }
+.navLeft{
+  grid-area: navLeft;
+}
+.navLeft{
+  grid-area: navRight;
+}
+
 navigation {
   grid-area: navigation;
   background: @navigation-color
