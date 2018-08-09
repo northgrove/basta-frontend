@@ -15,13 +15,13 @@ a:link{
 wrapper {
   display: grid;
   min-height: 100vh;
-  grid-template-areas: "header header header" "navigation navigation navigation" "left main right" "footer footer footer";
+  grid-template-areas: "header header header" "navLeft navigation navRight" "left main right" "footer footer footer";
 
   grid-template-rows: 50px 50px 10fr 30px;
   grid-template-columns: 1fr 1012px 1fr;
 }
 
-@media screen and (max-width: 1012px) {
+@media all and (max-width: 1012px) {
 
   wrapper {
     grid-template-areas: "header" "navigation" "main" "footer";
@@ -30,7 +30,7 @@ wrapper {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media all and (max-width: 600px) {
   wrapper {
     grid-template-areas: "header navigation" "main main";
     grid-template-columns: 1fr 1fr;
@@ -48,7 +48,9 @@ header {
   background: @header-color;
   grid-area: header;
 }
-
+navLeft, navRight{
+  background-color: @navigation-color;
+}
 navigation {
   grid-area: navigation;
   background: @navigation-color
@@ -80,7 +82,7 @@ footer {
 .navName {
   display: table-cell;
   vertical-align: middle;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .navBrand:hover {
   color: #fff;
