@@ -6,10 +6,9 @@ export const exampleReducer = (state = {
     example: ''
 }, action) => {
     switch (action.type) {
-
         case EXAMPLE_ACTION:
             return {
-                example: "set"
+                example: 'set'
             }
         default:
             return state

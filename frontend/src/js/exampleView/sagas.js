@@ -4,7 +4,7 @@ import {
 } from './actionTypes.js'
 
 export function* example(action) {
- yield put({ type: EXAMPLE_ACTION })
+    yield put({ type: EXAMPLE_ACTION })
 }
 
 export function* exampleSaga() {
