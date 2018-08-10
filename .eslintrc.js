@@ -21,9 +21,9 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
+        "indent": ["error",
+            4,
+            { "SwitchCase": 1 }
         ],
         "no-console": 0,
         "jsx-no-literals": 0,
