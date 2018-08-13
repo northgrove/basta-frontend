@@ -1,8 +1,8 @@
 import React from 'react'
-import { Routes } from '../js/routes'
+import { Routes } from '../common/routes'
 import Tabs from 'nav-frontend-tabs'
 
-const bastaLogo = require('../img/basta.png')
+const bastaLogo = require('../../img/basta.png')
 
 export class App extends React.Component {
     render() {

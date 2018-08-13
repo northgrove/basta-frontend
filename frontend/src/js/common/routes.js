@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 
-import {History} from './components/history/History'
-import {Operate} from './components/operate/Operate'
-import {Create} from './components/create/Create'
-import {NotFound} from './components/notfound/NotFound'
+import {History} from '../components/history/History'
+import {Operate} from '../components/operate/Operate'
+import {Create} from '../components/create/Create'
+import {NotFound} from '../components/notfound/NotFound'
 
 // Routes
 export const Routes = () => {
