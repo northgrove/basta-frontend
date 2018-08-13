@@ -59,7 +59,7 @@
       }
     },
     "dev": {
-      "command": "parcel frontend/src/index.html | nodemon api/server.js -p 8080",
+      "command": "parcel frontend/src/index.html | nodemon api/server.js",
       "env": {
         "NODE_ENV": "development"
       }
