@@ -1,7 +1,7 @@
 import React from 'react'
 import {Routes} from '../common/routes'
 import Tabs from 'nav-frontend-tabs'
-
+import history from '../common/history'
 const bastaLogo = require('../../img/basta.png')
 
 export const App = () => {
@@ -21,7 +21,7 @@ export const App = () => {
                     tabs={[{'label': 'History'}, {'label': 'Create'}, {'label': 'Operate'}]}
                     onChange={(e) => navigate(e.target.textContent)}
                 />
-                <div className='navButton'>smallssss</div>
+                <div className='navSmall'>small</div>
             </nav>
             <div className='navRight'/>
             <main>
