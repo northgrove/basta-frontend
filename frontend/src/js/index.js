@@ -5,10 +5,11 @@ import { Provider } from 'react-redux'
 import store from './common/store'
 import {createBrowserHistory} from 'history'
 import { App } from './components/App'
+export const history = createBrowserHistory()
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={createBrowserHistory({})}>
+        <Router history={history}>
             <App/>
         </Router>
     </Provider>,
