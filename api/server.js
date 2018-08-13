@@ -14,7 +14,6 @@ app.get('*', (req, res) => {
     res.sendFile('index.html', { root: './dist' })
 })
 
-
 app.listen(port, () => {
     console.log(`Basta backend up and running at port ${port}`)
 })
