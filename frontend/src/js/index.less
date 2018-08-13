@@ -36,11 +36,14 @@ a:link{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr;
   }
-  nav{
-    background: @header-color !important;
+  nav {
+    background-color: @header-color !important;
   }
-  .navName{
-    visibility: hidden;
+  .navTabs{
+    display: none;
+  }
+  .navButton{
+    display: block !important;
   }
 }
 
@@ -63,6 +66,9 @@ nav {
   padding-top: 3px;
   background: @navigation-color
 }
+.navButton {
+  display: none;
+}
 
 main {
   padding: 6px;
@@ -76,7 +82,7 @@ footer {
 .navBrand{
    display: table;
    height: 50px;
-  color: @navigation-color;
+   color: @navigation-color;
 
 }
 .navLogo {
