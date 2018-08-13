@@ -73,7 +73,7 @@
   },
   "nodemonConfig": {
     "ignore": ["dist/*", "frontend/*"],
-    "delay": "2500"
+    "delay": "1500"
   },
   "keywords": [
     "frontend",

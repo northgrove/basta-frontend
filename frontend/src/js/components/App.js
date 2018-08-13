@@ -26,6 +26,7 @@ export class App extends React.Component {
                 </nav>
                 <div className='navRight'/>
                 <main>
+                    <a />
                     <Routes/>
                 </main>
                 <footer></footer>
