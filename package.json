@@ -40,10 +40,11 @@
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
-    "build": "parcel build fronteld/src/index.html",
+    "build": "rimraf ./dist/ && parcel build frontend/src/index.html",
     "start": "parcel frontend/src/index.html",
     "server": "node api/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
