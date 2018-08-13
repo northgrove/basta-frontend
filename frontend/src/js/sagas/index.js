@@ -1,5 +1,5 @@
 import { all, call } from 'redux-saga/effects'
-import { exampleSaga } from '../exampleView/sagas.js'
+import { exampleSaga } from '../views/exampleView/sagas.js'
 
 
 export default function* () {
