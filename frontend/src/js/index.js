@@ -4,12 +4,12 @@ import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import {createBrowserHistory} from 'history'
-import {routes} from './routes'
+import { App } from './App'
 
 ReactDOM.render(
     <Provider store={store}>
         <Router history={createBrowserHistory({})}>
-            {routes()}
+            <App/>
         </Router>
     </Provider>,
     document.getElementById('app')
