@@ -4,6 +4,7 @@
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
+    "better-npm-run": "^0.1.1",
     "express": "^4.16.3"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "nav-frontend-tabs": "0.0.24",
     "nav-frontend-tabs-style": "0.0.13",
     "nav-frontend-typografi-style": "^1.0.10",
+    "nodemon": "^1.18.3",
     "parcel-bundler": "^1.9.7",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
@@ -44,10 +46,34 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "build": "rimraf ./dist/ && parcel build frontend/src/index.html",
-    "start": "parcel frontend/src/index.html",
-    "server": "node api/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "better-npm-run start",
+    "build": "better-npm-run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "better-npm-run dev"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "node api/server.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "dev": {
+      "command": "parcel frontend/src/index.html | nodemon api/server.js -p 8080",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "build": {
+      "command": "rimraf dist/ && parcel build frontend/src/index.html",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "nodemonConfig": {
+    "ignore": ["dist/*", "frontend/*"],
+    "delay": "2500"
   },
   "keywords": [
     "frontend",
