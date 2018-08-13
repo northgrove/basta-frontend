@@ -24,7 +24,6 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
-    "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "less": "^3.8.0",
     "lodash.throttle": "^4.1.1",
@@ -60,7 +59,7 @@
       }
     },
     "dev": {
-      "command": "parcel frontend/src/index.html | nodemon api/server.js -p 8080",
+      "command": "parcel frontend/src/index.html | nodemon api/server.js",
       "env": {
         "NODE_ENV": "development"
       }
@@ -73,11 +72,8 @@
     }
   },
   "nodemonConfig": {
-    "ignore": [
-      "dist/*",
-      "frontend/*"
-    ],
-    "delay": "2500"
+    "ignore": ["dist/*", "frontend/*"],
+    "delay": "1500"
   },
   "keywords": [
     "frontend",
