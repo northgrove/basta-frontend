@@ -1,6 +1,6 @@
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl } from '../utils'
-import { host, api } from '../../../../../api/config/config'
+import { api } from '../../../../../api/config/config'
 import {
     USER_SESSION_REQUEST,
     USER_SESSION_FETCHING,
