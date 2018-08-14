@@ -5,7 +5,16 @@
   "main": "src/index.js",
   "dependencies": {
     "better-npm-run": "^0.1.1",
-    "express": "^4.16.3"
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.8",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-azure-ad": "^3.0.12"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -72,7 +81,7 @@
       "env": {
         "NODE_ENV": "development"
       }
-    },    
+    },
     "dev-api": {
       "command": "nodemon api/server.js",
       "env": {
@@ -91,7 +100,7 @@
       "dist/*",
       "frontend/*"
     ],
-    "delay": "1500"
+    "delay": "500"
   },
   "keywords": [
     "frontend",

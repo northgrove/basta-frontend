@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const auth = require('../controllers/authenticate')
 const { api } = require('../config/config')
 
 
-// User
+// Authentication
 
 router.get(`${api}/auth/session`, (req, res) => {
     res.status(200).send({
@@ -16,5 +17,11 @@ router.get(`${api}/auth/session`, (req, res) => {
         ]
     })
 })
+
+router.get(`${api}/auth/openid`, auth.authenticateAzure())
+
+router.get(`${api}/auth/openid/callback`, auth.authenticateAzure())
+
+router.get
 
 module.exports = router
