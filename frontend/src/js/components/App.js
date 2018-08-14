@@ -36,7 +36,9 @@ class App extends Component {
                         tabs={[{ 'label': 'History' }, { 'label': 'Create' }, { 'label': 'Operate' }]}
                         onChange={(e) => this.navigate(e.target.textContent)}
                     />
-                    <div className='navSmall'>small</div>
+                    <div className='navSmall'>
+                        <i className='fa fa-bars fa-2x navSmallButton' />
+                    </div>
                 </nav>
                 <div className='navRight' />
                 <main>
