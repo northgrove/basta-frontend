@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import connect from 'react-redux/es/connect/connect'
 
@@ -10,9 +10,9 @@ class NavMenu extends Component {
         return (
             <div className='navMenu'>
                 <ul>
-                    <li>History</li>
-                    <li>Create</li>
-                    <li>Operate</li>
+                    <li><Link to={'/'}>History</Link></li>
+                    <li><Link to={'/operate'}>Operate</Link></li>
+                    <li><Link to={'/create'}>Create</Link></li>
                     <li>User</li>
                 </ul>
             </div>
