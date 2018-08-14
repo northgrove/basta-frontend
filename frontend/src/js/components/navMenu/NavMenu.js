@@ -8,8 +8,13 @@ class NavMenu extends Component {
     render() {
         if (!this.props.navMenu.visible) return null
         return (
-            <div>
-                <h3>NavMenu</h3>
+            <div className='navMenu'>
+                <ul>
+                    <li>History</li>
+                    <li>Create</li>
+                    <li>Operate</li>
+                    <li>User</li>
+                </ul>
             </div>
         )
     }

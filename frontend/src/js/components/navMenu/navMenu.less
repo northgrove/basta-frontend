@@ -1,0 +1,28 @@
+@font-color: #f5f5f5;
+@highlight-color: #6acae3;
+
+@media all and (max-width: 600px) {
+  .navMenu{
+    display: block !important;
+  }
+}
+.navMenu {
+  display: none;
+  background-color: #333;
+  margin-top: 0px;
+}
+.navMenu > ul {
+  font-size: 1.5em;
+  color: @font-color;
+  margin-top: 0px;
+  list-style-type: none;
+  text-align: right;
+  padding-right: 20px;
+}
+.navMenu > ul > li {
+  padding: 10px;
+  cursor: pointer;
+}
+.navMenu > ul > li:hover{
+  color: @highlight-color;
+}
