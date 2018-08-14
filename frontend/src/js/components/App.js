@@ -1,14 +1,14 @@
-
-import React, { Component } from 'react'
-import { Routes } from '../common/routes'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {Routes} from '../common/routes'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import Tabs from 'nav-frontend-tabs'
-import NavMenu from './navMenu/NavMenu'
+import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
-import { withRouter } from 'react-router-dom'
-import { userSsessionRequest } from '../common/actionCreators'
+import {withRouter} from 'react-router-dom'
+import {userSsessionRequest} from '../common/actionCreators'
 import {closeNavMenu, toggleNavMenu} from './navMenu/actionCreators'
+import NavMenu from './navMenu/NavMenu'
 
 
 const bastaLogo = require('../../img/basta.png')
@@ -22,7 +22,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const { dispatch } = this.props
+        const {dispatch} = this.props
         dispatch(userSsessionRequest())
     }
 
@@ -30,25 +30,22 @@ class App extends Component {
         return (
             <div className='wrapper'>
                 <header>
-                    <div className='navBrand' href='/'><img className='navLogo' src={bastaLogo} onClick={() => history.push('/')}/>
+                    <div className='navBrand' href='/'>
+                        <img className='navLogo' src={bastaLogo} onClick={() => history.push('/')}/>
                         <div className='navName'>basta</div>
                     </div>
                 </header>
-                <div className='navLeft' />
+                <div className='navLeft'/>
                 <nav>
-                    <Tabs
-                        className='navTabs'
-                        tabs={[{ 'label': 'History' }, { 'label': 'Create' }, { 'label': 'Operate' }]}
-                        onChange={(e) => this.navigate(e.target.textContent)}
-                    />
-                    <div className='navSmall' onClick={() => this.props.dispatch(toggleNavMenu())} >
+                    <NavMenu/>
+                    <div className='navButton' onClick={() => this.props.dispatch(toggleNavMenu())}>
                         <i className='fa fa-bars fa-2x navSmallButton'/>
                     </div>
                 </nav>
-                <div className='navRight' />
+                <div className='navRight'/>
                 <main onClick={() => this.props.dispatch(closeNavMenu())}>
-                    <NavMenu />
-                    <Routes />
+                    <NavMenuSmall/>
+                    <Routes/>
                 </main>
                 <footer></footer>
             </div>)

@@ -1,38 +1,45 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import connect from 'react-redux/es/connect/connect'
-import { closeNavMenu } from './actionCreators'
-
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class NavMenu extends Component {
+    isActive(context) {
+        let {location} = this.props
+        if (!location) { return context === '/' ?  'active' : null }
+        const path = location.pathname.split('/')[1]
+        if (path === context ) return 'active'
+    }
+
     render() {
-        if (!this.props.navMenu.visible) return null
         return (
             <div className='navMenu'>
-                <ul>
-                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/'}>History</Link></li>
-                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/operate'}>Operate</Link></li>
-                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/create'}>Create</Link></li>
-                    <li>User</li>
+                <ul className='nav nav-tabs nav-tab-positioning'>
+                    <li className={this.isActive('')}>
+                        <Link to='/'>
+                            <i className='fa fa-search'/>&nbsp;&nbsp;History</Link>
+                    </li>
+                    <li className={this.isActive('create')}>
+                        <Link to='/create'>
+                            <i className='fa fa-sitemap'/>&nbsp;&nbsp;Create</Link>
+                    </li>
+                    <li className={this.isActive('operate')}>
+                        <Link to='/operate'>
+                            <i className='fa fa-home fa-cube'/>&nbsp;&nbsp;Operate</Link>
+                    </li>
                 </ul>
             </div>
         )
     }
 }
 
-
 NavMenu.propTypes = {
-    navMenu: PropTypes.object,
-    dispatch: PropTypes.func,
-    user: PropTypes.object
+    dispatch: PropTypes.func.isRequired,
+    location: PropTypes.object
 }
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.user,
-        navMenu: state.navMenu
-    }
-}
+const mapStateToProps = (state) => ({
+    location: state.routing.locationBeforeTransitions,
+})
 
 export default connect(mapStateToProps)(NavMenu)

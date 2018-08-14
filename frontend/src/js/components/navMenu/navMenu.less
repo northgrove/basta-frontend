@@ -2,12 +2,13 @@
 @highlight-color: #6acae3;
 @menu-color: #fafbfc;
 
+// NavMenuSmall
 @media all and (max-width: 600px) {
-  .navMenu{
+  .navMenuSmall{
     display: block !important;
   }
 }
-.navMenu {
+.navMenuSmall {
   display: none;
   background-color: @menu-color;
   margin-top: 0px;
@@ -17,7 +18,7 @@
   border-bottom: 1px solid @navigation-font;
 
 }
-.navMenu > ul {
+.navMenuSmall > ul {
   font-size: 1.5em;
   color: @navigation-font;
   margin-top: 0px;
@@ -26,13 +27,61 @@
   padding-right: 20px;
 }
 
-.navMenu > ul > li {
+.navMenuSmall > ul > li {
   padding: 10px;
 }
 
-.navMenu > ul > li > a {
+.navMenuSmall > ul > li > a {
   color: @navigation-font;
 }
-.navMenu > ul > li > a:hover{
+.navMenuSmall > ul > li > a:hover{
   color: @highlight-color;
+}
+
+// NavMenu
+.nav {
+  display: table;
+  overflow: hidden;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-top: 4px;
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.navMenu {
+  border-bottom: 1px solid #e7e7e7;
+
+}
+.nav-tabs {
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+  margin-left:20px;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.nav-tabs > li > a:hover {
+  border-color: #eeeeee #eeeeee #e7e7e7;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555555;
+  background-color: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-bottom: 4px solid #fff;
+  cursor: default;
 }

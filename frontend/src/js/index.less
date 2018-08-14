@@ -47,7 +47,7 @@ a:link{
   .navTabs{
     display: none;
   }
-  .navSmall{
+  .navButton{
     display: block !important;
   }
 }
@@ -68,10 +68,9 @@ header {
 
 nav {
   grid-area: navigation;
-  padding-top: 3px;
   background: @menu-color;
 }
-.navSmall {
+.navButton {
   display: none;
   color: @font-color;
   float: right;
@@ -80,7 +79,7 @@ nav {
 }
 .navSmallButton:hover{
   color: @highlight-color;
-}º
+}
 .navButton {
   height: 35px;
   width: 35px;
@@ -123,8 +122,4 @@ footer {
   display: table-cell;
   vertical-align: middle;
   font-size: 1.5em;
-}
-.nav-frontend-tabs__tab-inner:focus {
-  outline: none;
-  box-shadow: none !important;
 }
