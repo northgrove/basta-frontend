@@ -5,7 +5,7 @@ const { api } = require('../config/config')
 
 // User
 
-router.get(`${api}/user`, (req, res) => {
+router.get(`${api}/auth/session`, (req, res) => {
     res.status(200).send({
         userName: 'h141513',
         firstName: 'Even',
