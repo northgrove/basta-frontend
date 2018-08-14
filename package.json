@@ -1,130 +1,130 @@
 {
-    "name": "basta-frontend",
-    "version": "1.0.0",
-    "description": "ny frontend til basta",
-    "main": "src/index.js",
-    "dependencies": {
-      "@fortawesome/free-solid-svg-icons": "^5.2.0",
-      "better-npm-run": "^0.1.1",
-      "bluebird": "^3.5.1",
-      "body-parser": "^1.18.3",
-      "connect-mongo": "^2.0.1",
-      "cookie-parser": "^1.4.3",
-      "express": "^4.16.3",
-      "express-session": "^1.15.6",
-      "mongoose": "^5.2.8",
-      "morgan": "^1.9.0",
-      "passport": "^0.4.0",
-      "passport-azure-ad": "^3.0.12"
-    },
-    "devDependencies": {
-      "@fortawesome/fontawesome-free": "^5.2.0",
-      "babel-core": "^6.26.3",
-      "babel-loader": "^7.1.5",
-      "babel-plugin-transform-object-rest-spread": "^6.26.0",
-      "babel-plugin-transform-runtime": "^6.23.0",
-      "babel-polyfill": "^6.26.0",
-      "babel-preset-es2015": "^6.24.1",
-      "babel-preset-es2017": "^6.24.1",
-      "babel-preset-stage-0": "^6.24.1",
-      "classnames": "^2.2.6",
-      "eslint": "^5.3.0",
-      "eslint-config-standard": "^11.0.0",
-      "eslint-plugin-import": "^2.13.0",
-      "eslint-plugin-node": "^7.0.1",
-      "eslint-plugin-promise": "^3.8.0",
-      "eslint-plugin-react": "^7.10.0",
-      "eslint-plugin-standard": "^3.1.0",
-      "font-awesome": "^4.7.0",
-      "history": "^4.7.2",
-      "less": "^3.8.0",
-      "lodash.throttle": "^4.1.1",
-      "nav-frontend-core": "^4.0.5",
-      "nav-frontend-js-utils": "^1.0.6",
-      "nav-frontend-tabs": "0.0.24",
-      "nav-frontend-tabs-style": "0.0.13",
-      "nav-frontend-typografi-style": "^1.0.10",
-      "ncp": "^2.0.0",
-      "nodemon": "^1.18.3",
-      "parcel-bundler": "^1.9.7",
-      "prop-types": "^15.6.2",
-      "react": "^16.4.2",
-      "react-dom": "^16.4.2",
-      "react-redux": "^5.0.7",
-      "react-router-dom": "^4.3.1",
-      "react-router-redux": "^4.0.8",
-      "redux": "^4.0.0",
-      "redux-devtools-extension": "^2.13.5",
-      "redux-saga": "^0.16.0",
-      "rimraf": "^2.6.2"
-    },
-    "scripts": {
-      "start": "better-npm-run start",
-      "build": "better-npm-run build",
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "prebuild": "better-npm-run prebuild",
-      "prefrontend": "better-npm-run prebuild",
-      "dev": "better-npm-run dev",
-      "frontend": "better-npm-run dev-frontend",
-      "api": "better-npm-run dev-api"
-    },
-    "betterScripts": {
-      "start": {
-        "command": "node api/server.js",
-        "env": {
-          "NODE_ENV": "production"
-        }
-      },
-      "dev": {
-        "command": "parcel frontend/src/index.html | nodemon api/server.js",
-        "env": {
-          "NODE_ENV": "development"
-        }
-      },
-      "prebuild": {
-        "command": "better-npm-run mkdir && better-npm-run copy-fonts"
-      },
-      "dev-frontend": {
-        "command": "parcel frontend/src/index.html",
-        "env": {
-          "NODE_ENV": "development"
-        }
-      },
-      "mkdir": {
-        "command": "mkdirp frontend/src/fonts"
-      },
-      "copy-fonts": {
-        "command": "ncp node_modules/font-awesome/fonts/ frontend/src/fonts"
-      },
-      "dev-api": {
-        "command": "nodemon api/server.js",
-        "env": {
-          "NODE_ENV": "development"
-        }
-      },
-      "build": {
-        "command": "rimraf dist/ && parcel build frontend/src/index.html",
-        "env": {
-          "NODE_ENV": "production"
-        }
+  "name": "basta-frontend",
+  "version": "1.0.0",
+  "description": "ny frontend til basta",
+  "main": "src/index.js",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "better-npm-run": "^0.1.1",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.8",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-azure-ad": "^3.0.12"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "classnames": "^2.2.6",
+    "eslint": "^5.3.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "font-awesome": "^4.7.0",
+    "history": "^4.7.2",
+    "less": "^3.8.0",
+    "lodash.throttle": "^4.1.1",
+    "nav-frontend-core": "^4.0.5",
+    "nav-frontend-js-utils": "^1.0.6",
+    "nav-frontend-tabs": "0.0.24",
+    "nav-frontend-tabs-style": "0.0.13",
+    "nav-frontend-typografi-style": "^1.0.10",
+    "ncp": "^2.0.0",
+    "nodemon": "^1.18.3",
+    "parcel-bundler": "^1.9.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-saga": "^0.16.0",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "start": "better-npm-run start",
+    "build": "better-npm-run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "better-npm-run prebuild",
+    "prefrontend": "better-npm-run prebuild",
+    "dev": "better-npm-run dev",
+    "frontend": "better-npm-run dev-frontend",
+    "api": "better-npm-run dev-api"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "node api/server.js",
+      "env": {
+        "NODE_ENV": "production"
       }
     },
-    "nodemonConfig": {
-      "ignore": [
-        "dist/*",
-        "frontend/*"
-      ],
-      "delay": "1500"
+    "dev": {
+      "command": "parcel frontend/src/index.html | nodemon api/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
     },
-    "keywords": [
-      "frontend",
-      "react",
-      "parcel",
-      "redux",
-      "saga",
-      "basta",
-      "react-router"
+    "prebuild": {
+      "command": "better-npm-run mkdir && better-npm-run copy-fonts"
+    },
+    "dev-frontend": {
+      "command": "parcel frontend/src/index.html",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "mkdir": {
+      "command": "mkdirp frontend/src/fonts"
+    },
+    "copy-fonts": {
+      "command": "ncp node_modules/font-awesome/fonts/ frontend/src/fonts"
+    },
+    "dev-api": {
+      "command": "nodemon api/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "build": {
+      "command": "rimraf dist/ && parcel build frontend/src/index.html",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "dist/*",
+      "frontend/*"
     ],
-    "author": "Frode Sundby",
-    "license": "MIT"
-  }
+    "delay": "1500"
+  },
+  "keywords": [
+    "frontend",
+    "react",
+    "parcel",
+    "redux",
+    "saga",
+    "basta",
+    "react-router"
+  ],
+  "author": "Frode Sundby",
+  "license": "MIT"
+}
