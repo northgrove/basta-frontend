@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import { userSsessionRequest } from '../common/actionCreators'
 const bastaLogo = require('../../img/basta.png')
 
+
 class App extends Component {
 
     navigate(location) {

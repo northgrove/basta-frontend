@@ -9,7 +9,7 @@ import {
 } from '../actionTypes'
 
 
-const url = `${host}/${api}`
+const url = `${api}`
 
 export function* sessionLookUp() {
     let value = ''

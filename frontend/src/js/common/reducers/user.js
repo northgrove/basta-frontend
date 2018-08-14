@@ -29,7 +29,7 @@ export default (state = {
         case USER_SESSION_RECEIVED:
             return {
                 ...state,
-                currentUser: action.value.user,
+                currentUser: action.value,
                 isUserAuthenticated: true,
                 requestFailed: false,
                 requestStatus: action.value.message
