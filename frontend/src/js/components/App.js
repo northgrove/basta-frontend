@@ -8,7 +8,7 @@ import NavMenu from './navMenu/NavMenu'
 import history from '../common/history'
 import { withRouter } from 'react-router-dom'
 import { userSsessionRequest } from '../common/actionCreators'
-import { toggleNavMenu} from './navMenu/actionCreators'
+import {closeNavMenu, toggleNavMenu} from './navMenu/actionCreators'
 
 
 const bastaLogo = require('../../img/basta.png')
@@ -46,7 +46,7 @@ class App extends Component {
                     </div>
                 </nav>
                 <div className='navRight' />
-                <main>
+                <main onClick={() => this.props.dispatch(closeNavMenu())}>
                     <NavMenu />
                     <Routes />
                 </main>

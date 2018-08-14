@@ -1,5 +1,6 @@
 import {
-    TOGGLE_NAVMENU
+    TOGGLE_NAVMENU,
+    CLOSE_NAVMENU
 } from './actionTypes'
 
 
@@ -12,6 +13,11 @@ export default (state = {
             return {
                 ...state,
                 visible: !state.visible
+            }
+        case CLOSE_NAVMENU:
+            return {
+                ...state,
+                visible: false
             }
         default:
             return state

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import connect from 'react-redux/es/connect/connect'
+import { closeNavMenu } from './actionCreators'
 
 
 class NavMenu extends Component {
@@ -10,9 +11,9 @@ class NavMenu extends Component {
         return (
             <div className='navMenu'>
                 <ul>
-                    <li><Link to={'/'}>History</Link></li>
-                    <li><Link to={'/operate'}>Operate</Link></li>
-                    <li><Link to={'/create'}>Create</Link></li>
+                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/'}>History</Link></li>
+                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/operate'}>Operate</Link></li>
+                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/create'}>Create</Link></li>
                     <li>User</li>
                 </ul>
             </div>
