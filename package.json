@@ -53,6 +53,7 @@
     "start": "better-npm-run start",
     "build": "better-npm-run build",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "better-npm-run prebuild",
     "prefrontend": "better-npm-run prebuild",
     "dev": "better-npm-run dev",
     "frontend": "better-npm-run dev-frontend",
