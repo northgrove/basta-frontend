@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import Tabs from 'nav-frontend-tabs'
 import NavMenu from './navMenu/NavMenu'
 import history from '../common/history'
+import { withRouter } from 'react-router-dom'
 import { userSsessionRequest } from '../common/actionCreators'
 import { toggleNavMenu} from './navMenu/actionCreators'
 
@@ -65,4 +66,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))
