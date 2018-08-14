@@ -2,7 +2,9 @@ import React from 'react'
 import {Routes} from '../common/routes'
 import Tabs from 'nav-frontend-tabs'
 import history from '../common/history'
+
 const bastaLogo = require('../../img/basta.png')
+
 
 export const App = () => {
 
@@ -21,10 +23,11 @@ export const App = () => {
                     tabs={[{'label': 'History'}, {'label': 'Create'}, {'label': 'Operate'}]}
                     onChange={(e) => navigate(e.target.textContent)}
                 />
-                <div className='navSmall'>small</div>
+                <div className='navSmall'><div className='navButton'><i className="fa fa-bars"></i></div></div>
             </nav>
             <div className='navRight'/>
             <main>
+                <i className="fa fa-bars"></i>aaa
                 <Routes/>
             </main>
             <footer></footer>
