@@ -1,0 +1,3 @@
+// USER
+
+export const TOGGLE_NAVMENU = 'TOGGLE_NAVMENU'
