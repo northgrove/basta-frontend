@@ -2,10 +2,14 @@
 import React, { Component } from 'react'
 import { Routes } from '../common/routes'
 import { connect } from 'react-redux'
-import Tabs from 'nav-frontend-tabs'
-import history from '../common/history'
 import PropTypes from 'prop-types'
+import Tabs from 'nav-frontend-tabs'
+import NavMenu from './navMenu/NavMenu'
+import history from '../common/history'
 import { userSsessionRequest } from '../common/actionCreators'
+import { toggleNavMenu} from './navMenu/actionCreators'
+
+
 const bastaLogo = require('../../img/basta.png')
 
 
@@ -36,12 +40,13 @@ class App extends Component {
                         tabs={[{ 'label': 'History' }, { 'label': 'Create' }, { 'label': 'Operate' }]}
                         onChange={(e) => this.navigate(e.target.textContent)}
                     />
-                    <div className='navSmall'>
-                        <i className='fa fa-bars fa-2x navSmallButton' />
+                    <div className='navSmall' onClick={() => this.props.dispatch(toggleNavMenu())} >
+                        <i className='fa fa-bars fa-2x navSmallButton'/>
                     </div>
                 </nav>
                 <div className='navRight' />
                 <main>
+                    <NavMenu />
                     <Routes />
                 </main>
                 <footer></footer>
