@@ -52,7 +52,9 @@
     "start": "better-npm-run start",
     "build": "better-npm-run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "better-npm-run dev"
+    "dev": "better-npm-run dev",
+    "frontend": "better-npm-run dev-frontend",
+    "api": "better-npm-run dev-api"
   },
   "betterScripts": {
     "start": {
@@ -63,6 +65,18 @@
     },
     "dev": {
       "command": "parcel frontend/src/index.html | nodemon api/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "dev-frontend": {
+      "command": "parcel frontend/src/index.html",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },    
+    "dev-api": {
+      "command": "nodemon api/server.js",
       "env": {
         "NODE_ENV": "development"
       }
