@@ -35,6 +35,7 @@
     "nav-frontend-tabs": "0.0.24",
     "nav-frontend-tabs-style": "0.0.13",
     "nav-frontend-typografi-style": "^1.0.10",
+    "ncp": "^2.0.0",
     "nodemon": "^1.18.3",
     "parcel-bundler": "^1.9.7",
     "prop-types": "^15.6.2",
@@ -52,6 +53,7 @@
     "start": "better-npm-run start",
     "build": "better-npm-run build",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prefrontend": "better-npm-run prebuild",
     "dev": "better-npm-run dev",
     "frontend": "better-npm-run dev-frontend",
     "api": "better-npm-run dev-api"
@@ -69,12 +71,21 @@
         "NODE_ENV": "development"
       }
     },
+    "prebuild": {
+      "command": "better-npm-run mkdir && better-npm-run copy-fonts"
+    },
     "dev-frontend": {
       "command": "parcel frontend/src/index.html",
       "env": {
         "NODE_ENV": "development"
       }
-    },    
+    },
+    "mkdir": {
+      "command": "mkdirp frontend/src/fonts"
+    },
+    "copy-fonts": {
+      "command": "ncp node_modules/font-awesome/fonts/ frontend/src/fonts"
+    },
     "dev-api": {
       "command": "nodemon api/server.js",
       "env": {
