@@ -29,9 +29,9 @@ class App extends Component {
         return (
             <div className='wrapper'>
                 <header>
-                    <a className='navBrand' href='/'><img className='navLogo' src={bastaLogo} />
+                    <div className='navBrand' href='/'><img className='navLogo' src={bastaLogo} onClick={() => history.push('/')}/>
                         <div className='navName'>basta</div>
-                    </a>
+                    </div>
                 </header>
                 <div className='navLeft' />
                 <nav>

@@ -1,5 +1,6 @@
-@font-color: #f5f5f5;
+@navigation-font: #333;
 @highlight-color: #6acae3;
+@menu-color: #fafbfc;
 
 @media all and (max-width: 600px) {
   .navMenu{
@@ -8,17 +9,19 @@
 }
 .navMenu {
   display: none;
-  background-color: #333;
+  background-color: @menu-color;
   margin-top: 0px;
 }
 .navMenu > ul {
   font-size: 1.5em;
-  color: @font-color;
+  color: @navigation-font;
   margin-top: 0px;
   list-style-type: none;
   text-align: right;
   padding-right: 20px;
+  border-bottom: 1px solid @navigation-font;
 }
+
 .navMenu > ul > li {
   padding: 10px;
   cursor: pointer;
