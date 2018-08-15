@@ -1,12 +1,13 @@
-import React, {Component} from 'react'
-import {Routes} from '../common/routes'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { Routes } from '../common/routes'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
-import {withRouter} from 'react-router-dom'
-import {userSsessionRequest} from '../common/actionCreators'
-import {closeNavMenu, toggleNavMenu} from './navMenu/actionCreators'
+import { withRouter } from 'react-router-dom'
+import { userSessionRequest } from '../common/actionCreators'
+import { getOrderHistory } from '../components/history/actionCreators'
+import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 
 
@@ -21,8 +22,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const {dispatch} = this.props
-        dispatch(userSsessionRequest())
+        const { dispatch } = this.props
+        dispatch(userSessionRequest())
+        dispatch(getOrderHistory(200))
+        
     }
 
     render() {
@@ -30,21 +33,21 @@ class App extends Component {
             <div className='wrapper'>
                 <header>
                     <div className='navBrand' href='/'>
-                        <img className='navLogo' src={bastaLogo} onClick={() => history.push('/')}/>
+                        <img className='navLogo' src={bastaLogo} onClick={() => history.push('/')} />
                         <div className='navName'>basta</div>
                     </div>
                 </header>
-                <div className='navLeft'/>
+                <div className='navLeft' />
                 <nav>
-                    <NavMenu className='navTabs'/>
+                    <NavMenu className='navTabs' />
                     <div className='navButton' onClick={() => this.props.dispatch(toggleNavMenu())}>
-                        <i className='fa fa-bars fa-2x navSmallButton'/>
+                        <i className='fa fa-bars fa-2x navSmallButton' />
                     </div>
                 </nav>
-                <div className='navRight'/>
+                <div className='navRight' />
                 <main onClick={() => this.props.dispatch(closeNavMenu())}>
-                    <NavMenuSmall/>
-                    <Routes/>
+                    <NavMenuSmall />
+                    <Routes />
                 </main>
                 <footer></footer>
             </div>)
