@@ -26,16 +26,16 @@ export default (state = {
         case HISTORY_RECEIVED:
             return {
                 ...state,
-                orderHistory: action.value,
+                orderHistory: state.orderHistory.concat(action.value),
                 requestFailed: false,
-                requestStatus: action.value.message
+                requestStatus: 'Order history partially complete'
             }
         case HISTORY_COMPLETE:
             return {
                 ...state,
                 completed: true,
                 requestFailed: false,
-                requestStatus: action.value.message
+                requestStatus: 'Order history request complete'
             }
         case HISTORY_REQUEST_FAILED:
             return {

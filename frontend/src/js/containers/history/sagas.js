@@ -12,20 +12,30 @@ import {
 
 const url = `${api}`
 
-export function* getOrderHistory(action) {
+export function* getPartialHistory(action, pageId) {
     let value = ''
+    value = yield call(getUrl, `${url}/orders/page/${pageId}/${action.pageSize}/${action.toDate}/${action.fromDate}`)
+    if (value.length > 0) {
+        pageId ++
+        yield put({ type: HISTORY_RECEIVED, value })
+        yield getPartialHistory(action, pageId)
+    } else {
+        yield put({ type: HISTORY_COMPLETE })
+    }
+}
+
+export function* getOrderHistory(action) {
+    let pageId = 0
     if (!action.toDate) action.toDate = 0
     if (!action.fromDate) action.fromDate = 0
-    
     yield put({ type: HISTORY_FETCHING })
     try {
         console.log('getOrderHistory')
         console.log(action)
-        // value = yield call(getUrl, `${url}/auth/session`)
-        // yield put({ type: USER_SESSION_RECEIVED, value })
+        yield (getPartialHistory(action, pageId))
     }
     catch (err) {
-        // yield put({ type: USER_SESSION_REQUEST_FAILED, err })
+        yield put({ type: HISTORY_REQUEST_FAILED, err })
     }
 }
 
