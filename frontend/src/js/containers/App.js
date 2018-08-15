@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
 import {withRouter} from 'react-router-dom'
-import {userSsessionRequest} from '../common/actionCreators'
+import {userSessionRequest} from '../common/actionCreators'
 import {closeNavMenu, toggleNavMenu} from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 
@@ -22,7 +22,7 @@ class App extends Component {
 
     componentDidMount() {
         const {dispatch} = this.props
-        dispatch(userSsessionRequest())
+        dispatch(userSessionRequest())
     }
 
     render() {
