@@ -32,7 +32,7 @@ export default (state = {
                 currentUser: action.value,
                 isUserAuthenticated: true,
                 requestFailed: false,
-                requestStatus: action.value.message
+                requestStatus: 'User session lookup successful'
             }
         case USER_SESSION_REQUEST_FAILED:
             return {
