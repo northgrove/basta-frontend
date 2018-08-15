@@ -113,8 +113,7 @@
     "ignore": [
       "dist/*",
       "frontend/*"
-    ],
-    "delay": "1500"
+    ]
   },
   "keywords": [
     "frontend",

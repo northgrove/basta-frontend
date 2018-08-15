@@ -71,7 +71,8 @@ app.use((err, req, res, next) => {
     next()
 })
 
-
 // STARTUP
 
 startApp(app)
+
+module.exports = app

@@ -19,7 +19,7 @@ const connectMongoDb = () => {
     })
     mongoose.Promise = require('bluebird')
     mongoose.connect(mongoDb, {
-        useNewUrlParser: true,
+        useNewUrlParser: true
     })
 }
 
