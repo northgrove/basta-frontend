@@ -1,5 +1,5 @@
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
-import { getUrl } from '../utils'
+import { getUrl } from '../../common/utils'
 import { api } from '../../../../../api/config/config'
 import {
     HISTORY_REQUEST,
@@ -7,13 +7,16 @@ import {
     HISTORY_RECEIVED,
     HISTORY_COMPLETE,
     HISTORY_REQUEST_FAILED
-} from '../actionTypes'
+} from './actionTypes'
 
 
 const url = `${api}`
 
 export function* getOrderHistory(action) {
     let value = ''
+    if (!action.toDate) action.toDate = 0
+    if (!action.fromDate) action.fromDate = 0
+    
     yield put({ type: HISTORY_FETCHING })
     try {
         console.log('getOrderHistory')
