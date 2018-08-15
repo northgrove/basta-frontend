@@ -1,9 +1,13 @@
 @import "../../../node_modules/font-awesome/less/font-awesome";
-@import "./components/navMenu/navMenu.less";
+@import "containers/navMenu/navMenu.less";
+@import "common/components/orderCard.less";
+@import "common/components/orderGrid.less";
+
 
 @header-color: #757575;
 @menu-color: #fafbfc;
-@font-color: #f5f5f5;
+@inverse-font-color: #f5f5f5;
+@font-color: #333;
 @highlight-color: #6acae3;
 @border-color: #e7e7e7;
 
@@ -24,7 +28,7 @@ a:link{
   grid-template-areas: "header header header" "navLeft navigation navRight" "left main right" "footer footer footer";
 
   grid-template-rows: 50px 50px 10fr 30px;
-  grid-template-columns: 1fr 1012px 1fr;
+  grid-template-columns: auto 1012px auto;
 }
 
 @media all and (max-width: 1012px) {
@@ -72,7 +76,7 @@ nav {
 }
 .navButton {
   display: none;
-  color: @font-color;
+  color: @inverse-font-color;
   float: right;
   margin-right: 20px;
   margin-top: 4px;
@@ -93,7 +97,7 @@ footer {
 .navBrand{
    display: table;
    height: 50px;
-   color: @font-color;
+   color: @inverse-font-color;
 
 }
 .navBrand:hover {
