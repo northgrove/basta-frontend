@@ -30,8 +30,6 @@ export function* getOrderHistory(action) {
     if (!action.fromDate) action.fromDate = 0
     yield put({ type: HISTORY_FETCHING })
     try {
-        console.log('getOrderHistory')
-        console.log(action)
         yield (getPartialHistory(action, pageId))
     }
     catch (err) {

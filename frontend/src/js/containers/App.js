@@ -6,7 +6,7 @@ import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
 import { withRouter } from 'react-router-dom'
 import { userSessionRequest } from '../common/actionCreators'
-import { getOrderHistory } from '../components/history/actionCreators'
+import { getOrderHistory } from '../containers/history/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 
