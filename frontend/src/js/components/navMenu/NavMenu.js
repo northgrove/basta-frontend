@@ -17,15 +17,15 @@ class NavMenu extends Component {
                 <ul className='nav nav-tabs nav-tab-positioning'>
                     <li className={this.isActive('')}>
                         <Link to='/'>
-                            <i className='fa fa-search'/>&nbsp;&nbsp;History</Link>
+                            <i className='fa fa-history'/>&nbsp;&nbsp;History</Link>
                     </li>
                     <li className={this.isActive('create')}>
                         <Link to='/create'>
-                            <i className='fa fa-sitemap'/>&nbsp;&nbsp;Create</Link>
+                            <i className='fa fa-plus'/>&nbsp;&nbsp;Create</Link>
                     </li>
                     <li className={this.isActive('operate')}>
                         <Link to='/operate'>
-                            <i className='fa fa-home fa-cube'/>&nbsp;&nbsp;Operate</Link>
+                            <i className='fa fa-wrench'/>&nbsp;&nbsp;Operate</Link>
                     </li>
                 </ul>
             </div>

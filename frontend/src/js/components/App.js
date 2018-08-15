@@ -37,7 +37,7 @@ class App extends Component {
                 </header>
                 <div className='navLeft'/>
                 <nav>
-                    <NavMenu/>
+                    <NavMenu className='navTabs'/>
                     <div className='navButton' onClick={() => this.props.dispatch(toggleNavMenu())}>
                         <i className='fa fa-bars fa-2x navSmallButton'/>
                     </div>

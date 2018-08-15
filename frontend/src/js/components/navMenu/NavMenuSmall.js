@@ -11,10 +11,10 @@ class NavMenuSmall extends Component {
         return (
             <div className='navMenuSmall'>
                 <ul>
-                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/'}>History</Link></li>
-                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/operate'}>Operate</Link></li>
-                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/create'}>Create</Link></li>
-                    <li>User</li>
+                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/'}>History &nbsp;<i className='fa fa-history' /></Link></li>
+                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/operate'}>Operate &nbsp;<i className='fa fa-wrench' /></Link></li>
+                    <li onClick={() => this.props.dispatch(closeNavMenu())}><Link to={'/create'}>Create &nbsp;<i className='fa fa-plus' /></Link></li>
+                    <li>User &nbsp;<i className='fa fa-user' /></li>
                 </ul>
             </div>
         )

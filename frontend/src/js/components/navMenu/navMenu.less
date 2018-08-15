@@ -7,6 +7,9 @@
   .navMenuSmall{
     display: block !important;
   }
+  .navMenu {
+    display: none !important;
+  }
 }
 .navMenuSmall {
   display: none;
@@ -57,8 +60,7 @@
   padding: 10px 15px;
 }
 .navMenu {
-  border-bottom: 1px solid #e7e7e7;
-
+  //border-bottom: 1px solid #e7e7e7;
 }
 .nav-tabs {
 }
@@ -71,10 +73,13 @@
   margin-right: 2px;
   line-height: 1.42857143;
   border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
+  border-radius: 3px 3px 0 0;
+  color: @navigation-font;
 }
 .nav-tabs > li > a:hover {
   border-color: #eeeeee #eeeeee #e7e7e7;
+  background: #fff;
+  color: @highlight-color;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
@@ -82,6 +87,7 @@
   color: #555555;
   background-color: #ffffff;
   border: 1px solid #e7e7e7;
-  border-bottom: 4px solid #fff;
+  border-top: 3px solid @highlight-color;
+  border-bottom: 2px solid #fff;
   cursor: default;
 }
