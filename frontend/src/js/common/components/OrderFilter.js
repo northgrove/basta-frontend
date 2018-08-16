@@ -5,7 +5,7 @@ const OrderFilter = (props) => {
     const {onChange} = props
     return (
         <div className='orderFilterWrapper'>
-            <input className='orderFilterField' type='text' name='filter' placeholder='Filter..' onChange={(e) => console.log(e.target.value)}/>
+            <input className='orderFilterField' type='text' name='filter' placeholder='Filter..' onChange={(e) => onChange(e.target.value)}/>
         </div>
     )
 }
