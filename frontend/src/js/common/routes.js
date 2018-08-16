@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Switch, Layout} from 'react-router'
 
 import {History} from '../containers/history/History'
-import {Operate} from '../containers/operate/Operate'
+import Operate from '../containers/operate/Operate'
 import Create from '../containers/create/Create'
 import {WasNode} from '../containers/create/was-node/WasNode'
 import {WasDmgr} from '../containers/create/was-dmgr/WasDmgr'

@@ -169,14 +169,14 @@ const orderTypes = [
         label: 'WildFly',
         description: 'Application server',
         image: wildflyImage,
-        tags: ['server', 'node', 'was', 'wildfly', 'application'],
+        tags: ['server', 'node', 'wildfly', 'application'],
         url: '/create/wildfly-node'
     },
     {
         label: 'JBoss',
         description: 'Application server',
         image: jbossImage,
-        tags: ['server', 'node', 'was', 'jboss', 'application'],
+        tags: ['server', 'node', 'jboss', 'application'],
         url: '/create/jboss-node'
     },
     {
@@ -208,9 +208,7 @@ const orderTypes = [
         url: '/create/bpm-dmgr'
     }
 ]
-Create.propTypes = {
-    children: PropTypes.object
-}
+Create.propTypes = {}
 
 const mapStateToProps = (state) => {
     return {
@@ -218,4 +216,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Create))
+export default connect(mapStateToProps)(Create)
