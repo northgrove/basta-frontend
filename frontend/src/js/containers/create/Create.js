@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom'
 import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
+import OrderFilter from '../../common/components/OrderFilter'
 
 const wasImage = require('../../../img/orderTypes/websphere.png')
 const jbossImage = require('../../../img/orderTypes/jboss.png')
@@ -28,6 +29,7 @@ class Create extends Component {
         return (
             <div>
                 <PageHeading icon='fa-plus' heading='Create new order' description=''/>
+                <OrderFilter/>
                 <OrderGrid>
                     {orderTypes.map((orderType, i) => {
                         const {label, description, image, tags, url} = orderType
