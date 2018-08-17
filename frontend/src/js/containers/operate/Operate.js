@@ -45,8 +45,8 @@ class Operate extends Component {
                 <OrderFilter onChange={(e) => this.filterString(e)}/>
                 <OrderGrid>
                     {this.state.orderTypes.map((orderType, i) => {
-                        const {label, description, image, tags, url} = orderType
-                        return <OrderCard key={i} label={label} description={description} image={image} tags={tags}
+                        const {title, description, image, tags, url} = orderType
+                        return <OrderCard key={i} label={title} description={description} image={image} tags={tags}
                                           url={url}/>
                     })
                     }
@@ -59,35 +59,35 @@ class Operate extends Component {
 
 const orderTypes = [
     {
-        label: 'Noder',
-        description: 'Virtuelle maskiner',
+        title: 'Nodes',
+        description: 'Viartual machines',
         image: redhatImage,
         tags: ['node', 'server', 'start', 'stop', 'delete'],
         url: '/operate/nodes'
     },
     {
-        label: 'Credentials',
-        description: 'Servicebrukere i AD',
+        title: 'Credentials',
+        description: 'Service user in AD',
         image: securityImage,
         tags: ['ad', 'service', 'user'],
         url: '/operate/ad'
     },
     {
-        label: 'MQ',
+        title: 'MQ',
         description: 'Topics',
         image: mqImage,
         tags: ['mq', 'topic', 'websphere', 'ibm'],
         url: '/operate/mq-topic'
     },
     {
-        label: 'MQ',
+        title: 'MQ',
         description: 'channel',
         image: mqImage,
         tags: ['mq', 'channel', 'websphere', 'ibm'],
         url: '/operate/mq-channel'
     },
     {
-        label: 'MQ',
+        title: 'MQ',
         description: 'Queue',
         image: mqImage,
         tags: ['mq', 'queue', 'websphere', 'ibm'],

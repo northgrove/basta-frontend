@@ -1,0 +1,80 @@
+.orderForm {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 150px auto;
+  border: 1px solid @border-color;
+}
+.orderFormImage {
+  width: 120px;
+  height: 120px;
+  border: 2px solid @border-color;
+  border-radius: 100px;
+  position: relative;
+}
+.orderFormImage > img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 100px;
+}
+.orderFormTitle {
+  align-self: center;
+  font-size: 1.5em;
+}
+.orderFormItems {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.orderFormItemsGrid {
+  display: inline-grid;
+  height: 1.4em;
+  width: 100%;
+  grid-template-columns: 200px 1fr;
+}
+.orderItemLabel {
+  align-self: center;
+  text-align: right;
+  font-size: 1.3em;
+  padding-right: 20px;
+
+}
+.orderItemOptions {
+  align-self: center;
+  width: 50%;
+
+}
+@media all and (max-width: 1012px) {
+
+  .orderForm {
+    margin: 0 20px 0 20px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .orderForm {
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 100px auto;
+    border: 1px solid @border-color;
+
+  }
+  .orderFormImage {
+    width: 90px;
+    height: 90px;
+    border: 2px solid @border-color;
+    border-radius: 45px;
+    position: relative;
+  }
+  .orderFormImage > img {
+    width: 70px;
+  }
+  .orderItemLabel {
+    display: block;
+    text-align: left;
+  }
+}
+
+
