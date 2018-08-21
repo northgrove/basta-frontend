@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import PageHeading from '../../common/components/PageHeading'
-import PropTypes from 'prop-types'
-import {withRouter} from 'react-router-dom'
 import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
@@ -34,7 +32,7 @@ class Create extends Component {
     filterString(filter) {
         const filteredOrders = orderTypes.filter((orderType) => {
             return orderType.tags.filter((tag) => {
-                return tag.match(filter)
+                return tag.match(filter.toLowerCase())
             }).length > 0
         })
         this.setState({orderTypes: filteredOrders})

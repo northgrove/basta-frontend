@@ -32,7 +32,7 @@ class Operate extends Component {
     filterString(filter) {
         const filteredOrders = orderTypes.filter((orderType) => {
             return orderType.tags.filter((tag) => {
-                return tag.match(filter)
+                return tag.match(filter.toLowerCase())
             }).length > 0
         })
         this.setState({orderTypes: filteredOrders})

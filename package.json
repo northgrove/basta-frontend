@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@material-ui/lab": "^1.0.0-alpha.11",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -42,6 +43,7 @@
     "history": "^4.7.2",
     "less": "^3.8.0",
     "lodash.throttle": "^4.1.1",
+    "mocha": "^5.2.0",
     "nav-frontend-core": "^4.0.5",
     "nav-frontend-js-utils": "^1.0.6",
     "nav-frontend-tabs": "0.0.24",
