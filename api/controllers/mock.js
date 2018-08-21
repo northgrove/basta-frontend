@@ -1,4 +1,5 @@
 const orderData = require('../mock/orders.json')
+const statusLog = require('../mock/statuslog.json')
 
 
 const paginate = (pageId, pageSize, data) => {
@@ -18,18 +19,17 @@ exports.getOrders = () => {
             res.status(500).send(err)
             return null
         }
-        res.status(200).send(requestedData)
+        res.status(200).json(requestedData)
     }
 }
 
 exports.getStatusLog = () => {
     return (req, res) => {
         try {
-            console.log('hey ho')
-            res.status(200).send('hey ho')
+            res.status(200).json(statusLog)
         } catch (err) {
+            console.log(err)
             res.status(500).send(err)
-            return null
         }
     }
 }

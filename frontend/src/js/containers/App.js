@@ -6,7 +6,7 @@ import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
 import { withRouter } from 'react-router-dom'
 import { userSessionRequest } from '../common/actionCreators'
-import { getOrderHistory } from '../containers/history/actionCreators'
+import { getOrderHistory, getStatusLog } from '../containers/history/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 
@@ -25,6 +25,7 @@ class App extends Component {
         const { dispatch } = this.props
         dispatch(userSessionRequest())
         dispatch(getOrderHistory(200))
+        dispatch(getStatusLog('100000000000'))
         
     }
 
