@@ -27,9 +27,13 @@ router.get(`${api}/auth/openid/callback`, auth.authenticateAzure())
 
 router.get(`${api}/orders/page/:pageId/:pageSize/:toDate/:fromDate`, mock.getOrders())
 
+router.get(`${api}/orders/:id/`, mock.getOrder())
+
 // STATUSLOG
 
 router.get(`${api}/orders/:id/statuslog`, mock.getStatusLog())
+
+
 
 
 module.exports = router

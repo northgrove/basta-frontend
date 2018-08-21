@@ -1,4 +1,5 @@
-const orderData = require('../mock/orders.json')
+const orders = require('../mock/orders.json')
+const order = require('../mock/order.json')
 const statusLog = require('../mock/statuslog.json')
 
 
@@ -13,13 +14,24 @@ exports.getOrders = () => {
     return async (req, res) => {
         let requestedData
         try {
-            requestedData = await paginate(parseInt(req.params.pageId), parseInt(req.params.pageSize), orderData)
+            requestedData = await paginate(parseInt(req.params.pageId), parseInt(req.params.pageSize), orders)
         } catch (err) {
             console.log(err)
             res.status(500).send(err)
             return null
         }
         res.status(200).json(requestedData)
+    }
+}
+
+exports.getOrder = () => {
+    return (req, res) => {
+        try {
+            res.status(200).json(order)
+        } catch (err) {
+            console.log(err)
+            res.status(500).send(err)
+        }
     }
 }
 

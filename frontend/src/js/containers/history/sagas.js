@@ -10,7 +10,11 @@ import {
     STATUSLOG_REQUEST,
     STATUSLOG_FETCHING,
     STATUSLOG_RECEIVED,
-    STATUSLOG_REQUEST_FAILED
+    STATUSLOG_REQUEST_FAILED,
+    ORDER_REQUEST,
+    ORDER_FETCHING,
+    ORDER_RECEIVED,
+    ORDER_REQUEST_FAILED
 
 } from './actionTypes'
 
@@ -44,17 +48,27 @@ export function* getOrderHistory(action) {
 
 export function* getStatusLog(action) {
     try {
-        yield put({ type: STATUSLOG_FETCHING })
-        const value = yield call(getUrl,`${url}/orders/${action.id}/statuslog/` )
-        yield put({ type: STATUSLOG_RECEIVED, value})
+        yield put({ type: STATUSLOG_FETCHING, action })
+        const value = yield call(getUrl, `${url}/orders/${action.orderId}/statuslog/`)
+        yield put({ type: STATUSLOG_RECEIVED, value })
     } catch (err) {
         yield put({ type: STATUSLOG_REQUEST_FAILED, err })
     }
+}
 
-
+export function* getOrder(action) {
+    try {
+        yield put({ type: ORDER_FETCHING, action })
+        const value = yield call(getUrl, `${url}/orders/${action.orderId}/statuslog/`)
+        yield put({ type: ORDER_RECEIVED, value })
+    } catch (err) {
+        yield put({ type: ORDER_REQUEST_FAILED, err })
+    }
 }
 
 export function* watcHistory() {
     yield fork(takeEvery, HISTORY_REQUEST, getOrderHistory)
     yield fork(takeEvery, STATUSLOG_REQUEST, getStatusLog)
+    yield fork(takeEvery, ORDER_REQUEST, getOrder)
+
 }
