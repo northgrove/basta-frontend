@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const auth = require('../controllers/authenticate')
-const orders = require('../controllers/orders')
+const mock = require('../controllers/mock')
 const { api } = require('../config/config')
 
 
@@ -25,6 +25,11 @@ router.get(`${api}/auth/openid/callback`, auth.authenticateAzure())
 
 // ORDERS
 
-router.get(`${api}/orders/page/:pageId/:pageSize/:toDate/:fromDate`, orders.getOrders())
+router.get(`${api}/orders/page/:pageId/:pageSize/:toDate/:fromDate`, mock.getOrders())
+
+// STATUSLOG
+
+router.get(`${api}/orders/:id/statuslog`, mock.getStatusLog())
+
 
 module.exports = router

@@ -21,3 +21,15 @@ exports.getOrders = () => {
         res.status(200).send(requestedData)
     }
 }
+
+exports.getStatusLog = () => {
+    return (req, res) => {
+        try {
+            console.log('hey ho')
+            res.status(200).send('hey ho')
+        } catch (err) {
+            res.status(500).send(err)
+            return null
+        }
+    }
+}

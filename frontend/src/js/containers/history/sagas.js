@@ -16,7 +16,7 @@ export function* getPartialHistory(action, pageId) {
     let value = ''
     value = yield call(getUrl, `${url}/orders/page/${pageId}/${action.pageSize}/${action.toDate}/${action.fromDate}`)
     if (value.length > 0) {
-        pageId ++
+        pageId++
         yield put({ type: HISTORY_RECEIVED, value })
         yield getPartialHistory(action, pageId)
     } else {
