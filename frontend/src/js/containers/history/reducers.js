@@ -59,7 +59,7 @@ export default (state = {
             return {
                 ...state,
                 requestFailed: false,
-                requestStatus: `Fetching status log for ID:${action.action.orderId}`
+                requestStatus: `Fetching status log for order ID:${action.action.orderId}`
             }
         case STATUSLOG_RECEIVED:
             return {
