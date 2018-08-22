@@ -1,15 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import OrderCard from './OrderCard'
+import OrderListCard from './OrderListCard'
 
 
 const OrderList = (props) => {
     const { orderHistory } = props
     return (
-        <div>
-            OrderList
+        <div className='orderListContainer'>
             {renderList(orderHistory)}
-            <OrderCard />
         </div>
     )
 }
@@ -21,7 +19,7 @@ const renderList = (orders) => {
         orders.forEach((e, i) => {
             orderList.push(
                 <div key={i}>
-                    <OrderCard order={e}/>
+                    <OrderListCard order={e}/>
                 </div>
             )
         })

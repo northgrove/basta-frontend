@@ -1,23 +1,72 @@
-@media all and (max-width: 600px) {
-    .orderListGrid{
-    //   display: block !important;
-      grid-template-columns: 600px auto;
+@media all and (max-width: 1000px) {
+    .orderListCard{
+        // height: 120px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+    .orderListCardId{
+        grid-template-columns: auto;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .orderListCardStatus{
+        grid-row: 2;
+        grid-column-start: 1 !important;
+        grid-column-end: 3 !important;
     }
   }
 
 .orderListContainer {
     width: 100%;
-    display: inline-grid;
-    border: 1px solid @border-color;
     color: @font-color;
     padding: 10px;
+    font-size: 14px;
   }
   
   .orderListCard {
     display: grid;
+    border: 1px solid @border-color;
     width: 100%;
-    grid-template-rows: 60px auto;
+    min-height: 60px;
+    height: auto;
+    grid-template-columns: repeat(12,1fr)
   }
+
+.orderListCardId {
+    // background: red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.orderListCardStatus {
+    // background: white;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.orderListCardOperation {
+    // background: yellow;
+    grid-column-start: 3;
+    grid-column-end: 6;
+}
+
+.orderListCardResult {
+    // background: blue;
+    grid-column-start: 6;
+    grid-column-end: 9;
+}
+
+.orderListCardCreated {
+    // background: purple;
+    grid-column-start: 9;
+    grid-column-end: 12;
+}
+
+.orderListCardTime {
+    // background: orange;
+    grid-column-start: 12;
+    grid-column-end: 13;
+}
   
   .orderListImage {
     border: 2px solid @border-color;
