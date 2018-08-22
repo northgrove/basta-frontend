@@ -1,7 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PageHeading from '../../common/components/PageHeading'
 import PropTypes from 'prop-types'
-import {withRouter} from 'react-router-dom'
 import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
@@ -37,22 +36,26 @@ class Create extends Component {
                 return tag.match(filter)
             }).length > 0
         })
-        this.setState({orderTypes: filteredOrders})
+        this.setState({ orderTypes: filteredOrders })
     }
 
     render() {
         return (
             <div>
-                <PageHeading icon='fa-plus' heading='Create new order' description=''/>
-                <OrderFilter onChange={(e) => this.filterString(e)}/>
+                <PageHeading icon='fa-plus' heading='Create new order' description='' />
+                <OrderFilter onChange={(e) => this.filterString(e)} />
                 <OrderGrid>
                     {this.state.orderTypes.map((orderType, i) => {
-                        const {title, description, image, tags, url} = orderType
-                        return <OrderCard key={i} label={title} description={description} image={image} tags={tags}
-                                          url={url}/>
+                        const { title, description, image, tags, url } = orderType
+                        return <OrderCard
+                            key={i}
+                            label={title}
+                            description={description}
+                            image={image}
+                            tags={tags}
+                            url={url} />
                     })
                     }
-
                 </OrderGrid>
             </div>
         )

@@ -1,0 +1,58 @@
+@media all and (max-width: 600px) {
+    .orderListGrid{
+    //   display: block !important;
+      grid-template-columns: 600px auto;
+    }
+  }
+
+.orderListContainer {
+    width: 100%;
+    display: inline-grid;
+    border: 1px solid @border-color;
+    color: @font-color;
+    padding: 10px;
+  }
+  
+  .orderListCard {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 60px auto;
+  }
+  
+  .orderListImage {
+    border: 2px solid @border-color;
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .orderListImage > img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 45px;
+  }
+  
+  .orderListLabel {
+    font-size: 1.5em;
+    text-align: right;
+  }
+  
+  .orderListDescription {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: right;
+  }
+  
+  .orderListCard :hover {
+    color: @highlight-color;
+    .orderListImage > img {
+      filter: brightness(1.5) saturate(400%);
+    }
+    .orderListImage {
+      background-color: #333;
+    }
+  }
+  

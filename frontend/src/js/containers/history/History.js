@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { getOrderHistory } from './actionCreators'
 import PageHeading from '../../common/components/PageHeading'
 import PropTypes from 'prop-types'
-import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 import OrderFilter from '../../common/components/OrderFilter'
-
+import OrderList from './order-list/OrderList'
 
 
 class History extends Component {
@@ -21,14 +21,16 @@ class History extends Component {
 
     componentDidMount() {
         const { dispatch } = this.props
-        dispatch(getOrderHistory(10))
+        dispatch(getOrderHistory(200))
     }
 
     render() {
+        const { orderHistory } = this.props
         return (
             <div>
                 <PageHeading icon='fa-history' heading='Order history' description='' />
                 <OrderFilter onChange={(e) => this.filterString(e)} />
+                <OrderList orderHistory={orderHistory} />
             </div>
         )
     }
@@ -36,7 +38,7 @@ class History extends Component {
 
 History.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    orderHistory: PropTypes.object.isRequired
+    orderHistory: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => {

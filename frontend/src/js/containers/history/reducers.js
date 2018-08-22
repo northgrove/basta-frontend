@@ -27,6 +27,7 @@ export default (state = {
         case HISTORY_FETCHING:
             return {
                 ...state,
+                orderHistory: [],
                 completed: false,
                 requestFailed: false,
                 requestStatus: 'Fetching history log'
