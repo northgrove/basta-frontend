@@ -6,8 +6,11 @@ Dette er frontend til basta som kaller Basta APIet internt.
 ## Utvikling lokalt
 
 Kjør 
-`npm install`  
-`npm run frontend`
+
+```console
+npm install
+npm run frontend
+```
 
 
 
