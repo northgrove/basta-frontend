@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import PageHeading from '../../common/components/PageHeading'
-import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
+import {withRouter} from 'react-router-dom'
+import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'
@@ -21,7 +23,7 @@ const developertoolsImage = require('../../../img/orderTypes/devtools.png')
 const iappImage = require('../../../img/orderTypes/devtools-iapp.png')
 
 
-export class Create extends Component {
+class Create extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -32,13 +34,10 @@ export class Create extends Component {
     filterString(filter) {
         const filteredOrders = orderTypes.filter((orderType) => {
             return orderType.tags.filter((tag) => {
-                return tag.match(filter.toLowerCase())
+                return tag.match(filter)
             }).length > 0
         })
         this.setState({orderTypes: filteredOrders})
-    }
-    summarize(a,b){
-        return a+b
     }
 
     render() {

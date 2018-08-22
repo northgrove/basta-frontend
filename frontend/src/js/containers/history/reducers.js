@@ -2,13 +2,21 @@ import {
     HISTORY_FETCHING,
     HISTORY_RECEIVED,
     HISTORY_COMPLETE,
-    HISTORY_REQUEST_FAILED
+    HISTORY_REQUEST_FAILED,
+    STATUSLOG_FETCHING,
+    STATUSLOG_RECEIVED,
+    STATUSLOG_REQUEST_FAILED,
+    ORDER_FETCHING,
+    ORDER_RECEIVED,
+    ORDER_REQUEST_FAILED
 } from './actionTypes'
 
 
 export default (state = {
     orderHistory: [],
-    completed: false,
+    statusLog: [],
+    order: {},
+    orderHistoryCompleted: false,
     requestFailed: false,
     requestStatus: ''
 }, action) => {
@@ -19,9 +27,10 @@ export default (state = {
         case HISTORY_FETCHING:
             return {
                 ...state,
+                orderHistory: [],
                 completed: false,
                 requestFailed: false,
-                requestStatus: 'Fetching user session'
+                requestStatus: 'Fetching history log'
             }
         case HISTORY_RECEIVED:
             return {
@@ -33,14 +42,58 @@ export default (state = {
         case HISTORY_COMPLETE:
             return {
                 ...state,
-                completed: true,
+                orderHistoryCompleted: false,
                 requestFailed: false,
                 requestStatus: 'Order history request complete'
             }
         case HISTORY_REQUEST_FAILED:
             return {
                 ...state,
-                completed: false,
+                orderHistoryCompleted: false,
+                requestFailed: true,
+                requestStatus: action.err
+            }
+
+            // STATUSLOG
+
+        case STATUSLOG_FETCHING:
+            return {
+                ...state,
+                requestFailed: false,
+                requestStatus: `Fetching status log for order ID:${action.action.orderId}`
+            }
+        case STATUSLOG_RECEIVED:
+            return {
+                ...state,
+                statusLog: action.value,
+                requestFailed: false,
+                requestStatus: 'Statuslog request complete'
+            }
+        case STATUSLOG_REQUEST_FAILED:
+            return {
+                ...state,
+                requestFailed: true,
+                requestStatus: action.err
+            }
+
+            // ORDER
+
+        case ORDER_FETCHING:
+            return {
+                ...state,
+                requestFailed: false,
+                requestStatus: `Fetching order ID:${action.action.orderId}`
+            }
+        case ORDER_RECEIVED:
+            return {
+                ...state,
+                statusLog: action.value,
+                requestFailed: false,
+                requestStatus: 'Order request complete'
+            }
+        case ORDER_REQUEST_FAILED:
+            return {
+                ...state,
                 requestFailed: true,
                 requestStatus: action.err
             }
