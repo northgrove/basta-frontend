@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/navikt/basta-frontend.svg?style=svg)](https://circleci.com/gh/navikt/basta-frontend)
+
 # Basta frontend
 
 Basta er en selvbetjent bestillingsportal for bestilling og opprettelse av ting som virtuell maskiner, databaser, køer, brukere osv.
