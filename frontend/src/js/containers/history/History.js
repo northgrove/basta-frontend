@@ -30,7 +30,6 @@ class History extends Component {
         <PageHeading icon="fa-history" heading="Order history" description="" />
         <OrderFilter onChange={e => this.filterString(e)} />
         <OrderList orderHistory={orderHistory} />
-        <OrderList orderHistory={orderHistory} />
       </div>
     )
   }
