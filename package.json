@@ -32,6 +32,7 @@
     "express-session": "^1.15.6",
     "husky": "^1.0.0-rc.13",
     "material-ui": "^0.20.2",
+    "moment": "^2.22.2",
     "mongoose": "^5.2.8",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
