@@ -30,10 +30,13 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "husky": "^1.0.0-rc.13",
+    "material-ui": "^0.20.2",
     "mongoose": "^5.2.8",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-azure-ad": "^4.0.0",
+    "pretty-quick": "^1.6.0",
     "react-dropdown": "^1.6.1"
   },
   "devDependencies": {
@@ -80,6 +83,7 @@
     "ncp": "^2.0.0",
     "nodemon": "^1.18.3",
     "parcel-bundler": "^1.9.7",
+    "prettier": "^1.14.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -150,6 +154,11 @@
       "dist/*",
       "frontend/*"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "keywords": [
     "frontend",
