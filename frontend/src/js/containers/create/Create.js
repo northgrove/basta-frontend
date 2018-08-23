@@ -23,21 +23,22 @@ const developertoolsImage = require('../../../img/orderTypes/devtools.png')
 const iappImage = require('../../../img/orderTypes/devtools-iapp.png')
 
 
-class Create extends Component {
+export class Create extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            orderTypes
+            orderTypes,
+            filteredOrders: orderTypes
         }
     }
 
     filterString(filter) {
-        const filteredOrders = orderTypes.filter((orderType) => {
+        const filteredOrders = this.state.orderTypes.filter((orderType) => {
             return orderType.tags.filter((tag) => {
                 return tag.match(filter)
             }).length > 0
         })
-        this.setState({orderTypes: filteredOrders})
+        this.setState({filteredOrders})
     }
 
     render() {
@@ -46,7 +47,7 @@ class Create extends Component {
                 <PageHeading icon='fa-plus' heading='Create new order' description=''/>
                 <OrderFilter onChange={(e) => this.filterString(e)}/>
                 <OrderGrid>
-                    {this.state.orderTypes.map((orderType, i) => {
+                    {this.state.filteredOrders.map((orderType, i) => {
                         const {title, description, image, tags, url} = orderType
                         return <OrderCard key={i} label={title} description={description} image={image} tags={tags} url={url}/>
                     })
