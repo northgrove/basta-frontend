@@ -10,21 +10,22 @@ const redhatImage = require('../../../img/orderTypes/redhat.png')
 const mqImage = require('../../../img/orderTypes/mq.png')
 
 
-class Operate extends Component {
+export class Operate extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            orderTypes
+            orderTypes,
+            filteredOrders: orderTypes
         }
     }
 
     filterString(filter) {
-        const filteredOrders = orderTypes.filter((orderType) => {
+        const filteredOrders = this.state.orderTypes.filter((orderType) => {
             return orderType.tags.filter((tag) => {
-                return tag.match(filter.toLowerCase())
+                return tag.match(filter)
             }).length > 0
         })
-        this.setState({orderTypes: filteredOrders})
+        this.setState({filteredOrders})
     }
 
     render() {
@@ -33,10 +34,9 @@ class Operate extends Component {
                 <PageHeading icon='fa-wrench' heading='Operations' description='Start, stop and remove'/>
                 <OrderFilter onChange={(e) => this.filterString(e)}/>
                 <OrderGrid>
-                    {this.state.orderTypes.map((orderType, i) => {
+                    {this.state.filteredOrders.map((orderType, i) => {
                         const {title, description, image, tags, url} = orderType
-                        return <OrderCard key={i} label={title} description={description} image={image} tags={tags}
-                                          url={url}/>
+                        return <OrderCard key={i} label={title} description={description} image={image} tags={tags} url={url}/>
                     })
                     }
 

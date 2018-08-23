@@ -1,26 +1,26 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import {Create} from './Create'
+import {Operate} from './Operate'
 
 
-describe('Create filter function', () => {
+describe('Operate filter function', () => {
     const orderTypes = [
         {
-            title: 'IApp Tools',
-            description: 'Available via VPN',
+            title: 'Nodes',
+            description: 'Viartual machines',
             image: 'balls',
-            tags: ['match'],
-            url: '/create/iapptools'
+            tags: ['node', 'match'],
+            url: '/operate/nodes'
         },
         {
-            title: 'Devillo Tools',
-            description: 'Jenkins etc. in Devillo',
+            title: 'Credentials',
+            description: 'Service user in AD',
             image: 'balls',
-            tags: ['miss'],
-            url: '/create/developertools'
-        }
+            tags: ['ad', 'miss'],
+            url: '/operate/ad'
+        },
     ]
-    const wrapper = shallow(<Create/>)
+    const wrapper = shallow(<Operate/>)
     const instance = wrapper.instance()
     wrapper.setState({orderTypes})
 
