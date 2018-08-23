@@ -1,14 +1,12 @@
-@import "../../../node_modules/font-awesome/less/font-awesome";
-@import "containers/navMenu/navMenu.less";
-@import "common/components/orderCard.less";
-@import "common/components/orderGrid.less";
-@import "common/components/orderForm.less";
-@import "common/components/formComponents/orderDropDown.less";
-@import "common/components/orderFilter.less";
-@import "common/components/pageHeading.less";
-@import "containers/history/order-list/orderList.less";
-
-
+@import '../../../node_modules/font-awesome/less/font-awesome';
+@import 'containers/navMenu/navMenu.less';
+@import 'common/components/orderCard.less';
+@import 'common/components/orderGrid.less';
+@import 'common/components/orderForm.less';
+@import 'common/components/formComponents/orderDropDown.less';
+@import 'common/components/orderFilter.less';
+@import 'common/components/pageHeading.less';
+@import 'containers/history/order-list/orderList.less';
 
 @header-color: #757575;
 @menu-color: #fafbfc;
@@ -17,30 +15,30 @@
 @highlight-color: #6acae3;
 @border-color: #e7e7e7;
 
-html, body {
+html,
+body {
   margin: 0px;
   padding: 0px;
   width: 100%;
   height: 100%;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-a:link{
+a:link {
   text-decoration: none;
 }
 
 .wrapper {
   display: grid;
   min-height: 100vh;
-  grid-template-areas: "header header header" "navLeft navigation navRight" "left main right" "footer footer footer";
+  grid-template-areas: 'header header header' 'navLeft navigation navRight' 'left main right' 'footer footer footer';
 
   grid-template-rows: 50px 50px 10fr 30px;
   grid-template-columns: auto 1012px auto;
 }
 
 @media all and (max-width: 1012px) {
-
   .wrapper {
-    grid-template-areas: "header" "navigation" "main" "footer";
+    grid-template-areas: 'header' 'navigation' 'main' 'footer';
     grid-template-columns: 100%;
     grid-template-rows: 50px 50px 1fr 30px;
   }
@@ -48,14 +46,14 @@ a:link{
 
 @media all and (max-width: 600px) {
   .wrapper {
-    grid-template-areas: "header navigation" "main main";
+    grid-template-areas: 'header navigation' 'main main';
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr;
   }
   nav {
     background-color: @header-color !important;
   }
-  .navButton{
+  .navButton {
     display: block !important;
   }
 }
@@ -64,15 +62,16 @@ header {
   background: @header-color;
   grid-area: header;
 }
-.navLeft, .navRight{
+.navLeft,
+.navRight {
   background-color: @menu-color;
   margin-bottom: -1px;
   border-bottom: 1px solid @border-color;
 }
-.navLeft{
+.navLeft {
   grid-area: navLeft;
 }
-.navLeft{
+.navLeft {
   grid-area: navRight;
 }
 
@@ -87,7 +86,7 @@ nav {
   margin-right: 20px;
   margin-top: 4px;
 }
-.navSmallButton:hover{
+.navSmallButton:hover {
   color: @highlight-color;
 }
 
@@ -100,11 +99,10 @@ footer {
   background: @header-color;
   grid-area: footer;
 }
-.navBrand{
-   display: table;
-   height: 50px;
-   color: @inverse-font-color;
-
+.navBrand {
+  display: table;
+  height: 50px;
+  color: @inverse-font-color;
 }
 .navBrand:hover {
   color: #fff;
