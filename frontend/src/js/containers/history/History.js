@@ -6,45 +6,45 @@ import { connect } from 'react-redux'
 import OrderFilter from '../../common/components/OrderFilter'
 import OrderList from './order-list/OrderList'
 
-
 class History extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            even: 'er kul'
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      even: 'er kul'
     }
+  }
 
-    filterString(filter) {
-        console.log('filtering', filter)
-    }
+  filterString(filter) {
+    console.log('filtering', filter)
+  }
 
-    componentDidMount() {
-        const { dispatch } = this.props
-        dispatch(getOrderHistory(200))
-    }
+  componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(getOrderHistory(200))
+  }
 
-    render() {
-        const { orderHistory } = this.props
-        return (
-            <div>
-                <PageHeading icon='fa-history' heading='Order history' description='' />
-                <OrderFilter onChange={(e) => this.filterString(e)} />
-                <OrderList orderHistory={orderHistory} />
-            </div>
-        )
-    }
+  render() {
+    const { orderHistory } = this.props
+    return (
+      <div>
+        <PageHeading icon="fa-history" heading="Order history" description="" />
+        <OrderFilter onChange={e => this.filterString(e)} />
+        <OrderList orderHistory={orderHistory} />
+        <OrderList orderHistory={orderHistory} />
+      </div>
+    )
+  }
 }
 
 History.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    orderHistory: PropTypes.array.isRequired
+  dispatch: PropTypes.func.isRequired,
+  orderHistory: PropTypes.array.isRequired
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderHistory: state.orders.orderHistory
-    }
+const mapStateToProps = state => {
+  return {
+    orderHistory: state.orders.orderHistory
+  }
 }
 
 export default connect(mapStateToProps)(History)
