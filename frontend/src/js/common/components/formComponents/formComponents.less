@@ -1,8 +1,7 @@
 .formComponentGrid{
   line-height: 48px;
   display: grid;
-  grid-template-columns: 100px 1fr;
-  grid-template-rows: 50px;
+  grid-template-columns: 150px 1fr;
   padding-left: 15px;
 }
 .formComponentLabel{
@@ -11,27 +10,45 @@
 }
 
 
-.formComponentTextField {
+.formComponentNumberField {
   padding:10px;
   font-size: 1.5em;
   height:50px;
-  width: 60px;
+  width: 80px;
   transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   text-align: center;
   color: @font-color;
 }
 
-.formComponentTextField:focus {
+.formComponentNumberField:focus {
   width: 70%;
   text-align: left;
 }
+.formComponentTextField {
+  padding:10px;
+  font-size: 1.5em;
+  height:50px;
+  width: 180px;
+  transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  color: @font-color;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-.formComponentField {
+.formComponentTextField:focus {
+  width: 100%;
 }
 .formComponentDescription{
   display: inline-block;
   padding-left:10px;
   font-style: italic;
   color: @font-color-secondary;
+}
+.formComponentError {
+  display: block;
+  padding-left: 10px;
+  font-style: italic;
+  color: @font-color-error;
 }

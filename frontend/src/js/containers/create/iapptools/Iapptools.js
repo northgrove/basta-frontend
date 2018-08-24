@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import PageHeading from '../../../common/components/PageHeading'
 import OrderForm from '../../../common/components/OrderForm'
-import OrderDropDown from '../../../common/components/formComponents/OrderDropDown'
-import OrderSlider from '../../../common/components/formComponents/OrderSlider'
 import connect from 'react-redux/es/connect/connect'
 import OrderNumberBox from '../../../common/components/formComponents/OrderNumberBox'
+import OrderTextBox from '../../../common/components/formComponents/OrderTextBox'
 
 const iappImage = require('../../../../img/orderTypes/devtools-iapp.png')
 
@@ -16,11 +15,11 @@ class Iapptools extends Component {
             cpu: 1,
             memory: 2,
             disk: 0,
+            description: ''
         }
     }
     handleChange(field, value) {
         this.setState({[field]: value})
-
     }
 
     render() {
@@ -28,11 +27,11 @@ class Iapptools extends Component {
             <div>
                 <PageHeading icon='fa-plus' heading='Create new Dev tool iApp server' description='Developer tools available from laptops via VPN'/>
                 <OrderForm image={iappImage} title='Dev tools server'>
-                    <OrderNumberBox label='Servers' value={this.state.servers} min={1} max={8} description="Virtual servers" onChange={(v) => this.handleChange('servers', v)}/>
-                    <OrderSlider label='CPU' value={this.state.cpu} min={1} max={4} step={1} onChange={(e,v) => this.handleChange('cpu', v)}/>
-                    <OrderSlider label='Memory' value={this.state.memory} min={1} max={32} step={1} onChange={(e,v) => this.handleChange('memory', v)}/>
-                    <OrderSlider label='Extra disk' value={this.state.disk} min={0} max={100} step={5} onChange={(e,v) => this.handleChange('disk', v)}/>
-
+                    <OrderNumberBox label='Servers' value={this.state.servers} min={1} max={12} description="Virtual servers" onChange={(v) => this.handleChange('servers', v)}/>
+                    <OrderNumberBox label='CPU' value={this.state.cpu} min={1} max={4} description="Virtual sockets" onChange={(v) => this.handleChange('cpu', v)}/>
+                    <OrderNumberBox label='Memory' value={this.state.memory} min={1} max={32} description="GB" onChange={(v) => this.handleChange('memory', v)}/>
+                    <OrderNumberBox label='Extra disk' value={this.state.disk} min={0} max={100} description="GB" onChange={(v) => this.handleChange('disk', v)}/>
+                    <OrderTextBox label='Description' value={this.state.description} onChange={(v) => this.handleChange('description', v)}/>
                 </OrderForm>
             </div>
         )
