@@ -18,7 +18,7 @@ export class OrderNumberBox extends Component {
             this.setState({valid:true})
         }
         this.setState({value})
-        onChange(value)
+        onChange(Number(value))
     }
     render() {
 
@@ -41,7 +41,7 @@ export class OrderNumberBox extends Component {
 OrderNumberBox.propTypes = {
     label: PropTypes.string,
     description: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.number,
     min: PropTypes.number,
     max: PropTypes.number,
     onChange: PropTypes.func

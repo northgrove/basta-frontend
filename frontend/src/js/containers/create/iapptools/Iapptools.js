@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import PageHeading from '../../../common/components/PageHeading'
 import OrderForm from '../../../common/components/OrderForm'
 import connect from 'react-redux/es/connect/connect'
-import OrderNumberBox from '../../../common/components/formComponents/OrderNumberBox'
-import OrderTextBox from '../../../common/components/formComponents/OrderTextBox'
+import {OrderNumberBox, OrderTextBox} from '../../../common/components/formComponents'
 
 const iappImage = require('../../../../img/orderTypes/devtools-iapp.png')
 
