@@ -1,4 +1,4 @@
-import { OrderNumberBox } from './OrderNumberBox'
+import OrderNumberBox from './OrderNumberBox'
 import OrderTextBox from './OrderTextBox'
 import OrderCheckBox from './OrderCheckBox'
 
