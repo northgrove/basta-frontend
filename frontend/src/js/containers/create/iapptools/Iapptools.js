@@ -32,7 +32,7 @@ class Iapptools extends Component {
                     <OrderNumberBox label='Memory' value={this.state.memory} min={1} max={32} description="GB" onChange={(v) => this.handleChange('memory', v)}/>
                     <OrderNumberBox label='Extra disk' value={this.state.disk} min={0} max={100} description="GB" onChange={(v) => this.handleChange('disk', v)}/>
                     <OrderTextBox label='Description' value={this.state.description} onChange={(v) => this.handleChange('description', v)}/>
-                    <OrderCheckBox label='IBM Software' value={this.state.ibm} onChange={(v) => this.handleChange('ibm', v)}/>
+                    <OrderCheckBox label='IBM Software' value={this.state.ibm} description='Will install ILMT on this node' onChange={(v) => this.handleChange('ibm', v)}/>
                 </OrderForm>
             </div>
         )
