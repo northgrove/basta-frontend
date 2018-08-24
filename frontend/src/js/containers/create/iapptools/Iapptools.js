@@ -8,13 +8,11 @@ const iappImage = require('../../../../img/orderTypes/devtools-iapp.png')
 class Iapptools extends Component {
     constructor(props) {
         super(props)
-
         this.orderFields = {
             servers: {
                 label: 'Servers',
                 description: 'Virtual Servers',
                 fieldType: 'number',
-                valid: true,
                 min: 1,
                 max: 8,
                 default: 1
@@ -23,7 +21,6 @@ class Iapptools extends Component {
                 label: 'Cpu',
                 description: 'Virtual sockets',
                 fieldType: 'number',
-                valid: true,
                 min: 1,
                 max: 4,
                 default: 1
@@ -32,7 +29,6 @@ class Iapptools extends Component {
                 label: 'Memory',
                 description: 'GB',
                 fieldType: 'number',
-                valid: true,
                 min: 2,
                 max: 32,
                 default: 2
@@ -41,7 +37,6 @@ class Iapptools extends Component {
                 label: 'Extra disk',
                 description: 'GB',
                 fieldType: 'number',
-                valid: true,
                 min: 0,
                 max: 100,
                 default: 0
@@ -61,22 +56,9 @@ class Iapptools extends Component {
                 default: false
             }
         }
-        for (const key in this.orderFields) {
-            this.state = {...this.state, [key]: this.orderFields[key].default}
-        }
 
     }
 
-    handleChange(field, value) {
-        const orderField = this.orderFields[field]
-        if (value < orderField.min || value > orderField.max) {
-            orderField.valid = false
-        } else {
-            orderField.valid = true
-        }
-        this.orderFields[field].value = value
-        this.setState({[field]: value})
-    }
 
 
     render() {
@@ -84,8 +66,7 @@ class Iapptools extends Component {
             <div>
                 <PageHeading icon='fa-plus' heading='Create new Dev tool iApp server'
                              description='Developer tools available from laptops via VPN'/>
-                <OrderForm image={iappImage} title='Dev tools server' orderFields={this.orderFields} values={this.state}
-                           onChange={this.handleChange.bind(this)}/>
+                <OrderForm image={iappImage} title='Dev tools server' orderFields={this.orderFields} />
             </div>
         )
     }
