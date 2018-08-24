@@ -51,6 +51,7 @@ export class OrderForm extends Component {
                         })
                     }
                 </div>
+                <div className='orderFormSubmitButton disabled'>Submit</div>
             </div>
         )
     }

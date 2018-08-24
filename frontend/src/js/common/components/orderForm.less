@@ -1,6 +1,7 @@
 .orderForm {
   display: grid;
-  padding: 10px;
+  padding: 10px 10px 30px 10px;
+
   grid-template-columns: 200px 1fr;
   grid-template-rows: 150px auto;
   border: 1px solid @border-color;
@@ -46,6 +47,35 @@
   align-self: center;
   width: 50%;
 
+}
+.orderFormSubmitButton {
+  cursor: pointer;
+  float: right;
+  line-height: 50px;
+  grid-column: 3;
+  background-color: @success-color;
+  height: 50px;
+  width: 100px;
+  border: 2px solid @border-color;
+  border-radius: 2px;
+  color: @inverse-font-color;
+  text-align: center;
+
+}
+.disabled {
+  background-color: @font-color-secondary;
+  color: @inverse-font-color;
+  cursor: not-allowed;
+
+}
+.disabled:hover {
+  cursor: not-allowed;
+  background-color: @font-color-secondary !important;
+
+}
+.orderFormSubmitButton:hover{
+  color: #fff;
+  background-color: darken(@success-color, 10%);
 }
 @media all and (max-width: 1012px) {
 
