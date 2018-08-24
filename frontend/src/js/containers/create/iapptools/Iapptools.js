@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PageHeading from '../../../common/components/PageHeading'
 import OrderForm from '../../../common/components/OrderForm'
 import connect from 'react-redux/es/connect/connect'
-import {OrderNumberBox, OrderTextBox} from '../../../common/components/formComponents'
+import {OrderNumberBox, OrderTextBox, OrderCheckBox} from '../../../common/components/formComponents'
 
 const iappImage = require('../../../../img/orderTypes/devtools-iapp.png')
 
@@ -14,7 +14,8 @@ class Iapptools extends Component {
             cpu: 1,
             memory: 2,
             disk: 0,
-            description: ''
+            description: '',
+            ibm: false
         }
     }
     handleChange(field, value) {
@@ -31,6 +32,7 @@ class Iapptools extends Component {
                     <OrderNumberBox label='Memory' value={this.state.memory} min={1} max={32} description="GB" onChange={(v) => this.handleChange('memory', v)}/>
                     <OrderNumberBox label='Extra disk' value={this.state.disk} min={0} max={100} description="GB" onChange={(v) => this.handleChange('disk', v)}/>
                     <OrderTextBox label='Description' value={this.state.description} onChange={(v) => this.handleChange('description', v)}/>
+                    <OrderCheckBox label='IBM Software' value={this.state.ibm} onChange={(v) => this.handleChange('ibm', v)}/>
                 </OrderForm>
             </div>
         )
