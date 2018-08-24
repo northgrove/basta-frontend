@@ -22,10 +22,17 @@ export class OrderForm extends Component {
         this.orderFields[field].value = value
         this.setState({[field]: value})
     }
+    validOrder(){
+        for (const key in this.orderFields) {
+            if (!this.orderFields[key].valid) return false
+        }
+        return true
+    }
     render() {
 
         const {image, title} = this.props
         const orderFields = this.orderFields
+        console.log(this.validOrder())
         return (
             <div className='orderForm'>
                 <div className='orderFormImage'><img src={image}/></div>
@@ -51,7 +58,7 @@ export class OrderForm extends Component {
                         })
                     }
                 </div>
-                <div className='orderFormSubmitButton disabled'>Submit</div>
+                <div className={this.validOrder() ? 'orderFormSubmitButton' : 'orderFormSubmitButton disabled'}>Submit</div>
             </div>
         )
     }
