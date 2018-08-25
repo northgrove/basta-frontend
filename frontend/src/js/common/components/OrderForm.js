@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {OrderCheckBox, OrderNumberBox, OrderTextBox} from './inputComponents'
+import {OrderCheckBox, OrderNumberBox, OrderTextBox} from './formComponents'
 import orderTypes from '../../../configuration/'
 
 export class OrderForm extends Component {
@@ -41,7 +41,10 @@ export class OrderForm extends Component {
             <div>
                 <div className='orderForm'>
                     <div className='orderFormImage'><img src={this.configuration.image}/></div>
-                    <div className='orderFormTitle'>{this.configuration.title}</div>
+                    <div className='orderFormHeading'>
+                        <div className='orderFormTitle'>{this.configuration.title}</div>
+                        <div className='orderFormDescription'>{this.configuration.description}</div>
+                    </div>
                     <div className='orderFormItems'>
                         {
                             Object.keys(orderFields).map((orderFieldKey) => {
@@ -50,8 +53,10 @@ export class OrderForm extends Component {
                                     case 'number':
                                         return <OrderNumberBox key={orderFieldKey} valid={orderField.valid}
                                                                label={orderField.label}
-                                                               value={this.state[orderFieldKey]} min={orderField.min}
-                                                               max={orderField.max} description={orderField.description}
+                                                               value={this.state[orderFieldKey]}
+                                                               min={orderField.min}
+                                                               max={orderField.max}
+                                                               description={orderField.description}
                                                                onChange={(v) => this.handleChange(orderFieldKey, v)}/>
                                     case 'text':
                                         return <OrderTextBox key={orderFieldKey} label={orderField.label}

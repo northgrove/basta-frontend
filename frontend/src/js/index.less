@@ -1,6 +1,6 @@
 @import '../../../node_modules/font-awesome/less/font-awesome';
 @import 'containers/navMenu/navMenu.less';
-@import 'common/components/inputComponents/formComponents.less';
+@import 'common/components/formComponents/formComponents.less';
 @import 'common/components/orderCard.less';
 @import 'common/components/orderGrid.less';
 @import 'common/components/orderForm.less';
@@ -33,6 +33,7 @@ a:link {
 .wrapper {
   display: grid;
   min-height: 100vh;
+  min-width: 375px;
   grid-template-areas: 'header header header' 'navLeft navigation navRight' 'left main right' 'footer footer footer';
 
   grid-template-rows: 50px 50px 10fr 30px;
