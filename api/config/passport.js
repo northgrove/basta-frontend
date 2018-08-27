@@ -27,20 +27,6 @@ module.exports = passport => {
     })
   })
 
-  /*
-    let users = [];
-
-    let findByOid = function(oid, fn) {
-    for (var i = 0, len = users.length; i < len; i++) {
-        var user = users[i];
-        console.log('we are using user: ', user);
-        if (user.oid === oid) {
-        return fn(null, user);
-        }
-    }
-    return fn(null, null);
-    };
-    */
   // AZURE AD LOGIN STRATEGY
 
   passport.use(
@@ -61,19 +47,29 @@ module.exports = passport => {
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
         process.nextTick(() => {
-          UserMongoSchema.findOne({ 'azure.id': profile.id }, (err, user) => {
+          UserMongoSchema.findOne({ 'azure.id': profile.oid }, (err, user) => {
+            console.log('id: ' + profile.token)
             if (err) {
               console.log('error: ' + err)
               return done(err)
             }
-            {
+            if (user) {
+              console.log('user found in DB: ' + user)
+              return done(null, user)
+            } else {
+              console.log('create new user' + newUser)
               let newUser = new UserMongoSchema()
-              newUser.azure.id = profile.id
-              newUser.azure.token = profile.token
+              newUser.azure.id = profile.oid
+              newUser.azure.upn = profile.upn
+              newUser.azure.firstName = profile.given_name
+              newUser.azure.lastName = profile.family_name
+              newUser.azure.displayName = profile.displayName
+              newUser.azure.groups = profile.groups
               newUser.save(err => {
                 if (err) {
                   throw err
                 }
+                console.log(profile)
                 return done(null, newUser)
               })
             }
