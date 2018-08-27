@@ -88,9 +88,7 @@ export class OrderForm extends Component {
                             })
                         }
                     </div>
-                    <div
-                        className={this.validOrder() ? 'orderFormSubmitButton' : 'orderFormSubmitButton disabled'}>Submit
-                    </div>
+                    {this.validOrder() ? <div className='orderFormSubmitButton'>Submit</div> : <div className='orderFormSubmitButton disabled'>Submit</div> }
                 </div>
             </div>
         )

@@ -30,7 +30,7 @@ export default (state = {
                 ...state,
                 completed: true,
                 fetching: false,
-                orderNumber: action.orderNumber
+                orderNumber: action.value
             }
         case FORM_SUBMIT_FAILED:
             return {

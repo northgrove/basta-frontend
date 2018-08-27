@@ -19,3 +19,24 @@ export const getUrl = (url) => {
             }
         })
 }
+export const postForm = (url, form) => {
+    let headers = { "Content-Type": "application/json" }
+    return fetch(url, {
+        headers,
+        credentials: 'include',
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(form)
+    })
+        .then(res => {
+            let text = res.text()
+            if (res.status >= 400) {
+                return text.then(err => {
+                    const errorMessage = `${res.status}:${res.statusText}\n${err}`
+                    throw new Error(errorMessage)
+
+                })
+            }
+            return res
+        })
+}
