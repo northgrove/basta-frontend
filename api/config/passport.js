@@ -52,7 +52,7 @@ module.exports = passport => {
               return done(err)
             }
             if (user) {
-              console.log('user found in DB: ' + user)
+              console.log('user found in DB: ' + user.azure.upn)
               return done(null, user)
             } else {
               let newUser = new UserMongoSchema()

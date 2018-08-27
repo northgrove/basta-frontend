@@ -37,7 +37,7 @@ router.post(
   },
   (req, res) => {
     console.log('We received a return from AzureAD.')
-    console.log('user: ' + req.user)
+    console.log('user: ' + req.user.azure.upn)
     res.redirect('/')
   }
 )

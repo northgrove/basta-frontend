@@ -56,8 +56,7 @@ app.use(passport.session())
 // ROUTES
 
 app.use('/', router)
-app.get('/', (req, res) => {
-  console.log('is auth: ', req.isAuthenticated())
+app.get('*', (req, res) => {
   if (!req.isAuthenticated()) {
     res.redirect('/login')
   } else {
