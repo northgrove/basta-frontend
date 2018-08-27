@@ -19,7 +19,7 @@ app.use(logger('dev'))
 // CORS
 
 const cors = function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', host)
+  res.setHeader('Access-Control-Allow-Origin', host, 'login.microsoftonline.com')
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
   res.setHeader(
@@ -49,32 +49,20 @@ app.use(
     })
   })
 )
-/*
-    app.use(session({
-        secret: sessionSecret,
-        cookie: {
-            path: '/',
-            secure: process.env['NODE_ENV'] === 'production' ? true : false,
-            sameSite: false,
-            domain: host,
-            maxAge: 900000000
-        },
-        resave: true,
-        saveUninitialized: false,
-        store: new MongoStore({ mongooseConnection: mongoose.connection })
-    }))
-*/
+
 app.use(passport.initialize())
 app.use(passport.session())
 
 // ROUTES
 
-app.use(express.static('./dist'))
-
 app.use('/', router)
-
-app.get('*', auth.ensureAuthenticated(), (req, res) => {
-  res.sendFile('index.html', { root: './dist' })
+app.get('/', (req, res) => {
+  console.log('is auth: ', req.isAuthenticated())
+  if (!req.isAuthenticated()) {
+    res.redirect('/login')
+  } else {
+    res.sendFile('index.html', { root: './dist' })
+  }
 })
 
 // ERROR HANDLING
@@ -87,7 +75,7 @@ app.use((err, req, res, next) => {
 })
 
 // STARTUP
-
+app.use(express.static('./dist'))
 startApp(app)
 
 module.exports = app

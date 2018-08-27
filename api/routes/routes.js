@@ -4,6 +4,7 @@ const passport = require('passport')
 const auth = require('../controllers/authenticate')
 const mock = require('../controllers/mock')
 const { api } = require('../config/config')
+const { UserMongoSchema } = require('../models/userMongoSchema')
 
 // AUTHENTICATION
 
@@ -17,7 +18,6 @@ router.get(
     })(req, res, next)
   },
   (req, res) => {
-    console.log('Login was called in the Sample')
     res.redirect('/')
   }
 )
@@ -38,25 +38,20 @@ router.post(
   (req, res) => {
     console.log('We received a return from AzureAD.')
     console.log('user: ' + req.user)
-    //   console.log('req: ' + req)
     res.redirect('/')
   }
 )
 
-// not used - needed?
-//router.get('/auth/openid', ensureAuthenticated, () =>{} )
-
+// get user object if authenticated
 router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) => {
+  // console.log(req.user.azure.upn)
   res.status(200).send({
-    userName: user.upn
-    //  firstName: profile.name.given_name,
-    //  lastName: profile.name.family_name,
-    //  roles: profile.groups
+    userName: req.user.azure.upn,
+    firstName: req.user.azure.firstName,
+    lastName: req.user.azure.lastName,
+    displayName: req.user.azure.displayName
   })
-
-  // console.log('User: ' + profile.displayName)
 })
-// router.post('/auth/openid/callback', auth.authenticateAzure())
 
 // ORDERS
 
