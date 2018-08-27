@@ -63,7 +63,7 @@
   right: 0;
   bottom: 0;
   border-radius: 34px;
-  background-color: #ccc;
+  background-color: @button-color;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -92,4 +92,26 @@ input:checked + .formComponentCheckBox:before {
   padding-left: 10px;
   font-style: italic;
   color: @font-color-error;
+}
+.formComponentButtonGroup button{
+  display:inline-block;
+  background-color: #fff;
+  border: 1px solid @border-color;
+  color: @font-color;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+.formComponentButtonGroup button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.formComponentButtonGroup button:hover {
+  background-color: @highlight-color;
+}
+.formComponentButtonGroup > .active {
+  background-color: @button-color;
+}
+.formComponentButtonGroup > .active:hover {
+  background-color: @font-color-secondary;
+  cursor: default;
 }
