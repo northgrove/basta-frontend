@@ -1,0 +1,95 @@
+.formComponentGrid{
+  line-height: 48px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+.formComponentLabel{
+  font-size: 1.5em;
+  color: @font-color;
+}
+
+
+.formComponentNumberField {
+  padding:10px;
+  font-size: 1.5em;
+  height:50px;
+  width: 80px;
+  transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  text-align: center;
+  color: @font-color;
+}
+
+.formComponentNumberField:focus {
+  width: 20%;
+  text-align: left;
+}
+.formComponentTextField {
+  padding:10px;
+  font-size: 1.5em;
+  height:50px;
+  width: 180px;
+  transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  color: @font-color;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.formComponentTextField:focus {
+  width: 100%;
+}
+.formComponentDescription{
+  display: inline-block;
+  padding-left:10px;
+  font-style: italic;
+  color: @font-color-secondary;
+}
+.formComponentCheckBoxContainer{
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.formComponentCheckBoxContainer input{
+  display: none;
+}
+.formComponentCheckBox {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.formComponentCheckBox:before{
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .formComponentCheckBox {
+  background-color: @highlight-color;
+}
+input:checked + .formComponentCheckBox:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.formComponentError {
+  display: block;
+  padding-left: 10px;
+  font-style: italic;
+  color: @font-color-error;
+}

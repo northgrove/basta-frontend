@@ -1,8 +1,9 @@
 .orderForm {
+  margin-top: 50px;
   display: grid;
-  padding: 10px;
+  padding: 10px 10px 30px 10px;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 150px auto;
+  grid-template-rows: 150px auto auto;
   border: 1px solid @border-color;
 }
 .orderFormImage {
@@ -21,9 +22,17 @@
   margin: auto;
   width: 100px;
 }
-.orderFormTitle {
+.orderFormHeading{
   align-self: center;
+  line-height: 40px;
+}
+.orderFormTitle {
   font-size: 1.5em;
+}
+.orderFormDescription {
+  font-size: 1.2em;
+  color: @font-color-secondary;
+  font-style: italic;
 }
 .orderFormItems {
   grid-column-start: 1;
@@ -47,11 +56,52 @@
   width: 50%;
 
 }
+.orderFormSubmitButton {
+  cursor: pointer;
+  float: right;
+  line-height: 50px;
+  grid-column: 2;
+  background-color: @success-color;
+  height: 50px;
+  width: 100px;
+  border: 2px solid @border-color;
+  border-radius: 2px;
+  color: @inverse-font-color;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: auto;
+
+}
+.disabled {
+  background-color: @font-color-secondary;
+  color: @inverse-font-color;
+  cursor: not-allowed;
+
+}
+.disabled:hover {
+  cursor: not-allowed;
+  background-color: @font-color-secondary !important;
+
+}
+.orderFormSubmitButton:hover{
+  color: #fff;
+  background-color: darken(@success-color, 10%);
+}
 @media all and (max-width: 1012px) {
 
   .orderForm {
     margin: 0 20px 0 20px;
   }
+  .orderFormHeading{
+    min-width: 350px;
+  }
+  .orderFormTitle {
+    font-size: 1.3em;
+  }
+  .orderFormDescription {
+    font-size: 1.1em;
+  }
+
 }
 
 @media all and (max-width: 600px) {
@@ -75,6 +125,17 @@
     display: block;
     text-align: left;
   }
+  .orderFormHeading{
+    min-width: 220px;
+  }
+  .orderFormTitle {
+    font-size: 3.7vw;
+    font-weight: 700;
+  }
+  .orderFormDescription {
+    font-size: 3vw;
+  }
+
 }
 
 
