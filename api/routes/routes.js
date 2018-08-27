@@ -67,4 +67,12 @@ router.get(`${api}/orders/:id/`, auth.ensureAuthenticated(), mock.getOrder())
 
 router.get(`${api}/orders/:id/statuslog`, auth.ensureAuthenticated(), mock.getStatusLog())
 
+// CREATE
+router.post(`${api}/create/:type/`,
+    (req, res) => {
+        console.log(req.body)
+        res.json({orderId: 4590})
+    }
+
+)
 module.exports = router

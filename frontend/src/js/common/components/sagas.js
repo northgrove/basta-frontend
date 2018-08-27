@@ -1,3 +1,4 @@
+import history from '../../common/history'
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, postForm } from '../utils'
 import { api } from '../../../../../api/config/config'
@@ -12,22 +13,23 @@ import {
 
 const url = `${api}`
 
-export function* sessionLookUp() {
-    let value = ''
+export function* submitForm(action) {
+    let res = ''
     yield put({ type: FORM_SUBMITTING })
+    yield history.push('/orders')
     try {
-        switch (key){
-            case 'developertools':
-                value = yield call(postForm, `${url}/create/developertools`, action.form)
-
+        switch (action.key){
+            case 'iapptools':
+                res = yield call(postForm, `${url}/create/developertools`, action.form)
         }
-        yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })
+        yield put({ type: FORM_SUBMIT_SUCCESSFUL, orderId: res.value })
     }
     catch (error) {
         yield put({ type: FORM_SUBMIT_FAILED, error })
     }
 }
 
-export function* watchUser() {
-    yield fork(takeEvery, SUBMIT_FORM, sessionLookUp)
+
+export function* watchForm() {
+    yield fork(takeEvery, SUBMIT_FORM, submitForm)
 }

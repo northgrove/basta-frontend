@@ -26,11 +26,12 @@ export default (state = {
                 orderNumber: null
             }
         case FORM_SUBMIT_SUCCESSFUL:
+            console.log(action)
             return {
                 ...state,
                 completed: true,
                 fetching: false,
-                orderNumber: action.value
+                orderNumber: action.orderNumber
             }
         case FORM_SUBMIT_FAILED:
             return {

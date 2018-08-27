@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { Create } from './Create'
 
-describe('Create filter function', () => {
+describe('Order filter function', () => {
   const orderTypes = [
     {
       title: 'IApp Tools',

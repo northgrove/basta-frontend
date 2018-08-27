@@ -29,14 +29,14 @@ export const postForm = (url, form) => {
         body: JSON.stringify(form)
     })
         .then(res => {
-            let text = res.text()
-            if (res.status >= 400) {
-                return text.then(err => {
-                    const errorMessage = `${res.status}:${res.statusText}\n${err}`
-                    throw new Error(errorMessage)
-
-                })
+            if (res.ok) {
+                const json = res.json()
+                    .then(json => {
+                        return json
+                    })
+                return json
+            } else {
+                throw res.statusText
             }
-            return res
         })
 }

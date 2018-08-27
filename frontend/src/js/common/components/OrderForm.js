@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import {OrderCheckBox, OrderNumberBox, OrderTextBox, OrderButtonGroup} from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
+import { submitForm } from './actionCreators'
+import {withRouter} from 'react-router-dom'
+import connect from 'react-redux/es/connect/connect'
 
 export class OrderForm extends Component {
     constructor(props) {
@@ -18,7 +21,6 @@ export class OrderForm extends Component {
     }
 
     handleChange(field, value) {
-        console.log(field, value)
         const orderField = this.orderFields[field]
         if (value < orderField.min || value > orderField.max) {
             orderField.valid = false
@@ -39,6 +41,7 @@ export class OrderForm extends Component {
     render() {
 
         const orderFields = this.orderFields
+        const { dispatch } = this.props
         return (
             <div>
                 <div className='orderForm'>
@@ -88,7 +91,7 @@ export class OrderForm extends Component {
                             })
                         }
                     </div>
-                    {this.validOrder() ? <div className='orderFormSubmitButton'>Submit</div> : <div className='orderFormSubmitButton disabled'>Submit</div> }
+                    {this.validOrder() ? <div className='orderFormSubmitButton' onClick={() => dispatch(submitForm(this.currentComponent, this.state))}>Submit</div> : <div className='orderFormSubmitButton disabled'>Submit</div> }
                 </div>
             </div>
         )
@@ -99,7 +102,14 @@ OrderForm.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
     orderFields: PropTypes.object,
-    onSubmit: PropTypes.func
+    onSubmit: PropTypes.func,
+    dispatch: PropTypes.func
 
 }
-export default OrderForm
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
+export default withRouter(connect(mapStateToProps)(OrderForm))

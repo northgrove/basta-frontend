@@ -1,5 +1,5 @@
 const description = 'Developer tools available in Devillo'
-const title = 'Create new Devillo server'
+const title = 'Order new Devillo server'
 const image = require('../img/orderTypes/devtools.png')
 const orderFields = {
     servers: {

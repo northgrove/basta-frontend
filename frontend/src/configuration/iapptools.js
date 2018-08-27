@@ -1,5 +1,5 @@
 const description = 'Developer tools available from laptops via VPN'
-const title = 'Create new Dev tool iApp server'
+const title = 'Order new Dev tool iApp server'
 const image = require('../img/orderTypes/devtools-iapp.png')
 const orderFields = {
     servers: {
