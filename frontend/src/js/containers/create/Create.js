@@ -87,21 +87,21 @@ const orderTypes = [
     description: 'Channel',
     image: mqImage,
     tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/create/ws-channel'
+    url: '/create/wschannel'
   },
   {
     title: 'WebSphere MQ',
     description: 'Topic',
     image: mqImage,
     tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/create/ws-topic'
+    url: '/create/wstopic'
   },
   {
     title: 'WebSphere MQ',
     description: 'Queue',
     image: mqImage,
     tags: ['mq', 'queue', 'websphere', 'ibm'],
-    url: '/create/ws-queue'
+    url: '/create/wsqueue'
   },
   {
     title: 'BIG-IP',

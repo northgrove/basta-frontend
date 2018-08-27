@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {OrderCheckBox, OrderNumberBox, OrderTextBox} from './formComponents'
+import {OrderCheckBox, OrderNumberBox, OrderTextBox, OrderButtonGroup} from './formComponents'
 import orderTypes from '../../../configuration/'
 
 export class OrderForm extends Component {
@@ -17,6 +17,7 @@ export class OrderForm extends Component {
     }
 
     handleChange(field, value) {
+        console.log(field, value)
         const orderField = this.orderFields[field]
         if (value < orderField.min || value > orderField.max) {
             orderField.valid = false
@@ -66,6 +67,12 @@ export class OrderForm extends Component {
                                         return <OrderCheckBox key={orderFieldKey} label={orderField.label}
                                                               value={this.state[orderFieldKey]}
                                                               description={orderField.description}
+                                                              onChange={(v) => this.handleChange(orderFieldKey, v)}/>
+                                    case 'buttonGroup':
+                                        return <OrderButtonGroup key={orderFieldKey} label={orderField.label}
+                                                              value={this.state[orderFieldKey]}
+                                                              description={orderField.description}
+                                                              alternatives={orderField.alternatives}
                                                               onChange={(v) => this.handleChange(orderFieldKey, v)}/>
 
                                     default:
