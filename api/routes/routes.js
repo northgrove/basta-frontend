@@ -37,29 +37,24 @@ router.post(
   },
   (req, res) => {
     console.log('We received a return from AzureAD.')
+    console.log('user: ' + req.user)
+    //   console.log('req: ' + req)
     res.redirect('/')
   }
 )
 
-// check if authenticated
-function ensureAuthenticated(req, res, next) {
-  console.log('isLoggedIn:', req.isAuthenticated())
-  if (req.isAuthenticated()) {
-    return next()
-  }
-  res.redirect('/login')
-}
-
 // not used - needed?
-router.get('/auth/openid', auth.authenticateAzure())
+//router.get('/auth/openid', ensureAuthenticated, () =>{} )
 
-router.get(`${api}/auth/session`, ensureAuthenticated, (req, res) => {
+router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) => {
   res.status(200).send({
-    userName: 'h141513',
-    firstName: 'Even',
-    lastName: 'Haasted',
-    roles: ['MASTER_OF_THE_UNIVERSE', 'KJIP_KAR']
+    userName: user.upn
+    //  firstName: profile.name.given_name,
+    //  lastName: profile.name.family_name,
+    //  roles: profile.groups
   })
+
+  // console.log('User: ' + profile.displayName)
 })
 // router.post('/auth/openid/callback', auth.authenticateAzure())
 
@@ -67,14 +62,14 @@ router.get(`${api}/auth/session`, ensureAuthenticated, (req, res) => {
 
 router.get(
   `${api}/orders/page/:pageId/:pageSize/:toDate/:fromDate`,
-  ensureAuthenticated,
+  auth.ensureAuthenticated(),
   mock.getOrders()
 )
 
-router.get(`${api}/orders/:id/`, ensureAuthenticated, mock.getOrder())
+router.get(`${api}/orders/:id/`, auth.ensureAuthenticated(), mock.getOrder())
 
 // STATUSLOG
 
-router.get(`${api}/orders/:id/statuslog`, ensureAuthenticated, mock.getStatusLog())
+router.get(`${api}/orders/:id/statuslog`, auth.ensureAuthenticated(), mock.getStatusLog())
 
 module.exports = router

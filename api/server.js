@@ -11,6 +11,7 @@ const MongoStore = require('connect-mongo')(session)
 const router = require('./routes/routes')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
+const auth = require('./controllers/authenticate')
 
 const app = express()
 app.use(logger('dev'))
@@ -66,21 +67,13 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-function ensureAuthenticated(req, res, next) {
-  console.log('isLoggedIn:', req.isAuthenticated())
-  if (req.isAuthenticated()) {
-    return next()
-  }
-  res.redirect('/login')
-}
-
 // ROUTES
 
 app.use(express.static('./dist'))
 
 app.use('/', router)
 
-app.get('*', ensureAuthenticated, (req, res) => {
+app.get('*', auth.ensureAuthenticated(), (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })
 
