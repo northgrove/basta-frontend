@@ -12,19 +12,20 @@ const router = require('./routes/routes')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
 
-
 const app = express()
 app.use(logger('dev'))
 
-
 // CORS
 
-const cors = function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', host)
-    res.setHeader('Access-Control-Allow-Credentials', 'true')
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-AUTHENTICATION, X-IP, Content-Type, Accept, Access-Control-Allow-Headers, Authorization, X-Requested-With')
-    return next()
+const cors = function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', host)
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, Content-Type, X-AUTHENTICATION, X-IP, Content-Type, Accept, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+  )
+  return next()
 }
 app.use(cors)
 
@@ -32,25 +33,46 @@ app.use(cors)
 
 app.use(bodyParser.json())
 app.use(cookieParser(sessionSecret))
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
 
-app.use(session({
+app.use(
+  session({
     secret: sessionSecret,
-    cookie: {
-        path: '/',
-        secure: process.env['NODE_ENV'] === 'production' ? true : false,
-        sameSite: false,
-        domain: host,
-        maxAge: 900000000
-    },
+    cookie: { maxAge: 300 * 1000 },
     resave: true,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
-}))
-
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      clear_interval: '300'
+    })
+  })
+)
+/*
+    app.use(session({
+        secret: sessionSecret,
+        cookie: {
+            path: '/',
+            secure: process.env['NODE_ENV'] === 'production' ? true : false,
+            sameSite: false,
+            domain: host,
+            maxAge: 900000000
+        },
+        resave: true,
+        saveUninitialized: false,
+        store: new MongoStore({ mongooseConnection: mongoose.connection })
+    }))
+*/
 app.use(passport.initialize())
 app.use(passport.session())
+
+function ensureAuthenticated(req, res, next) {
+  console.log('isLoggedIn:', req.isAuthenticated())
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  res.redirect('/login')
+}
 
 // ROUTES
 
@@ -58,17 +80,17 @@ app.use(express.static('./dist'))
 
 app.use('/', router)
 
-app.get('*', (req, res) => {
-    res.sendFile('index.html', { root: './dist' })
+app.get('*', ensureAuthenticated, (req, res) => {
+  res.sendFile('index.html', { root: './dist' })
 })
 
 // ERROR HANDLING
 
 app.use((err, req, res, next) => {
-    res.locals.message = err.message
-    res.locals.error = req.app.get('env') === 'development' ? err : {}
-    res.status(err.status || 500).send(err)
-    next()
+  res.locals.message = err.message
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
+  res.status(err.status || 500).send(err)
+  next()
 })
 
 // STARTUP
