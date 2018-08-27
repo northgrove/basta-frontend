@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {OrderCheckBox, OrderNumberBox, OrderTextBox, OrderButtonGroup} from './formComponents'
 import orderTypes from '../../../configuration/'
+import OrderDropDown from './formComponents/OrderDropDown'
 
 export class OrderForm extends Component {
     constructor(props) {
@@ -74,6 +75,12 @@ export class OrderForm extends Component {
                                                               description={orderField.description}
                                                               alternatives={orderField.alternatives}
                                                               onChange={(v) => this.handleChange(orderFieldKey, v)}/>
+                                    case 'dropDown':
+                                        return <OrderDropDown key={orderFieldKey} label={orderField.label}
+                                                                 value={this.state[orderFieldKey]}
+                                                                 description={orderField.description}
+                                                                 alternatives={orderField.alternatives}
+                                                                 onChange={(v) => this.handleChange(orderFieldKey, v)}/>
 
                                     default:
                                         console.log('fieldType', orderField.fieldType, 'is not a valid OrderForm component')

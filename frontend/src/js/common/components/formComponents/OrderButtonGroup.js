@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 const OrderButtonGroup = (props) => {
     const {label, value, description, alternatives, onChange} = props
-    console.log(value)
     return (
         <div className='formComponentGrid'>
             <div className='formComponentLabel'>{label}</div>
