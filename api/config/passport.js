@@ -11,8 +11,10 @@ const {
   validateIssuer,
   loggingLevel
 } = require('./passportConfig')
+const getroles = require('./getroles')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 const { UserMongoSchema } = require('../models/userMongoSchema')
+let arrRoles = ''
 
 module.exports = passport => {
   // (DE)SERIALIZE USER
@@ -53,8 +55,14 @@ module.exports = passport => {
             }
             if (user) {
               console.log('user found in DB: ' + user.azure.upn)
+              arrRoles = getroles.matchRoles({
+                groups: user.azure.groups
+              })
               return done(null, user)
             } else {
+              arrRoles = getroles.matchRoles({
+                groups: profile._json.groups
+              })
               let newUser = new UserMongoSchema()
               newUser.azure.id = profile.oid
               newUser.azure.upn = profile.upn
@@ -62,10 +70,12 @@ module.exports = passport => {
               newUser.azure.lastName = profile.name.familyName
               newUser.azure.displayName = profile.displayName
               newUser.azure.groups = profile._json.groups
+              newUser.roles = arrRoles
               newUser.save(err => {
                 if (err) {
                   throw err
                 }
+
                 return done(null, newUser)
               })
             }
