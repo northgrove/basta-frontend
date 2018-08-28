@@ -3,15 +3,16 @@ import { routerReducer } from 'react-router-redux'
 import { exampleReducer } from '../../containers/exampleView/reducers.js'
 import user from '../reducers/user'
 import navMenu from '../../containers/navMenu/reducer'
-import orders from '../../containers/history/reducers'
-
+import history from '../../containers/history/reducers'
+import orders from '../../common/components/reducers'
 
 const rootReducer = combineReducers({
-    routing: routerReducer,
-    example: exampleReducer,
-    navMenu,
-    user,
-    orders
+  routing: routerReducer,
+  example: exampleReducer,
+  navMenu,
+  user,
+  history,
+  orders
 })
 
 export default rootReducer

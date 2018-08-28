@@ -24,12 +24,12 @@ const iappImage = require('../../../img/orderTypes/devtools-iapp.png')
 
 export class Create extends Component {
   constructor(props) {
-        super(props)
-        this.state = {
-            orderTypes,
-            filteredOrders: orderTypes
-        }
+    super(props)
+    this.state = {
+      orderTypes,
+      filteredOrders: orderTypes
     }
+  }
 
   filterString(filter) {
     const filteredOrders = this.state.orderTypes.filter(orderType => {
@@ -143,77 +143,77 @@ const orderTypes = [
     description: 'proxy',
     image: openamImage,
     tags: ['openam', 'server', 'security', 'proxy'],
-    url: '/create/openam-proxy'
+    url: '/create/openamproxy'
   },
   {
     title: 'OpenAM',
     description: 'server',
     image: openamImage,
     tags: ['openam', 'server', 'security'],
-    url: '/create/openam-server'
+    url: '/create/openamserver'
   },
   {
     title: 'Certificate',
     description: 'for Service user',
     image: securityImage,
     tags: ['certificate', 'pki', 'credential', 'ad'],
-    url: '/create/service-cerficate'
+    url: '/create/servicecerficate'
   },
   {
     title: 'Credentials',
     description: 'for Service user',
     image: securityImage,
     tags: ['service', 'user', 'credential', 'ad'],
-    url: '/create/service-user'
+    url: '/create/serviceuser'
   },
   {
     title: 'Liberty',
     description: 'Application server',
     image: libertyImage,
     tags: ['server', 'node', 'was', 'liberty', 'application', 'websphere'],
-    url: '/create/liberty-node'
+    url: '/create/libertynode'
   },
   {
     title: 'WildFly',
     description: 'Application server',
     image: wildflyImage,
     tags: ['server', 'node', 'wildfly', 'application'],
-    url: '/create/wildfly-node'
+    url: '/create/wildflynode'
   },
   {
     title: 'JBoss',
     description: 'Application server',
     image: jbossImage,
     tags: ['server', 'node', 'jboss', 'application'],
-    url: '/create/jboss-node'
+    url: '/create/jbossnode'
   },
   {
     title: 'WAS',
     description: 'Node',
     image: wasImage,
     tags: ['server', 'node', 'was', 'websphere'],
-    url: '/create/was-node'
+    url: '/create/wasnode'
   },
   {
     title: 'WAS',
     description: 'Deployment Manager',
     image: wasImage,
     tags: ['server', 'deployment manager', 'was', 'websphere'],
-    url: '/create/was-dmgr'
+    url: '/create/wasdmgr'
   },
   {
     title: 'BPM',
     description: 'Node',
     image: wasImage,
     tags: ['server', 'node', 'was', 'websphere'],
-    url: '/create/bpm-node'
+    url: '/create/bpmnode'
   },
   {
     title: 'BPM',
     description: 'Deployment Manager',
     image: wasImage,
     tags: ['server', 'deployment manager', 'was', 'websphere'],
-    url: '/create/bpm-dmgr'
+    url: '/create/bpmdmgr'
   }
 ]
 Create.propTypes = {}

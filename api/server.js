@@ -56,7 +56,9 @@ app.use(passport.session())
 // ROUTES
 
 app.use('/', router)
-app.get('/', (req, res) => {
+app.use(express.static('./dist'))
+
+app.get('*', (req, res) => {
   if (!req.isAuthenticated()) {
     res.redirect('/login')
   } else {
@@ -74,7 +76,7 @@ app.use((err, req, res, next) => {
 })
 
 // STARTUP
-app.use(express.static('./dist'))
+
 startApp(app)
 
 module.exports = app
