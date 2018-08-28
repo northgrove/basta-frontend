@@ -55,6 +55,7 @@ app.use(passport.session())
 
 // ROUTES
 
+
 app.use(express.static('./dist'))
 app.use('/', router)
 // app.use(express.static('./dist'))
@@ -66,7 +67,7 @@ app.get('/api/', (req, res) => {
   }
 })
 app.get('*', (req, res) => {
-  res.sendFile('index.html', { root: './dist' })
+    res.sendFile('index.html', { root: './dist' })
 })
 
 // ERROR HANDLING
