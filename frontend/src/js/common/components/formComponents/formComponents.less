@@ -10,6 +10,30 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+.formComponentLabelDescription {
+  visibility: hidden;
+  float: right;
+  margin-right: 10px;
+  line-height: 50px;
+  color: @font-color-secondary;
+}
+.formComponentLabelDescription:hover {
+  color: @highlight-color;
+}
+@media all and (max-width: 600px) {
+  .formComponentLabelDescription {
+    visibility: visible;
+  }
+  .formComponentDescription {
+    visibility: hidden;
+  }
+  .formComponentGrid {
+    grid-template-columns: 30vw 1fr;
+  }
+  .formComponentLabel {
+    font-size: 3.7vw;
+  }
+}
 .formComponentField {
   height: 50px;
 }
@@ -19,15 +43,9 @@
   font-size: 1.5em;
   height: 50px;
   width: 80px;
-  transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   text-align: center;
   color: @font-color;
-}
-
-.formComponentNumberField:focus {
-  width: 20%;
-  text-align: left;
 }
 
 .formComponentTextField {
@@ -35,15 +53,10 @@
   font-size: 1.5em;
   height: 50px;
   width: 180px;
-  transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   color: @font-color;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.formComponentTextField:focus {
-  width: 100%;
 }
 
 .formComponentDescription {
@@ -137,17 +150,13 @@ input:checked + .formComponentCheckBox:before {
 
 .formComponentDropdownField {
   padding: 10px;
-  margin-top: -4px;
+  margin-top: -5px;
   margin-left: -9px;
   font-size: 1.2em;
-  line-height: 1.2em;
-  width: 150px;
-  transition: width 0.4s ease-in-out;
+  width: 250px;
+  line-height: 1em;
+  height: 48px;
   box-sizing: border-box;
   color: @font-color;
   text-overflow: ellipsis;
-}
-
-.formComponentDropdownField:focus-within {
-  width: 40%;
 }

@@ -12,15 +12,19 @@ import {
 const url = `${api}`
 
 export function* submitForm(action) {
-  let res = ''
+  let value = ''
   yield put({ type: FORM_SUBMITTING })
   yield history.push('/orders')
   try {
     switch (action.key) {
       case 'iapptools':
-        res = yield call(postForm, `${url}/create/developertools`, action.form)
+        value = yield call(postForm, `${url}/create/iapptools`, action.form)
+        break
+      case 'developertools':
+        value = yield call(postForm, `${url}/create/developertools`, action.form)
+        break
     }
-    yield put({ type: FORM_SUBMIT_SUCCESSFUL, orderId: res.value })
+    yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })
   } catch (error) {
     yield put({ type: FORM_SUBMIT_FAILED, error })
   }
