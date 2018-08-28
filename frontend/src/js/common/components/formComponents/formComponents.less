@@ -19,23 +19,17 @@
   font-size: 1.5em;
   height: 50px;
   width: 80px;
-  transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   text-align: center;
   color: @font-color;
 }
 
-.formComponentNumberField:focus {
-  width: 20%;
-  text-align: left;
-}
 
 .formComponentTextField {
   padding: 10px;
   font-size: 1.5em;
   height: 50px;
   width: 180px;
-  transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   color: @font-color;
   overflow: hidden;
@@ -74,8 +68,7 @@
   bottom: 0;
   border-radius: 34px;
   background-color: @button-color;
-  -webkit-transition: .4s;
-  transition: .4s;
+
 }
 
 .formComponentCheckBox:before {
@@ -86,8 +79,7 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+
   border-radius: 50%;
 }
 
@@ -148,6 +140,3 @@ input:checked + .formComponentCheckBox:before {
   text-overflow: ellipsis;
 }
 
-.formComponentDropdownField:focus-within {
-  width: 40%;
-}

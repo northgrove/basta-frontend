@@ -9,7 +9,7 @@ export default (state = {
     fetching: false,
     completed: false,
     failed: false,
-    orderNumber: null,
+    orderId: null,
     error: null
 
 }, action) => {
@@ -23,18 +23,17 @@ export default (state = {
                 fetching: true,
                 completed: false,
                 failed: false,
-                orderNumber: null
+                orderId: null
             }
         case FORM_SUBMIT_SUCCESSFUL:
-            console.log(action)
             return {
                 ...state,
                 completed: true,
                 fetching: false,
-                orderNumber: action.orderNumber
+                orderId: action.value.orderId
             }
         case FORM_SUBMIT_FAILED:
-            return {
+                return {
                 ...state,
                 fetching: false,
                 completed: true,

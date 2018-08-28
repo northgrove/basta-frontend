@@ -57,7 +57,7 @@ app.use(passport.session())
 
 app.use('/', router)
 app.use(express.static('./dist'))
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   if (!req.isAuthenticated()) {
     res.redirect('/login')
   } else {
