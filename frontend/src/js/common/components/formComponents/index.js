@@ -5,9 +5,9 @@ import OrderButtonGroup from './OrderButtonGroup'
 import OrderDropDown from './OrderDropDown'
 
 module.exports = {
-    OrderNumberBox,
-    OrderTextBox,
-    OrderCheckBox,
-    OrderButtonGroup,
-    OrderDropDown
+  OrderNumberBox,
+  OrderTextBox,
+  OrderCheckBox,
+  OrderButtonGroup,
+  OrderDropDown
 }

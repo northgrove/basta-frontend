@@ -3,10 +3,10 @@ import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, postForm } from '../utils'
 import { api } from '../../../../../api/config/config'
 import {
-    SUBMIT_FORM,
-    FORM_SUBMITTING,
-    FORM_SUBMIT_SUCCESSFUL,
-    FORM_SUBMIT_FAILED
+  SUBMIT_FORM,
+  FORM_SUBMITTING,
+  FORM_SUBMIT_SUCCESSFUL,
+  FORM_SUBMIT_FAILED
 } from './actionTypes'
 
 
@@ -35,5 +35,5 @@ export function* submitForm(action) {
 
 
 export function* watchForm() {
-    yield fork(takeEvery, SUBMIT_FORM, submitForm)
+  yield fork(takeEvery, SUBMIT_FORM, submitForm)
 }

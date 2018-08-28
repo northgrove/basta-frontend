@@ -9,7 +9,6 @@ import { userSessionRequest } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import moment from 'moment'
-import localization from 'moment/locale/nb'
 
 const bastaLogo = require('../../img/basta.png')
 

@@ -11,15 +11,15 @@ import Orders from '../containers/orders/Orders'
 
 // Routes
 export const Routes = () => {
-    return (
-        <Switch>
-            <Route exact path='/' component={History} />
-            <Route exact path='/orders' component={Orders} />
-            <Route path='/orders/:orderId' component={OrderPage} />
-            <Route path='/operate' component={Operate} />
-            <Route exact path='/create' component={Create} />
-            <Route path='/create/:orderType' component={OrderForm} />
-            <Route path='*' component={NotFound} />
-        </Switch>
-    )
+  return (
+    <Switch>
+      <Route exact path="/" component={History} />
+      <Route exact path="/orders" component={Orders} />
+      <Route path="/orders/:orderId" component={OrderPage} />
+      <Route path="/operate" component={Operate} />
+      <Route exact path="/create" component={Create} />
+      <Route path="/create/:orderType" component={OrderForm} />
+      <Route path="*" component={NotFound} />
+    </Switch>
+  )
 }

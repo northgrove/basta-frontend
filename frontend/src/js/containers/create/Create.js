@@ -24,12 +24,12 @@ const iappImage = require('../../../img/orderTypes/devtools-iapp.png')
 
 export class Create extends Component {
   constructor(props) {
-        super(props)
-        this.state = {
-            orderTypes,
-            filteredOrders: orderTypes
-        }
+    super(props)
+    this.state = {
+      orderTypes,
+      filteredOrders: orderTypes
     }
+  }
 
   filterString(filter) {
     const filteredOrders = this.state.orderTypes.filter(orderType => {

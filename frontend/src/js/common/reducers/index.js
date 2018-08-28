@@ -6,14 +6,13 @@ import navMenu from '../../containers/navMenu/reducer'
 import history from '../../containers/history/reducers'
 import orders from '../../common/components/reducers'
 
-
 const rootReducer = combineReducers({
-    routing: routerReducer,
-    example: exampleReducer,
-    navMenu,
-    user,
-    history,
-    orders
+  routing: routerReducer,
+  example: exampleReducer,
+  navMenu,
+  user,
+  history,
+  orders
 })
 
 export default rootReducer
