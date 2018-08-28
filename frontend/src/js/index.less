@@ -1,9 +1,9 @@
 @import '../../../node_modules/font-awesome/less/font-awesome';
 @import 'containers/navMenu/navMenu.less';
+@import 'common/components/formComponents/formComponents.less';
 @import 'common/components/orderCard.less';
 @import 'common/components/orderGrid.less';
 @import 'common/components/orderForm.less';
-@import 'common/components/formComponents/orderDropDown.less';
 @import 'common/components/orderFilter.less';
 @import 'common/components/pageHeading.less';
 @import 'containers/history/order-list/orderList.less';
@@ -12,8 +12,15 @@
 @menu-color: #fafbfc;
 @inverse-font-color: #f5f5f5;
 @font-color: #333;
+@font-color-secondary: #aaa;
+@button-color: #ccc;
+@font-color-error: red;
 @highlight-color: #6acae3;
+@success-color: #4cb944;
 @border-color: #e7e7e7;
+@error-background: #f2dede;
+@error-border: #ebccd1;
+@error-font: #a94442;
 
 html,
 body {
@@ -23,6 +30,7 @@ body {
   height: 100%;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
+
 a:link {
   text-decoration: none;
 }
@@ -30,6 +38,7 @@ a:link {
 .wrapper {
   display: grid;
   min-height: 100vh;
+  min-width: 375px;
   grid-template-areas: 'header header header' 'navLeft navigation navRight' 'left main right' 'footer footer footer';
 
   grid-template-rows: 50px 50px 10fr 30px;
@@ -50,9 +59,11 @@ a:link {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr;
   }
+
   nav {
     background-color: @header-color !important;
   }
+
   .navButton {
     display: block !important;
   }
@@ -62,15 +73,18 @@ header {
   background: @header-color;
   grid-area: header;
 }
+
 .navLeft,
 .navRight {
   background-color: @menu-color;
   margin-bottom: -1px;
   border-bottom: 1px solid @border-color;
 }
+
 .navLeft {
   grid-area: navLeft;
 }
+
 .navLeft {
   grid-area: navRight;
 }
@@ -79,6 +93,7 @@ nav {
   grid-area: navigation;
   background: @menu-color;
 }
+
 .navButton {
   display: none;
   color: @inverse-font-color;
@@ -86,6 +101,7 @@ nav {
   margin-right: 20px;
   margin-top: 4px;
 }
+
 .navSmallButton:hover {
   color: @highlight-color;
 }
@@ -99,14 +115,17 @@ footer {
   background: @header-color;
   grid-area: footer;
 }
+
 .navBrand {
   display: table;
   height: 50px;
   color: @inverse-font-color;
 }
+
 .navBrand:hover {
   color: #fff;
 }
+
 .navLogo {
   display: table-cell;
   vertical-align: middle;
@@ -116,8 +135,163 @@ footer {
   height: 40px;
   cursor: pointer;
 }
+
 .navName {
   display: table-cell;
   vertical-align: middle;
   font-size: 1.5em;
+}
+
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.spinner div {
+  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 32px 32px;
+}
+
+.spinner div:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: @font-color;
+  margin: -3px 0 0 -3px;
+}
+
+.spinner div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+
+.spinner div:nth-child(1):after {
+  top: 50px;
+  left: 50px;
+}
+
+.spinner div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+
+.spinner div:nth-child(2):after {
+  top: 54px;
+  left: 45px;
+}
+
+.spinner div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+
+.spinner div:nth-child(3):after {
+  top: 57px;
+  left: 39px;
+}
+
+.spinner div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+
+.spinner div:nth-child(4):after {
+  top: 58px;
+  left: 32px;
+}
+
+.spinner div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+
+.spinner div:nth-child(5):after {
+  top: 57px;
+  left: 25px;
+}
+
+.spinner div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+
+.spinner div:nth-child(6):after {
+  top: 54px;
+  left: 19px;
+}
+
+.spinner div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+
+.spinner div:nth-child(7):after {
+  top: 50px;
+  left: 14px;
+}
+
+.spinner div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+
+.spinner div:nth-child(8):after {
+  top: 45px;
+  left: 10px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.panel {
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.panel-default {
+  border-color: @border-color;
+}
+
+.panel-error {
+  border-color: @error-border;
+}
+
+.panel-error > .panel-heading {
+  color: @error-font;
+  background-color: @error-background;
+  border-color: @error-border;
+}
+
+.panel-default > .panel-heading {
+  color: @font-color;
+  background-color: @menu-color;
+  border-color: @border-color;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.panel-body {
+  padding: 15px;
+}
+.infobox {
+  display: flex;
+  align-items: center;
+}
+.infobox > .icon {
+  width: 10vw;
+  font-size: 10vw;
+}
+
+.infobox > .content {
+  padding-left: 20px;
 }

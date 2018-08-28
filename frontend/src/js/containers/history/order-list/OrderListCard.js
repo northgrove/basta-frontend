@@ -4,6 +4,7 @@ import moment from 'moment'
 
 const OrderCard = props => {
   const { order } = props
+  // console.log(order)
   if (!order) return null
   return (
     <div className="orderListCard">

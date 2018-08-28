@@ -1,0 +1,153 @@
+.formComponentGrid {
+  line-height: 48px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.formComponentLabel {
+  font-size: 1.5em;
+  color: @font-color;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.formComponentField {
+  height: 50px;
+}
+
+.formComponentNumberField {
+  padding: 10px;
+  font-size: 1.5em;
+  height: 50px;
+  width: 80px;
+  transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  text-align: center;
+  color: @font-color;
+}
+
+.formComponentNumberField:focus {
+  width: 20%;
+  text-align: left;
+}
+
+.formComponentTextField {
+  padding: 10px;
+  font-size: 1.5em;
+  height: 50px;
+  width: 180px;
+  transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  color: @font-color;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.formComponentTextField:focus {
+  width: 100%;
+}
+
+.formComponentDescription {
+  display: inline-block;
+  padding-left: 10px;
+  font-style: italic;
+  color: @font-color-secondary;
+}
+
+.formComponentCheckBoxContainer {
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.formComponentCheckBoxContainer input {
+  display: none;
+}
+
+.formComponentCheckBox {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  background-color: @button-color;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.formComponentCheckBox:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .formComponentCheckBox {
+  background-color: @highlight-color;
+}
+
+input:checked + .formComponentCheckBox:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.formComponentError {
+  display: block;
+  padding-left: 10px;
+  font-style: italic;
+  color: @font-color-error;
+}
+
+.formComponentButtonGroup button {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid @border-color;
+  color: @font-color;
+  font-size: 1em;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+.formComponentButtonGroup button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.formComponentButtonGroup button:hover {
+  background-color: @highlight-color;
+}
+
+.formComponentButtonGroup > .active {
+  background-color: @button-color;
+}
+
+.formComponentButtonGroup > .active:hover {
+  background-color: @font-color-secondary;
+  cursor: default;
+}
+
+.formComponentDropdownField {
+  padding: 10px;
+  margin-top: -4px;
+  margin-left: -9px;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  width: 150px;
+  transition: width 0.4s ease-in-out;
+  box-sizing: border-box;
+  color: @font-color;
+  text-overflow: ellipsis;
+}
+
+.formComponentDropdownField:focus-within {
+  width: 40%;
+}
