@@ -25,6 +25,9 @@ export function* submitForm(action) {
             case 'developertools':
                 value = yield call(postForm, `${url}/create/developertools`, action.form)
                 break
+            case 'wasnode':
+                value = yield call(postForm, `${url}/create/wasnode`, action.form)
+                break
         }
         yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })
     }

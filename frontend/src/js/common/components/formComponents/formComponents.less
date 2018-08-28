@@ -1,41 +1,44 @@
 .formComponentGrid {
-  line-height: 48px;
   display: grid;
   grid-template-columns: 200px 1fr;
+  grid-template-areas: "label content";
 }
 
 .formComponentLabel {
-  font-size: 1.5em;
+  grid-area: label;
+  font-size: 1.4em;
   color: @font-color;
   margin-top: auto;
   margin-bottom: auto;
+  display:inline-block;
 }
-.formComponentLabelDescription{
-  visibility: hidden;
-   float: right;
-   margin-right: 10px;
-   line-height: 50px;
-   color: @font-color-secondary;
- }
-.formComponentLabelDescription:hover{
-  color: @highlight-color;
+.formComponentField {
+  grid-area: content;
+  height: auto;
 }
+
 @media all and (max-width: 600px) {
+  .formComponentGrid {
+    grid-template-rows: 40px auto;
+    grid-template-areas: "label" "content";
+  }
   .formComponentLabelDescription {
-    visibility: visible;
+    visibility: visible !important;
   }
   .formComponentDescription{
     visibility: hidden;
   }
-  .formComponentGrid {
-    grid-template-columns: 30vw 1fr;
-  }
   .formComponentLabel {
-    font-size: 3.7vw;
+    font-size: 1.2em;
   }
 }
-.formComponentField {
-  height: 50px;
+.formComponentLabelDescription{
+  visibility: hidden;
+  margin-left: 10px;
+  color: @font-color-secondary;
+}
+.formComponentLabelDescription:hover{
+  color: @highlight-color;
 }
 
 .formComponentNumberField {
@@ -53,7 +56,9 @@
   padding: 10px;
   font-size: 1.5em;
   height: 50px;
-  width: 180px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 50px;
   box-sizing: border-box;
   color: @font-color;
   overflow: hidden;
@@ -121,7 +126,9 @@ input:checked + .formComponentCheckBox:before {
   font-style: italic;
   color: @font-color-error;
 }
-
+.formComponentButtonGroup{
+  display:inline-block;
+}
 .formComponentButtonGroup button {
   display: inline-block;
   background-color: #fff;

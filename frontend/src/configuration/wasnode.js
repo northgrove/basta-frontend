@@ -76,9 +76,9 @@ const orderFields = {
         fieldType: 'text',
         default: ''
     },
-    ibm: {
-        label: 'IBM software',
-        description: 'Will install ILMT monitoring agent',
+    custom: {
+        label: 'Custom',
+        description: 'Classify this server as custom',
         fieldType: 'checkBox',
         default: false
     }

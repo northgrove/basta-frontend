@@ -55,7 +55,7 @@ export class Orders extends Component {
                                 <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
                             </div>
                             <div className='content'>
-                                {orders.error.message}</div>
+                                {orders.error}</div>
                         </div>
                     </div>
                 </div>
