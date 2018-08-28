@@ -142,7 +142,7 @@
     "dev-offline": {
       "command": "nodemon api/offline_server.js",
       "env": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "offline"
       }
     },
     "build": {
