@@ -102,7 +102,8 @@
     "prefrontend": "better-npm-run prebuild",
     "dev": "better-npm-run dev",
     "frontend": "better-npm-run dev-frontend",
-    "api": "better-npm-run dev-api"
+    "api": "better-npm-run dev-api",
+    "offline": "better-npm-run dev-offline"
   },
   "betterScripts": {
     "start": {
@@ -136,6 +137,12 @@
       "command": "nodemon api/server.js",
       "env": {
         "NODE_ENV": "development"
+      }
+    },
+    "dev-offline": {
+      "command": "nodemon api/offline_server.js",
+      "env": {
+        "NODE_ENV": "offline"
       }
     },
     "build": {
