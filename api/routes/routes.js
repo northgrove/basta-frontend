@@ -54,6 +54,13 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
   })
 })
 
+// logout
+router.get('/logout', function(req, res) {
+  req.session.destroy()
+  req.logout()
+  res.redirect('https://www.vg.no')
+})
+
 // ORDERS
 
 router.get(

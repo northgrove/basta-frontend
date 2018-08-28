@@ -26,6 +26,13 @@ class App extends Component {
 
   render() {
     console.log(this.props.user)
+    let roles
+    if (this.props.user.isUserAuthenticated) {
+      roles = this.props.user.currentUser.roles.join(', ')
+    } else {
+      roles = 'error'
+    }
+
     return (
       <div className="wrapper">
         <header>
@@ -36,10 +43,15 @@ class App extends Component {
             </div>
           </div>
           <div className="navUser">
-            <i className="fa fa-user" /> {this.props.user.currentUser.userName}{' '}
-            <a href="https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=https%3a%2f%2fvg.no">
-              <i className="fa fa-sign-out" />
-            </a>
+            <div className="navUserMenu">
+              <i className="fa fa-user droparea">{this.props.user.currentUser.userName} </i>
+              <div className="navUserMenu-content">
+                <p> Tilgang: {roles} </p>
+                <a href="/logout">
+                  <i className="fa fa-sign-out" /> logout
+                </a>
+              </div>
+            </div>
           </div>
         </header>
 
