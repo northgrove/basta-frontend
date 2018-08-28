@@ -6,7 +6,15 @@ const OrderCheckBox = props => {
   const { label, value, description, onChange } = props
   return (
     <div className="formComponentGrid">
-        <div className="formComponentLabel">{label}{description?<i className='fa fa-question-circle formComponentLabelDescription' data-tip={description}/>:null}</div>
+      <div className="formComponentLabel">
+        {label}
+        {description ? (
+          <i
+            className="fa fa-question-circle formComponentLabelDescription"
+            data-tip={description}
+          />
+        ) : null}
+      </div>
       <div className="formComponentField">
         <div className="formComponentCheckBoxContainer">
           <input type="checkbox" checked={value} />
@@ -14,8 +22,7 @@ const OrderCheckBox = props => {
         </div>
         <div className="formComponentDescription">{description}</div>
       </div>
-        <ReactTooltip />
-
+      <ReactTooltip />
     </div>
   )
 }

@@ -2,12 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactTooltip from 'react-tooltip'
 
-
 const OrderButtonGroup = props => {
   const { label, value, description, alternatives, onChange } = props
   return (
     <div className="formComponentGrid">
-        <div className="formComponentLabel">{label}{description?<i className='fa fa-question-circle formComponentLabelDescription' data-tip={description}/>:null}</div>
+      <div className="formComponentLabel">
+        {label}
+        {description ? (
+          <i
+            className="fa fa-question-circle formComponentLabelDescription"
+            data-tip={description}
+          />
+        ) : null}
+      </div>
       <div className="formComponentField">
         <div className="formComponentButtonGroup">
           {alternatives.map(alt => {
@@ -24,8 +31,7 @@ const OrderButtonGroup = props => {
         </div>
         <div className="formComponentDescription">{description}</div>
       </div>
-        <ReactTooltip />
-
+      <ReactTooltip />
     </div>
   )
 }

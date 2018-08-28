@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom'
 import { userSessionRequest } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
+import Login from '../containers/login/Login'
 import moment from 'moment'
 
 const bastaLogo = require('../../img/basta.png')
@@ -25,14 +26,26 @@ class App extends Component {
   }
 
   render() {
-    return (
+    const { user } = this.props
+    return !user.isUserAuthenticated ? (
+      <Login />
+    ) : (
       <div className="wrapper">
         <header>
-          <div className="navBrand" href="/">
-            <img className="navLogo" src={bastaLogo} onClick={() => history.push('/')} />
-            <div className="navName">basta</div>
+          <div className="navBasta">
+            <div className="navBrand" href="/">
+              <img className="navLogo" src={bastaLogo} onClick={() => history.push('/')} />
+              <div className="navName">basta</div>
+            </div>
+          </div>
+          <div className="navUser">
+            <i className="fa fa-user" /> {this.props.user.currentUser.userName}{' '}
+            <a href="https://login.microsoftonline.com/common/oauth2/logout?post_logout_redirect_uri=https%3a%2f%2fvg.no">
+              <i className="fa fa-sign-out" />
+            </a>
           </div>
         </header>
+
         <div className="navLeft" />
         <nav>
           <NavMenu className="navTabs" />

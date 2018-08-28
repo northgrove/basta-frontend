@@ -6,5 +6,5 @@ module.exports = {
   iapptools,
   developertools,
   wschannel,
-    wasnode
+  wasnode
 }

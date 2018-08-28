@@ -8,14 +8,6 @@ const OrderCard = props => {
   if (!order) return null
   return (
     <div className="orderListCard">
-      {/* <div className="orderListCardId">{orderId(order.id)}</div>
-      {/* <div className="orderListCardStatus">{orderStatus(order.status)}</div> */}
-      {/* <div className="orderListCardOperation">{orderOperation(order)}</div> */}
-      {/* <div className="orderListCardResult">{orderResults(order.results)}</div> */}
-      {/* <div className="orderListCardCreated"> */}
-      {/* {orderCreatedBy(order.createdByDisplayName, order.createdBy)} */}
-      {/* </div> */}
-      {/* <div className="orderListCardTime">{orderCreated(order.created)}</div>  */}
       <div className="orderListCardName"> name </div>
       <div className="orderListCardOperation"> operation</div>
       <div className="orderListCardResults"> {orderResults(order.results)}</div>
