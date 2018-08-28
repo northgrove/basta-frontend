@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom'
 import { userSessionRequest } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
+import Login from '../containers/login/Login'
 import moment from 'moment'
 
 const bastaLogo = require('../../img/basta.png')
@@ -25,7 +26,10 @@ class App extends Component {
   }
 
   render() {
-    return (
+    const { user } = this.props
+    return !user.isUserAuthenticated ? (
+      <Login />
+    ) : (
       <div className="wrapper">
         <header>
           <div className="navBrand" href="/">

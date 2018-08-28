@@ -15,6 +15,6 @@ exports.ensureAuthenticated = () => {
     if (req.isAuthenticated()) {
       return next()
     }
-    res.redirect('/login')
+    res.send(401).send('Not authorized')
   }
 }

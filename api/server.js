@@ -19,7 +19,7 @@ app.use(logger('dev'))
 // CORS
 
 const cors = function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', host)
+  res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
   res.setHeader(
@@ -55,14 +55,18 @@ app.use(passport.session())
 
 // ROUTES
 
-app.use('/', router)
 app.use(express.static('./dist'))
-app.get('*', (req, res) => {
+app.use('/', router)
+// app.use(express.static('./dist'))
+app.get('/api/', (req, res) => {
   if (!req.isAuthenticated()) {
     res.redirect('/login')
   } else {
-    res.sendFile('index.html', { root: './dist' })
+    return null
   }
+})
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: './dist' })
 })
 
 // ERROR HANDLING
@@ -76,7 +80,6 @@ app.use((err, req, res, next) => {
 
 // STARTUP
 
-app.use(express.static('./dist'))
 startApp(app)
 
 module.exports = app
