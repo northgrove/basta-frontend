@@ -19,15 +19,9 @@
   font-size: 1.5em;
   height: 50px;
   width: 80px;
-  transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   text-align: center;
   color: @font-color;
-}
-
-.formComponentNumberField:focus {
-  width: 20%;
-  text-align: left;
 }
 
 .formComponentTextField {
@@ -35,7 +29,6 @@
   font-size: 1.5em;
   height: 50px;
   width: 180px;
-  transition: width 0.4s ease-in-out;
   box-sizing: border-box;
   color: @font-color;
   overflow: hidden;
@@ -146,8 +139,4 @@ input:checked + .formComponentCheckBox:before {
   box-sizing: border-box;
   color: @font-color;
   text-overflow: ellipsis;
-}
-
-.formComponentDropdownField:focus-within {
-  width: 40%;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import connect from 'react-redux/es/connect/connect'
+import history from '../../common/history'
 
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
@@ -7,6 +8,14 @@ import { withRouter } from 'react-router-dom'
 export class Orders extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { orders } = nextProps
+    console.log(orders.orderId)
+    if (Number.isInteger(orders.orderId)) {
+      history.push('/orders/' + orders.orderId)
+    }
   }
 
   render() {
