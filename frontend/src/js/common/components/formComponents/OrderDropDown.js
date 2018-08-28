@@ -18,13 +18,15 @@ export const OrderDropDown = props => {
           />
         ) : null}
       </div>
-      <div className="formComponentDropdownField">
-        <Select
-          options={mapToOptions(alternatives)}
-          setValue={value}
-          onChange={e => onChange(e.value)}
-        />
-        <div className="formComponentDescription">{description}</div>
+      <div className="formComponentField">
+        <div className="formComponentDropdownField">
+          <Select
+            options={mapToOptions(alternatives)}
+            setValue={value}
+            onChange={e => onChange(e.value)}
+          />
+          <div className="formComponentDescription">{description}</div>
+        </div>
       </div>
       <ReactTooltip />
     </div>

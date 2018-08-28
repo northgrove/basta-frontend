@@ -4,22 +4,14 @@ const express = require('express')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
 const router = require('./routes/routes')
-require('./config/passport')(passport)
-const { startApp } = require('./startApp')
-const auth = require('./controllers/authenticate')
+const { startApp } = require('./startAppOffline')
 
 const app = express()
 app.use(logger('dev'))
 
 // CORS
-
 const cors = function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
   res.setHeader(
@@ -29,46 +21,15 @@ const cors = function(req, res, next) {
   return next()
 }
 app.use(cors)
-
-// SESSION
-
 app.use(bodyParser.json())
-app.use(cookieParser(sessionSecret))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
-
-app.use(
-  session({
-    secret: sessionSecret,
-    cookie: { maxAge: 300 * 1000 },
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      clear_interval: '300'
-    })
-  })
-)
-
-app.use(passport.initialize())
-app.use(passport.session())
 
 // ROUTES
 
 app.use('/', router)
-
-// app.get('/', (req, res) => {
 app.use(express.static('./dist'))
-app.use('/', router)
-// app.use(express.static('./dist'))
-app.get('/api/', (req, res) => {
-  if (!req.isAuthenticated()) {
-    res.redirect('/login')
-  } else {
-    return null
-  }
-})
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })
 
@@ -82,7 +43,6 @@ app.use((err, req, res, next) => {
 })
 
 // STARTUP
-// app.use(express.static('./dist'))
 startApp(app)
 
 module.exports = app
