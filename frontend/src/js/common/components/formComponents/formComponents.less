@@ -10,8 +10,9 @@
   color: @font-color;
   margin-top: auto;
   margin-bottom: auto;
-  display:inline-block;
+  display: inline-block;
 }
+
 .formComponentField {
   grid-area: content;
   height: auto;
@@ -22,22 +23,40 @@
     grid-template-rows: 40px auto;
     grid-template-areas: "label" "content";
   }
+
   .formComponentLabelDescription {
     visibility: visible !important;
   }
-  .formComponentDescription{
+
+  .formComponentDescription {
     visibility: hidden;
   }
+
   .formComponentLabel {
     font-size: 1.2em;
   }
+
+  .formComponentButtonGroup {
+    display: block !important;
+  }
+
+  .formComponentButtonGroup button {
+    display: block !important;
+    width: 200px;
+  }
+
+  .formComponentButtonGroup button:not(:last-child) {
+    border: 1px solid @border-color !important;
+  }
 }
-.formComponentLabelDescription{
+
+.formComponentLabelDescription {
   visibility: hidden;
   margin-left: 10px;
   color: @font-color-secondary;
 }
-.formComponentLabelDescription:hover{
+
+.formComponentLabelDescription:hover {
   color: @highlight-color;
 }
 
@@ -50,7 +69,6 @@
   text-align: center;
   color: @font-color;
 }
-
 
 .formComponentTextField {
   padding: 10px;
@@ -126,9 +144,11 @@ input:checked + .formComponentCheckBox:before {
   font-style: italic;
   color: @font-color-error;
 }
-.formComponentButtonGroup{
-  display:inline-block;
+
+.formComponentButtonGroup {
+  display: inline-block;
 }
+
 .formComponentButtonGroup button {
   display: inline-block;
   background-color: #fff;
