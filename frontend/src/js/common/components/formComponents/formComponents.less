@@ -10,6 +10,30 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+.formComponentLabelDescription{
+  visibility: hidden;
+   float: right;
+   margin-right: 10px;
+   line-height: 50px;
+   color: @font-color-secondary;
+ }
+.formComponentLabelDescription:hover{
+  color: @highlight-color;
+}
+@media all and (max-width: 600px) {
+  .formComponentLabelDescription {
+    visibility: visible;
+  }
+  .formComponentDescription{
+    visibility: hidden;
+  }
+  .formComponentGrid {
+    grid-template-columns: 30vw 1fr;
+  }
+  .formComponentLabel {
+    font-size: 3.7vw;
+  }
+}
 .formComponentField {
   height: 50px;
 }
@@ -34,10 +58,6 @@
   color: @font-color;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.formComponentTextField:focus {
-  width: 100%;
 }
 
 .formComponentDescription {
@@ -141,4 +161,3 @@ input:checked + .formComponentCheckBox:before {
   color: @font-color;
   text-overflow: ellipsis;
 }
-

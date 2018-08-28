@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Select from 'react-select'
+import ReactTooltip from 'react-tooltip'
 
 export const OrderDropDown = props => {
   const { label, description, value, alternatives, onChange } = props
@@ -8,7 +9,7 @@ export const OrderDropDown = props => {
 
   return (
     <div className="formComponentGrid">
-      <div className="formComponentLabel">{label}</div>
+        <div className="formComponentLabel">{label}{description?<i className='fa fa-question-circle formComponentLabelDescription' data-tip={description}/>:null}</div>
       <div className="formComponentDropdownField">
         <Select
           options={mapToOptions(alternatives)}
@@ -17,6 +18,8 @@ export const OrderDropDown = props => {
         />
         <div className="formComponentDescription">{description}</div>
       </div>
+        <ReactTooltip />
+
     </div>
   )
 }
