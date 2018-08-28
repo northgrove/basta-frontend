@@ -49,7 +49,8 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
     userName: req.user.azure.upn,
     firstName: req.user.azure.firstName,
     lastName: req.user.azure.lastName,
-    displayName: req.user.azure.displayName
+    displayName: req.user.azure.displayName,
+    roles: req.user.roles
   })
 })
 
