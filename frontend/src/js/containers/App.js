@@ -21,8 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
-    moment.locale('nb')
     dispatch(initializeApplication())
+    moment.locale('nb')
   }
 
   render() {
@@ -33,9 +33,12 @@ class App extends Component {
     } else {
       roles = 'error'
     }
+
     const { user, appReady } = this.props
     if (appReady) {
-      return user.isUserAuthenticated ? (
+      return !user.isUserAuthenticated ? (
+        <Login />
+      ) : (
         <div className="wrapper">
           <header>
             <div className="navBasta">
@@ -46,7 +49,7 @@ class App extends Component {
             </div>
             <div className="navUser">
               <div className="navUserMenu">
-                <i className="fa fa-user droparea">{this.props.user.currentUser.userName} </i>
+                <i className="fa fa-user" /> {this.props.user.currentUser.userName}
                 <div className="navUserMenu-content">
                   <p> Tilgang: {roles} </p>
                   <a href="/logout">
@@ -56,6 +59,7 @@ class App extends Component {
               </div>
             </div>
           </header>
+
           <div className="navLeft" />
           <nav>
             <NavMenu className="navTabs" />
@@ -70,8 +74,6 @@ class App extends Component {
           </main>
           <footer />
         </div>
-      ) : (
-        <Login />
       )
     } else {
       return null
