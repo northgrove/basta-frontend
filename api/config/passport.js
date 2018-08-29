@@ -13,6 +13,7 @@ const {
 } = require('./passportConfig')
 const getroles = require('./getroles')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
+const msgraph = require('../controllers/msgraph')
 const { UserMongoSchema } = require('../models/userMongoSchema')
 let arrRoles = ''
 
