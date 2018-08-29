@@ -48,7 +48,7 @@ class App extends Component {
           </div>
           <div className="navUser">
             <div className="navUserMenu">
-              <i className="fa fa-user droparea">{this.props.user.currentUser.userName} </i>
+              <i className="fa fa-user" /> {this.props.user.currentUser.userName}
               <div className="navUserMenu-content">
                 <p> Tilgang: {roles} </p>
                 <a href="/logout">
