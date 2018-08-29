@@ -2,6 +2,7 @@ const yaml = require('js-yaml')
 const fs = require('fs')
 const file = './api/config/roles.yml'
 let arrRoles = []
+let arrGroups = []
 
 function readinput() {
   const input = yaml.safeLoad(fs.readFileSync(file, 'utf8'))
@@ -11,7 +12,7 @@ function readinput() {
 // match groups in token to roles
 exports.matchRoles = ({ groups }) => {
   const roller = readinput()
-  arrGroups = JSON.parse(groups)
+  arrGroups = groups
   arrGroups.forEach(group => {
     for (var i = 0, len = roller.roles.length; i < len; i++) {
       if (group === roller.roles[i].azureid) {
@@ -19,5 +20,6 @@ exports.matchRoles = ({ groups }) => {
       }
     }
   })
+  console.log(arrRoles)
   return arrRoles
 }
