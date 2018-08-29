@@ -1,5 +1,5 @@
 roles:
   - name: 'admin'
-    azureid: 'aa859fa2-b5ca-44a2-aa19-6ff24bd9237a'
-  - name: 'read'
-    azureid: '426370b2-6143-49e4-8b79-406cc1ac265e'
+    azureid: 'c91b58c6-c7e7-4160-9b58-5187abb0bb6b'
+  - name: 'bastatest'
+    azureid: '9fad3009-d179-4a8f-b73d-5f1e28dc6013'

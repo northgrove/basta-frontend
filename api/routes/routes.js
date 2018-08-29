@@ -31,8 +31,8 @@ router.post(
       {
         response: res, // required
         failureRedirect: '/error'
-      },
-      console.log(req.body.id_token)
+      }
+      // console.log(req.body.id_token)
     )(req, res, next)
   },
   (req, res) => {
@@ -52,6 +52,13 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
     displayName: req.user.azure.displayName,
     roles: req.user.roles
   })
+})
+
+// logout
+router.get('/logout', function(req, res) {
+  req.session.destroy()
+  req.logout()
+  res.redirect('https://www.vg.no')
 })
 
 // ORDERS

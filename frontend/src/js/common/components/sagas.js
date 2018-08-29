@@ -26,6 +26,8 @@ export function* submitForm(action) {
         break
       case 'jbossnode':
         value = yield call(postForm, `${url}/create/jbossnode`, action.form)
+      case 'wasnode':
+        value = yield call(postForm, `${url}/create/wasnode`, action.form)
         break
     }
     yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })

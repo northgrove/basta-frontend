@@ -1,41 +1,63 @@
 .formComponentGrid {
-  line-height: 48px;
   display: grid;
   grid-template-columns: 200px 1fr;
+  grid-template-areas: 'label content';
 }
 
 .formComponentLabel {
-  font-size: 1.5em;
+  grid-area: label;
+  font-size: 1.4em;
   color: @font-color;
   margin-top: auto;
   margin-bottom: auto;
+  display: inline-block;
 }
-.formComponentLabelDescription {
-  visibility: hidden;
-  float: right;
-  margin-right: 10px;
-  line-height: 50px;
-  color: @font-color-secondary;
+
+.formComponentField {
+  grid-area: content;
+  height: auto;
 }
-.formComponentLabelDescription:hover {
-  color: @highlight-color;
-}
+
 @media all and (max-width: 600px) {
-  .formComponentLabelDescription {
-    visibility: visible;
+  .formComponentGrid {
+    grid-template-rows: 40px auto;
+    grid-template-areas: 'label' 'content';
   }
+
+  .formComponentLabelDescription {
+    visibility: visible !important;
+  }
+
   .formComponentDescription {
     visibility: hidden;
   }
-  .formComponentGrid {
-    grid-template-columns: 30vw 1fr;
-  }
+
   .formComponentLabel {
-    font-size: 3.7vw;
+    font-size: 1.2em;
+  }
+
+  .formComponentButtonGroup {
+    display: block !important;
+  }
+
+  .formComponentButtonGroup button {
+    display: block !important;
+    width: 200px;
+  }
+
+  .formComponentButtonGroup button:not(:last-child) {
+    border: 1px solid @border-color !important;
   }
 }
-.formComponentField {
-  height: 50px;
+
+.formComponentLabelDescription {
+  visibility: hidden;
+  margin-left: 10px;
+  color: @font-color-secondary;
+}
+
+.formComponentLabelDescription:hover {
+  color: @highlight-color;
 }
 
 .formComponentNumberField {
@@ -52,7 +74,9 @@
   padding: 10px;
   font-size: 1.5em;
   height: 50px;
-  width: 180px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 50px;
   box-sizing: border-box;
   color: @font-color;
   overflow: hidden;
@@ -119,6 +143,10 @@ input:checked + .formComponentCheckBox:before {
   padding-left: 10px;
   font-style: italic;
   color: @font-color-error;
+}
+
+.formComponentButtonGroup {
+  display: inline-block;
 }
 
 .formComponentButtonGroup button {
