@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import { exampleReducer } from '../../containers/exampleView/reducers.js'
-import user from '../reducers/user'
+import user from './user'
+import initialize from './initialize'
 import navMenu from '../../containers/navMenu/reducer'
 import history from '../../containers/history/reducers'
 import orders from '../../common/components/reducers'
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   example: exampleReducer,
   navMenu,
   user,
+  initialize,
   history,
   orders
 })

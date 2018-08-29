@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
 import { withRouter } from 'react-router-dom'
-import { userSessionRequest } from '../common/actionCreators'
+import { initializeApplication } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import Login from '../containers/login/Login'
@@ -21,8 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
-    dispatch(userSessionRequest())
     moment.locale('nb')
+    dispatch(initializeApplication())
   }
 
   render() {
@@ -33,58 +33,62 @@ class App extends Component {
     } else {
       roles = 'error'
     }
-
-    const { user } = this.props
-    return !user.isUserAuthenticated ? (
-      <Login />
-    ) : (
-      <div className="wrapper">
-        <header>
-          <div className="navBasta">
-            <div className="navBrand" href="/">
-              <img className="navLogo" src={bastaLogo} onClick={() => history.push('/')} />
-              <div className="navName">basta</div>
-            </div>
-          </div>
-          <div className="navUser">
-            <div className="navUserMenu">
-              <i className="fa fa-user droparea">{this.props.user.currentUser.userName} </i>
-              <div className="navUserMenu-content">
-                <p> Tilgang: {roles} </p>
-                <a href="/logout">
-                  <i className="fa fa-sign-out" /> logout
-                </a>
+    const { user, appReady } = this.props
+    if (appReady) {
+      return user.isUserAuthenticated ? (
+        <div className="wrapper">
+          <header>
+            <div className="navBasta">
+              <div className="navBrand" href="/">
+                <img className="navLogo" src={bastaLogo} onClick={() => history.push('/')} />
+                <div className="navName">basta</div>
               </div>
             </div>
-          </div>
-        </header>
-
-        <div className="navLeft" />
-        <nav>
-          <NavMenu className="navTabs" />
-          <div className="navButton" onClick={() => this.props.dispatch(toggleNavMenu())}>
-            <i className="fa fa-bars fa-2x navSmallButton" />
-          </div>
-        </nav>
-        <div className="navRight" />
-        <main onClick={() => this.props.dispatch(closeNavMenu())}>
-          <NavMenuSmall />
-          <Routes />
-        </main>
-        <footer />
-      </div>
-    )
+            <div className="navUser">
+              <div className="navUserMenu">
+                <i className="fa fa-user droparea">{this.props.user.currentUser.userName} </i>
+                <div className="navUserMenu-content">
+                  <p> Tilgang: {roles} </p>
+                  <a href="/logout">
+                    <i className="fa fa-sign-out" /> logout
+                  </a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div className="navLeft" />
+          <nav>
+            <NavMenu className="navTabs" />
+            <div className="navButton" onClick={() => this.props.dispatch(toggleNavMenu())}>
+              <i className="fa fa-bars fa-2x navSmallButton" />
+            </div>
+          </nav>
+          <div className="navRight" />
+          <main onClick={() => this.props.dispatch(closeNavMenu())}>
+            <NavMenuSmall />
+            <Routes />
+          </main>
+          <footer />
+        </div>
+      ) : (
+        <Login />
+      )
+    } else {
+      return null
+    }
   }
 }
 
 App.propTypes = {
   dispatch: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.object,
+  appReady: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    appReady: state.initialize.appReady
   }
 }
 
