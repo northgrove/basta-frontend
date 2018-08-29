@@ -7,7 +7,7 @@ import {
   FORM_SUBMITTING,
   FORM_SUBMIT_SUCCESSFUL,
   FORM_SUBMIT_FAILED
-} from '../components/actionTypes'
+} from '../actionTypes'
 
 const url = `${api}`
 
