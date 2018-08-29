@@ -8,6 +8,7 @@ import {
   FORM_SUBMIT_SUCCESSFUL,
   FORM_SUBMIT_FAILED
 } from './actionTypes'
+import { yellow100 } from 'material-ui/styles/colors'
 
 const url = `${api}`
 
@@ -22,6 +23,9 @@ export function* submitForm(action) {
         break
       case 'developertools':
         value = yield call(postForm, `${url}/create/developertools`, action.form)
+        break
+      case 'jbossnode':
+        value = yield call(postForm, `${url}/create/jbossnode`, action.form)
         break
     }
     yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })
