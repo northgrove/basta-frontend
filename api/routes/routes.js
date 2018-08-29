@@ -73,11 +73,10 @@ router.get('/logout', function(req, res) {
 })
 
 // logout
-router.get('/token', function(req, res) {
-  const userPhoto = (msgraph.getUserPhoto = () => {
-    console.log(userPhoto)
-    res.send(userPhoto)
-  })
+router.get('/token', async function(req, res, user) {
+  const userPhoto = await msgraph.getUserPhoto({ user: req.user.azure.upn, code: req.body.code })
+  console.log(userPhoto)
+  res.send(userPhoto)
 })
 // ORDERS
 
