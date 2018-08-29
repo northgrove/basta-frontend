@@ -1,4 +1,4 @@
-import { FORM_SUBMITTING, FORM_SUBMIT_SUCCESSFUL, FORM_SUBMIT_FAILED } from './actionTypes'
+import { FORM_SUBMITTING, FORM_SUBMIT_SUCCESSFUL, FORM_SUBMIT_FAILED } from '../components/actionTypes'
 
 export default (
   state = {
