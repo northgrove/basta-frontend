@@ -142,7 +142,7 @@
       }
     },
     "dev-offline": {
-      "command": "nodemon api/offline_server.js",
+      "command": "parcel frontend/src/index.html | nodemon api/offline_server.js",
       "env": {
         "NODE_ENV": "offline"
       }

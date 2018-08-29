@@ -41,7 +41,7 @@ const mapToOptions = alternatives => {
 OrderDropDown.propTypes = {
   label: PropTypes.string,
   description: PropTypes.string,
-  value: PropTypes.number,
+  value: PropTypes.string,
   alternatives: PropTypes.array,
   onChange: PropTypes.func
 }

@@ -17,7 +17,7 @@ const Login = props => {
           </div>
           <div>
             <a className="login-box-btn" href="http://localhost:8080/login">
-              Continue
+              <center> Continue </center>
             </a>
           </div>
         </div>

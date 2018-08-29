@@ -1,6 +1,5 @@
 .login-background {
   position: fixed;
-  // z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -12,14 +11,27 @@
   position: fixed;
   width: 40em;
   height: 40em;
-  top: 25em;
+  top: 15em;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.login-box {
+  position: fixed;
+  top: 20em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  color: @font-color;
+  background: rgba(255, 255, 255, 0.849);
+  width: 20em;
+  height: 16em;
+  border: 1px solid @border-color;
+}
+
 .login-basta-logo {
   position: fixed;
-  top: 10%;
+  top: 0%;
   left: 0%;
   width: 25em;
   height: 25em;
@@ -27,7 +39,7 @@
 
 .login-nav-logo {
   position: fixed;
-  top: 20%;
+  top: 22%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -35,7 +47,7 @@
 .login-box-header {
   position: relative;
   float: left;
-  top: 38%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5em;
@@ -44,23 +56,27 @@
 .login-box-body {
   position: relative;
   float: left;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 0.8em;
 }
 
 .login-box-btn {
-}
-
-.login-box {
   position: fixed;
-  top: 25em;
+  color: @inverse-font-color;
+  background: @highlight-color;
+  box-shadow: inset 0px -200px 50px -200px rgba(92, 88, 88, 0.75);
+  border-radius: 3px;
+  line-height: 2.3em;
+  width: 14em;
+  height: 2.3em;
+  border: 1px solid rgb(182, 181, 181);
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.849);
-  width: 20em;
-  height: 20em;
-  border: 1px solid @border-color;
+}
+
+.login-box-btn:hover {
+  box-shadow: inset 0px -200px 50px -200px rgba(0, 0, 0, 0.75);
 }

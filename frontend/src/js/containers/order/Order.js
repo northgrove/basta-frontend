@@ -5,22 +5,21 @@ import history from '../../common/history'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-export class Orders extends Component {
+export class Order extends Component {
   constructor(props) {
     super(props)
   }
 
   componentWillReceiveProps(nextProps) {
-    const { orders } = nextProps
-    console.log(orders.orderId)
-    if (Number.isInteger(orders.orderId)) {
-      history.push('/orders/' + orders.orderId)
+    const { order } = nextProps
+    if (Number.isInteger(order.orderId)) {
+      history.push('/orders/' + order.orderId)
     }
   }
 
   render() {
-    const { orders } = this.props
-    if (orders.fetching) {
+    const { order } = this.props
+    if (order.fetching) {
       return (
         <div className="panel panel-default">
           <div className="panel-heading">Submitting form</div>
@@ -42,7 +41,7 @@ export class Orders extends Component {
           </div>
         </div>
       )
-    } else if (orders.failed) {
+    } else if (order.failed) {
       return (
         <div className="panel panel-error">
           <div className="panel-heading">Submitting form failed</div>
@@ -51,7 +50,7 @@ export class Orders extends Component {
               <div className="icon">
                 <i className="fa fa-exclamation-circle" aria-hidden="true" />
               </div>
-              <div className="content">{orders.error}</div>
+              <div className="content">{order.error}</div>
             </div>
           </div>
         </div>
@@ -61,13 +60,13 @@ export class Orders extends Component {
   }
 }
 
-Orders.propTypes = {}
+Order.propTypes = {}
 
 const mapStateToProps = state => {
   return {
     user: state.user,
-    orders: state.orders
+    order: state.order
   }
 }
 
-export default connect(mapStateToProps)(Orders)
+export default connect(mapStateToProps)(Order)

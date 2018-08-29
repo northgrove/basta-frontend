@@ -11,9 +11,7 @@ exports.authenticateAzure = () => {
 // check if authenticated
 exports.ensureAuthenticated = () => {
   if (process.env['NODE_ENV'] === 'offline') {
-    console.log('Off to the line')
-
-    return (req, res, next) => next
+    return (req, res, next) => next()
   }
   return (req, res, next) => {
     console.log('isLoggedIn:', req.isAuthenticated())
