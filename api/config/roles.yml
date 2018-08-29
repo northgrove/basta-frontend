@@ -1,5 +1,9 @@
 roles:
-  - name: 'admin'
-    azureid: 'c91b58c6-c7e7-4160-9b58-5187abb0bb6b'
-  - name: 'bastatest'
-    azureid: '9fad3009-d179-4a8f-b73d-5f1e28dc6013'
+- name: 'ROLE_SUPERUSER'
+  azureid: 'c91b58c6-c7e7-4160-9b58-5187abb0bb6b'
+- name: 'ROLE_PROD_OPERATIONS'
+  azureid: '9fad3009-d179-4a8f-b73d-5f1e28dc6013'
+- name: 'ROLE_OPERATIONS'
+  azureid: 'xxx'
+- name: 'ROLE_USER'
+  azureid: 'yyy'

@@ -11,6 +11,7 @@ function readinput() {
 
 // match groups in token to roles
 exports.matchRoles = ({ groups }) => {
+  console.log('groups', groups)
   const roller = readinput()
   arrGroups = groups
   arrGroups.forEach(group => {
