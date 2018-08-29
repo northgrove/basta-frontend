@@ -45,6 +45,16 @@ router.post(
 // get user object if authenticated
 router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) => {
   // console.log(req.user.azure.upn)
+  if (process.env['NODE_ENV'] === 'offline') {
+    res.status(200).send({
+      userName: 'mockusername',
+      firstName: 'mock',
+      lastName: 'name',
+      displayName: 'Mock User',
+      roles: ['admin', 'bastatest']
+    })
+  }
+
   res.status(200).send({
     userName: req.user.azure.upn,
     firstName: req.user.azure.firstName,
