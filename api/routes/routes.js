@@ -31,8 +31,8 @@ router.post(
       {
         response: res, // required
         failureRedirect: '/error'
-      },
-      console.log(req.body.id_token)
+      }
+      // console.log(req.body.id_token)
     )(req, res, next)
   },
   (req, res) => {

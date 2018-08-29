@@ -55,10 +55,6 @@ module.exports = passport => {
             }
             if (user) {
               console.log('user found in DB: ' + user.azure.upn)
-              // console.log('req: ', req)
-              arrRoles = getroles.matchRoles({
-                groups: user.azure.groups
-              })
               return done(null, user)
             } else {
               arrRoles = getroles.matchRoles({
