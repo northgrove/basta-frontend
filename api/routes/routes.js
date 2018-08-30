@@ -52,7 +52,7 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
       firstName: 'mock',
       lastName: 'name',
       displayName: 'Mock User',
-      roles: ['admin', 'bastatest']
+      roles: ['ROLE_SUPERUSER', 'ROLE_OPERATIONS']
     })
   }
 

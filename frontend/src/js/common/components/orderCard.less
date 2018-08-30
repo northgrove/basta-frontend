@@ -3,14 +3,30 @@
   border: 1px solid @border-color;
   color: @font-color;
   padding: 10px;
-
+}
+.orderCard + .disabled {
+  color: @border-color;
+  .orderImage > img {
+    filter: none;
+  }
+  .orderImage {
+    background-color: #333;
+  }
+}
+.orderCard + .disabled :hover {
+  color: @border-color;
+  .orderImage > img {
+    filter: none;
+  }
+  .orderImage {
+    background-color: none;
+  }
 }
 
 .orderCardGrid {
   display: grid;
   grid-template-columns: 60px auto;
   grid-template-rows: 60px auto;
-
 }
 
 .orderImage {
