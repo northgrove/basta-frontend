@@ -15,6 +15,16 @@ npm run api
 npm run frontend
 ```
 
+### Offline modus
+
+Basta frontend krever innlogging via Azure AD. For utvikling lokalt er det ofte ikke ønskelig med en slik integrasjon.
+Det finnes en offline modus som mocker ut Azure AD.
+For offline modus kjør:
+
+```console
+npm run offline
+```
+
 Api gir det et mock api som simulerer basta backend
 
 ## Henvendelser
