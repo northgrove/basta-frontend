@@ -1,0 +1,4 @@
+module.exports.ROLE_SUPERUSER = 'ROLE_SUPERUSER'
+module.exports.ROLE_PROD_OPERATIONS = 'ROLE_PROD_OPERATIONS'
+module.exports.ROLE_OPERATIONS = 'ROLE_OPERATIONS'
+module.exports.ROLE_USER = 'ROLE_USER'
