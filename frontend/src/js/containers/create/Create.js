@@ -51,7 +51,6 @@ export class Create extends Component {
         <OrderGrid>
           {this.state.filteredOrders.map((orderType, i) => {
             const { title, description, image, tags, url, access } = orderType
-            //console.log(title, this.isAvailabe(access, this.props.user.currentUser.roles))
 
             return (
               <OrderCard
@@ -85,7 +84,8 @@ const orderTypes = [
     description: 'Jenkins etc. in Devillo',
     image: developertoolsImage,
     tags: ['developer', 'tools', 'devillo', 'jenkins'],
-    url: '/create/developertools'
+    url: '/create/developertools',
+    access: ['Random']
   },
   {
     title: 'WebSphere MQ',
