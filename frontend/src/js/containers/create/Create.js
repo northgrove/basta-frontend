@@ -6,6 +6,7 @@ import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'
+import roles from '../../common/roles'
 
 const wasImage = require('../../../img/orderTypes/websphere.png')
 const jbossImage = require('../../../img/orderTypes/jboss.png')
@@ -49,7 +50,9 @@ export class Create extends Component {
         <OrderFilter onChange={e => this.filterString(e)} />
         <OrderGrid>
           {this.state.filteredOrders.map((orderType, i) => {
-            const { title, description, image, tags, url } = orderType
+            const { title, description, image, tags, url, access } = orderType
+            //console.log(title, this.isAvailabe(access, this.props.user.currentUser.roles))
+
             return (
               <OrderCard
                 key={i}
@@ -58,6 +61,7 @@ export class Create extends Component {
                 image={image}
                 tags={tags}
                 url={url}
+                enabled={isAvailable(access, this.props.user.currentUser.roles)}
               />
             )
           })}
@@ -73,7 +77,8 @@ const orderTypes = [
     description: 'Available via VPN',
     image: iappImage,
     tags: ['developer', 'tools', 'iapp', 'jenkins', 'vpn'],
-    url: '/create/iapptools'
+    url: '/create/iapptools',
+    access: [roles.ROLE_OPERATIONS, roles.ROLE_PROD_OPERATIONS]
   },
   {
     title: 'Devillo Tools',
@@ -218,10 +223,19 @@ const orderTypes = [
 ]
 Create.propTypes = {}
 
+export const isAvailable = (access, roles) => {
+  if (!access) return true
+  let validAccess = false
+  roles.forEach(role => {
+    if (access.includes(role)) {
+      validAccess = true
+    }
+  })
+  return validAccess
+}
 const mapStateToProps = state => {
   return {
     user: state.user
   }
 }
-
 export default connect(mapStateToProps)(Create)

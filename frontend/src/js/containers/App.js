@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.user)
     let roles
     if (this.props.user.isUserAuthenticated) {
       roles = this.props.user.currentUser.roles.join(', ')
