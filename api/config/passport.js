@@ -52,7 +52,7 @@ module.exports = passport => {
         process.nextTick(() => {
           UserMongoSchema.findOne({ 'azure.id': profile.oid }, (err, user) => {
             // console.log(profile)
-            // const userPhoto = msgraph.getUserPhoto({ user: profile._json.upn, code: req.body.code })
+            // const userPhoto = msgraph.proxyUserPhoto({ userUpn: profile._json.upn, code: req.body.code })
             // console.log('token: ' + userPhoto)
             if (err) {
               return done(err)
@@ -72,7 +72,7 @@ module.exports = passport => {
               newUser.azure.displayName = profile.displayName
               newUser.azure.groups = profile._json.groups
               newUser.roles = arrRoles
-              newUser.photo = userPhoto
+              newUser.azure.code = req.body.code
               newUser.save(err => {
                 if (err) {
                   throw err
@@ -81,6 +81,7 @@ module.exports = passport => {
                 return done(null, newUser)
               })
             }
+            // }
           })
         })
       }

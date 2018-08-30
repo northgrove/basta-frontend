@@ -61,7 +61,8 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
     firstName: req.user.azure.firstName,
     lastName: req.user.azure.lastName,
     displayName: req.user.azure.displayName,
-    roles: req.user.roles
+    roles: req.user.roles,
+    code: req.user.azure.code
   })
 })
 
@@ -72,10 +73,9 @@ router.get('/logout', function(req, res) {
   res.redirect('https://www.vg.no')
 })
 
-// logout
+// get azure ad user photo
 router.get('/token', async function(req, res, user) {
-  const userPhoto = await msgraph.getUserPhoto({ user: req.user.azure.upn, code: req.body.code })
-  console.log(userPhoto)
+  const userPhoto = await msgraph.getUserPhoto({ userUpn: req.headers.userupn })
   res.send(userPhoto)
 })
 // ORDERS

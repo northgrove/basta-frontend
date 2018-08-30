@@ -2,15 +2,14 @@ const request = require('request-promise')
 const config = require('../config/passportConfig')
 let ms_access_token = ''
 
-exports.getAccessToken = async ({ code }) => {
+exports.getAccessToken = async () => {
   try {
     // Setter parametere for Login URL mot graph.microsoft.com
     const parameters = {
       client_id: config.clientID,
       resource: config.resourceURL,
-      code: code,
       redirect_uri: config.redirectUrl,
-      grant_type: 'authorization_code',
+      grant_type: 'client_credentials',
       client_secret: config.clientSecret
     }
     // console.log('code ', code)
@@ -24,7 +23,7 @@ exports.getAccessToken = async ({ code }) => {
       body
     ) {
       ms_access_token = JSON.parse(body).access_token
-      console.log('access token: ', ms_access_token)
+      // console.log('access token: ', ms_access_token)
       return ms_access_token
     })
     return ms_access_token

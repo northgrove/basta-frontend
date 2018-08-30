@@ -1,5 +1,8 @@
 // eslint-disable-next-line
 import React from 'react'
+const request = require('request-promise')
+const config = require('../../../../api/config/passportConfig')
+let ms_access_token = ''
 
 export const getUrl = url => {
   const init = {
@@ -35,4 +38,13 @@ export const postForm = (url, form) => {
       throw res.statusText
     }
   })
+}
+
+export const getUserPhoto = async userUpn => {
+  const proxyPhoto = await request.get({
+    url: 'http://localhost:8080/token',
+    headers: { userUpn: userUpn }
+  })
+  // console.log(proxyPhoto)
+  return proxyPhoto
 }

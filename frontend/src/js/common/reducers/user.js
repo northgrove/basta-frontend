@@ -1,7 +1,8 @@
 import {
   USER_SESSION_FETCHING,
   USER_SESSION_RECEIVED,
-  USER_SESSION_REQUEST_FAILED
+  USER_SESSION_REQUEST_FAILED,
+  USER_PHOTO_RECEIVED
 } from '../actionTypes'
 
 export default (
@@ -42,6 +43,12 @@ export default (
         requestFailed: true,
         requestStatus: action.err
       }
+    case USER_PHOTO_RECEIVED:
+      return {
+        ...state,
+        userPhoto: action.userPhoto
+      }
+
     default:
       return state
   }
