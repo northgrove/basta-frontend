@@ -7,5 +7,5 @@ export const initializeApplication = () => {
   return { type: INITIALIZE_APPLICATION }
 }
 export const submitForm = (key, form) => {
-    return { type: SUBMIT_FORM, key, orders: form }
+  return { type: SUBMIT_FORM, key, orders: form }
 }

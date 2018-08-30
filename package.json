@@ -39,7 +39,9 @@
     "passport-azure-ad": "^4.0.0",
     "pretty-quick": "^1.6.0",
     "react-dropdown": "^1.6.1",
-    "react-select": "^2.0.0"
+    "react-select": "^2.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",

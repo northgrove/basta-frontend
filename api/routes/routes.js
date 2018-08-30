@@ -3,6 +3,7 @@ const router = express.Router()
 const passport = require('passport')
 const auth = require('../controllers/authenticate')
 const mock = require('../controllers/mock')
+const msgraph = require('../controllers/msgraph')
 const { api } = require('../config/config')
 const { UserMongoSchema } = require('../models/userMongoSchema')
 
@@ -71,6 +72,12 @@ router.get('/logout', function(req, res) {
   res.redirect('https://www.vg.no')
 })
 
+// logout
+router.get('/token', async function(req, res, user) {
+  const userPhoto = await msgraph.getUserPhoto({ user: req.user.azure.upn, code: req.body.code })
+  console.log(userPhoto)
+  res.send(userPhoto)
+})
 // ORDERS
 
 router.get(

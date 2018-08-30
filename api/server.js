@@ -19,7 +19,7 @@ app.use(logger('dev'))
 // CORS
 
 const cors = function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Origin', host)
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
   res.setHeader(
@@ -40,12 +40,12 @@ app.set('trust proxy', 1)
 app.use(
   session({
     secret: sessionSecret,
-    cookie: { maxAge: 300 * 1000 },
+    cookie: { maxAge: 3000000 },
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      clear_interval: '300'
+      clear_interval: '3000000'
     })
   })
 )
@@ -55,19 +55,8 @@ app.use(passport.session())
 
 // ROUTES
 
-app.use('/', router)
-
-// app.get('/', (req, res) => {
 app.use(express.static('./dist'))
 app.use('/', router)
-// app.use(express.static('./dist'))
-app.get('/api/', (req, res) => {
-  if (!req.isAuthenticated()) {
-    res.redirect('/login')
-  } else {
-    return null
-  }
-})
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })
@@ -82,7 +71,6 @@ app.use((err, req, res, next) => {
 })
 
 // STARTUP
-// app.use(express.static('./dist'))
 startApp(app)
 
 module.exports = app

@@ -13,7 +13,8 @@ const UserSchema = new mongoose.Schema({
     displayName: { type: String },
     firstName: { type: String },
     lastName: { type: String },
-    groups: { type: Array }
+    groups: { type: Array },
+    photo: { type: String }
   }
 })
 
