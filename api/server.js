@@ -57,6 +57,18 @@ app.use(passport.session())
 
 app.use(express.static('./dist'))
 app.use('/', router)
+
+app.get('/isalive', (req, res) => {
+  res.sendStatus(200)
+})
+
+app.get('/selftest', selftest.selftest)
+
+app.get('/metrics', (req, res) => {
+  res.set('Content-Type', prometheus.register.contentType)
+  res.end(prometheus.register.metrics())
+})
+
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })
