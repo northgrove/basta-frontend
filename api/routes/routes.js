@@ -3,6 +3,7 @@ const router = express.Router()
 const passport = require('passport')
 const auth = require('../controllers/authenticate')
 const mock = require('../controllers/mock')
+const msgraph = require('../controllers/msgraph')
 const { api } = require('../config/config')
 const { UserMongoSchema } = require('../models/userMongoSchema')
 
@@ -65,7 +66,7 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
       firstName: 'mock',
       lastName: 'name',
       displayName: 'Mock User',
-      roles: ['admin', 'bastatest']
+      roles: ['ROLE_SUPERUSER', 'ROLE_OPERATIONS']
     })
   }
 
@@ -74,7 +75,8 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
     firstName: req.user.azure.firstName,
     lastName: req.user.azure.lastName,
     displayName: req.user.azure.displayName,
-    roles: req.user.roles
+    roles: req.user.roles,
+    code: req.user.azure.code
   })
 })
 
@@ -85,6 +87,11 @@ router.get('/logout', function(req, res) {
   // res.redirect('https://www.vg.no')
 })
 
+// get azure ad user photo
+router.get('/token', async function(req, res, user) {
+  const userPhoto = await msgraph.getUserPhoto({ userUpn: req.headers.userupn })
+  res.send(userPhoto)
+})
 // ORDERS
 
 router.get(

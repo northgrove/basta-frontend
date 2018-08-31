@@ -13,6 +13,7 @@ const {
 } = require('./passportConfig')
 const getroles = require('./getroles')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
+const msgraph = require('../controllers/msgraph')
 const { UserMongoSchema } = require('../models/userMongoSchema')
 let arrRoles = ''
 
@@ -50,6 +51,9 @@ module.exports = passport => {
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
         process.nextTick(() => {
           UserMongoSchema.findOne({ 'azure.id': profile.oid }, (err, user) => {
+            // console.log(profile)
+            // const userPhoto = msgraph.proxyUserPhoto({ userUpn: profile._json.upn, code: req.body.code })
+            // console.log('token: ' + userPhoto)
             if (err) {
               return done(err)
             }
@@ -68,6 +72,7 @@ module.exports = passport => {
               newUser.azure.displayName = profile.displayName
               newUser.azure.groups = profile._json.groups
               newUser.roles = arrRoles
+              newUser.azure.code = req.body.code
               newUser.save(err => {
                 if (err) {
                   throw err
@@ -76,6 +81,7 @@ module.exports = passport => {
                 return done(null, newUser)
               })
             }
+            // }
           })
         })
       }
