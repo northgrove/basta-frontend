@@ -4,20 +4,63 @@ const passport = require('passport')
 
 exports.authenticateAzure = () => {
   return (req, res, next) => {
-    passport.authenticate('azuread-openidconnect', () => {})(req, res, next)
+    passport.authenticate('azuread-openidconnect', {
+      response: res,
+      failureRedirect: '/'
+    })(req, res, next)
   }
 }
 
-// check if authenticated
+exports.authenticateAzureWithRedirect = () => {
+  return (req, res, next) => {
+    passport.authenticate('azuread-openidconnect', {
+      response: res,
+      failureRedirect: '/'
+    })(req, res, next)
+  }
+}
+
+exports.authenticateAzureCallback = () => {
+  return (
+    (req, res, next) => {
+      passport.authenticate('azuread-openidconnect', {
+        response: res,
+        failureRedirect: '/'
+      })(req, res, next)
+    },
+    (req, res) => {
+      res.redirect('/')
+    }
+  )
+}
+
+// AUTHENTICATION CHECK
+
 exports.ensureAuthenticated = () => {
   if (process.env['NODE_ENV'] === 'offline') {
     return (req, res, next) => next()
-  }
-  return (req, res, next) => {
-    console.log('isLoggedIn:', req.isAuthenticated())
-    if (req.isAuthenticated()) {
-      return next()
+  } else {
+    return (req, res, next) => {
+      console.log(req.isAuthenticated())
+      if (req.isAuthenticated()) return next()
+      res.statusMessage = 'Not authenticated'
+      res.status(401).end()
     }
-    res.send(401).send('Not authorized')
+  }
+}
+
+// USER SESSION
+
+exports.userSessionLookup = () => {
+  return (req, res, user) => {
+    const userObj = {
+      userName: req.user.azure.upn,
+      firstName: req.user.azure.firstName,
+      lastName: req.user.azure.lastName,
+      displayName: req.user.azure.displayName,
+      roles: req.user.roles,
+      code: req.user.azure.code
+    }
+    res.status(200).send(userObj)
   }
 }

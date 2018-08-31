@@ -58,12 +58,13 @@ module.exports = passport => {
               return done(err)
             }
             if (user) {
-              console.log('user found in DB: ' + user.azure.upn)
+              // console.log('user found in DB: ' + user.azure.upn)
               return done(null, user)
             } else {
               arrRoles = getroles.matchRoles({
                 groups: profile._json.groups
               })
+              console.log('new user')
               let newUser = new UserMongoSchema()
               newUser.azure.id = profile.oid
               newUser.azure.upn = profile.upn

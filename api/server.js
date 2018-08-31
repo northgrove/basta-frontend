@@ -12,6 +12,7 @@ const router = require('./routes/routes')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
 const auth = require('./controllers/authenticate')
+const selftest = require('./selftest')
 
 const app = express()
 app.use(logger('dev'))

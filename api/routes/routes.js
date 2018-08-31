@@ -9,53 +9,13 @@ const { UserMongoSchema } = require('../models/userMongoSchema')
 
 // AUTHENTICATION
 
-// do login
-router.get(
-  `/login/*`,
-  (req, res, next) => {
-    console.log('TEEEEEEEEEST', req.params)
-    passport.authenticate('azuread-openidconnect', {
-      response: res, // required
-      failureRedirect: '/error'
-    })(req, res, next)
-  },
-  (req, res) => {
-    res.redirect('/')
-  }
-)
+router.get(`/login`, auth.authenticateAzure())
 
-router.get(
-  `/login/`,
-  (req, res, next) => {
-    passport.authenticate('azuread-openidconnect', {
-      response: res, // required
-      failureRedirect: '/error'
-    })(req, res, next)
-  },
-  (req, res) => {
-    res.redirect('/')
-  }
-)
+router.get(`/login/*`, auth.authenticateAzureWithRedirect())
 
-// handle callback from login
-router.post(
-  '/auth/openid/callback',
-  (req, res, next) => {
-    passport.authenticate(
-      'azuread-openidconnect',
-      {
-        response: res, // required
-        failureRedirect: '/error'
-      }
-      // console.log(req.body.id_token)
-    )(req, res, next)
-  },
-  (req, res) => {
-    console.log('We received a return from AzureAD.')
-    console.log('user: ' + req.user.azure.upn)
-    res.redirect('/')
-  }
-)
+router.post('/auth/openid/callback', auth.authenticateAzureCallback())
+
+// router.get(`${api}/auth/session`, auth.ensureAuthenticated(), auth.userSessionLookup())
 
 // get user object if authenticated
 router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) => {
@@ -69,7 +29,7 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
       roles: ['ROLE_SUPERUSER', 'ROLE_OPERATIONS']
     })
   }
-
+  console.log(req.status)
   res.status(200).send({
     userName: req.user.azure.upn,
     firstName: req.user.azure.firstName,
@@ -108,7 +68,8 @@ router.get(`${api}/orders/:id/statuslog`, auth.ensureAuthenticated(), mock.getSt
 
 // CREATE
 router.post(`${api}/create/:type/`, (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   res.json({ orderId: 4590 })
 })
+
 module.exports = router
