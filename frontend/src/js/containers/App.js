@@ -34,10 +34,10 @@ class App extends Component {
       roles = 'error'
     }
 
-    const { user, appReady } = this.props
+    const { user, appReady, location } = this.props
     if (appReady) {
       return !user.isUserAuthenticated ? (
-        <Login />
+        <Login location={location} />
       ) : (
         <div className="wrapper">
           <header>

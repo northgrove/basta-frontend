@@ -3,6 +3,8 @@ const bastaLogo = require('../../../img/basta.png')
 const navLogo = require('../../../img/nav.png')
 
 const Login = props => {
+  const { pathname } = props.location
+  console.log(pathname)
   return (
     <div className="login-background">
       <div className="login-container">
@@ -18,6 +20,9 @@ const Login = props => {
           <div>
             <a className="login-box-btn" href="http://localhost:8080/login">
               <center> Continue </center>
+            </a>
+            <a className="" href={`http://localhost:8080/login${pathname}`}>
+              <center> Med URL </center>
             </a>
           </div>
         </div>

@@ -10,7 +10,21 @@ const { UserMongoSchema } = require('../models/userMongoSchema')
 
 // do login
 router.get(
-  `/login`,
+  `/login/*`,
+  (req, res, next) => {
+    console.log('TEEEEEEEEEST', req.params)
+    passport.authenticate('azuread-openidconnect', {
+      response: res, // required
+      failureRedirect: '/error'
+    })(req, res, next)
+  },
+  (req, res) => {
+    res.redirect('/')
+  }
+)
+
+router.get(
+  `/login/`,
   (req, res, next) => {
     passport.authenticate('azuread-openidconnect', {
       response: res, // required
@@ -68,7 +82,7 @@ router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) =
 router.get('/logout', function(req, res) {
   req.session.destroy()
   req.logout()
-  res.redirect('https://www.vg.no')
+  // res.redirect('https://www.vg.no')
 })
 
 // ORDERS
