@@ -58,7 +58,7 @@ module.exports = passport => {
               return done(err)
             }
             if (user) {
-              // console.log('user found in DB: ' + user.azure.upn)
+              console.log('user found in DB: ' + user.azure.upn)
               return done(null, user)
             } else {
               arrRoles = getroles.matchRoles({

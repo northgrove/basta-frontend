@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const passport = require('passport')
 const auth = require('../controllers/authenticate')
 const mock = require('../controllers/mock')
+const user = require('../controllers/user')
 const msgraph = require('../controllers/msgraph')
 const { api } = require('../config/config')
-const { UserMongoSchema } = require('../models/userMongoSchema')
 
 // AUTHENTICATION
 
@@ -13,39 +12,38 @@ router.get(`/login`, auth.authenticateAzure())
 
 router.get(`/login/*`, auth.authenticateAzureWithRedirect())
 
-router.post('/auth/openid/callback', auth.authenticateAzureCallback())
+router.post('/auth/openid/callback', auth.authenticateAzure())
 
-// router.get(`${api}/auth/session`, auth.ensureAuthenticated(), auth.userSessionLookup())
+router.get(`${api}/auth/logout`, auth.logOut())
+
+// USER
+
+router.get(`${api}/user/profile`, auth.ensureAuthenticated(), user.getUserProfile())
+
+router.get(`${api}/user/session`, auth.ensureAuthenticated(), user.userSessionLookup())
 
 // get user object if authenticated
-router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) => {
-  // console.log(req.user.azure.upn)
-  if (process.env['NODE_ENV'] === 'offline') {
-    res.status(200).send({
-      userName: 'mockusername',
-      firstName: 'mock',
-      lastName: 'name',
-      displayName: 'Mock User',
-      roles: ['ROLE_SUPERUSER', 'ROLE_OPERATIONS']
-    })
-  }
-  console.log(req.status)
-  res.status(200).send({
-    userName: req.user.azure.upn,
-    firstName: req.user.azure.firstName,
-    lastName: req.user.azure.lastName,
-    displayName: req.user.azure.displayName,
-    roles: req.user.roles,
-    code: req.user.azure.code
-  })
-})
-
-// logout
-router.get('/logout', function(req, res) {
-  req.session.destroy()
-  req.logout()
-  // res.redirect('https://www.vg.no')
-})
+// router.get(`${api}/auth/session`, auth.ensureAuthenticated(), (req, res, user) => {
+//   // console.log(req.user.azure.upn)
+//   if (process.env['NODE_ENV'] === 'offline') {
+//     res.status(200).send({
+//       userName: 'mockusername',
+//       firstName: 'mock',
+//       lastName: 'name',
+//       displayName: 'Mock User',
+//       roles: ['ROLE_SUPERUSER', 'ROLE_OPERATIONS']
+//     })
+//   }
+//   console.log(req.status)
+//   res.status(200).send({
+//     userName: req.user.azure.upn,
+//     firstName: req.user.azure.firstName,
+//     lastName: req.user.azure.lastName,
+//     displayName: req.user.azure.displayName,
+//     roles: req.user.roles,
+//     code: req.user.azure.code
+//   })
+// })
 
 // get azure ad user photo
 router.get('/token', async function(req, res, user) {
@@ -68,7 +66,6 @@ router.get(`${api}/orders/:id/statuslog`, auth.ensureAuthenticated(), mock.getSt
 
 // CREATE
 router.post(`${api}/create/:type/`, (req, res) => {
-  // console.log(req.body)
   res.json({ orderId: 4590 })
 })
 

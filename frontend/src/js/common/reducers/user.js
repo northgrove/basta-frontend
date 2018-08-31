@@ -1,13 +1,14 @@
 import {
-  USER_SESSION_FETCHING,
-  USER_SESSION_RECEIVED,
-  USER_SESSION_REQUEST_FAILED,
-  USER_PHOTO_RECEIVED
+  USER_PROFILE_FETCHING,
+  USER_PROFILE_RECEIVED,
+  USER_PROFILE_REQUEST_FAILED,
+  USER_PHOTO_RECEIVED,
+  USER_SESSION_EXPIRED
 } from '../actionTypes'
 
 export default (
   state = {
-    currentUser: {
+    userProfile: {
       userName: '',
       roles: {}
     },
@@ -19,26 +20,26 @@ export default (
   action
 ) => {
   switch (action.type) {
-    // USER SESSION
+    // USER PROFILE
 
-    case USER_SESSION_FETCHING:
+    case USER_PROFILE_FETCHING:
       return {
         ...state,
         requestFailed: false,
-        requestStatus: 'Fetching user session'
+        requestStatus: 'Fetching user profile'
       }
-    case USER_SESSION_RECEIVED:
+    case USER_PROFILE_RECEIVED:
       return {
         ...state,
-        currentUser: action.value,
+        userProfile: action.value,
         isUserAuthenticated: true,
         requestFailed: false,
-        requestStatus: 'User session lookup successful'
+        requestStatus: 'User profile lookup successful'
       }
-    case USER_SESSION_REQUEST_FAILED:
+    case USER_PROFILE_REQUEST_FAILED:
       return {
         ...state,
-        currentUser: {},
+        userProfile: {},
         isUserAuthenticated: false,
         requestFailed: true,
         requestStatus: action.err
@@ -49,6 +50,14 @@ export default (
         userPhoto: action.userPhoto
       }
 
+    // USER SESSION LOOKUP
+
+    case USER_SESSION_EXPIRED:
+      return {
+        ...state,
+        userProfile: {},
+        isUserAuthenticated: false
+      }
     default:
       return state
   }

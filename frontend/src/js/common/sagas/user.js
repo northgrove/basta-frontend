@@ -2,28 +2,26 @@ import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, getUserPhoto } from '../utils'
 import { api } from '../../../../../api/config/config'
 import {
-  POLL_SESSION_START,
-  USER_SESSION_REQUEST,
-  USER_SESSION_FETCHING,
-  USER_SESSION_RECEIVED,
-  USER_SESSION_REQUEST_FAILED
+  USER_PROFILE_REQUEST,
+  USER_PROFILE_FETCHING,
+  USER_PROFILE_RECEIVED,
+  USER_PROFILE_REQUEST_FAILED
 } from '../actionTypes'
 
 const url = `${api}`
 
-export function* sessionLookUp() {
+export function* fetchUserProfile() {
   let value = ''
   let userPhoto = ''
-  yield put({ type: USER_SESSION_FETCHING })
+  yield put({ type: USER_PROFILE_FETCHING })
   try {
-    value = yield call(getUrl, `${url}/auth/session`)
-    yield put({ type: USER_SESSION_RECEIVED, value })
-    yield put({ type: POLL_SESSION_START })
+    value = yield call(getUrl, `${url}/user/profile`)
+    yield put({ type: USER_PROFILE_RECEIVED, value })
   } catch (err) {
-    yield put({ type: USER_SESSION_REQUEST_FAILED, err })
+    yield put({ type: USER_PROFILE_REQUEST_FAILED, err })
   }
 }
 
 export function* watchUser() {
-  yield fork(takeEvery, USER_SESSION_REQUEST, sessionLookUp)
+  yield fork(takeEvery, USER_PROFILE_REQUEST, fetchUserProfile)
 }

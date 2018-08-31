@@ -4,34 +4,30 @@ const passport = require('passport')
 
 exports.authenticateAzure = () => {
   return (req, res, next) => {
-    passport.authenticate('azuread-openidconnect', {
-      response: res,
-      failureRedirect: '/'
-    })(req, res, next)
+    try {
+      passport.authenticate('azuread-openidconnect', {
+        response: res,
+        successRedirect: '/',
+        failureRedirect: '/error'
+      })(req, res, next)
+    } catch (err) {
+      throw `ERROR during authentication: ${err}`
+    }
   }
 }
 
 exports.authenticateAzureWithRedirect = () => {
   return (req, res, next) => {
-    passport.authenticate('azuread-openidconnect', {
-      response: res,
-      failureRedirect: '/'
-    })(req, res, next)
-  }
-}
-
-exports.authenticateAzureCallback = () => {
-  return (
-    (req, res, next) => {
+    try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
-        failureRedirect: '/'
+        successRedirect: '/',
+        failureRedirect: '/error'
       })(req, res, next)
-    },
-    (req, res) => {
-      res.redirect('/')
+    } catch (err) {
+      throw `ERROR during authentication: ${err}`
     }
-  )
+  }
 }
 
 // AUTHENTICATION CHECK
@@ -41,7 +37,6 @@ exports.ensureAuthenticated = () => {
     return (req, res, next) => next()
   } else {
     return (req, res, next) => {
-      console.log(req.isAuthenticated())
       if (req.isAuthenticated()) return next()
       res.statusMessage = 'Not authenticated'
       res.status(401).end()
@@ -49,18 +44,17 @@ exports.ensureAuthenticated = () => {
   }
 }
 
-// USER SESSION
+// LOGOUT
 
-exports.userSessionLookup = () => {
-  return (req, res, user) => {
-    const userObj = {
-      userName: req.user.azure.upn,
-      firstName: req.user.azure.firstName,
-      lastName: req.user.azure.lastName,
-      displayName: req.user.azure.displayName,
-      roles: req.user.roles,
-      code: req.user.azure.code
+exports.logOut = () => {
+  return (req, res) => {
+    try {
+      req.session.destroy(err => {
+        res.status(500).send(err)
+      })
+      res.status(200).redirect('/')
+    } catch (err) {
+      return `ERROR during logout: ${err}`
     }
-    res.status(200).send(userObj)
   }
 }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
 import { withRouter } from 'react-router-dom'
-import { initializeApplication, fetchPhoto } from '../common/actionCreators'
+import { initializeApplication } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import Login from '../containers/login/Login'
@@ -27,16 +27,12 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { dispatch } = this.props
-    console.log(nextProps.user.currentUser.userName)
-    if (nextProps.user.currentUser.userName && !nextProps.user.userPhoto) {
-      dispatch(fetchPhoto(nextProps.user.currentUser.userName))
-    }
   }
 
   render() {
     let roles
     if (this.props.user.isUserAuthenticated) {
-      roles = this.props.user.currentUser.roles.join(', ')
+      roles = this.props.user.userProfile.roles.join(', ')
     } else {
       roles = 'error'
     }
@@ -60,9 +56,9 @@ class App extends Component {
               <div className="navUserMenu">
                 <img className="navUserImage" src={photo} width="45" height="45" />
                 <div className="navUserMenu-content">
-                  <p>{this.props.user.currentUser.userName}</p>
+                  <p>{this.props.user.userProfile.userName}</p>
                   <p> Tilgang: {roles} </p>
-                  <a href="/logout">
+                  <a href="api/v1/auth/logout">
                     <i className="fa fa-sign-out" /> logout
                   </a>
                 </div>

@@ -1,12 +1,12 @@
 import {
-  USER_SESSION_REQUEST,
+  USER_PROFILE_REQUEST,
   INITIALIZE_APPLICATION,
   SUBMIT_FORM,
   USER_PHOTO_REQUEST
 } from '../actionTypes'
 
-export const userSessionRequest = () => {
-  return { type: USER_SESSION_REQUEST }
+export const fetchUserProfile = () => {
+  return { type: USER_PROFILE_REQUEST }
 }
 export const initializeApplication = () => {
   return { type: INITIALIZE_APPLICATION }
