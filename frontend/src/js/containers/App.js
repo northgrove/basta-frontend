@@ -42,7 +42,6 @@ class App extends Component {
     }
     const { user, appReady } = this.props
     let photo = this.props.user.userPhoto
-    console.log(photo)
 
     if (appReady) {
       return !user.isUserAuthenticated ? (
