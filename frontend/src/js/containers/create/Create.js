@@ -7,6 +7,7 @@ import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'
 import roles from '../../common/roles'
+import { isAvailable } from '../../common/utils'
 
 const wasImage = require('../../../img/orderTypes/websphere.png')
 const jbossImage = require('../../../img/orderTypes/jboss.png')
@@ -60,6 +61,7 @@ export class Create extends Component {
                 image={image}
                 tags={tags}
                 url={url}
+                access={access}
                 enabled={isAvailable(access, this.props.user.currentUser.roles)}
               />
             )
@@ -92,7 +94,8 @@ const orderTypes = [
     description: 'Channel',
     image: mqImage,
     tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/create/wschannel'
+    url: '/create/wschannel',
+    access: ['Random']
   },
   {
     title: 'WebSphere MQ',
@@ -223,16 +226,6 @@ const orderTypes = [
 ]
 Create.propTypes = {}
 
-export const isAvailable = (access, roles) => {
-  if (!access) return true
-  let validAccess = false
-  roles.forEach(role => {
-    if (access.includes(role)) {
-      validAccess = true
-    }
-  })
-  return validAccess
-}
 const mapStateToProps = state => {
   return {
     user: state.user

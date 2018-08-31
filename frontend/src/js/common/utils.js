@@ -48,3 +48,14 @@ export const getUserPhoto = async userUpn => {
   // console.log(proxyPhoto)
   return proxyPhoto
 }
+
+export const isAvailable = (access, roles) => {
+  if (!access) return true
+  let validAccess = false
+  roles.forEach(role => {
+    if (access.includes(role)) {
+      validAccess = true
+    }
+  })
+  return validAccess
+}

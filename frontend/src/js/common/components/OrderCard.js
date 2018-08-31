@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import ReactTooltip from 'react-tooltip'
 
 const OrderCard = props => {
-  const { label, description, image, url, enabled } = props
+  const { label, description, image, url, access, enabled } = props
   return enabled ? (
     <Link to={url} className="orderCard">
       <div className="orderCardGrid">
@@ -15,7 +16,9 @@ const OrderCard = props => {
       </div>
     </Link>
   ) : (
-    <div className="orderCard disabled">
+    <div className="orderCard disabled" data-tip={'missing permissions: ' + access}>
+      <ReactTooltip />
+
       <div className="orderCardGrid">
         <div className="orderImage">
           <img src={image} />
@@ -33,6 +36,7 @@ OrderCard.propTypes = {
   image: PropTypes.string,
   tags: PropTypes.array,
   url: PropTypes.string,
+  access: PropTypes.array,
   enabled: PropTypes.bool
 }
 

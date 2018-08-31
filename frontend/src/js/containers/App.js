@@ -27,9 +27,9 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { dispatch } = this.props
-    console.log(nextProps.user.currentUser.userName)
+    //console.log(nextProps.user.currentUser.userName)
     if (nextProps.user.currentUser.userName && !nextProps.user.userPhoto) {
-      dispatch(fetchPhoto(nextProps.user.currentUser.userName))
+      //dispatch(fetchPhoto(nextProps.user.currentUser.userName))
     }
   }
 
