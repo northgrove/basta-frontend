@@ -5,6 +5,7 @@
   grid-template-columns: 200px 1fr;
   grid-template-rows: 150px auto auto;
   border: 1px solid @border-color;
+  grid-row-gap: 10px;
 }
 .orderFormImage {
   width: 120px;
@@ -69,12 +70,12 @@
   margin-right: 10px;
   margin-left: auto;
 }
-.disabled {
+.orderFormSubmitButton + .disabled {
   background-color: @font-color-secondary;
   color: @inverse-font-color;
   cursor: not-allowed;
 }
-.disabled:hover {
+.orderFormSubmitButton + .disabled:hover {
   cursor: not-allowed;
   background-color: @font-color-secondary !important;
 }

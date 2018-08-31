@@ -6,11 +6,13 @@
 }
 .orderCard + .disabled {
   color: @border-color;
+  background-color: #bbb;
+  cursor: not-allowed;
   .orderImage > img {
     filter: none;
   }
   .orderImage {
-    background-color: #333;
+    background-color: #ddd;
   }
 }
 .orderCard + .disabled :hover {
@@ -19,7 +21,7 @@
     filter: none;
   }
   .orderImage {
-    background-color: none;
+    background-color: #ddd;
   }
 }
 

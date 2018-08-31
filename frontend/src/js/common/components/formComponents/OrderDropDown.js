@@ -5,7 +5,6 @@ import ReactTooltip from 'react-tooltip'
 
 export const OrderDropDown = props => {
   const { label, description, value, alternatives, onChange } = props
-  console.log(value)
 
   return (
     <div className="formComponentGrid">
