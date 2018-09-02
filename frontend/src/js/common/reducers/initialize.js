@@ -2,7 +2,7 @@ import { APPLICATION_READY } from '../actionTypes'
 
 export default (
   state = {
-    appReady: true
+    appReady: false
   },
   action
 ) => {

@@ -11,7 +11,7 @@ import {
 
 const url = `${api}`
 
-function delay(millis) {
+const delay = millis => {
   const promise = new Promise(resolve => {
     setTimeout(() => resolve(true), millis)
   })
