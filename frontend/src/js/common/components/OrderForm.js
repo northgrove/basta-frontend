@@ -95,7 +95,7 @@ export class OrderForm extends Component {
                       value={this.state[orderFieldKey]}
                       description={orderField.description}
                       alternatives={orderField.alternatives}
-                      roles={this.props.user.currentUser.roles}
+                      roles={this.props.user.userProfile.roles}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )

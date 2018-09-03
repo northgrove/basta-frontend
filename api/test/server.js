@@ -1,11 +1,10 @@
 'use strict'
-const { host, sessionSecret } = require('./config/config')
 const express = require('express')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const router = require('./routes/routes')
-const { startApp } = require('./startAppOffline')
+const router = require('./routes/')
+const { startApp } = require('./startApp')
 
 const app = express()
 app.use(logger('dev'))
@@ -27,8 +26,8 @@ app.set('trust proxy', 1)
 
 // ROUTES
 
-app.use('/', router)
 app.use(express.static('./dist'))
+app.use('/', router)
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })

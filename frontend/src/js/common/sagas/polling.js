@@ -1,6 +1,6 @@
 import { put, call, take, takeEvery } from 'redux-saga/effects'
 import { getUrl } from '../utils'
-import { api } from '../../../../../api/config/config'
+import { api } from '../../../../../api/src/config/config'
 import {
   USER_SESSION_POLLING_START,
   USER_SESSION_POLLING,

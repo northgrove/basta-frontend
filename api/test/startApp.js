@@ -1,4 +1,4 @@
-const { host, mongoDb, port, api } = require('./config/config')
+const { host, mongoDb, port, api } = require('./config/')
 
 const startServer = app => {
   console.log(

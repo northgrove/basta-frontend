@@ -1,6 +1,6 @@
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, getUserPhoto } from '../utils'
-import { api } from '../../../../../api/config/config'
+import { api } from '../../../../../api/src/config/config'
 import {
   USER_PROFILE_REQUEST,
   USER_PROFILE_FETCHING,

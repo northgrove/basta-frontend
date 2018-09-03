@@ -8,11 +8,9 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const router = require('./routes/routes')
+const router = require('./routes/index')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
-const auth = require('./controllers/authenticate')
-const selftest = require('./selftest')
 
 const app = express()
 app.use(logger('dev'))
@@ -58,17 +56,6 @@ app.use(passport.session())
 
 app.use(express.static('./dist'))
 app.use('/', router)
-
-app.get('/isalive', (req, res) => {
-  res.sendStatus(200)
-})
-
-app.get('/selftest', selftest.selftest)
-
-app.get('/metrics', (req, res) => {
-  res.set('Content-Type', prometheus.register.contentType)
-  res.end(prometheus.register.metrics())
-})
 
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: './dist' })

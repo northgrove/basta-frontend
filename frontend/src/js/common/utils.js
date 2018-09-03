@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React from 'react'
 const request = require('request-promise')
-const config = require('../../../../api/config/passportConfig')
+const config = require('../../../../api/src/config/passportConfig')
 let ms_access_token = ''
 
 export const getUrl = url => {
