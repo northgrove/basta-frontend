@@ -62,7 +62,7 @@ export class Create extends Component {
                 tags={tags}
                 url={url}
                 access={access}
-                enabled={isAvailable(access, this.props.user.currentUser.roles)}
+                enabled={isAvailable(access, this.props.user.userProfile.roles)}
               />
             )
           })}

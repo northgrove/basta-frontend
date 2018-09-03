@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Create, isAvailable } from './Create'
+import { Create } from './Create'
 
 describe('Order filter function', () => {
   const user = {
