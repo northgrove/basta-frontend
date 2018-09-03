@@ -3,20 +3,17 @@ const router = express.Router()
 const auth = require('../controllers/authenticate')
 const order = require('../controllers/order')
 const user = require('../controllers/user')
+const health = require('../controllers/health')
 const selftest = require('../controllers/selftest')
-const msgraph = require('../controllers/msgraph')
 const { api } = require('../config/config')
 
 // APPLICATION HEALTH
-router.get('/isalive', (req, res) => {
-  res.sendStatus(200)
-})
-router.get('/selftest', selftest.selftest)
 
-router.get('/metrics', (req, res) => {
-  res.set('Content-Type', prometheus.register.contentType)
-  res.end(prometheus.register.metrics())
-})
+router.get('/isalive', health.isAlive())
+
+router.get('/selftest', health.selftest())
+
+router.get('/metrics', health.metrics())
 
 // AUTHENTICATION
 
@@ -34,11 +31,6 @@ router.get(`${api}/user/profile`, auth.ensureAuthenticated(), user.getUserProfil
 
 router.get(`${api}/user/session`, auth.ensureAuthenticated(), user.userSessionLookup())
 
-// get azure ad user photo
-router.get('/token', async function(req, res, user) {
-  const userPhoto = await msgraph.getUserPhoto({ userUpn: req.headers.userupn })
-  res.send(userPhoto)
-})
 // ORDERS
 
 router.get(
@@ -49,11 +41,10 @@ router.get(
 
 router.get(`${api}/orders/:id/`, auth.ensureAuthenticated(), order.getOrder())
 
+router.post(`${api}/orders/:type/`, auth.ensureAuthenticated(), order.postOrder())
+
 // STATUSLOG
 
 router.get(`${api}/orders/:id/statuslog`, auth.ensureAuthenticated(), order.getStatusLog())
-
-// CREATE
-router.post(`${api}/create/:type/`, order.postOrder())
 
 module.exports = router
