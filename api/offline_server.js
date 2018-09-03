@@ -29,7 +29,7 @@ app.set('trust proxy', 1)
 
 app.use('/', router)
 app.use(express.static('./dist'))
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })
 
