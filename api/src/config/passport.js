@@ -11,7 +11,7 @@ const {
   validateIssuer,
   loggingLevel
 } = require('./passportConfig')
-const getroles = require('./getroles')
+const getroles = require('../controllers/getroles')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 const msgraph = require('../controllers/msgraph')
 const { UserMongoSchema } = require('../models/userMongoSchema')

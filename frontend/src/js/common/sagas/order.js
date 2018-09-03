@@ -1,7 +1,7 @@
 import history from '../history'
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, postForm } from '../utils'
-import { api } from '../../../../../api/config/config'
+import { api } from '../../../../../api/src/config/config'
 import {
   SUBMIT_FORM,
   FORM_SUBMITTING,
