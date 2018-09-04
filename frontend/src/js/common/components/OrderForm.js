@@ -16,7 +16,7 @@ export class OrderForm extends Component {
 
     for (const key in this.orderFields) {
       this.orderFields[key].valid = true
-      this.state = { ...this.state, [key]: this.orderFields[key].default }
+      this.state = { ...this.state, [key]: this.orderFields[key].value }
     }
   }
 
@@ -112,11 +112,13 @@ export class OrderForm extends Component {
                   )
 
                 default:
-                  console.log(
-                    'fieldType',
-                    orderField.fieldType,
-                    'is not a valid OrderForm component'
-                  )
+                  if (orderField.fieldType) {
+                    console.log(
+                      'fieldType',
+                      orderField.fieldType,
+                      'is not a valid OrderForm component'
+                    )
+                  }
               }
             })}
           </div>

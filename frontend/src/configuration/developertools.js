@@ -8,7 +8,7 @@ const orderFields = {
     fieldType: 'number',
     min: 1,
     max: 8,
-    default: 1
+    value: 1
   },
   cpu: {
     label: 'Cpu',
@@ -16,7 +16,7 @@ const orderFields = {
     fieldType: 'number',
     min: 1,
     max: 4,
-    default: 1
+    value: 1
   },
   memory: {
     label: 'Memory',
@@ -24,7 +24,7 @@ const orderFields = {
     fieldType: 'number',
     min: 2,
     max: 32,
-    default: 2
+    value: 2
   },
   disk: {
     label: 'Extra disk',
@@ -32,19 +32,19 @@ const orderFields = {
     fieldType: 'number',
     min: 0,
     max: 100,
-    default: 0
+    value: 0
   },
   description: {
     label: 'Description',
     description: 'What is this server used for?',
     fieldType: 'text',
-    default: ''
+    value: ''
   },
   ibm: {
     label: 'IBM software',
     description: 'Will install ILMT monitoring agent',
     fieldType: 'checkBox',
-    default: false
+    value: false
   }
 }
 module.exports = {

@@ -53,6 +53,7 @@ exports.getStatusLog = () => {
 exports.postOrder = () => {
   return (req, res) => {
     try {
+      // proper backend @ vm/orders/jboss
       res.status(200).json(orderCreated)
     } catch (err) {
       console.log(err)

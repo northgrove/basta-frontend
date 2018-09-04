@@ -12,20 +12,20 @@ const orderFields = {
       { label: 'PreProd', value: 'preprod' },
       { label: 'Production', value: 'prod' }
     ],
-    default: 'utvikling'
+    value: 'utvikling'
   },
   env: {
     label: 'Environment',
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
-    default: ''
+    value: ''
   },
   encrypted: {
     label: 'TLS',
     description: 'Adds encryption with TLS_RSA_AES_256_CBC_SHA',
     fieldType: 'checkBox',
-    default: false
+    value: false
   }
 }
 module.exports = {
