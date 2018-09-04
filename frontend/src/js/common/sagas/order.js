@@ -18,19 +18,19 @@ export function* submitForm(action) {
   try {
     switch (action.key) {
       case 'iapptools':
-        value = yield call(postForm, `${url}/create/iapptools`, action.orders)
+        value = yield call(postForm, `${url}/orders/iapptools`, action.orders)
         break
       case 'developertools':
-        value = yield call(postForm, `${url}/create/developertools`, action.orders)
+        value = yield call(postForm, `${url}/orders/developertools`, action.orders)
         break
       case 'jbossnode':
-        value = yield call(postForm, `${url}/create/jbossnode`, action.orders)
+        value = yield call(postForm, `${url}/orders/jbossnode`, action.orders)
         break
       case 'wasnode':
-        value = yield call(postForm, `${url}/create/wasnode`, action.orders)
+        value = yield call(postForm, `${url}/orders/wasnode`, action.orders)
         break
       case 'wildflynode':
-        value = yield call(postForm, `${url}/create/wildflynode`, action.orders)
+        value = yield call(postForm, `${url}/orders/wildflynode`, action.orders)
         break
     }
     yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })

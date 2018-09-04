@@ -15,7 +15,6 @@ export default function*() {
     call(watchInitialize),
     call(watchPollSession),
     call(watchOrder),
-    call(watchInitialize),
     call(watchPhoto)
   ])
 }
