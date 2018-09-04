@@ -1,13 +1,13 @@
-import history from '../history'
+import history from '../../common/history'
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
-import { getUrl, postForm } from '../utils'
+import { getUrl, postForm } from '../../common/utils'
 import { api } from '../../../../../api/src/config/config'
 import {
   SUBMIT_FORM,
   FORM_SUBMITTING,
   FORM_SUBMIT_SUCCESSFUL,
   FORM_SUBMIT_FAILED
-} from '../actionTypes'
+} from './actionTypes'
 
 const url = `${api}`
 

@@ -4,7 +4,7 @@ import { watchInitialize } from './initialize'
 import { watcHistory } from '../../containers/history/sagas'
 // import { watchForm } from '../components/sagas'
 import { watchPollSession } from './polling'
-import { watchOrder } from './order'
+import { watchOrder } from '../../containers/order/sagas'
 import { watchPhoto } from './photo'
 
 export default function*() {

@@ -6,7 +6,7 @@ import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'
-import roles from '../../common/roles'
+import roles from '../../../configuration/roles'
 import { isAvailable } from '../../common/utils'
 
 const wasImage = require('../../../img/orderTypes/websphere.png')
@@ -77,6 +77,28 @@ export class Create extends Component {
 
 const orderTypes = [
   {
+    title: 'WebSphere MQ',
+    description: 'Topic',
+    image: mqImage,
+    tags: ['mq', 'topic', 'websphere', 'ibm'],
+    url: '/create/wstopic'
+  },
+  {
+    title: 'WebSphere MQ',
+    description: 'Queue',
+    image: mqImage,
+    tags: ['mq', 'queue', 'websphere', 'ibm'],
+    url: '/create/wsqueue'
+  },
+  {
+    title: 'WebSphere MQ',
+    description: 'Channel',
+    image: mqImage,
+    tags: ['mq', 'channel', 'websphere', 'ibm'],
+    url: '/create/wschannel',
+    access: ['Random']
+  },
+  {
     title: 'IApp Tools',
     description: 'Available via VPN',
     image: iappImage,
@@ -92,28 +114,7 @@ const orderTypes = [
     url: '/create/developertools',
     access: ['Random']
   },
-  {
-    title: 'WebSphere MQ',
-    description: 'Channel',
-    image: mqImage,
-    tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/create/wschannel',
-    access: ['Random']
-  },
-  {
-    title: 'WebSphere MQ',
-    description: 'Topic',
-    image: mqImage,
-    tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/create/wstopic'
-  },
-  {
-    title: 'WebSphere MQ',
-    description: 'Queue',
-    image: mqImage,
-    tags: ['mq', 'queue', 'websphere', 'ibm'],
-    url: '/create/wsqueue'
-  },
+
   {
     title: 'BIG-IP',
     description: 'Load Balancer Config',

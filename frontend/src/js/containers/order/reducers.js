@@ -1,4 +1,4 @@
-import { FORM_SUBMITTING, FORM_SUBMIT_SUCCESSFUL, FORM_SUBMIT_FAILED } from '../actionTypes'
+import { FORM_SUBMITTING, FORM_SUBMIT_SUCCESSFUL, FORM_SUBMIT_FAILED } from './actionTypes'
 
 export default (
   state = {
@@ -26,7 +26,7 @@ export default (
         ...state,
         completed: true,
         fetching: false,
-        orderId: action.value.orderId
+        data: action.value
       }
     case FORM_SUBMIT_FAILED:
       return {
