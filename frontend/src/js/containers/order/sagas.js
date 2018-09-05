@@ -6,7 +6,15 @@ import {
   SUBMIT_FORM,
   FORM_SUBMITTING,
   FORM_SUBMIT_SUCCESSFUL,
-  FORM_SUBMIT_FAILED
+  FORM_SUBMIT_FAILED,
+  STATUSLOG_REQUEST,
+  STATUSLOG_FETCHING,
+  STATUSLOG_RECEIVED,
+  STATUSLOG_REQUEST_FAILED,
+  ORDER_REQUEST,
+  ORDER_FETCHING,
+  ORDER_RECEIVED,
+  ORDER_REQUEST_FAILED
 } from './actionTypes'
 
 const url = `${api}`
@@ -39,6 +47,28 @@ export function* submitForm(action) {
   }
 }
 
+export function* getStatusLog(action) {
+  try {
+    yield put({ type: STATUSLOG_FETCHING })
+    const value = yield call(getUrl, `${url}/orders/${action.orderId}/statuslog/`)
+    yield put({ type: STATUSLOG_RECEIVED, value })
+  } catch (error) {
+    yield put({ type: STATUSLOG_REQUEST_FAILED, error })
+  }
+}
+
+export function* getOrderDetails(action) {
+  try {
+    yield put({ type: ORDER_FETCHING })
+    const value = yield call(getUrl, `${url}/orders/${action.orderId}`)
+    yield put({ type: ORDER_RECEIVED, value })
+  } catch (error) {
+    yield put({ type: ORDER_REQUEST_FAILED, error })
+  }
+}
+
 export function* watchOrder() {
   yield fork(takeEvery, SUBMIT_FORM, submitForm)
+  yield fork(takeEvery, ORDER_REQUEST, getOrderDetails)
+  yield fork(takeEvery, STATUSLOG_REQUEST, getStatusLog)
 }

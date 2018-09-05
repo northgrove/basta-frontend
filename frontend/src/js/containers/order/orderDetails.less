@@ -1,0 +1,23 @@
+.orderDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas: 'results log' 'request log';
+}
+.log {
+  grid-area: log;
+}
+.request  {
+  grid-area: request;
+}
+.results {
+  grid-area: results;
+}
+
+@media all and (max-width: 800px) {
+  .orderDetails {
+    grid-template-areas: 'results' 'request' 'log';
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}
