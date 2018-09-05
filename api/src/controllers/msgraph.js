@@ -1,6 +1,6 @@
 const request = require('request-promise').defaults({ encoding: null })
 const token = require('./getAccesstoken')
-const defaultPhoto = require('./defaultPhoto')
+const { defaultPhoto } = require('./defaultPhoto')
 
 exports.getUserPhoto = async ({ userUpn }) => {
   let userPhoto = ''

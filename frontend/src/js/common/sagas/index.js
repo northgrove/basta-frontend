@@ -5,7 +5,6 @@ import { watcHistory } from '../../containers/history/sagas'
 // import { watchForm } from '../components/sagas'
 import { watchPollSession } from './polling'
 import { watchOrder } from '../../containers/order/sagas'
-import { watchPhoto } from './photo'
 
 export default function*() {
   yield all([
@@ -14,7 +13,6 @@ export default function*() {
     // call(watchForm),
     call(watchInitialize),
     call(watchPollSession),
-    call(watchOrder),
-    call(watchPhoto)
+    call(watchOrder)
   ])
 }
