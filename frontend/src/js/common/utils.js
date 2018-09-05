@@ -2,6 +2,7 @@
 import React from 'react'
 const request = require('request-promise')
 const config = require('../../../../api/src/config/passportConfig')
+import { api } from '../../../../api/src/config/config'
 let ms_access_token = ''
 
 export const getUrl = url => {
@@ -41,12 +42,12 @@ export const postForm = (url, form) => {
 }
 
 export const getUserPhoto = async userUpn => {
-  const proxyPhoto = await request.get({
-    url: 'http://localhost:8080/token',
+  const userPhoto = await request.get({
+    url: `${api}/user/photo`,
     headers: { userUpn: userUpn }
   })
   // console.log(proxyPhoto)
-  return proxyPhoto
+  return userPhoto
 }
 
 export const isAvailable = (access, roles) => {

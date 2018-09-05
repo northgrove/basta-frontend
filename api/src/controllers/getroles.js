@@ -2,7 +2,8 @@ let arrRoles = []
 
 // match groups in token to roles
 exports.matchRoles = ({ groups }) => {
-  groups.forEach(group => {
+  groupsSplit = JSON.parse(groups)
+  groupsSplit.forEach(group => {
     Object.keys(roles).forEach(role => {
       if (roles[role].includes(group) && !arrRoles.includes(role)) {
         arrRoles.push(role)
@@ -13,10 +14,13 @@ exports.matchRoles = ({ groups }) => {
 }
 
 const roles = {
-  ROLE_SUPERUSER: ['c91b58c6-c7e7-4160-9b58-5187abb0bb6b'], //0000-GA-BASTA_SUPERUSER
-  ROLE_PROD_OPERATIONS: ['9fad3009-d179-4a8f-b73d-5f1e28dc6013'], //0000-GA-env-config-TestAdmin, 0000-GA-BASTA_SUPERUSER
-  ROLE_OPERATIONS: ['0'], //0000-GA-env-config-TestAdmin, 0000-GA-BASTA_SUPERUSER
-  ROLE_USER: ['0'], //All ad users
+  ROLE_SUPERUSER: ['6283f2bd-8bb5-4d13-ae38-974e1bcc1aad'], //0000-GA-BASTA_SUPERUSER
+  ROLE_PROD_OPERATIONS: [
+    '6283f2bd-8bb5-4d13-ae38-974e1bcc1aad',
+    'cd3983f1-fbc1-4c33-9f31-f7a40e422ccd'
+  ], //0000-GA-env-config-TestAdmin, 0000-GA-BASTA_SUPERUSER
+  ROLE_OPERATIONS: ['6283f2bd-8bb5-4d13-ae38-974e1bcc1aad', 'cd3983f1-fbc1-4c33-9f31-f7a40e422ccd'], //0000-GA-env-config-TestAdmin, 0000-GA-BASTA_SUPERUSER
+  ROLE_USER: ['928636f4-fd0d-4149-978e-a6fb68bb19de'], //All ad users
   TEST1: ['xxx', 'yyy'],
   TEST2: ['yyy']
 }

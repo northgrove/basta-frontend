@@ -10,6 +10,7 @@ import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import Login from '../containers/login/Login'
 import moment from 'moment'
+import NavUserMenu from './navMenu/NavUserMenu'
 
 const bastaLogo = require('../../img/basta.png')
 
@@ -25,20 +26,8 @@ class App extends Component {
     moment.locale('nb')
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { dispatch } = this.props
-  }
-
   render() {
-    let roles
-    if (this.props.user.isUserAuthenticated) {
-      roles = this.props.user.userProfile.roles.join(', ')
-    } else {
-      roles = 'error'
-    }
-    const { user, appReady } = this.props
-    let photo = this.props.user.userPhoto
-
+    const { appReady, user } = this.props
     if (appReady) {
       return !user.isUserAuthenticated ? (
         <Login location={location} />
@@ -51,18 +40,7 @@ class App extends Component {
                 <div className="navName">basta</div>
               </div>
             </div>
-            <div className="navUser">
-              <div className="navUserMenu">
-                <img className="navUserImage" src={photo} width="45" height="45" />
-                <div className="navUserMenu-content">
-                  <p>{this.props.user.userProfile.userName}</p>
-                  <p> Tilgang: {roles} </p>
-                  <a href="api/v1/auth/logout">
-                    <i className="fa fa-sign-out" /> logout
-                  </a>
-                </div>
-              </div>
-            </div>
+            <NavUserMenu />
           </header>
 
           <div className="navLeft" />
