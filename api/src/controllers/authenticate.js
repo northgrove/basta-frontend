@@ -4,6 +4,14 @@ const passport = require('passport')
 
 exports.authenticateAzure = () => {
   return (req, res, next) => {
+    const concatUrl = params => {
+      let string = ''
+      Object.keys(params).forEach(e => {
+        if (params[e]) string = `${string}/${params[e]}`
+      })
+      return string.toString()
+    }
+    req.session.redirectUrl = concatUrl(req.params)
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
@@ -16,12 +24,12 @@ exports.authenticateAzure = () => {
   }
 }
 
-exports.authenticateAzureWithRedirect = () => {
+exports.authenticateAzureCallback = () => {
   return (req, res, next) => {
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
-        successRedirect: '/',
+        successRedirect: req.session.redirectUrl || '/',
         failureRedirect: '/error'
       })(req, res, next)
     } catch (err) {

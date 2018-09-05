@@ -50,6 +50,7 @@ module.exports = passport => {
         loggingLevel: loggingLevel
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
+        console.log('req i passport', req.session.redirectUrl)
         process.nextTick(() => {
           UserMongoSchema.findOne({ 'azure.id': profile.oid }, (err, user) => {
             if (err) {
@@ -57,7 +58,7 @@ module.exports = passport => {
             }
             if (user) {
               console.log('user found in DB: ' + user.azure.upn)
-              return done(null, user)
+              return done(null, user, req.session.redirectUrl)
             } else {
               arrRoles = getroles.matchRoles({
                 groups: profile._json.groups
