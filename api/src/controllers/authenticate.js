@@ -58,10 +58,10 @@ exports.logOut = () => {
   return (req, res) => {
     try {
       req.session.destroy(err => {
-        res.status(500).send(err)
+        res.status(200).redirect('/')
       })
-      res.status(200).redirect('/')
     } catch (err) {
+      res.status(500).send(err)
       return `ERROR during logout: ${err}`
     }
   }
