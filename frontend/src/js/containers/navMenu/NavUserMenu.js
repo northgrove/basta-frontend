@@ -20,9 +20,7 @@ const navUserMenu = props => {
           <a href="https://account.activedirectory.windowsazure.com/r#/profile">
             {user.userProfile.userName}
           </a>
-          <p>
-            <hr />
-          </p>
+          <hr />
           <p>
             {' '}
             Tilganger: <br /> {roles}{' '}
