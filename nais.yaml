@@ -12,3 +12,5 @@ fasitResources:
       resourceType: baseUrl
     - alias: basta-frontendProperties
       resourceType: applicationProperties
+    - alias: bastaAzureConfig
+      resourceType: AzureOIDC
