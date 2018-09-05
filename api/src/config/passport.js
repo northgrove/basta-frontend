@@ -15,7 +15,7 @@ const getroles = require('../controllers/getroles')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 const msgraph = require('../controllers/msgraph')
 const { UserMongoSchema } = require('../models/userMongoSchema')
-//const save = require('./saveUser')
+const save = require('./saveUser')
 let arrRoles = ''
 
 module.exports = passport => {
