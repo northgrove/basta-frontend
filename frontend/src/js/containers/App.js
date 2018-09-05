@@ -40,9 +40,8 @@ class App extends Component {
                 <div className="navName">basta</div>
               </div>
             </div>
-            <NavUserMenu />
+            <NavUserMenu user={user} />
           </header>
-
           <div className="navLeft" />
           <nav>
             <NavMenu className="navTabs" />

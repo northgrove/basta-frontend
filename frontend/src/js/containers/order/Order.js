@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import connect from 'react-redux/es/connect/connect'
 import history from '../../common/history'
-
+import Spinner from '../../common/components/Spinner'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
@@ -11,37 +11,29 @@ export class Order extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { order } = nextProps
-    if (Number.isInteger(order.data.id)) {
-      history.push('/orders/' + order.data.id)
+    const { form } = nextProps.order
+
+    if (Number.isInteger(form.id)) {
+      history.push('/orders/' + form.id)
     }
   }
 
   render() {
-    const { order } = this.props
-    if (order.fetching) {
+    const { form } = this.props.order
+    if (form.submitting) {
       return (
         <div className="panel panel-default">
           <div className="panel-heading">Submitting form</div>
           <div className="panel-body">
             <div className="infobox">
               <div className="icon">
-                <div className="spinner">
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
+                <Spinner />
               </div>
             </div>
           </div>
         </div>
       )
-    } else if (order.failed) {
+    } else if (form.failed) {
       return (
         <div className="panel panel-error">
           <div className="panel-heading">Submitting form failed</div>
@@ -50,7 +42,7 @@ export class Order extends Component {
               <div className="icon">
                 <i className="fa fa-exclamation-circle" aria-hidden="true" />
               </div>
-              <div className="content">{order.error}</div>
+              <div className="content">{form.error}</div>
             </div>
           </div>
         </div>

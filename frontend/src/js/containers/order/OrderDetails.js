@@ -2,34 +2,54 @@ import React, { Component } from 'react'
 import connect from 'react-redux/es/connect/connect'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
+import moment from 'moment'
 
 import PageHeading from '../../common/components/PageHeading'
-import moment from 'moment'
+import Spinner from '../../common/components/Spinner'
+import Request from './Request'
+import Results from './Results'
+import Log from './Log'
+import { getOrder, getStatusLog } from './actionCreators'
+
 export class OrderDetails extends Component {
   constructor(props) {
     super(props)
   }
-  componentDidMount() {}
+
+  componentDidMount() {
+    const { order, dispatch } = this.props
+    if (!order.data) {
+      dispatch(getOrder(this.props.match.params.orderId))
+      dispatch(getStatusLog(this.props.match.params.orderId))
+    }
+  }
 
   render() {
-    const { data } = this.props.order
-    console.log(data)
-    return (
+    const { details, statuslog } = this.props.order
+    console.log(this.props.order)
+    return details.data ? (
       <div>
         <PageHeading
           icon="fa-refresh"
-          heading={data.id.toString()}
+          heading={details.data.id.toString()}
           description={
-            data.orderOperation +
+            details.data.orderOperation +
             ' | ' +
-            data.orderType +
+            details.data.orderType +
             ' | ' +
-            data.orerDescription +
+            details.data.orderDescription +
             ' | ' +
-            moment(data.created).fromNow()
+            moment(details.created).fromNow()
           }
         />
+        <div className="orderDetails">
+          <Results data={details.data.results} />
+          <Request data={details.data} />
+          <Log data={statuslog} />
+        </div>
       </div>
+    ) : (
+      <Spinner />
     )
   }
 }
@@ -38,7 +58,6 @@ OrderDetails.propTypes = {}
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
     order: state.order
   }
 }

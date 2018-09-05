@@ -44,11 +44,6 @@ export default (
         requestFailed: true,
         requestStatus: action.err
       }
-    case USER_PHOTO_RECEIVED:
-      return {
-        ...state,
-        userPhoto: action.userPhoto
-      }
 
     // USER SESSION LOOKUP
 
