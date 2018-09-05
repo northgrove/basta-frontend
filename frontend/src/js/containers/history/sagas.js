@@ -1,6 +1,6 @@
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl } from '../../common/utils'
-import { api } from '../../../../../api/config/config'
+import { api } from '../../../../../api/src/config/config'
 import {
   HISTORY_REQUEST,
   HISTORY_FETCHING,

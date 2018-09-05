@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { OrderCheckBox, OrderNumberBox, OrderTextBox, OrderButtonGroup } from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
-import { submitForm } from '../actionCreators'
+import { submitForm } from '../../containers/order/actionCreators'
 import { withRouter } from 'react-router-dom'
 import connect from 'react-redux/es/connect/connect'
 
@@ -16,7 +16,7 @@ export class OrderForm extends Component {
 
     for (const key in this.orderFields) {
       this.orderFields[key].valid = true
-      this.state = { ...this.state, [key]: this.orderFields[key].default }
+      this.state = { ...this.state, [key]: this.orderFields[key].value }
     }
   }
 
@@ -95,6 +95,7 @@ export class OrderForm extends Component {
                       value={this.state[orderFieldKey]}
                       description={orderField.description}
                       alternatives={orderField.alternatives}
+                      roles={this.props.user.userProfile.roles}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )
@@ -111,11 +112,13 @@ export class OrderForm extends Component {
                   )
 
                 default:
-                  console.log(
-                    'fieldType',
-                    orderField.fieldType,
-                    'is not a valid OrderForm component'
-                  )
+                  if (orderField.fieldType) {
+                    console.log(
+                      'fieldType',
+                      orderField.fieldType,
+                      'is not a valid OrderForm component'
+                    )
+                  }
               }
             })}
           </div>

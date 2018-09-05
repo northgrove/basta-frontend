@@ -6,7 +6,7 @@ import Operate from '../containers/operate/Operate'
 import Create from '../containers/create/Create'
 import { NotFound } from '../containers/notfound/NotFound'
 import OrderForm from './components/OrderForm'
-import OrderPage from '../containers/order/OrderPage'
+import OrderDetails from '../containers/order/OrderDetails'
 import Order from '../containers/order/Order'
 
 // Routes
@@ -15,7 +15,7 @@ export const Routes = () => {
     <Switch>
       <Route exact path="/" component={History} />
       <Route exact path="/order" component={Order} />
-      <Route path="/orders/:orderId" component={OrderPage} />
+      <Route path="/orders/:orderId" component={OrderDetails} />
       <Route path="/operate" component={Operate} />
       <Route exact path="/create" component={Create} />
       <Route path="/create/:orderType" component={OrderForm} />

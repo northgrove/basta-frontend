@@ -4,7 +4,7 @@ import user from './user'
 import initialize from './initialize'
 import navMenu from '../../containers/navMenu/reducer'
 import history from '../../containers/history/reducers'
-import order from './order'
+import order from '../../containers/order/reducers'
 
 const rootReducer = combineReducers({
   routing: routerReducer,

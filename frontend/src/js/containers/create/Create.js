@@ -6,7 +6,8 @@ import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'
-import roles from '../../common/roles'
+import roles from '../../../configuration/roles'
+import { isAvailable } from '../../common/utils'
 
 const wasImage = require('../../../img/orderTypes/websphere.png')
 const jbossImage = require('../../../img/orderTypes/jboss.png')
@@ -51,7 +52,9 @@ export class Create extends Component {
         <OrderGrid>
           {this.state.filteredOrders.map((orderType, i) => {
             const { title, description, image, tags, url, access } = orderType
-            //console.log(title, this.isAvailabe(access, this.props.user.currentUser.roles))
+            if (title === 'IApp Tools') {
+              console.log(access)
+            }
 
             return (
               <OrderCard
@@ -61,7 +64,8 @@ export class Create extends Component {
                 image={image}
                 tags={tags}
                 url={url}
-                enabled={isAvailable(access, this.props.user.currentUser.roles)}
+                access={access}
+                enabled={isAvailable(access, this.props.user.userProfile.roles)}
               />
             )
           })}
@@ -72,28 +76,6 @@ export class Create extends Component {
 }
 
 const orderTypes = [
-  {
-    title: 'IApp Tools',
-    description: 'Available via VPN',
-    image: iappImage,
-    tags: ['developer', 'tools', 'iapp', 'jenkins', 'vpn'],
-    url: '/create/iapptools',
-    access: [roles.ROLE_OPERATIONS, roles.ROLE_PROD_OPERATIONS]
-  },
-  {
-    title: 'Devillo Tools',
-    description: 'Jenkins etc. in Devillo',
-    image: developertoolsImage,
-    tags: ['developer', 'tools', 'devillo', 'jenkins'],
-    url: '/create/developertools'
-  },
-  {
-    title: 'WebSphere MQ',
-    description: 'Channel',
-    image: mqImage,
-    tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/create/wschannel'
-  },
   {
     title: 'WebSphere MQ',
     description: 'Topic',
@@ -108,6 +90,31 @@ const orderTypes = [
     tags: ['mq', 'queue', 'websphere', 'ibm'],
     url: '/create/wsqueue'
   },
+  {
+    title: 'WebSphere MQ',
+    description: 'Channel',
+    image: mqImage,
+    tags: ['mq', 'channel', 'websphere', 'ibm'],
+    url: '/create/wschannel',
+    access: ['Random']
+  },
+  {
+    title: 'IApp Tools',
+    description: 'Available via VPN',
+    image: iappImage,
+    tags: ['developer', 'tools', 'iapp', 'jenkins', 'vpn'],
+    url: '/create/iapptools',
+    access: [roles.ROLE_OPERATIONS, roles.ROLE_PROD_OPERATIONS]
+  },
+  {
+    title: 'Devillo Tools',
+    description: 'Jenkins etc. in Devillo',
+    image: developertoolsImage,
+    tags: ['developer', 'tools', 'devillo', 'jenkins'],
+    url: '/create/developertools',
+    access: ['Random']
+  },
+
   {
     title: 'BIG-IP',
     description: 'Load Balancer Config',
@@ -223,16 +230,6 @@ const orderTypes = [
 ]
 Create.propTypes = {}
 
-export const isAvailable = (access, roles) => {
-  if (!access) return true
-  let validAccess = false
-  roles.forEach(role => {
-    if (access.includes(role)) {
-      validAccess = true
-    }
-  })
-  return validAccess
-}
 const mapStateToProps = state => {
   return {
     user: state.user

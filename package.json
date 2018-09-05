@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
@@ -102,22 +102,15 @@
     "build": "better-npm-run build",
     "prebuild": "better-npm-run prebuild",
     "prefrontend": "better-npm-run prebuild",
-    "dev": "better-npm-run dev",
     "frontend": "better-npm-run dev-frontend",
     "api": "better-npm-run dev-api",
     "offline": "better-npm-run dev-offline"
   },
   "betterScripts": {
     "start": {
-      "command": "node api/server.js",
+      "command": "node api/src/server.js",
       "env": {
         "NODE_ENV": "production"
-      }
-    },
-    "dev": {
-      "command": "parcel frontend/src/index.html | nodemon api/server.js",
-      "env": {
-        "NODE_ENV": "development"
       }
     },
     "prebuild": {
@@ -136,13 +129,13 @@
       "command": "ncp node_modules/font-awesome/fonts/ frontend/src/fonts"
     },
     "dev-api": {
-      "command": "nodemon api/server.js",
+      "command": "nodemon api/src/server.js",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "dev-offline": {
-      "command": "parcel frontend/src/index.html | nodemon api/offline_server.js",
+      "command": "parcel frontend/src/index.html | nodemon api/test/server.js",
       "env": {
         "NODE_ENV": "offline"
       }

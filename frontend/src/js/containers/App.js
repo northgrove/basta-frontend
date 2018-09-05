@@ -10,6 +10,7 @@ import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import Login from '../containers/login/Login'
 import moment from 'moment'
+import NavUserMenu from './navMenu/NavUserMenu'
 
 const bastaLogo = require('../../img/basta.png')
 
@@ -26,17 +27,10 @@ class App extends Component {
   }
 
   render() {
-    let roles
-    if (this.props.user.isUserAuthenticated) {
-      roles = this.props.user.currentUser.roles.join(', ')
-    } else {
-      roles = 'error'
-    }
-
-    const { user, appReady } = this.props
+    const { appReady, user } = this.props
     if (appReady) {
       return !user.isUserAuthenticated ? (
-        <Login />
+        <Login location={location} />
       ) : (
         <div className="wrapper">
           <header>
@@ -46,17 +40,7 @@ class App extends Component {
                 <div className="navName">basta</div>
               </div>
             </div>
-            <div className="navUser">
-              <div className="navUserMenu">
-                <i className="fa fa-user" /> {this.props.user.currentUser.userName}
-                <div className="navUserMenu-content">
-                  <p> Tilgang: {roles} </p>
-                  <a href="/logout">
-                    <i className="fa fa-sign-out" /> logout
-                  </a>
-                </div>
-              </div>
-            </div>
+            <NavUserMenu />
           </header>
 
           <div className="navLeft" />

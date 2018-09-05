@@ -12,7 +12,7 @@ const orderFields = {
       { label: 'PreProd', value: 'preprod' },
       { label: 'Production', value: 'prod' }
     ],
-    default: 'utvikling'
+    value: 'utvikling'
   },
   zone: {
     label: 'Zone',
@@ -22,21 +22,21 @@ const orderFields = {
       { label: 'Fagsystemsone', value: 'fss' },
       { label: 'Selvbetjeningssone', value: 'sbs' }
     ],
-    default: 'fss'
+    value: 'fss'
   },
   env: {
     label: 'Environment',
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
-    default: ''
+    value: ''
   },
   application: {
     label: 'Application',
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
-    default: ''
+    value: ''
   },
   servers: {
     label: 'Servers',
@@ -44,7 +44,7 @@ const orderFields = {
     fieldType: 'number',
     min: 1,
     max: 8,
-    default: 1
+    value: 1
   },
   cpu: {
     label: 'Cpu',
@@ -52,7 +52,7 @@ const orderFields = {
     fieldType: 'number',
     min: 1,
     max: 4,
-    default: 1
+    value: 1
   },
   memory: {
     label: 'Memory',
@@ -60,7 +60,7 @@ const orderFields = {
     fieldType: 'number',
     min: 2,
     max: 32,
-    default: 2
+    value: 2
   },
   disk: {
     label: 'Extra disk',
@@ -68,19 +68,19 @@ const orderFields = {
     fieldType: 'number',
     min: 0,
     max: 100,
-    default: 0
+    value: 0
   },
   description: {
     label: 'Description',
     description: 'What is this server used for?',
     fieldType: 'text',
-    default: ''
+    value: ''
   },
   custom: {
     label: 'Custom',
     description: 'Classify this server as custom',
     fieldType: 'checkBox',
-    default: false
+    value: false
   }
 }
 module.exports = {

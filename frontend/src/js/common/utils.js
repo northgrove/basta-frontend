@@ -1,5 +1,8 @@
 // eslint-disable-next-line
 import React from 'react'
+const request = require('request-promise')
+import { api } from '../../../../api/src/config/config'
+let ms_access_token = ''
 
 export const getUrl = url => {
   const init = {
@@ -35,4 +38,24 @@ export const postForm = (url, form) => {
       throw res.statusText
     }
   })
+}
+
+export const getUserPhoto = async userUpn => {
+  const userPhoto = await request.get({
+    url: `${api}/user/photo`,
+    headers: { userUpn: userUpn }
+  })
+  // console.log(proxyPhoto)
+  return userPhoto
+}
+
+export const isAvailable = (access, roles) => {
+  if (!access) return true
+  let validAccess = false
+  roles.forEach(role => {
+    if (access.includes(role)) {
+      validAccess = true
+    }
+  })
+  return validAccess
 }

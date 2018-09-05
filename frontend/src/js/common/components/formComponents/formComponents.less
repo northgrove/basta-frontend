@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-areas: 'label content';
+  margin-bottom: 10px;
 }
 
 .formComponentLabel {
@@ -53,6 +54,7 @@
 .formComponentLabelDescription {
   visibility: hidden;
   margin-left: 10px;
+
   color: @font-color-secondary;
 }
 
@@ -158,21 +160,39 @@ input:checked + .formComponentCheckBox:before {
   padding: 10px 24px;
   cursor: pointer;
 }
+.formComponentButtonGroup button:hover {
+  background-color: @highlight-color;
+  color: @inverse-font-color;
+}
 
+.formComponentButtonGroup button + .disabled {
+  display: inline-block;
+  background-color: #ddd;
+  border: 1px solid @border-color;
+  color: #eee;
+  font-size: 1em;
+  padding: 10px 24px;
+  cursor: not-allowed;
+}
+.formComponentButtonGroup button:hover + .disabled {
+  display: inline-block;
+  background-color: #ddd !important;
+  border: 1px solid @border-color;
+  font-size: 1em;
+  padding: 10px 24px;
+  cursor: not-allowed;
+}
 .formComponentButtonGroup button:not(:last-child) {
   border-right: none; /* Prevent double borders */
 }
 
-.formComponentButtonGroup button:hover {
-  background-color: @highlight-color;
-}
-
 .formComponentButtonGroup > .active {
-  background-color: @button-color;
+  background-color: @highlight-color;
+  color: @inverse-font-color;
 }
 
 .formComponentButtonGroup > .active:hover {
-  background-color: @font-color-secondary;
+  background-color: @highlight-color;
   cursor: default;
 }
 

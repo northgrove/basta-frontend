@@ -2,7 +2,13 @@ const description = 'Node'
 const title = 'Jboss Application Server'
 const image = require('../img/orderTypes/jboss.png')
 const orderFields = {
-  class: {
+  nodeType: {
+    value: 'JBOSS'
+  },
+  classification: {
+    value: { type: 'standard' }
+  },
+  environmentClass: {
     label: 'Env. class',
     description: '',
     fieldType: 'buttonGroup',
@@ -10,9 +16,9 @@ const orderFields = {
       { label: 'development', value: 'utvikling' },
       { label: 'test', value: 'test' },
       { label: 'PreProd', value: 'preprod' },
-      { label: 'Production', value: 'prod' }
+      { label: 'Production', value: 'prod', access: ['ROLE_PROD'] }
     ],
-    default: 'utvikling'
+    value: 'utvikling'
   },
   zone: {
     label: 'Zone',
@@ -22,37 +28,37 @@ const orderFields = {
       { label: 'Fagsystemsone', value: 'fss' },
       { label: 'Selvbetjeningssone', value: 'sbs' }
     ],
-    default: 'fss'
+    value: 'fss'
   },
-  env: {
+  environmentName: {
     label: 'Environment',
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
-    default: ''
+    value: ''
   },
-  application: {
+  applicationMappingName: {
     label: 'Application',
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
-    default: ''
+    value: ''
   },
-  servers: {
+  serverCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
     min: 1,
     max: 8,
-    default: 1
+    value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
     min: 1,
     max: 4,
-    default: 1
+    value: 1
   },
   memory: {
     label: 'Memory',
@@ -60,22 +66,22 @@ const orderFields = {
     fieldType: 'number',
     min: 2,
     max: 32,
-    default: 2
+    value: 2
   },
-  disk: {
+  extraDisk: {
     label: 'Extra disk',
     description: 'GB',
     fieldType: 'number',
     min: 0,
     max: 100,
-    default: 0
+    value: 0
   },
   eapVersion: {
     label: 'EAP version',
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [{ label: 'EAP 6', value: 'EAP6' }, { label: 'EAP 7', value: 'EAP7' }],
-    default: 'EAP6'
+    value: 'EAP6'
   },
   javaVersion: {
     label: 'Java version',
@@ -85,13 +91,13 @@ const orderFields = {
       { label: 'OpenJDK 7', value: 'OpenJDK7' },
       { label: 'OpenJDK 8', value: 'OpenJDK8' }
     ],
-    default: 'OpenJDK7'
+    value: 'OpenJDK7'
   },
   description: {
     label: 'Description',
     description: 'What is this server used for?',
     fieldType: 'text',
-    default: ''
+    value: ''
   }
 }
 module.exports = {

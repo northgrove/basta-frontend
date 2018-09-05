@@ -1,0 +1,31 @@
+{
+  "id": 6969,
+  "created": 1536049879788,
+  "createdBy": "mockuser",
+  "updated": 1536049879788,
+  "updatedBy": "mockuser",
+  "updatedByDisplayName": "Mock User",
+  "createddByDisplayName": "Mock User",
+  "orderType": "VM",
+  "results": [],
+  "input": {
+    "nodeType": "JBOSS",
+    "classification": { "type": "standard" },
+    "environmentClass": "utvikling",
+    "zone": "fss",
+    "environmentName": "",
+    "applicationMappingName": "",
+    "serverCount": 1,
+    "cpuCount": 1,
+    "memory": 2,
+    "extraDisk": 0,
+    "eapVersion": "EAP6",
+    "javaVersion": "OpenJDK7",
+    "description": ""
+  },
+  "uri": "https://bakcendaddress/rest/orders/6969",
+  "status": "PROCESSING",
+  "errorMessage": null,
+  "orerDescription": "JBOSS_NODE",
+  "orderOperation": "CREATE"
+}

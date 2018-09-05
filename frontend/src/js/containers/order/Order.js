@@ -12,8 +12,8 @@ export class Order extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { order } = nextProps
-    if (Number.isInteger(order.orderId)) {
-      history.push('/orders/' + order.orderId)
+    if (Number.isInteger(order.data.id)) {
+      history.push('/orders/' + order.data.id)
     }
   }
 

@@ -1,13 +1,17 @@
-import { put, fork, call, take, race, select } from 'redux-saga/effects'
+import { put, call, take, takeEvery } from 'redux-saga/effects'
+import { getUrl } from '../utils'
+import { api } from '../../../../../api/src/config/config'
 import {
-  POLL_SESSION_START,
-  POLL_SESSION_STOP,
-  USER_SESSION_REQUEST,
-  USER_SESSION_RECEIVED,
-  USER_SESSION_REQUEST_FAILED
+  USER_SESSION_POLLING_START,
+  USER_SESSION_POLLING,
+  USER_SESSION_ACTIVE,
+  USER_SESSION_EXPIRED,
+  USER_SESSION_POLLING_STOP
 } from '../actionTypes'
 
-function delay(millis) {
+const url = `${api}`
+
+const delay = millis => {
   const promise = new Promise(resolve => {
     setTimeout(() => resolve(true), millis)
   })
@@ -17,15 +21,14 @@ function delay(millis) {
 export function* pollSessionWorker(action) {
   try {
     yield call(delay, 10000)
-    yield put({ type: USER_SESSION_REQUEST })
+    yield call(getUrl, `${url}/user/session`)
+    yield put({ type: USER_SESSION_ACTIVE })
   } catch (err) {
-    yield put({ type: USER_SESSION_REQUEST_FAILED, err })
+    yield put({ type: USER_SESSION_EXPIRED, err })
   }
 }
 
 export function* watchPollSession() {
-  while (true) {
-    yield take(USER_SESSION_RECEIVED)
-    yield race([call(pollSessionWorker), take(POLL_SESSION_STOP)])
-  }
+  yield takeEvery(USER_SESSION_POLLING_START, pollSessionWorker)
+  yield takeEvery(USER_SESSION_ACTIVE, pollSessionWorker)
 }

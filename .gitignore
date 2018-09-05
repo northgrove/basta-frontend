@@ -6,4 +6,4 @@ node_modules/
 frontend/src/.DS_Store
 frontend/src/fonts/
 .vscode/
-/api/config/passportConfig.js
+.env

@@ -4,6 +4,7 @@ import connect from 'react-redux/es/connect/connect'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'
+import { isAvailable } from '../../common/utils'
 
 const securityImage = require('../../../img/orderTypes/security.png')
 const redhatImage = require('../../../img/orderTypes/redhat.png')
@@ -36,7 +37,7 @@ export class Operate extends Component {
         <OrderFilter onChange={e => this.filterString(e)} />
         <OrderGrid>
           {this.state.filteredOrders.map((orderType, i) => {
-            const { title, description, image, tags, url } = orderType
+            const { title, description, image, tags, url, access } = orderType
             return (
               <OrderCard
                 key={i}
@@ -45,6 +46,7 @@ export class Operate extends Component {
                 image={image}
                 tags={tags}
                 url={url}
+                enabled={isAvailable(access, this.props.user.userProfile.roles)}
               />
             )
           })}
