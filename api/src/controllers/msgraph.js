@@ -18,7 +18,7 @@ exports.getUserPhoto = async ({ userUpn }) => {
       })
       .catch(err => {
         console.log('No picture found for user')
-        userPhoto = defaultPhoto
+        userPhoto = defaultPhoto.defaultPhoto
         return userPhoto
       })
   } catch (err) {
