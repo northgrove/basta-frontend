@@ -1,7 +1,6 @@
 [![CircleCI](https://circleci.com/gh/navikt/basta-frontend.svg?style=svg)](https://circleci.com/gh/navikt/basta-frontend)
 [![Known Vulnerabilities](https://snyk.io/test/github/navikt/basta-frontend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/navikt/basta-frontend?targetFile=package.json)
 
-
 # Basta frontend
 
 Basta er en selvbetjent bestillingsportal for bestilling og opprettelse av ting som virtuell maskiner, databaser, køer, brukere osv.
