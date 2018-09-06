@@ -38,7 +38,6 @@ node {
                 withEnv(['HTTP_PROXY=http://webproxy-utvikler.nav.no:8088', 'NO_PROXY=adeo.no']) {
                         sh "mkdir -p ${distDir}"
                         sh "cp -r api/src ${distDir}"
-                        sh "cp -r api/config ${distDir}"
                         sh "cd ${distDir} && cp ../../package.json . && npm install --production && cd -"
                      //    getting required node_modules for production
                         sh "npm install && npm run build || exit 1" // Creating frontend bundle
