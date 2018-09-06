@@ -6,8 +6,10 @@ import ReactTooltip from 'react-tooltip'
 const Log = props => {
   return (
     <div className="log">
-      <div className="panel panel-default">
-        <div className="panel-heading">Log</div>
+      <div className="panel panel-info">
+        <div className="panel-heading">
+          <i className="fa fa-history" /> Log
+        </div>
         <div className="panel-body" />
       </div>
     </div>

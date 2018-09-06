@@ -6,13 +6,11 @@ import ReactTooltip from 'react-tooltip'
 const Results = props => {
   return (
     <div className="results">
-      <div className="panel panel-default">
-        <div className="panel-heading">Results</div>
-        <div className="panel-body">
-          <div className="infobox">
-            <div className="icon" />
-          </div>
+      <div className="panel panel-info">
+        <div className="panel-heading">
+          <i className="fa fa-server" /> Results
         </div>
+        <div className="panel-body" />
       </div>
     </div>
   )
