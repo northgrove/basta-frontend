@@ -1,10 +1,11 @@
 const request = require('request-promise').defaults({ encoding: null })
 const token = require('./getAccesstoken')
+const { tokenURI } = require('../config/passportConfig')
 const { defaultPhoto } = require('./defaultPhoto')
 
 exports.getUserPhoto = async ({ userUpn }) => {
   let userPhoto = ''
-  const aToken = await token.getAccessToken()
+  const aToken = await token.getAccessToken(tokenURI)
   try {
     return request
       .get({
@@ -18,7 +19,7 @@ exports.getUserPhoto = async ({ userUpn }) => {
       })
       .catch(err => {
         console.log('No picture found for user')
-        userPhoto = defaultPhoto.defaultPhoto
+        userPhoto = defaultPhoto
         return userPhoto
       })
   } catch (err) {

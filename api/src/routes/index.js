@@ -17,13 +17,15 @@ router.get('/metrics', health.metrics())
 
 // AUTHENTICATION
 
-router.get(`/login`, auth.authenticateAzure())
+router.get('/login/:param1?/:param2?/:param3?', auth.authenticateAzure())
 
-router.get(`/login/*`, auth.authenticateAzureWithRedirect())
+// router.get('/login/*?', auth.authenticateAzure())
 
-router.post('/auth/openid/callback', auth.authenticateAzure())
+// router.get(`/login/*`, auth.authenticateAzureWithRedirect())
 
-router.get(`${api}/auth/logout`, auth.logOut())
+router.post('/auth/openid/callback', auth.authenticateAzureCallback())
+
+router.get(`${api}/auth/logout`, auth.logout())
 
 // USER
 
