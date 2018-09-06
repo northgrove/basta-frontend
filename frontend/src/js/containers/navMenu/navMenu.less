@@ -4,7 +4,7 @@
 
 // NavMenuSmall
 @media all and (max-width: 600px) {
-  .navMenuSmall{
+  .navMenuSmall {
     display: block !important;
   }
   .navMenu {
@@ -19,7 +19,6 @@
   width: 100%;
   z-index: 2;
   border-bottom: 1px solid @navigation-font;
-
 }
 .navMenuSmall > ul {
   font-size: 1.5em;
@@ -37,7 +36,7 @@
 .navMenuSmall > ul > li > a {
   color: @navigation-font;
 }
-.navMenuSmall > ul > li > a:hover{
+.navMenuSmall > ul > li > a:hover {
   color: @highlight-color;
 }
 
@@ -59,15 +58,11 @@
   display: block;
   padding: 10px 15px;
 }
-.navMenu {
-  //border-bottom: 1px solid #e7e7e7;
-}
-.nav-tabs {
-}
+
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
-  margin-left:20px;
+  margin-left: 20px;
 }
 .nav-tabs > li > a {
   margin-right: 2px;
@@ -77,7 +72,7 @@
   color: @navigation-font;
 }
 .nav-tabs > li > a:hover {
-  border-color: #eeeeee #eeeeee #e7e7e7;
+  border-color: @border-color;
   background: #fff;
   color: @highlight-color;
 }
@@ -86,8 +81,8 @@
 .nav-tabs > li.active > a:focus {
   color: #555555;
   background-color: #ffffff;
-  border: 1px solid #e7e7e7;
+  border: 1px solid @border-color;
   border-top: 3px solid @highlight-color;
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #fff;
   cursor: default;
 }

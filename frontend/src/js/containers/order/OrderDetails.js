@@ -26,7 +26,6 @@ export class OrderDetails extends Component {
 
   render() {
     const { details, statuslog } = this.props.order
-    console.log(this.props.order)
     return details.data ? (
       <div>
         <PageHeading

@@ -1,8 +1,11 @@
+@import './requestOverview.less';
 .orderDetails {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: 'results log' 'request log';
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
 }
 .log {
   grid-area: log;
@@ -13,7 +16,12 @@
 .results {
   grid-area: results;
 }
-
+@media all and (max-width: 1012px) {
+  .orderDetails {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
 @media all and (max-width: 800px) {
   .orderDetails {
     grid-template-areas: 'results' 'request' 'log';
