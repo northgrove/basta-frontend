@@ -19,5 +19,5 @@ if (process.env['NODE_ENV'] === 'production') {
     'https://login.microsoftonline.com/navq.onmicrosoft.com/.well-known/openid-configuration'
   exports.tokenURI = `https://login.microsoftonline.com/navq.onmicrosoft.com/oauth2/token`
   exports.allowHttpForRedirectUrl = true
-  exports.loggingLevel = 'info'
+  exports.loggingLevel = 'error'
 }
