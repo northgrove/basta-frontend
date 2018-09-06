@@ -18,11 +18,8 @@ const Login = props => {
             <center> Authenticate by loggin into NAV's single sign-on provider. </center>
           </div>
           <div>
-            <a className="login-box-btn" href="http://localhost:8080/login">
+            <a className="login-box-btn" href={`http://localhost:8080/login${pathname}`}>
               <center> Continue </center>
-            </a>
-            <a className="" href={`http://localhost:8080/login${pathname}`}>
-              <center> Med URL </center>
             </a>
           </div>
         </div>

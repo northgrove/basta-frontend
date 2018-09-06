@@ -5,7 +5,9 @@ import {
   USER_PROFILE_REQUEST,
   USER_PROFILE_FETCHING,
   USER_PROFILE_RECEIVED,
-  USER_PROFILE_REQUEST_FAILED
+  USER_PROFILE_REQUEST_FAILED,
+  USER_LOGOUT,
+  USER_SESSION_EXPIRED
 } from '../actionTypes'
 
 const url = `${api}`
@@ -22,6 +24,18 @@ export function* fetchUserProfile() {
   }
 }
 
+export function* logoutUser() {
+  console.log('1')
+  try {
+    yield call(getUrl, `${url}/auth/logout`)
+    //TODO more stuff happning before logout?
+    yield put({ USE_SESSION_EXPIRED })
+  } catch (err) {
+    yield put({ type: USER_PROFILE_REQUEST_FAILED })
+  }
+}
+
 export function* watchUser() {
   yield fork(takeEvery, USER_PROFILE_REQUEST, fetchUserProfile)
+  yield fork(takeEvery, USER_LOGOUT, logoutUser)
 }

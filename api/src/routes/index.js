@@ -25,7 +25,7 @@ router.get('/login/:param1?/:param2?/:param3?', auth.authenticateAzure())
 
 router.post('/auth/openid/callback', auth.authenticateAzureCallback())
 
-router.get(`${api}/auth/logout`, auth.logOut())
+router.get(`${api}/auth/logout`, auth.logout())
 
 // USER
 
