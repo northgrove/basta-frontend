@@ -3,6 +3,15 @@ import { shallow } from 'enzyme'
 import { Operate } from './Operate'
 
 describe('Operate filter function', () => {
+  const user = {
+    userProfile: {
+      userName: 'mockusername',
+      firstName: 'mock',
+      lastName: 'name',
+      displayName: 'Mock User',
+      roles: ['ROLE1', 'ROLE2']
+    }
+  }
   const orderTypes = [
     {
       title: 'Nodes',
@@ -19,7 +28,7 @@ describe('Operate filter function', () => {
       url: '/operate/ad'
     }
   ]
-  const wrapper = shallow(<Operate />)
+  const wrapper = shallow(<Operate user={user} />)
   const instance = wrapper.instance()
   wrapper.setState({ orderTypes })
 

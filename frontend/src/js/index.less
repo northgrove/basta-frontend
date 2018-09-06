@@ -16,9 +16,10 @@
 @font-color: #333;
 @font-color-secondary: #aaa;
 @button-color: #ccc;
-@font-color-error: red;
+@font-color-error: #ed6038;
 @highlight-color: #6acae3;
 @success-color: #4cb944;
+@warning-color: #eda42d;
 @border-color: #e7e7e7;
 @error-background: #f2dede;
 @error-border: #ebccd1;
@@ -335,7 +336,6 @@ footer {
 }
 
 .panel {
-  margin: 20px;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -345,6 +345,9 @@ footer {
   border-color: @border-color;
 }
 
+.panel-info {
+  border-color: @border-color;
+}
 .panel-error {
   border-color: @error-border;
 }
@@ -358,6 +361,12 @@ footer {
 .panel-default > .panel-heading {
   color: @font-color;
   background-color: @menu-color;
+  border-color: @border-color;
+}
+
+.panel-info > .panel-heading {
+  color: @inverse-font-color;
+  background-color: @highlight-color;
   border-color: @border-color;
 }
 

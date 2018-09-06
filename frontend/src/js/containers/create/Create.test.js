@@ -4,7 +4,7 @@ import { Create } from './Create'
 
 describe('Order filter function', () => {
   const user = {
-    currentUser: {
+    userProfile: {
       userName: 'mockusername',
       firstName: 'mock',
       lastName: 'name',
