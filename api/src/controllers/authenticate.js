@@ -41,20 +41,16 @@ exports.authenticateAzureCallback = () => {
 // AUTHENTICATION CHECK
 
 exports.ensureAuthenticated = () => {
-  if (process.env['NODE_ENV'] === 'offline') {
-    return (req, res, next) => next()
-  } else {
-    return (req, res, next) => {
-      if (req.isAuthenticated()) return next()
-      res.statusMessage = 'Not authenticated'
-      res.status(401).end()
-    }
+  return (req, res, next) => {
+    if (req.isAuthenticated()) return next()
+    res.statusMessage = 'Not authenticated'
+    res.status(401).end()
   }
 }
 
 // LOGOUT
 
-exports.logOut = () => {
+exports.logout = () => {
   return (req, res) => {
     try {
       req.session.destroy(err => {
