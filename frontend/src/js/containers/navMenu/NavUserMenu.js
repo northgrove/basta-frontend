@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const navUserMenu = props => {
-  const { user } = props
+  const { user, userLogout, dispatch } = props
 
   let roles
   if (user.isUserAuthenticated) {
@@ -11,7 +11,6 @@ const navUserMenu = props => {
   }
 
   let photo = user.userProfile.photo
-
   return (
     <div className="navUser">
       <div className="navUserMenu">
@@ -26,7 +25,11 @@ const navUserMenu = props => {
             Tilganger: <br /> {roles}{' '}
           </p>
           <hr />
-          <a href="api/v1/auth/logout">
+          <a
+            onClick={() => {
+              dispatch(userLogout())
+            }}
+          >
             <i className="fa fa-sign-out" /> logout
           </a>
         </div>

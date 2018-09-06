@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import NavMenuSmall from './navMenu/NavMenuSmall'
 import history from '../common/history'
 import { withRouter } from 'react-router-dom'
-import { initializeApplication } from '../common/actionCreators'
+import { initializeApplication, userLogout } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import Login from '../containers/login/Login'
@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   render() {
-    const { appReady, user } = this.props
+    const { appReady, user, dispatch } = this.props
     if (appReady) {
       return !user.isUserAuthenticated ? (
         <Login location={location} />
@@ -40,7 +40,7 @@ class App extends Component {
                 <div className="navName">basta</div>
               </div>
             </div>
-            <NavUserMenu user={user} />
+            <NavUserMenu user={user} userLogout={userLogout} dispatch={dispatch} />
           </header>
           <div className="navLeft" />
           <nav>
