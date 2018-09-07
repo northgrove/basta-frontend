@@ -8,13 +8,20 @@ const OrderCard = props => {
   if (!order) return null
   return (
     <div className="orderListCard">
-      <div className="orderListCardName"> name </div>
+      <div className="orderListCardName">
+        {' '}
+        {orderType(order.orderType, order.orderDescription)}{' '}
+      </div>
       <div className="orderListCardOperation"> operation</div>
       <div className="orderListCardResults"> {orderResults(order.results)}</div>
       <div className="orderListCardStatus"> status </div>
       <div className="orderListCardCreated"> created </div>
     </div>
   )
+}
+
+const orderType = (orderType, orderDescription) => {
+  return `${orderType} ${orderDescription}`
 }
 
 const orderId = id => {

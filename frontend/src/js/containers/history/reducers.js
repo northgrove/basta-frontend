@@ -1,3 +1,4 @@
+import { formatPayload } from '../../common/formatPayload'
 import {
   HISTORY_FETCHING,
   HISTORY_RECEIVED,
@@ -30,7 +31,7 @@ export default (
     case HISTORY_RECEIVED:
       return {
         ...state,
-        orderHistory: state.orderHistory.concat(action.value),
+        orderHistory: state.orderHistory.concat(formatPayload(action.value)),
         requestFailed: false,
         requestStatus: 'Order history partially complete'
       }

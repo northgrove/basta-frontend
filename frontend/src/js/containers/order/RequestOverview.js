@@ -1,17 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import ReactTooltip from 'react-tooltip'
 import moment from 'moment'
 
 const RequestOverview = props => {
   const { data } = props
-  console.log(data)
   return (
     <div className="results">
       <div className="overviewGrid">
         <div className="overviewLabel">Order Status</div>
-        <div className="overviewValue">{data.status}</div>
+        <div className="overviewValue">{getOrderStatus(data.status)}</div>
         <div className="overviewLabel">Created By</div>
         <div className="overviewValue">{`${data.createdByDisplayName} (${data.createdBy})`}</div>
         <div className="overviewLabel">Created Date</div>
@@ -23,6 +20,39 @@ const RequestOverview = props => {
   )
 }
 
+const getOrderStatus = status => {
+  switch (status) {
+    case 'SUCCESS':
+      return (
+        <span className="badge success">
+          {' '}
+          <i className="fa fa-check" /> {status}
+        </span>
+      )
+    case 'WARNING':
+      return (
+        <span className="badge warning">
+          {' '}
+          <i className="fa fa-flag" /> {status}
+        </span>
+      )
+    case 'PROCESSING':
+      return (
+        <span className="badge info">
+          {' '}
+          <i className="fa fa-recycle" /> {status}
+        </span>
+      )
+    case 'ERROR':
+      return (
+        <span className="badge error">
+          {' '}
+          <i className="fa fa-exclamation-triangle" /> {status}
+        </span>
+      )
+  }
+  return <span> {status}</span>
+}
 RequestOverview.propTypes = {
   label: PropTypes.string,
   description: PropTypes.string,
