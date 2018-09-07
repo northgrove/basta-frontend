@@ -6,7 +6,6 @@ import moment from 'moment'
 
 const RequestForm = props => {
   const { data } = props
-  console.log(data)
   return (
     <table className="requestForm">
       <tbody>
@@ -24,13 +23,7 @@ const RequestForm = props => {
 }
 
 RequestForm.propTypes = {
-  label: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  tags: PropTypes.array,
-  url: PropTypes.string,
-  access: PropTypes.array,
-  enabled: PropTypes.bool
+  data: PropTypes.object
 }
 
 export default RequestForm
