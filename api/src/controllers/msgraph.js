@@ -5,8 +5,9 @@ const { defaultPhoto } = require('./defaultPhoto')
 
 exports.getUserPhoto = async ({ userUpn }) => {
   let userPhoto = ''
-  const aToken = await token.getAccessToken(tokenURI)
+
   try {
+    const aToken = await token.getAccessToken(tokenURI)
     return request
       .get({
         headers: { 'content-type': 'image/jpg' },
