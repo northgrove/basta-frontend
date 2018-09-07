@@ -14,7 +14,6 @@ const url = `${api}`
 
 export function* fetchUserProfile() {
   let value = ''
-  let userPhoto = ''
   yield put({ type: USER_PROFILE_FETCHING })
   try {
     value = yield call(getUrl, `${url}/user/profile`)
@@ -25,7 +24,6 @@ export function* fetchUserProfile() {
 }
 
 export function* logoutUser() {
-  console.log('1')
   try {
     yield call(getUrl, `${url}/auth/logout`)
     //TODO more stuff happning before logout?
