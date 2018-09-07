@@ -17,7 +17,7 @@ export class Request extends Component {
     const { data } = this.props
     return (
       <div className="request">
-        <div className="panel panel-info">
+        <div className="panel panel-default">
           <div className="panel-heading">
             <i className="fa fa-list-alt" /> Request
           </div>
