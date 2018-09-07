@@ -47,7 +47,11 @@ export class Request extends Component {
               </li>
             </ul>
             <div className="requestContainer">
-              {active === 'overview' ? <RequestOverview data={data} /> : <RequestForm />}
+              {active === 'overview' ? (
+                <RequestOverview data={data} />
+              ) : (
+                <RequestForm data={data.input} />
+              )}
             </div>
           </div>
         </div>
