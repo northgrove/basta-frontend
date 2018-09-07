@@ -24,7 +24,7 @@ exports.getAccessToken = async tokenURI => {
     })
     return ms_access_token
   } catch (e) {
-    console.error('Could not get access_token', e)
-    throw e
+    //console.error('Could not get access_token', e)
+    return e
   }
 }

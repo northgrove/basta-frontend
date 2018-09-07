@@ -5,25 +5,30 @@ const { defaultPhoto } = require('./defaultPhoto')
 
 exports.getUserPhoto = async ({ userUpn }) => {
   let userPhoto = ''
+  let aToken = ''
 
   try {
-    const aToken = await token.getAccessToken(tokenURI)
-    return request
-      .get({
-        headers: { 'content-type': 'image/jpg' },
-        url: `https://graph.microsoft.com/beta/users/${userUpn}/photo/$value`,
-        auth: { bearer: aToken }
-      })
-      .then(response => {
-        userPhoto = 'data:image/jpg;base64,' + new Buffer(response).toString('base64')
-        return userPhoto
-      })
-      .catch(err => {
-        console.log('No picture found for user')
-        userPhoto = defaultPhoto
-        return userPhoto
-      })
+    aToken = await token.getAccessToken(tokenURI)
+    if (aToken.includes('SyntaxError')) {
+      throw err
+    }
   } catch (err) {
-    throw err
+    userPhoto = defaultPhoto
+    return userPhoto
   }
+
+  return request
+    .get({
+      headers: { 'content-type': 'image/jpg' },
+      url: `https://graph.microsoft.com/beta/users/${userUpn}/photo/$value`,
+      auth: { bearer: aToken }
+    })
+    .then(response => {
+      userPhoto = 'data:image/jpg;base64,' + new Buffer(response).toString('base64')
+      return userPhoto
+    })
+    .catch(err => {
+      userPhoto = defaultPhoto
+      return userPhoto
+    })
 }
