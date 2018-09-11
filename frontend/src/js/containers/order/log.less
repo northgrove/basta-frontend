@@ -1,0 +1,54 @@
+.logEvent {
+  display: grid;
+  grid-template-columns: 40px 150px auto;
+  border-bottom: 1px solid @border-color;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.logEvent > .status > span {
+  font-size: 1.5em;
+}
+.logEvent + .info > .status > span {
+  color: @highlight-color;
+}
+
+.logEvent + .warning > .status > span {
+  color: @warning-color;
+}
+
+.logEvent + .error > .status > span {
+  color: @error-font;
+}
+
+.logEvent + .success > .status > span {
+  color: @success-color;
+}
+.logEvent + .error {
+  background-color: @error-background;
+}
+
+.logEvent + .success {
+  background-color: @success-background;
+}
+.logEvent + .warning {
+  background-color: @warning-background;
+}
+.logEvent > .status {
+  display: inline-block;
+  line-height: 100%;
+  margin: auto;
+}
+.logEvent > .time {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logEvent > .text {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-top: auto;
+  margin-bottom: auto;
+}

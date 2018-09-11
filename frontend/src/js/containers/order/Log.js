@@ -1,29 +1,71 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import ReactTooltip from 'react-tooltip'
+import Spinner from '../../common/components/Spinner'
+import moment from 'moment'
 
 const Log = props => {
-  return (
+  const { data } = props
+
+  function logBody(history) {
+    return (
+      <div>
+        {history.map(event => {
+          console.log(event)
+
+          function buildEventStatus(status) {
+            console.log(status)
+            switch (status) {
+              case 'info':
+                return <span className="fa fa-info-circle" />
+              case 'success':
+                return <span className="fa fa-check-circle" />
+              case 'error':
+                return <span className="fa fa-warning" />
+              case 'warning':
+                return <span className="fa fa-flag" />
+            }
+          }
+
+          return (
+            <div key={'event_' + event.id} className={'logEvent ' + event.option}>
+              <div className="status">{buildEventStatus(event.option)}</div>
+              <div className="time">{moment(event.created).format('YYYY-MM-DD HH:mm:ss')}</div>
+              <div className="text">{event.text}</div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
+  return data.error ? (
+    <div className="log">
+      <div className="panel panel-error">
+        <div className="panel-heading">Submitting form failed</div>
+        <div className="panel-body">
+          <div className="infobox">
+            <div className="icon">
+              <i className="fa fa-exclamation-circle" aria-hidden="true" />
+            </div>
+            <div className="content">{data.error}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
     <div className="log">
       <div className="panel panel-default">
         <div className="panel-heading">
           <i className="fa fa-history" /> Log
         </div>
-        <div className="panel-body" />
+        {data.fetching ? <Spinner /> : logBody(data.data)}
       </div>
     </div>
   )
 }
 
 Log.propTypes = {
-  label: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  tags: PropTypes.array,
-  url: PropTypes.string,
-  access: PropTypes.array,
-  enabled: PropTypes.bool
+  data: PropTypes.object
 }
 
 export default Log
