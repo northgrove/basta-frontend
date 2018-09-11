@@ -1,5 +1,7 @@
 @import './requestOverview.less';
 @import './requestForm.less';
+@import './results.less';
+
 .orderDetails {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -21,12 +23,8 @@
   .orderDetails {
     margin-left: 20px;
     margin-right: 20px;
-  }
-}
-@media all and (max-width: 800px) {
-  .orderDetails {
     grid-template-areas: 'results' 'request' 'log';
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(360px, 500px);
     grid-template-rows: auto auto auto;
   }
 }
