@@ -52,10 +52,6 @@ export class Create extends Component {
         <OrderGrid>
           {this.state.filteredOrders.map((orderType, i) => {
             const { title, description, image, tags, url, access } = orderType
-            if (title === 'IApp Tools') {
-              console.log(access)
-            }
-
             return (
               <OrderCard
                 key={i}

@@ -76,21 +76,21 @@ const orderTypes = [
     description: 'Topics',
     image: mqImage,
     tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/operate/mq-topic'
+    url: '/operate/mqtopic'
   },
   {
     title: 'MQ',
     description: 'channel',
     image: mqImage,
     tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/operate/mq-channel'
+    url: '/operate/mqchannel'
   },
   {
     title: 'MQ',
     description: 'Queue',
     image: mqImage,
     tags: ['mq', 'queue', 'websphere', 'ibm'],
-    url: '/operate/mq-queue'
+    url: '/operate/mqqueue'
   }
 ]
 Operate.propTypes = {}
