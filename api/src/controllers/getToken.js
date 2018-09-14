@@ -9,7 +9,11 @@ exports.getToken = () => {
 }
 exports.getTokenUser = () => {
   return async (req, res) => {
-    const accessToken = await token.getAccessTokenUser(config.tokenURI, req.user.azure.code)
+    const accessToken = await token.getAccessTokenUser(
+      config.tokenURI,
+      req.user.azure.refreshToken,
+      req
+    )
     res.send(accessToken)
   }
 }

@@ -2,7 +2,6 @@ let arrRoles = []
 
 // match groups in token to roles
 exports.matchRoles = ({ groups }) => {
-  console.log(groups)
   // const groupsSplit = JSON.parse(groups)
   groups.forEach(group => {
     Object.keys(roles).forEach(role => {
