@@ -2,7 +2,7 @@ const request = require('request-promise')
 const config = require('../config/passportConfig')
 let ms_access_token = ''
 
-getAccessToken = async tokenURI => {
+exports.getAccessToken = async tokenURI => {
   let parameters = ''
   try {
     parameters = {
@@ -29,7 +29,7 @@ getAccessToken = async tokenURI => {
   }
 }
 
-getAccessTokenUser = async (tokenURI, code) => {
+exports.getAccessTokenUser = async (tokenURI, code) => {
   let parameters = ''
   try {
     parameters = {
@@ -56,20 +56,3 @@ getAccessTokenUser = async (tokenURI, code) => {
     return e
   }
 }
-
-exports.getToken = () => {
-  return async (req, res) => {
-    const token = await getAccessToken(config.tokenURI)
-    // console.log(token)
-    res.send(token)
-  }
-}
-exports.getTokenUser = () => {
-  return async (req, res) => {
-    const token = await getAccessTokenUser(config.tokenURI, req.user.azure.code)
-    // console.log(token)
-    res.send(token)
-  }
-}
-
-//module.exports = getAccessToken

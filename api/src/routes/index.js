@@ -5,7 +5,7 @@ const order = require('../controllers/order')
 const user = require('../controllers/user')
 const health = require('../controllers/health')
 const selftest = require('../controllers/selftest')
-const token = require('../controllers/getAccesstoken')
+const token = require('../controllers/getToken')
 const { api } = require('../config/config')
 
 // APPLICATION HEALTH

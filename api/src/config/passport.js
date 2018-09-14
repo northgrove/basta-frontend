@@ -65,6 +65,8 @@ module.exports = passport => {
               return done(null, user, req.session.redirectUrl, accessToken)
             } else {
               // console.log(accessToken)
+              console.log(req)
+              console.log(profile)
               arrRoles = getroles.matchRoles({
                 groups: profile._json.groups
               })
