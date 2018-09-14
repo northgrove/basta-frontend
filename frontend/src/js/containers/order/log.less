@@ -9,29 +9,29 @@
 .logEvent > .status > span {
   font-size: 1.5em;
 }
-.logEvent + .info > .status > span {
+.logEvent.info > .status > span {
   color: @highlight-color;
 }
 
-.logEvent + .warning > .status > span {
+.logEvent.warning > .status > span {
   color: @warning-color;
 }
 
-.logEvent + .error > .status > span {
+.logEvent.error > .status > span {
   color: @error-font;
 }
 
-.logEvent + .success > .status > span {
+.logEvent.success > .status > span {
   color: @success-color;
 }
-.logEvent + .error {
+.logEvent.error {
   background-color: @error-background;
 }
 
-.logEvent + .success {
+.logEvent.success {
   background-color: @success-background;
 }
-.logEvent + .warning {
+.logEvent.warning {
   background-color: @warning-background;
 }
 .logEvent > .status {

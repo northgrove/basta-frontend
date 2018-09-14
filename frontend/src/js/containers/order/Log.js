@@ -10,8 +10,6 @@ const Log = props => {
     return (
       <div>
         {history.map(event => {
-          console.log(event)
-
           function buildEventStatus(status) {
             console.log(status)
             switch (status) {

@@ -4,7 +4,7 @@
   color: @font-color;
   padding: 10px;
 }
-.orderCard + .disabled {
+.orderCard.disabled {
   color: @border-color;
   background-color: #bbb;
   cursor: not-allowed;
@@ -15,7 +15,7 @@
     background-color: #ddd;
   }
 }
-.orderCard + .disabled :hover {
+.orderCard.disabled :hover {
   color: @border-color;
   .orderImage {
     background-color: #ddd;

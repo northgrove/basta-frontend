@@ -100,12 +100,12 @@
   background-color: darken(@error-font, 10%);
   color: darken(@error-background, 10%);
 }
-.orderFormOperateButtons + .disabled > *:hover {
+.orderFormOperateButtons.disabled > *:hover {
   background-color: @font-color-secondary;
   color: @inverse-font-color !important;
   cursor: not-allowed;
 }
-.orderFormOperateButtons + .disabled > * {
+.orderFormOperateButtons.disabled > * {
   background-color: @font-color-secondary;
   color: @inverse-font-color;
   cursor: not-allowed;
@@ -126,12 +126,12 @@
   margin-right: 10px;
   margin-left: auto;
 }
-.orderFormSubmitButton + .disabled {
+.orderFormSubmitButton.disabled {
   background-color: @font-color-secondary;
   color: @inverse-font-color;
   cursor: not-allowed;
 }
-.orderFormSubmitButton + .disabled:hover {
+.orderFormSubmitButton.disabled:hover {
   cursor: not-allowed;
   background-color: @font-color-secondary !important;
 }

@@ -77,7 +77,8 @@ const orderTypes = [
     description: 'Topic',
     image: mqImage,
     tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/create/wstopic'
+    url: '/create/wstopic',
+    access: ['random']
   },
   {
     title: 'WebSphere MQ',
