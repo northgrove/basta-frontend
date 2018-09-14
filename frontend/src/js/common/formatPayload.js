@@ -8,7 +8,6 @@ export const formatPayload = payload => {
       orderDescription: formatString(e.orderDescription),
       orderOperation: formatString(e.orderOperation),
       orderType: e.orderType,
-      status: formatString(e.status),
       updated: formatTimestamp(e.updated)
     }
   })
