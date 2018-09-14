@@ -4,7 +4,10 @@ const msgraph = require('../controllers/msgraph')
 
 exports.getUserProfile = () => {
   return async (req, res) => {
-    const userPhoto = await msgraph.getUserPhoto({ userUpn: req.user.azure.upn })
+    const userPhoto = await msgraph.getUserPhoto({
+      userUpn: req.user.azure.upn,
+      accessToken: req.user.azure.accessToken
+    })
     const user = {
       userName: req.user.azure.upn,
       firstName: req.user.azure.firstName,
