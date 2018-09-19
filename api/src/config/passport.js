@@ -65,8 +65,6 @@ module.exports = passport => {
               return done(null, user, req.session.redirectUrl, accessToken)
             } else {
               // console.log(accessToken)
-              console.log(req)
-              console.log(profile)
               arrRoles = getroles.matchRoles({
                 groups: profile._json.groups
               })
@@ -78,8 +76,8 @@ module.exports = passport => {
               newUser.azure.lastName = profile.name.familyName
               newUser.azure.displayName = profile.displayName
               newUser.roles = arrRoles
-              newUser.azure.code = req.body.code
               newUser.azure.accessToken = accessToken
+              newUser.azure.refreshToken = refreshToken
               newUser.save(err => {
                 if (err) {
                   throw err
