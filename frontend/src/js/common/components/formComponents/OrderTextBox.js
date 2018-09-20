@@ -3,7 +3,7 @@ import ReactTooltip from 'react-tooltip'
 
 import PropTypes from 'prop-types'
 
-const OrderTextBox = props => {
+export const OrderTextBox = props => {
   const { label, value, onChange, description } = props
   return (
     <div className="formComponentGrid">
