@@ -1,18 +1,16 @@
-@navigation-font: #333;
-@highlight-color: #6acae3;
-@menu-color: #fafbfc;
-
 // NavMenuSmall
 @media all and (max-width: 600px) {
-  .navMenuSmall {
+  .mobileMenu {
     display: block !important;
   }
   .navMenu {
     display: none !important;
   }
+  .navMenuRight {
+    display: none !important;
+  }
 }
 .navMenuSmall {
-  display: none;
   background-color: @menu-color;
   margin-top: 0px;
   position: absolute;
@@ -85,4 +83,13 @@
   border-top: 3px solid @highlight-color;
   border-bottom: 3px solid #fff;
   cursor: default;
+}
+
+//NavMenuRight:
+.navMenuRight {
+  display: inline-block;
+  float: right;
+}
+.mobileMenu {
+  display: none;
 }

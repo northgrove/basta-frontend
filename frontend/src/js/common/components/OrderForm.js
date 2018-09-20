@@ -22,7 +22,6 @@ export class OrderForm extends Component {
   }
 
   handleChange(field, value) {
-    console.log(field)
     const orderField = this.orderFields[field]
     if (value < orderField.min || value > orderField.max) {
       orderField.valid = false
@@ -152,7 +151,7 @@ export class OrderForm extends Component {
             )
           ) : this.validOrder() ? (
             <div
-              className="orderFormSubmitButton disabled"
+              className="orderFormSubmitButton"
               onClick={() => dispatch(submitForm(this.currentComponent, this.state))}
             >
               Submit
