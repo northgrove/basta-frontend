@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 const OrderStatusBadge = props => {
   const { status } = props
@@ -35,8 +35,8 @@ const OrderStatusBadge = props => {
   }
   return <span> {status}</span>
 }
-OrderStatusBadge.PropTypes = {
-  status: PropTypes.object.isRequired
+OrderStatusBadge.propTypes = {
+  status: propTypes.object.isRequired
 }
 
 export default OrderStatusBadge
