@@ -8,6 +8,7 @@ const startServer = app => {
     console.log(`SERVER HOSTNAME:         ${host}`)
     console.log(`PORT:                    ${port}`)
     console.log(`API VERSION:             ${api}`)
+    console.log(`BASTA_BACKEND:           http://${process.env.BASTA_BACKEND}`)
   })
 }
 

@@ -13,6 +13,7 @@ const url = `${api}`
 
 export function* getPartialHistory(action, pageId) {
   let value = ''
+
   value = yield call(
     getUrl,
     `${url}/orders/page/${pageId}/${action.pageSize}/${action.toDate}/${action.fromDate}`

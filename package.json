@@ -140,7 +140,8 @@
     "dev-offline": {
       "command": "parcel frontend/src/index.html | nodemon api/test/server.js",
       "env": {
-        "NODE_ENV": "offline"
+        "NODE_ENV": "offline",
+        "BASTA_BACKEND": "localhost:6996"
       }
     },
     "dev-mockend": {

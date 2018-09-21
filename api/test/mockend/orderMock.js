@@ -17,8 +17,6 @@ exports.getAllOrders = () => {
 }
 
 exports.getOrders = () => {
-  console.log('Getting orders')
-
   return async (req, res) => {
     let requestedData
     try {
@@ -61,12 +59,7 @@ exports.getStatusLog = () => {
 exports.postOrder = () => {
   return (req, res) => {
     try {
-      switch (req.params.type) {
-        case 'jbossnode':
-          console.log(`received a jbossnode-form should pass form to \${backend}/vm/orders/jboss`)
-          break
-      }
-      console.log('received the following order ', req.body, req.params.type)
+      // proper backend @ vm/orders/jboss
       res.status(200).json(orderCreated)
     } catch (err) {
       console.log(err)
