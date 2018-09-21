@@ -4,6 +4,7 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const router = require('./routes/')
+const proxy = require('http-proxy-middleware')
 const { startApp } = require('./startApp')
 
 const app = express()
@@ -26,6 +27,7 @@ app.set('trust proxy', 1)
 
 // ROUTES
 
+app.use('api/v1/orders', proxy('/api/v1/orders', { target: 'http://localhost:6996' }))
 app.use('/', router)
 app.use(express.static('./dist'))
 app.get('*', (req, res) => {

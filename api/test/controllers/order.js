@@ -10,7 +10,15 @@ const paginate = (pageId, pageSize, data) => {
   return data.slice(startIndex, endIndex)
 }
 
+exports.getAllOrders = () => {
+  return (req, res) => {
+    res.status(200).json(orders)
+  }
+}
+
 exports.getOrders = () => {
+  console.log('Getting orders')
+
   return async (req, res) => {
     let requestedData
     try {
