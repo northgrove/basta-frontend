@@ -14,7 +14,6 @@ const OrderCard = props => {
         <div className="orderListCardName">
           {orderType(order.orderOperation, order.orderType, order.orderDescription)}
         </div>
-        {/* <div className="orderListCardOperation"> </div> */}
         <div className="orderListCardResults"> {orderResults(order.results)}</div>
         <div className={orderListCardStatus(order.status)}>{orderStatus(order.status)}</div>
         <div className="orderListCardCreated">

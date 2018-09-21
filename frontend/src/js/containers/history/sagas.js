@@ -11,6 +11,13 @@ import {
 
 const url = `${api}`
 
+const delay = millis => {
+  const promise = new Promise(resolve => {
+    setTimeout(() => resolve(true), millis)
+  })
+  return promise
+}
+
 export function* getPartialHistory(action, pageId) {
   let value = ''
   value = yield call(
@@ -20,6 +27,7 @@ export function* getPartialHistory(action, pageId) {
   if (value.length > 0) {
     pageId++
     yield put({ type: HISTORY_RECEIVED, value })
+    yield call(delay, 500)
     yield getPartialHistory(action, pageId)
   } else {
     yield put({ type: HISTORY_COMPLETE })

@@ -8,14 +8,15 @@ export const formatPayload = payload => {
       orderDescription: formatString(e.orderDescription),
       orderOperation: formatString(e.orderOperation),
       orderType: e.orderType,
-      updated: formatTimestamp(e.updated)
+      updated: formatTimestamp(e.updated),
+      tags: buildTags(e)
     }
   })
 }
 
 const formatTimestamp = number => {
   if (number) {
-    return moment(number).format('Do Mo YYYY h:mm:ss')
+    return moment(number).format('llll')
   }
 }
 
@@ -29,4 +30,8 @@ const formatString = string => {
       return letter.toUpperCase()
     })
   }
+}
+
+const buildTags = e => {
+  return [e.createdBy, e.createdByDisplayName, e.orderDescription, e.orderOperation, e.orderType]
 }

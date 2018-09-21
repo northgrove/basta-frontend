@@ -24,7 +24,7 @@ export default (
       return {
         ...state,
         orderHistory: [],
-        completed: false,
+        orderHistoryCompleted: false,
         requestFailed: false,
         requestStatus: 'Fetching history log'
       }
@@ -38,7 +38,7 @@ export default (
     case HISTORY_COMPLETE:
       return {
         ...state,
-        orderHistoryCompleted: false,
+        orderHistoryCompleted: true,
         requestFailed: false,
         requestStatus: 'Order history request complete'
       }

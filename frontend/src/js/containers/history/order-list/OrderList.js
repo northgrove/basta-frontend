@@ -9,7 +9,7 @@ const OrderList = props => {
 
 const renderList = orders => {
   let orderList = []
-  if (orders.length >= 1000) {
+  if (orders.length >= 1) {
     // console.log('1000')
     orders.forEach((e, i) => {
       orderList.push(
