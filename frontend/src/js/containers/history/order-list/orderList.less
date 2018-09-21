@@ -1,6 +1,5 @@
 @media all and (max-width: 1012px) {
   .orderListCard {
-    // height: 120px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
@@ -19,61 +18,89 @@
 .orderListContainer {
   width: 1000px;
   color: @font-color;
-  font-size: 18px;
-}
 
+  font-size: 15px;
+}
 .orderListCard {
   display: grid;
-  // box-shadow: inset 0px 10px 0px 0px rgba(18, 160, 11, 0.75);
-  // padding: 15px;
-  margin: 5px;
+  margin-top: 10px;
   border: 1px solid @border-color;
   width: 100%;
   height: auto;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: 100%;
+  cursor: default;
+  text-decoration: none;
+  color: rgb(89, 89, 89);
 }
 
 .orderListCardName {
-  // background: red;
-  grid-column-start: 1;
-  grid-column-end: 4;
+  max-height: 20px;
+  border-bottom: 1px solid rgb(232, 232, 232);
+  grid-column-start: 2;
+  grid-column-end: 25;
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 2;
 }
 
 .orderListCardStatus {
-  // background: white;
-  grid-column-start: 12;
-  grid-column-end: 12;
+  max-width: 20px;
+  height: 100%;
+  color: rgb(244, 244, 244);
+  font-size: 20px;
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 1;
-  grid-row-end: 5;
+  grid-row-end: 6;
 }
 
-.orderListCardOperation {
-  // background: yellow;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 3;
-  grid-row-end: 5;
+.orderListCardStatus.success {
+  background: black;
+  border: 1px solid rgba(0, 128, 0, 0.637);
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.orderListCardStatus.processing {
+  background: black;
+  border: 1px solid rgba(0, 128, 0, 0.637);
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.orderListCardStatus.warning {
+  background: black;
+  border: 1px solid rgba(0, 128, 0, 0.637);
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.orderListCardStatus.error {
+  background: black;
+  border: 1px solid rgba(0, 128, 0, 0.637);
+  color: rgba(255, 255, 255, 0.851);
 }
 
 .orderListCardResults {
-  // background: blue;
-  grid-column-start: 4;
-  grid-column-end: 12;
-  grid-row-start: 1;
+  min-height: 50px;
+  color: black;
+  font-style: italic;
+  // font-weight: bold;
+  grid-column-start: 2;
+  grid-column-end: 25;
+  grid-row-start: 2;
   grid-row-end: 5;
 }
 
 .orderListCardCreated {
-  // background: purple;
-  grid-column-start: 1;
-  grid-column-end: 13;
+  // max-height: 20px;
+  // background: red;
+  grid-column-start: 2;
+  grid-column-end: 25;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  justify-items: end;
 }
 
 .orderListCardTime {
-  // background: orange;
   grid-column-start: 12;
   grid-column-end: 13;
 }
@@ -105,12 +132,6 @@
   text-align: right;
 }
 
-.orderListCard :hover {
+.orderListContainer :hover {
   color: @highlight-color;
-  .orderListImage > img {
-    filter: brightness(1.5) saturate(400%);
-  }
-  .orderListImage {
-    background-color: #333;
-  }
 }

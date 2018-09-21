@@ -28,6 +28,15 @@ class App extends Component {
 
   render() {
     const { appReady, user, dispatch } = this.props
+
+    function userPhoto(photo) {
+      return (
+        <div className="navUserImage">
+          <img src={photo} />
+        </div>
+      )
+    }
+
     if (appReady) {
       return !user.isUserAuthenticated ? (
         <Login location={location} />
@@ -40,13 +49,16 @@ class App extends Component {
                 <div className="navName">basta</div>
               </div>
             </div>
-            <NavUserMenu user={user} userLogout={userLogout} dispatch={dispatch} />
+            <div className="navMenuRight">{userPhoto(user.userProfile.photo)}</div>
           </header>
           <div className="navLeft" />
           <nav>
             <NavMenu className="navTabs" />
-            <div className="navButton" onClick={() => this.props.dispatch(toggleNavMenu())}>
-              <i className="fa fa-bars fa-2x navSmallButton" />
+            <div className="mobileMenu">
+              {userPhoto(user.userProfile.photo)}
+              <div className="navButton" onClick={() => this.props.dispatch(toggleNavMenu())}>
+                <i className="fa fa-bars fa-2x navSmallButton" />
+              </div>
             </div>
           </nav>
           <div className="navRight" />

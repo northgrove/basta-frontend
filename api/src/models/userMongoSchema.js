@@ -15,7 +15,9 @@ const UserSchema = new mongoose.Schema({
     lastName: { type: String },
     groups: { type: Array },
     code: { type: String },
-    photo: { type: String }
+    photo: { type: String },
+    accessToken: { type: String },
+    refreshToken: { type: String }
   }
 })
 

@@ -1,55 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import { Link } from 'react-router-dom'
+import OrderStatusBadge from '../../../common/components/formComponents/OrderStatusBadge'
 
 const OrderCard = props => {
   const { order } = props
   // console.log(order)
   if (!order) return null
   return (
-    <div className="orderListCard">
-      <div className="orderListCardName"> name </div>
-      <div className="orderListCardOperation"> operation</div>
-      <div className="orderListCardResults"> {orderResults(order.results)}</div>
-      <div className="orderListCardStatus"> status </div>
-      <div className="orderListCardCreated"> created </div>
-    </div>
+    <Link to={`/orders/${order.id}`}>
+      <div className="orderListCard">
+        <div className="orderListCardName">
+          {orderType(order.orderOperation, order.orderType, order.orderDescription)}
+        </div>
+        {/* <div className="orderListCardOperation"> </div> */}
+        <div className="orderListCardResults"> {orderResults(order.results)}</div>
+        <div className={orderListCardStatus(order.status)}>{orderStatus(order.status)}</div>
+        <div className="orderListCardCreated">
+          {orderCreatedBy(order.created, order.createdByDisplayName, order.createdBy)}{' '}
+        </div>
+      </div>
+    </Link>
   )
 }
 
-const orderId = id => {
-  return `#${id}`
-}
-
-const orderStatus = status => {
-  switch (status) {
-    case 'SUCCESS':
-      return (
-        <div>
-          {/* <i           className="fa fa-check-circle fa-2x"style={{ color: '#3cc132', fontSize: '15px', marginRight: '2px' }}/> */}
-          Success
-        </div>
-      )
-    case 'ERROR':
-      return (
-        <div>
-          {/* <i className="fa fa-exclamation-triangle" style={{ color: '#f44242', fontSize: '18px' }}/> */}
-          Error
-        </div>
-      )
-    case 'WARNING':
-      return (
-        <div>
-          {/* <i className="fa fa-info-circle" style={{ color: '#f4f141', fontSize: '18px' }} /> */}
-          Warning
-        </div>
-      )
-    // TODO processcing and waiting status cases
-  }
-}
-
-const orderOperation = order => {
-  return `${order.orderOperation} | ${order.orderType} | ${order.orderDescription}`
+const orderType = (orderOperation, orderType, orderDescription) => {
+  return `${orderOperation} | ${orderType} | ${orderDescription}`
 }
 
 const orderResults = results => {
@@ -62,17 +39,40 @@ const orderResults = results => {
   })
 }
 
-const orderCreatedBy = (createdByDisplayName, createdBy) => {
-  return `${createdByDisplayName} (${createdBy})`
+const orderCreatedBy = (created, createdByDisplayName, createdBy) => {
+  return `${created} | ${createdByDisplayName} (${createdBy})`
 }
 
-const orderCreated = created => {
-  const time = moment(created).format('Do Mo YYYY h:mm:ss')
-  return time
+const orderListCardStatus = status => {
+  switch (status) {
+    case 'SUCCESS':
+      return 'orderListCardStatus success'
+    case 'WARNING':
+      return 'orderListCardStatus warning'
+    case 'PROCESSING':
+      return 'orderListCardStatus processing'
+    case 'ERROR':
+      return 'orderListCardStatus error'
+  }
+  return <span> {status}</span>
 }
 
 OrderCard.propTypes = {
   order: PropTypes.object
+}
+
+const orderStatus = status => {
+  switch (status) {
+    case 'SUCCESS':
+      return <i className="fa fa-check" />
+    case 'WARNING':
+      return <i className="fa fa-flag" />
+    case 'PROCESSING':
+      return <i className="fa fa-recycle" />
+    case 'ERROR':
+      return <i className="fa fa-exclamation-triangle" />
+  }
+  return <span />
 }
 
 export default OrderCard

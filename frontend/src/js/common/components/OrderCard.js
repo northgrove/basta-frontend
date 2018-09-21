@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ReactTooltip from 'react-tooltip'
 
-const OrderCard = props => {
+export const OrderCard = props => {
   const { label, description, image, url, access, enabled } = props
   return enabled ? (
     <Link to={url} className="orderCard">

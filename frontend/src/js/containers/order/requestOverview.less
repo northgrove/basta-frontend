@@ -1,0 +1,38 @@
+.requestContainer {
+  border-top: 1px solid @border-color;
+  padding-top: 20px;
+}
+
+.nav-request-tabs {
+  margin-left: -20px;
+  margin-bottom: -2px;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+.overviewLine {
+  border-bottom: 1px solid @border-color;
+}
+
+.overviewLabel {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.overviewValue {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+@media all and (max-width: 800px) {
+  .overviewValue {
+    max-width: 100%;
+  }
+}

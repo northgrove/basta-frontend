@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-class NavMenu extends Component {
+export class NavMenu extends Component {
   isActive(context) {
     let { location } = this.props
     if (!location) {

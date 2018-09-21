@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ReactTooltip from 'react-tooltip'
 import { isAvailable } from '../../utils'
 
-const OrderButtonGroup = props => {
+export const OrderButtonGroup = props => {
   const { label, value, description, alternatives, roles, onChange } = props
   return (
     <div className="formComponentGrid">

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactTooltip from 'react-tooltip'
 
-const OrderCheckBox = props => {
+export const OrderCheckBox = props => {
   const { label, value, description, onChange } = props
   return (
     <div className="formComponentGrid">

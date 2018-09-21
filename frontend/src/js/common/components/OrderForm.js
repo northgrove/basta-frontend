@@ -10,6 +10,7 @@ import connect from 'react-redux/es/connect/connect'
 export class OrderForm extends Component {
   constructor(props) {
     super(props)
+    this.operationsForm = props.location.pathname.includes('operate')
     this.currentComponent = props.match.params.orderType
     this.configuration = orderTypes[this.currentComponent]
     this.orderFields = this.configuration.orderFields
@@ -122,7 +123,33 @@ export class OrderForm extends Component {
               }
             })}
           </div>
-          {this.validOrder() ? (
+          {this.operationsForm ? (
+            this.validOrder() ? (
+              <div className="orderFormOperateButtons">
+                <div className="start">
+                  <span className="fa fa-play" /> Start
+                </div>
+                <div className="stop">
+                  <span className="fa fa-pause" /> Stop
+                </div>
+                <div className="delete">
+                  <span className="fa fa-trash" /> Delete
+                </div>
+              </div>
+            ) : (
+              <div className="orderFormOperateButtons disabled">
+                <div className="start">
+                  <span className="fa fa-play" /> Start
+                </div>
+                <div className="stop">
+                  <span className="fa fa-pause" /> Stop
+                </div>
+                <div className="delete">
+                  <span className="fa fa-trash" /> Delete
+                </div>
+              </div>
+            )
+          ) : this.validOrder() ? (
             <div
               className="orderFormSubmitButton"
               onClick={() => dispatch(submitForm(this.currentComponent, this.state))}

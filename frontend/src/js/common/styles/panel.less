@@ -1,0 +1,59 @@
+.panel {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.panel-default {
+  border-color: @border-color;
+}
+
+.panel-info {
+  border-color: @border-color;
+}
+.panel-error {
+  border-color: @error-border;
+}
+
+.panel-warning {
+  border-color: @border-color;
+}
+.panel-error > .panel-heading {
+  color: @error-font;
+  background-color: @error-background;
+  border-color: @error-border;
+}
+
+.panel-default > .panel-heading {
+  color: @font-color;
+  background-color: @menu-color;
+  border-color: @border-color;
+}
+
+.panel-info > .panel-heading {
+  color: @inverse-font-color;
+  background-color: @highlight-color;
+  border-color: @border-color;
+}
+
+.panel-warning > .panel-heading {
+  color: @inverse-font-color;
+  background-color: @warning-color;
+  border-color: @border-color;
+}
+.panel-success > .panel-heading {
+  color: @inverse-font-color;
+  background-color: @success-color;
+  border-color: @border-color;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.panel-body {
+  padding: 15px;
+}

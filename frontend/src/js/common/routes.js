@@ -16,7 +16,8 @@ export const Routes = () => {
       <Route exact path="/" component={History} />
       <Route exact path="/order" component={Order} />
       <Route path="/orders/:orderId" component={OrderDetails} />
-      <Route path="/operate" component={Operate} />
+      <Route exact path="/operate" component={Operate} />
+      <Route path="/operate/:orderType" component={OrderForm} />
       <Route exact path="/create" component={Create} />
       <Route path="/create/:orderType" component={OrderForm} />
       <Route path="*" component={NotFound} />
