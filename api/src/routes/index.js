@@ -37,8 +37,8 @@ router.get(`/token`, auth.ensureAuthenticated(), token.getToken())
 
 router.get(`/tokenuser`, auth.ensureAuthenticated(), token.getTokenUser())
 
-router.get(`${api}/orders/:id/`, auth.ensureAuthenticated(), order.getOrder())
+//router.get(`${api}/orders/:id/`, auth.ensureAuthenticated(), order.getOrder())
 
-router.post(`${api}/orders/:type/`, auth.ensureAuthenticated(), order.postOrder())
+//router.post(`${api}/orders/:type/`, auth.ensureAuthenticated(), order.postOrder())
 
 module.exports = router

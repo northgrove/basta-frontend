@@ -177,6 +177,6 @@
     "basta",
     "react-router"
   ],
-  "author": "Frode Sundby",
+  "author": "@navikt/aura",
   "license": "MIT"
 }

@@ -9,6 +9,7 @@ const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const router = require('./routes/index')
+const proxy = require('http-proxy-middleware')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
 
