@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getOrderHistory } from './actionCreators'
 import PageHeading from '../../common/components/PageHeading'
+import BottomScrollListener from '../../common/components/BottomScrollListener'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import OrderFilter from '../../common/components/OrderFilter'
@@ -72,13 +73,8 @@ class History extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.handleOnScroll.bind(this))
     const { dispatch, orderHistory } = this.props
     dispatch(getOrderHistory(200))
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleOnScroll.bind(this))
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -87,13 +83,6 @@ class History extends Component {
       this.state.filter !== prevState.filter
     ) {
       this.paceFiltering(100)
-    }
-  }
-
-  handleOnScroll() {
-    const scrollNode = document.scrollingElement || document.documentElement
-    if (scrollNode.scrollHeight <= scrollNode.scrollTop + window.innerHeight) {
-      this.onBottom()
     }
   }
 
@@ -106,6 +95,7 @@ class History extends Component {
 
     return (
       <div>
+        <BottomScrollListener onBottom={() => this.onBottom()} />
         <PageHeading icon="fa-history" heading="Order history" description="" />
         <OrderFilter onChange={e => this.filterString(e)} />
         <OrderList orderHistory={filteredOrderHistory} />
