@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import OrderStatusBadge from '../../../common/components/formComponents/OrderStatusBadge'
+
 const image = require('../../../../img/orderTypes/websphere.png')
 
 const OrderCard = props => {
@@ -16,9 +17,8 @@ const OrderCard = props => {
           <img src={image} />
         </div>
         <div className="orderListCardName">
-          {orderType(order.orderOperation, order.orderType, order.orderDescription) +
-            order.createdByDisplayName +
-            `(${order.createdBy})`}
+          <div>{orderType(order.orderOperation, order.orderType, order.orderDescription)}</div>
+          <i>{order.createdByDisplayName + ` (${order.createdBy})`}</i>
         </div>
         <div className="orderListCardResults"> {orderResults(order.results)}</div>
         <div className="orderListCardCreated">{order.created}</div>

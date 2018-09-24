@@ -1,33 +1,52 @@
 @media all and (max-width: 1012px) {
   .orderListCard {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
   }
-  .orderListCardId {
-    grid-template-columns: auto;
-    grid-column-start: 1;
-    grid-column-end: 3;
+}
+@media all and (max-width: 800px) {
+  .orderListCard {
+    grid-template-columns: 10px 70px 250px auto !important;
+    grid-teamplate-rows: auto;
+    grid-template-areas: 'status image name result' 'status image created result' !important;
   }
-  .orderListCardStatus {
-    grid-row: 2;
-    grid-column-start: 1 !important;
-    grid-column-end: 3 !important;
+
+  .orderListContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .orderListCardResults {
+    text-align: left;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .orderListCard {
+    grid-template-columns: 10px auto auto !important;
+    grid-teamplate-rows: auto;
+    grid-template-areas: 'status name result' 'status created result' !important;
+  }
+  .orderListImage {
+    display: none;
+  }
+  .orderListCardName,
+  .orderListCardCreated {
+    margin-left: 10px;
   }
 }
 
 .orderListContainer {
-  width: 1000px;
   color: @font-color;
-
   font-size: 15px;
 }
+
 .orderListCard {
   display: grid;
   margin-top: 10px;
   border: 1px solid @border-color;
   min-height: 100px;
-  width: 100%;
-  grid-template-columns: 10px 60px auto auto;
+  grid-template-columns: 10px 70px 300px auto 200px;
   grid-template-areas: 'status image name result created';
   cursor: pointer;
   text-decoration: none;
@@ -35,17 +54,22 @@
 }
 
 .orderListCardName {
+  line-height: 1.5em;
   grid-area: name;
+  margin-top: 10px;
 }
 
 .orderListCardStatus {
   grid-area: status;
-  max-width: 10px;
+  justify-content: left;
   height: 100%;
 }
 
 .orderListImage {
   grid-area: image;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
   width: 50px;
   height: 50px;
 }
@@ -71,13 +95,14 @@
 }
 
 .orderListCardResults {
-  min-height: 50px;
-  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-style: italic;
   grid-area: result;
 }
 
 .orderListCardCreated {
+  margin-top: 10px;
   justify-items: end;
   grid-area: created;
 }
