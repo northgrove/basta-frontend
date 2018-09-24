@@ -4,21 +4,24 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import OrderStatusBadge from '../../../common/components/formComponents/OrderStatusBadge'
 
+const image = require('../../../../img/orderTypes/websphere.png')
+
 const OrderCard = props => {
   const { order } = props
-  // console.log(order)
   if (!order) return null
   return (
     <Link to={`/orders/${order.id}`}>
       <div className="orderListCard">
+        <div className={orderListCardStatus(order.status)} />
+        <div className="orderImage orderListImage">
+          <img src={image} />
+        </div>
         <div className="orderListCardName">
-          {orderType(order.orderOperation, order.orderType, order.orderDescription)}
+          <div>{orderType(order.orderOperation, order.orderType, order.orderDescription)}</div>
+          <i>{order.createdByDisplayName + ` (${order.createdBy})`}</i>
         </div>
         <div className="orderListCardResults"> {orderResults(order.results)}</div>
-        <div className={orderListCardStatus(order.status)}>{orderStatus(order.status)}</div>
-        <div className="orderListCardCreated">
-          {orderCreatedBy(order.created, order.createdByDisplayName, order.createdBy)}{' '}
-        </div>
+        <div className="orderListCardCreated">{order.created}</div>
       </div>
     </Link>
   )
@@ -58,20 +61,6 @@ const orderListCardStatus = status => {
 
 OrderCard.propTypes = {
   order: PropTypes.object
-}
-
-const orderStatus = status => {
-  switch (status) {
-    case 'SUCCESS':
-      return <i className="fa fa-check" />
-    case 'WARNING':
-      return <i className="fa fa-flag" />
-    case 'PROCESSING':
-      return <i className="fa fa-recycle" />
-    case 'ERROR':
-      return <i className="fa fa-exclamation-triangle" />
-  }
-  return <span />
 }
 
 export default OrderCard

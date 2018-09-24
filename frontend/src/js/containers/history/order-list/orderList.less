@@ -1,124 +1,115 @@
 @media all and (max-width: 1012px) {
   .orderListCard {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
   }
-  .orderListCardId {
-    grid-template-columns: auto;
-    grid-column-start: 1;
-    grid-column-end: 3;
+}
+@media all and (max-width: 800px) {
+  .orderListCard {
+    grid-template-columns: 10px 70px 250px auto !important;
+    grid-teamplate-rows: auto;
+    grid-template-areas: 'status image name result' 'status image created result' !important;
   }
-  .orderListCardStatus {
-    grid-row: 2;
-    grid-column-start: 1 !important;
-    grid-column-end: 3 !important;
+
+  .orderListContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .orderListCardResults {
+    text-align: left;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .orderListCard {
+    grid-template-columns: 10px auto auto !important;
+    grid-teamplate-rows: auto;
+    grid-template-areas: 'status name result' 'status created result' !important;
+  }
+  .orderListImage {
+    display: none;
+  }
+  .orderListCardName,
+  .orderListCardCreated {
+    margin-left: 10px;
   }
 }
 
 .orderListContainer {
-  width: 1000px;
   color: @font-color;
-
   font-size: 15px;
 }
+
 .orderListCard {
   display: grid;
   margin-top: 10px;
   border: 1px solid @border-color;
-  width: 100%;
-  height: auto;
-  grid-template-columns: repeat(24, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-rows: 100%;
-  cursor: default;
+  min-height: 100px;
+  grid-template-columns: 10px 70px 300px auto 200px;
+  grid-template-areas: 'status image name result created';
+  cursor: pointer;
   text-decoration: none;
-  color: rgb(89, 89, 89);
+  color: @font-color;
 }
 
 .orderListCardName {
-  max-height: 20px;
-  border-bottom: 1px solid rgb(232, 232, 232);
-  grid-column-start: 2;
-  grid-column-end: 25;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  line-height: 1.5em;
+  grid-area: name;
+  margin-top: 10px;
 }
 
 .orderListCardStatus {
-  max-width: 20px;
+  grid-area: status;
+  justify-content: left;
   height: 100%;
-  color: rgb(244, 244, 244);
-  font-size: 20px;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 6;
+}
+
+.orderListImage {
+  grid-area: image;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 50px;
+  height: 50px;
 }
 
 .orderListCardStatus.success {
-  background: black;
-  border: 1px solid rgba(0, 128, 0, 0.637);
-  color: rgba(255, 255, 255, 0.851);
+  background: @success-color;
+  color: @success-color;
 }
 
 .orderListCardStatus.processing {
-  background: black;
-  border: 1px solid rgba(0, 128, 0, 0.637);
+  background: @highlight-color;
   color: rgba(255, 255, 255, 0.851);
 }
 
 .orderListCardStatus.warning {
-  background: black;
-  border: 1px solid rgba(0, 128, 0, 0.637);
-  color: rgba(255, 255, 255, 0.851);
+  background: @warning-color;
+  color: @warning-background;
 }
 
 .orderListCardStatus.error {
-  background: black;
-  border: 1px solid rgba(0, 128, 0, 0.637);
-  color: rgba(255, 255, 255, 0.851);
+  background: @error-font;
+  color: @error-background;
 }
 
 .orderListCardResults {
-  min-height: 50px;
-  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-style: italic;
-  // font-weight: bold;
-  grid-column-start: 2;
-  grid-column-end: 25;
-  grid-row-start: 2;
-  grid-row-end: 5;
+  grid-area: result;
 }
 
 .orderListCardCreated {
-  // max-height: 20px;
-  // background: red;
-  grid-column-start: 2;
-  grid-column-end: 25;
-  grid-row-start: 5;
-  grid-row-end: 6;
+  margin-top: 10px;
   justify-items: end;
+  grid-area: created;
 }
 
 .orderListCardTime {
   grid-column-start: 12;
   grid-column-end: 13;
-}
-
-.orderListImage {
-  border: 2px solid @border-color;
-  border-radius: 50px;
-  position: relative;
-}
-
-.orderListImage > img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  width: 45px;
 }
 
 .orderListLabel {
