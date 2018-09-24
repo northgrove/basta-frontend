@@ -72,8 +72,13 @@ class History extends Component {
   }
 
   componentDidMount() {
+    document.addEventListener('scroll', this.handleOnScroll.bind(this))
     const { dispatch, orderHistory } = this.props
     dispatch(getOrderHistory(200))
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleOnScroll.bind(this))
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -81,12 +86,24 @@ class History extends Component {
       this.props.orderHistory !== prevProps.orderHistory ||
       this.state.filter !== prevState.filter
     ) {
-      this.paceFiltering(10)
+      this.paceFiltering(100)
     }
+  }
+
+  handleOnScroll() {
+    const scrollNode = document.scrollingElement || document.documentElement
+    if (scrollNode.scrollHeight <= scrollNode.scrollTop + window.innerHeight) {
+      this.onBottom()
+    }
+  }
+
+  onBottom() {
+    this.setState({ nFilterResults: this.state.nFilterResults + 100 })
   }
 
   render() {
     const { filteredOrderHistory } = this.state
+
     return (
       <div>
         <PageHeading icon="fa-history" heading="Order history" description="" />
