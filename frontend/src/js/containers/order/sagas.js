@@ -1,7 +1,6 @@
 import history from '../../common/history'
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, postForm } from '../../common/utils'
-import { api } from '../../../../../api/src/config/config'
 import {
   SUBMIT_FORM,
   FORM_SUBMITTING,
@@ -17,8 +16,6 @@ import {
   ORDER_REQUEST_FAILED
 } from './actionTypes'
 
-const url = `${api}`
-
 export function* submitForm(action) {
   let value = ''
   yield put({ type: FORM_SUBMITTING })
@@ -26,19 +23,19 @@ export function* submitForm(action) {
   try {
     switch (action.key) {
       case 'iapptools':
-        value = yield call(postForm, `${url}/orders/iapptools`, action.orders)
+        value = yield call(postForm, `rest/orders/iapptools`, action.orders)
         break
       case 'developertools':
-        value = yield call(postForm, `${url}/orders/developertools`, action.orders)
+        value = yield call(postForm, `rest/orders/developertools`, action.orders)
         break
       case 'jbossnode':
-        value = yield call(postForm, `${url}/orders/jbossnode`, action.orders)
+        value = yield call(postForm, `rest/orders/jbossnode`, action.orders)
         break
       case 'wasnode':
-        value = yield call(postForm, `${url}/orders/wasnode`, action.orders)
+        value = yield call(postForm, `rest/orders/wasnode`, action.orders)
         break
       case 'wildflynode':
-        value = yield call(postForm, `${url}/orders/wildflynode`, action.orders)
+        value = yield call(postForm, `rest/orders/wildflynode`, action.orders)
         break
     }
     yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })
@@ -50,7 +47,7 @@ export function* submitForm(action) {
 export function* getStatusLog(action) {
   try {
     yield put({ type: STATUSLOG_FETCHING })
-    const value = yield call(getUrl, `${url}/orders/${action.orderId}/statuslog/`)
+    const value = yield call(getUrl, `rest/orders/${action.orderId}/statuslog/`)
     yield put({ type: STATUSLOG_RECEIVED, value })
   } catch (error) {
     yield put({ type: STATUSLOG_REQUEST_FAILED, error })
@@ -60,7 +57,7 @@ export function* getStatusLog(action) {
 export function* getOrderDetails(action) {
   try {
     yield put({ type: ORDER_FETCHING })
-    const value = yield call(getUrl, `${url}/orders/${action.orderId}`)
+    const value = yield call(getUrl, `rest/orders/${action.orderId}`)
     yield put({ type: ORDER_RECEIVED, value })
   } catch (error) {
     yield put({ type: ORDER_REQUEST_FAILED, error })

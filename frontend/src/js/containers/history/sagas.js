@@ -1,6 +1,5 @@
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl } from '../../common/utils'
-import { api } from '../../../../../api/src/config/config'
 import {
   HISTORY_REQUEST,
   HISTORY_FETCHING,
@@ -8,8 +7,6 @@ import {
   HISTORY_COMPLETE,
   HISTORY_REQUEST_FAILED
 } from './actionTypes'
-
-const url = `${api}`
 
 const delay = millis => {
   const promise = new Promise(resolve => {
@@ -23,7 +20,7 @@ export function* getPartialHistory(action, pageId) {
 
   value = yield call(
     getUrl,
-    `${url}/orders/page/${pageId}/${action.pageSize}/${action.toDate}/${action.fromDate}`
+    `rest/orders/page/${pageId}/${action.pageSize}/${action.toDate}/${action.fromDate}`
   )
   if (value.length > 0) {
     pageId++
