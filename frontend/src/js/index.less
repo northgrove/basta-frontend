@@ -47,16 +47,16 @@ a:link {
   display: grid;
   height: 100vh;
   min-width: 375px;
-  grid-template-areas: 'header header header' 'navLeft navigation navRight' 'left main right' 'footer footer footer';
-  grid-template-rows: 50px 50px 1fr 40px;
+  grid-template-areas: 'header header header' 'navLeft navigation navRight' 'left main right';
+  grid-template-rows: 50px 50px 1fr;
   grid-template-columns: auto 1012px auto;
 }
 
 @media all and (max-width: 1012px) {
   .wrapper {
-    grid-template-areas: 'header' 'navigation' 'main' 'footer';
+    grid-template-areas: 'header' 'navigation' 'main';
     grid-template-columns: 100%;
-    grid-template-rows: 50px 50px 1fr 40px;
+    grid-template-rows: 50px 50px 1fr;
   }
 }
 
@@ -73,9 +73,6 @@ a:link {
 
   .navButton {
     display: inline-block !important;
-  }
-  footer {
-    display: none;
   }
 }
 
@@ -120,14 +117,6 @@ nav {
 main {
   grid-area: main;
   border-top: 1px solid @border-color;
-  overflow: scroll;
-}
-
-footer {
-  background: @header-color;
-  grid-area: footer;
-  margin-top: 10px;
-  height: 30px;
 }
 
 .navBrand {

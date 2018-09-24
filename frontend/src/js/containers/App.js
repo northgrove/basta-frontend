@@ -66,7 +66,6 @@ class App extends Component {
             <NavMenuSmall />
             <Routes />
           </main>
-          <footer />
         </div>
       )
     } else {
