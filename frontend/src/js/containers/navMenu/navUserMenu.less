@@ -1,3 +1,13 @@
+.navUserMenu {
+  height: 50px;
+  width: 50px;
+  display: inline;
+}
+.navUserMenu:hover {
+  .navUserMenu-content {
+    display: block;
+  }
+}
 .navUserImage {
   float: right;
   margin-top: 3px;
@@ -20,7 +30,8 @@
 }
 .navUserMenu-content {
   display: none;
-  position: relative;
+  position: absolute;
+  right: 0;
   background-color: #f1f1f1;
   min-width: 120px;
   padding-left: 10px;
@@ -33,13 +44,6 @@
 }
 
 .navUserMenu-content a {
-  color: black;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-decoration: none;
-  display: block;
-}
-.navUserMenu-tekst {
   color: black;
   padding-left: 10px;
   padding-right: 10px;

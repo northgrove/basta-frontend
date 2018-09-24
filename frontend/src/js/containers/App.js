@@ -8,9 +8,9 @@ import { withRouter } from 'react-router-dom'
 import { initializeApplication, userLogout } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
 import NavMenu from './navMenu/NavMenu'
+import NavUserMenu from './navMenu/NavUserMenu'
 import Login from '../containers/login/Login'
 import moment from 'moment'
-import NavUserMenu from './navMenu/NavUserMenu'
 
 const bastaLogo = require('../../img/basta.png')
 
@@ -29,14 +29,6 @@ class App extends Component {
   render() {
     const { appReady, user, dispatch } = this.props
 
-    function userPhoto(photo) {
-      return (
-        <div className="navUserImage">
-          <img src={photo} />
-        </div>
-      )
-    }
-
     if (appReady) {
       return !user.isUserAuthenticated ? (
         <Login location={location} />
@@ -49,13 +41,15 @@ class App extends Component {
                 <div className="navName">basta</div>
               </div>
             </div>
-            <div className="navMenuRight">{userPhoto(user.userProfile.photo)}</div>
+            <div className="navMenuRight">
+              <NavUserMenu user={user} userLogout={userLogout} dispatch={dispatch} />
+            </div>
           </header>
           <div className="navLeft" />
           <nav>
             <NavMenu className="navTabs" />
             <div className="mobileMenu">
-              {userPhoto(user.userProfile.photo)}
+              <NavUserMenu user={user} userLogout={userLogout} dispatch={dispatch} />
               <div className="navButton" onClick={() => this.props.dispatch(toggleNavMenu())}>
                 <i className="fa fa-bars fa-2x navSmallButton" />
               </div>
