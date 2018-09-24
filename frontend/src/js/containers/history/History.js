@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getOrderHistory } from './actionCreators'
+import { applyOrderHistoryFilter } from './actionCreators'
 import PageHeading from '../../common/components/PageHeading'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -11,72 +11,37 @@ class History extends Component {
     super(props)
     this.state = {
       filter: '',
-      nFilterResults: 100
+      nMaxResults: 20
     }
   }
 
-  applyFilter(array, filter) {
-    let multiArray = []
-    let filteredArray = []
-    const filters = filter.split(' ')
-    filters.forEach((filter, i) => {
-      multiArray[i] = this.filterArray(array, filter)
-      if (i > 0) {
-        multiArray[i] = this.filterArray(multiArray[i - 1], filter)
-      }
-      filteredArray = multiArray[i]
-    })
-    return filteredArray
-  }
-
-  filterArray(array, filter) {
-    const regexp = new RegExp(filter, 'i')
-    return array.filter(e => {
-      let bool = false
-      e.tags.forEach(tag => {
-        if (tag.match(regexp)) bool = true
-      })
-      return bool
-    })
-  }
-
-  filterString(filter) {
-    this.setState({
-      filter
-    })
-  }
-
-  renderItems(nFilteredOrders, orderHistory) {
-    const { filter } = this.state
-    // const { orderHistory } = this.props
-    const filteredArray = this.applyFilter(orderHistory, filter)
-    const array = filteredArray.slice(0, nFilteredOrders)
-    this.setState({
-      filteredOrderHistory: array
-    })
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   componentDidMount() {
-    const { dispatch, orderHistory } = this.props
-    dispatch(getOrderHistory(1000))
+    console.log('1')
+    const { dispatch } = this.props
+    const { filter, nMaxResults } = this.state
+    dispatch(applyOrderHistoryFilter(filter, nMaxResults))
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      this.props.orderHistory !== prevProps.orderHistory ||
-      this.state.filter !== prevState.filter
-    ) {
-      this.applyFilter(this.props.orderHistory, this.state.filter)
+    const { dispatch } = this.props
+    const { filter, nMaxResults } = this.state
+    if (this.state.filter !== prevState.filter) {
+      dispatch(applyOrderHistoryFilter(filter, nMaxResults))
     }
   }
 
   render() {
-    const { filteredOrderHistory } = this.state
-    console.log(this.state)
+    console.log('hey')
+    console.log(this.props)
+    const { filteredOrderHistory } = this.props
     return (
       <div>
-        <PageHeading icon="fa-history" heading="Order history" description="" />
-        <OrderFilter onChange={e => this.filterString(e)} />
+        <PageHeading icon="fa-history" heading="Order history" description="" /> */}
+        <OrderFilter onChange={e => this.handleChange(e)} />
         <OrderList orderHistory={filteredOrderHistory} />
       </div>
     )
@@ -85,12 +50,12 @@ class History extends Component {
 
 History.propTypes = {
   dispatch: propTypes.func.isRequired,
-  orderHistory: propTypes.array.isRequired
+  filteredOrderHistory: propTypes.array.isRequired
 }
 
 const mapStateToProps = state => {
   return {
-    orderHistory: state.history.orderHistory
+    filteredOrderHistory: state.history.filteredOrderHistory
   }
 }
 

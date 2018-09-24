@@ -5,7 +5,9 @@ import {
   HISTORY_FETCHING,
   HISTORY_RECEIVED,
   HISTORY_COMPLETE,
-  HISTORY_REQUEST_FAILED
+  HISTORY_REQUEST_FAILED,
+  HISTORY_APPLY_FILTER,
+  HISTORY_APPLY_FILTER_COMPLETE
 } from './actionTypes'
 
 const delay = millis => {
@@ -44,6 +46,13 @@ export function* getOrderHistory(action) {
   }
 }
 
+export function* applyOrderHistoryFilter(action) {
+  console.log('apply filter', action)
+  try {
+  } catch (err) {}
+}
+
 export function* watcHistory() {
   yield fork(takeEvery, HISTORY_REQUEST, getOrderHistory)
+  // yield fork(takeEvery, HISTORY_APPLY_FILTER, applyOrderHistoryFilter)
 }

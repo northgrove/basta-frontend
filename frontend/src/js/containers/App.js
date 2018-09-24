@@ -7,10 +7,12 @@ import history from '../common/history'
 import { withRouter } from 'react-router-dom'
 import { initializeApplication, userLogout } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
+// import { getOrderHistory } from './history/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import Login from '../containers/login/Login'
 import moment from 'moment'
 import NavUserMenu from './navMenu/NavUserMenu'
+import { getOrder } from '../../../../api/test/mockend/orderMock'
 
 const bastaLogo = require('../../img/basta.png')
 
@@ -23,6 +25,7 @@ class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(initializeApplication())
+    // dispatch(getOrderHistory(1000))
     moment.locale('nb')
   }
 

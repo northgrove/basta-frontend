@@ -8,21 +8,21 @@ const OrderList = props => {
 }
 
 const renderList = orders => {
-  let orderList = []
-  if (orders.length >= 1) {
-    // console.log('1000')
+  // let orderList = []
+  // if (orders.length >= 1) {
+  //   // console.log('1000')
 
-    orders.forEach((e, i) => {
-      orderList.push(
-        <div key={i}>
-          <OrderListCard order={e} />
-        </div>
-      )
-    })
-  } else {
-    // console.log('do nothing')
-  }
-  return orderList
+  //   orders.forEach((e, i) => {
+  //     orderList.push(
+  //       <div key={i}>
+  //         <OrderListCard order={e} />
+  //       </div>
+  //     )
+  //   })
+  // } else {
+  //   // console.log('do nothing')
+  // }
+  return null
 }
 
 OrderList.propTypes = {
