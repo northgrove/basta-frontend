@@ -1,0 +1,4500 @@
+[
+  {
+    "name": "pensjon-fss",
+    "appConfigGroupId": "no.nav.pensjon",
+    "appConfigArtifactId": "pensjon-fss-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:pesys",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "sapo",
+    "appConfigGroupId": "no.nav.sapo",
+    "appConfigArtifactId": "sapo-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:helfo",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "fpmockrest",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "fpmockrest",
+    "portOffset": 0
+  },
+  {
+    "name": "dokarkiv",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokarkiv",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbdemo",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhr-eletter",
+    "appConfigGroupId": "no.nav.helserefusjon",
+    "appConfigArtifactId": "dummy",
+    "portOffset": 0
+  },
+  {
+    "name": "a-inntekt",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "a-inntekt-config",
+    "portOffset": 0
+  },
+  {
+    "name": "tps-forvalteren",
+    "appConfigGroupId": "no.nav.tps.forvalteren",
+    "appConfigArtifactId": "tps-forvalteren-config",
+    "portOffset": 2
+  },
+  {
+    "name": "pam-kandidatprofil",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-kandidatprofil",
+    "portOffset": 0
+  },
+  {
+    "name": "freg-sts-provider",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "freg-sts-provider",
+    "portOffset": 0
+  },
+  {
+    "name": "drek",
+    "appConfigGroupId": "no.nav.drek",
+    "appConfigArtifactId": "drek-config",
+    "portOffset": 3
+  },
+  {
+    "name": "basta-frontend",
+    "appConfigGroupId": "bare",
+    "appConfigArtifactId": "tull",
+    "portOffset": 0
+  },
+  {
+    "name": "eresept",
+    "appConfigGroupId": "no.nav.eresept",
+    "appConfigArtifactId": "eresept-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "visa",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "visa",
+    "portOffset": 8
+  },
+  {
+    "name": "brukerflyt",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "brukerflyt-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-cv-indexer",
+    "appConfigGroupId": "no.nav.arbeid.arena.pam",
+    "appConfigArtifactId": "pam-cv-indexer",
+    "portOffset": 0
+  },
+  {
+    "name": "tssws",
+    "appConfigGroupId": "no.nav.tssws",
+    "appConfigArtifactId": "nav-config-fellesregister-tssws",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbdialogproxy",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbdialogproxy-config",
+    "portOffset": 8
+  },
+  {
+    "name": "veilarbmaofs",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbmaofs",
+    "portOffset": 0
+  },
+  {
+    "name": "pdf-gen",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "pdf-gen",
+    "portOffset": 0
+  },
+  {
+    "name": "melosys-api",
+    "appConfigGroupId": "no.nav.melosys",
+    "appConfigArtifactId": "melosys-aura-config",
+    "portOffset": 0
+  },
+  {
+    "name": "innkjopsportalen",
+    "appConfigGroupId": "no.nav.innkjopsportalen",
+    "appConfigArtifactId": "no.nav.innkjopsportalen-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:hyllevare",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "syfoapi",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfoapi",
+    "portOffset": 0
+  },
+  {
+    "name": "androa-nav-demo",
+    "appConfigGroupId": "no.nav.nais.demo",
+    "appConfigArtifactId": "androa-nav-demo",
+    "portOffset": 0
+  },
+  {
+    "name": "sendsoknad-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "sendsoknad-tekster",
+    "portOffset": 90
+  },
+  {
+    "name": "arbeid-og-inntekt",
+    "appConfigGroupId": "nav.no.arbeid-og-inntekt",
+    "appConfigArtifactId": "arbeid-og-inntekt",
+    "portOffset": 0
+  },
+  {
+    "name": "altutkanal",
+    "appConfigGroupId": "no.nav.altut-kanal",
+    "appConfigArtifactId": "nav-altut-kanal-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "oppdaterenhetsinfo",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "oppdaterenhetsinfo",
+    "portOffset": 0
+  },
+  {
+    "name": "oppgavebackend",
+    "appConfigGroupId": "no.nav.oppfolging",
+    "appConfigArtifactId": "oppgavebackend-config",
+    "portOffset": 0
+  },
+  {
+    "name": "meldekort-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "meldekort-tekster",
+    "portOffset": 100
+  },
+  {
+    "name": "veilarboppfolging",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarboppfolging-appconfig",
+    "portOffset": 7
+  },
+  {
+    "name": "kuhr-kodeverk-api",
+    "appConfigGroupId": "no.nav.helse",
+    "appConfigArtifactId": "kuhr-kodever-api",
+    "portOffset": 0
+  },
+  {
+    "name": "feature-fss",
+    "appConfigGroupId": "feature-fss",
+    "appConfigArtifactId": "feature-fss",
+    "portOffset": 0
+  },
+  {
+    "name": "diagnoseregistrering",
+    "appConfigGroupId": "no.nav.diagnoseregistrering",
+    "appConfigArtifactId": "diagnoseregistrering-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:vedtak",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "inn-meta-dok",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "inn-meta-dok",
+    "portOffset": 103
+  },
+  {
+    "name": "xml-validator",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "xml-validator",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbjobbsokerkompetanse",
+    "appConfigGroupId": "veilarbjobbsokerkompetanse",
+    "appConfigArtifactId": "veilarbjobbsokerkompetanse",
+    "portOffset": 0
+  },
+  {
+    "name": "tortuga-hiv",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "fss-tekstressurs-api",
+    "appConfigGroupId": "nav.no.sbl",
+    "appConfigArtifactId": "fss-tekstressurs-api",
+    "portOffset": 0
+  },
+  {
+    "name": "modiacontextholder",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "modiacontextholder-config",
+    "portOffset": 0
+  },
+  {
+    "name": "frikortutbetaling",
+    "appConfigGroupId": "no.helsedir.frikort",
+    "appConfigArtifactId": "frikortutbetaling",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbaktivitetsplanfs",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbaktivitetsplanfs-config",
+    "portOffset": 6
+  },
+  {
+    "name": "foreldrepenger-inngang",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "foreldrepenger-inngang",
+    "portOffset": 0
+  },
+  {
+    "name": "pensjon-tekster-pselv-sbs",
+    "appConfigGroupId": "no.nav.tekster",
+    "appConfigArtifactId": "nav-pensjon-tekster-pselv-sbs",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:selvbetjening WAS",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "veilarbdata",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbdata-app",
+    "portOffset": 0
+  },
+  {
+    "name": "syfofsstekster",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-tekster",
+    "applicationGroup": {
+      "name": "syfofss",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "arenabrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "arenabrev",
+    "portOffset": 97
+  },
+  {
+    "name": "infotrygdbrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "infotrygdbrev",
+    "portOffset": 98
+  },
+  {
+    "name": "dokumentinnsending",
+    "appConfigGroupId": "no.nav.leren",
+    "appConfigArtifactId": "dokumentinnsending",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-search-api",
+    "appConfigGroupId": "no.nav.arbeid.search-api",
+    "appConfigArtifactId": "pam-search-api",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadtilleggsstonader-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadtilleggsstonader-tekster",
+    "portOffset": 92
+  },
+  {
+    "name": "nais-sftp",
+    "appConfigGroupId": "no.nav.nais-sftp",
+    "appConfigArtifactId": "nais-sftp",
+    "portOffset": 0
+  },
+  {
+    "name": "veivisersosialhjelp",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veivisersosialhjelp-config",
+    "portOffset": 0
+  },
+  {
+    "name": "samordning-ut",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "eia-mengdetest",
+    "appConfigGroupId": "no.nav.eia2",
+    "appConfigArtifactId": "eia-mengdetest-appconfig",
+    "portOffset": 2
+  },
+  {
+    "name": "veilarboppfolging-vilkar",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarboppfolging-vilkar",
+    "portOffset": 9
+  },
+  {
+    "name": "veiledearbeidssoker",
+    "appConfigGroupId": "nav",
+    "appConfigArtifactId": "veiledearbeidssoker",
+    "portOffset": 0
+  },
+  {
+    "name": "personopplysninger",
+    "appConfigGroupId": "personopplysninger",
+    "appConfigArtifactId": "personopplysninger",
+    "portOffset": 0
+  },
+  {
+    "name": "webenabler",
+    "appConfigGroupId": "no.nav.webenabler",
+    "appConfigArtifactId": "no.nav.webenabler-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:hyllevare",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "rapportering-sykmeldte",
+    "appConfigGroupId": "no.nav.sbl.rapportering.sykmeldte",
+    "appConfigArtifactId": "nav-sbl-rapportering-sykmeldte-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "iawebinternal",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "iaweb-internal-config",
+    "portOffset": 1
+  },
+  {
+    "name": "tdv",
+    "appConfigGroupId": "dummy",
+    "appConfigArtifactId": "dummy",
+    "portOffset": 0
+  },
+  {
+    "name": "pensjon-sbs",
+    "appConfigGroupId": "no.nav.pensjon",
+    "appConfigArtifactId": "pensjon-sbs",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:selvbetjening WAS",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "aktivitetsplan-fss",
+    "appConfigGroupId": "aktivitetsplan-fss",
+    "appConfigArtifactId": "aktivitetsplan-fss",
+    "portOffset": 0
+  },
+  {
+    "name": "synth-orkestrator",
+    "appConfigGroupId": "nav.no",
+    "appConfigArtifactId": "synth-orkestrator",
+    "portOffset": 0
+  },
+  {
+    "name": "foreldrepengesoknad",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "foreldrepengesoknad",
+    "portOffset": 0
+  },
+  {
+    "name": "mininnboks",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "mininnboks-config",
+    "portOffset": 0
+  },
+  {
+    "name": "inn-prod-dok",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "inn-prod-dok",
+    "portOffset": 104
+  },
+  {
+    "name": "dokarkivhendelser",
+    "appConfigGroupId": "no.nav.dokarkivhendelser",
+    "appConfigArtifactId": "dokarkivhendelser",
+    "portOffset": 0
+  },
+  {
+    "name": "person-freg-produsent",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-freg-produsent",
+    "portOffset": 0
+  },
+  {
+    "name": "miatekster",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "mia-tekster",
+    "portOffset": 10
+  },
+  {
+    "name": "os-eskatt-altinn-consumer",
+    "appConfigGroupId": "no.nav.os-eskatt-altinn-consumer",
+    "appConfigArtifactId": "app-config",
+    "portOffset": 0
+  },
+  {
+    "name": "dokmotinngaaende",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokmotinngaaende",
+    "portOffset": 0
+  },
+  {
+    "name": "melosys-regler",
+    "appConfigGroupId": "no.nav.melosys",
+    "appConfigArtifactId": "melosys-regler",
+    "portOffset": 0
+  },
+  {
+    "name": "p2-selvbetjening-frontend",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "test-logout",
+    "appConfigGroupId": "test-logout",
+    "appConfigArtifactId": "test-logout",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbportefoljeflatefs-tekster",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbportefoljeflatefs-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "syfogsak",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfogsak",
+    "portOffset": 0
+  },
+  {
+    "name": "dokmot",
+    "appConfigGroupId": "no.nav.dokmot",
+    "appConfigArtifactId": "dokmot-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "sak",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "sak",
+    "portOffset": 0
+  },
+  {
+    "name": "syfooppgavegsak",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfooppgavegsak",
+    "portOffset": 0
+  },
+  {
+    "name": "eux",
+    "appConfigGroupId": "no.nav.eux",
+    "appConfigArtifactId": "eux-config",
+    "portOffset": 0
+  },
+  {
+    "name": "dagpenger-soknadvelger",
+    "appConfigGroupId": "dagpenger",
+    "appConfigArtifactId": "soknadvelger",
+    "portOffset": 0
+  },
+  {
+    "name": "esb-legacy",
+    "appConfigGroupId": "no.nav.esb.esb",
+    "appConfigArtifactId": "esb-legacy-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 8
+  },
+  {
+    "name": "regoppslag",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "regoppslag",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadbilstonad-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadbilstonad-tekster",
+    "portOffset": 95
+  },
+  {
+    "name": "personkort-sertifisering",
+    "appConfigGroupId": "no.nav.personkort",
+    "appConfigArtifactId": "personkort-appconfig-sertifisering",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:personkort-sertifisering",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "dkif",
+    "appConfigGroupId": "n/a",
+    "appConfigArtifactId": "n/a",
+    "portOffset": 0
+  },
+  {
+    "name": "syfo-dialogmotebehov",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-dialogmotebehov",
+    "portOffset": 0
+  },
+  {
+    "name": "norg2-tilgang",
+    "appConfigGroupId": "N/A",
+    "appConfigArtifactId": "N/A",
+    "portOffset": 0
+  },
+  {
+    "name": "syfosykemeldingregler",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosykemeldingregler",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbpersonfs-tekster",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbpersonfs-tekster",
+    "portOffset": 88
+  },
+  {
+    "name": "pam-ad-api",
+    "appConfigGroupId": "no.nav.pam.ad",
+    "appConfigArtifactId": "pam-ad-api",
+    "portOffset": 0
+  },
+  {
+    "name": "person-freg-mottak",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-freg-mottak",
+    "portOffset": 0
+  },
+  {
+    "name": "ehandelkanal-2",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "ehandelkanal-2",
+    "portOffset": 0
+  },
+  {
+    "name": "pensjon-tekster-pselv-fss",
+    "appConfigGroupId": "no.nav.tekster",
+    "appConfigArtifactId": "nav-pensjon-tekster-pselv-fss",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:pesys",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "pam-ad-arena",
+    "appConfigGroupId": "no.nav.pam",
+    "appConfigArtifactId": "pam-ad-arena",
+    "portOffset": 0
+  },
+  {
+    "name": "fpsak-metrics",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "infotrygd-hendelse-api",
+    "appConfigGroupId": "gov.nav.infotrygd",
+    "appConfigArtifactId": "build-config",
+    "portOffset": 0
+  },
+  {
+    "name": "frikort",
+    "appConfigGroupId": "no.nav.frikort",
+    "appConfigArtifactId": "nav-frikort-appconfig",
+    "portOffset": 1
+  },
+  {
+    "name": "soknadsosialhjelp-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadsosialhjelp-tekster",
+    "portOffset": 96
+  },
+  {
+    "name": "freg-pocs",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "freg-pocs-config",
+    "portOffset": 0
+  },
+  {
+    "name": "internarbeidsflatedecorator",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "internarbeidsflatedecorator-config",
+    "portOffset": 0
+  },
+  {
+    "name": "infotrygd-hendelser-api",
+    "appConfigGroupId": "gov.nav.infotrygd",
+    "appConfigArtifactId": "build-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-elm-test",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-elm-test",
+    "portOffset": 0
+  },
+  {
+    "name": "emottak-admin",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-admin-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "kafka2jms-inntektsskjema",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "inntektsskjema",
+    "portOffset": 0
+  },
+  {
+    "name": "personkort-oppkobling",
+    "appConfigGroupId": "no.nav.personkort",
+    "appConfigArtifactId": "personkort-appconfig-oppkobling",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:personkortene",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "frontendlogger-fss",
+    "appConfigGroupId": "frontendlogger",
+    "appConfigArtifactId": "frontendlogger",
+    "portOffset": 0
+  },
+  {
+    "name": "test-logout-fss",
+    "appConfigGroupId": "test-logout-fss",
+    "appConfigArtifactId": "test-logout-fss",
+    "portOffset": 0
+  },
+  {
+    "name": "varselkanal",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "varselkanal",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-gosys-live",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-gosys-live-config",
+    "portOffset": 1000
+  },
+  {
+    "name": "tjenestekall-test",
+    "appConfigGroupId": "no.nav.aura.tjenestekall",
+    "appConfigArtifactId": "tjenestekall-test-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-samtykke",
+    "appConfigGroupId": "no.nav.arbeid.samtykke",
+    "appConfigArtifactId": "pam-samtykke-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "fpdatasettbehandler",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhrsapo",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhrsapo-auraconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-stilling",
+    "appConfigGroupId": "no.nav.arbeid.stilling",
+    "appConfigArtifactId": "pam-stilling-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "syfovarsel",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfovarsel",
+    "portOffset": 0
+  },
+  {
+    "name": "pinpoint-fss",
+    "appConfigGroupId": "pinpoint",
+    "appConfigArtifactId": "pinpoint",
+    "portOffset": 0
+  },
+  {
+    "name": "bisys",
+    "appConfigGroupId": "no.nav.bidrag",
+    "appConfigArtifactId": "bisys-online-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:bisys",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "elin",
+    "appConfigGroupId": "no.nav.elin",
+    "appConfigArtifactId": "elin-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhr",
+    "appConfigGroupId": "no.nav.kuhr",
+    "appConfigArtifactId": "kuhr-app-config",
+    "portOffset": 5
+  },
+  {
+    "name": "veilarbportefoljeflatefs",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbportefoljeflatefs-config",
+    "portOffset": 10
+  },
+  {
+    "name": "emottak-mocker",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-integration-mocker-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 7
+  },
+  {
+    "name": "klanke",
+    "appConfigGroupId": "no.nav.klanke",
+    "appConfigArtifactId": "rtv-klanke-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:vedtak",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "kodeverk",
+    "appConfigGroupId": "no.nav.kodeverk",
+    "appConfigArtifactId": "kodeverk-config",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbdialog",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbdialog-config",
+    "portOffset": 8
+  },
+  {
+    "name": "veilarbaktivitet",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbaktivitet-config",
+    "portOffset": 1
+  },
+  {
+    "name": "aareg-splitter",
+    "appConfigGroupId": "no.nav.aareg-splitter",
+    "appConfigArtifactId": "aareg-splitter-config",
+    "portOffset": 0
+  },
+  {
+    "name": "meldekort",
+    "appConfigGroupId": "no.nav.sbl.meldekort",
+    "appConfigArtifactId": "meldekort-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "fpfordel",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "dokkat",
+    "appConfigGroupId": "no.nav.dokkat",
+    "appConfigArtifactId": "dokkat-config",
+    "portOffset": 0
+  },
+  {
+    "name": "dialoguedlf",
+    "appConfigGroupId": "no.nav.dialoguedlf",
+    "appConfigArtifactId": "dialoguedlf-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:administrative losninger",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "pam-stillingsok",
+    "appConfigGroupId": "no.nav.arbeid.stillingsok",
+    "appConfigArtifactId": "pam-stillingsok-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "eksternapp-digipost",
+    "appConfigGroupId": "no.nav.datapower.eksternapp",
+    "appConfigArtifactId": "eksternapp-digipost-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 6
+  },
+  {
+    "name": "vera",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "vera",
+    "portOffset": 5
+  },
+  {
+    "name": "syfosykemeldingjournaling",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosykemeldingjournaling",
+    "portOffset": 0
+  },
+  {
+    "name": "xpnavno",
+    "appConfigGroupId": "no.nav.portal.enonic",
+    "appConfigArtifactId": "xp-navno",
+    "portOffset": 0
+  },
+  {
+    "name": "samordning-inn",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "emottak-autotest",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-autotest-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 6
+  },
+  {
+    "name": "veilarbdemo-fss",
+    "appConfigGroupId": "veilarbdemo-fss",
+    "appConfigArtifactId": "veilarbdemo-fss",
+    "portOffset": 0
+  },
+  {
+    "name": "pact-broker",
+    "appConfigGroupId": "pact-broker",
+    "appConfigArtifactId": "pact-broker",
+    "portOffset": 0
+  },
+  {
+    "name": "sdpkanal",
+    "appConfigGroupId": "no.nav.sdp-kanal",
+    "appConfigArtifactId": "nav-sdp-kanal-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "skd-proxy",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "henvendelse",
+    "appConfigGroupId": "no.nav.leren",
+    "appConfigArtifactId": "henvendelse",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-er-sync",
+    "appConfigGroupId": "no.nav.pam.ad",
+    "appConfigArtifactId": "pam-er-sync",
+    "portOffset": 0
+  },
+  {
+    "name": "kafka2jms-bankkontonr",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "bankkontonr",
+    "portOffset": 0
+  },
+  {
+    "name": "ytelsesrapportering",
+    "appConfigGroupId": "no.nav.ytelsesrapportering",
+    "appConfigArtifactId": "nav-ytelsesrapportering-config",
+    "portOffset": 0
+  },
+  {
+    "name": "faktum",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "faktum-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "ident-pool",
+    "appConfigGroupId": "N/A",
+    "appConfigArtifactId": "N/A",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarboppgave",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarboppgave-config",
+    "portOffset": 10
+  },
+  {
+    "name": "exstream-peolpbp",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-peolpbp-config",
+    "portOffset": 12
+  },
+  {
+    "name": "jsd-int",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "jsd-int",
+    "portOffset": 0
+  },
+  {
+    "name": "dialogfordeler",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "dialogfordeler",
+    "portOffset": 0
+  },
+  {
+    "name": "soknad-aap-utland",
+    "appConfigGroupId": "soknad-aap-utland",
+    "appConfigArtifactId": "soknad-aap-utland",
+    "portOffset": 0
+  },
+  {
+    "name": "schemaregistry",
+    "appConfigGroupId": "no.nav.kafka",
+    "appConfigArtifactId": "schemaregistry",
+    "portOffset": 0
+  },
+  {
+    "name": "eksternapp-difi",
+    "appConfigGroupId": "no.nav.datapower.eksternapp",
+    "appConfigArtifactId": "eksternapp-difi-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "person-dok-gen",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-dok-gen-app",
+    "portOffset": 0
+  },
+  {
+    "name": "esb-nonenv-conf",
+    "appConfigGroupId": "no.nav.maven.support",
+    "appConfigArtifactId": "esb-nonenviroment-configuration",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "ledeteksteditor",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "ledeteksteditor-config",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbproxy",
+    "appConfigGroupId": "veilarbproxy",
+    "appConfigArtifactId": "veilarbproxy",
+    "portOffset": 0
+  },
+  {
+    "name": "service-gw-router-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "service-gw-router-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:service-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "dokmotsed",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokmotsed",
+    "portOffset": 0
+  },
+  {
+    "name": "nav-arena-nais-demo",
+    "appConfigGroupId": "no.nav.arena.nais.demo",
+    "appConfigArtifactId": "nav-arena-nais-demo",
+    "portOffset": 0
+  },
+  {
+    "name": "helserapporter",
+    "appConfigGroupId": "no.nav.hera",
+    "appConfigArtifactId": "helserapport-config-jar",
+    "portOffset": 0
+  },
+  {
+    "name": "veiviserarbeidssoker-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veiviserarbeidssoker-tekster",
+    "portOffset": 98
+  },
+  {
+    "name": "axsys",
+    "appConfigGroupId": "no.nav.axsys",
+    "appConfigArtifactId": "axsys-config",
+    "portOffset": 0
+  },
+  {
+    "name": "kafka-adminrest",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "adminrest",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadsveiviser",
+    "appConfigGroupId": "no.nav.spl",
+    "appConfigArtifactId": "soknadsveiviser",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-arbeidsgiverprofil",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-arbeidsgiverprofil",
+    "portOffset": 0
+  },
+  {
+    "name": "person-freg-tilbakemelding",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-freg-tilbakemelding",
+    "portOffset": 0
+  },
+  {
+    "name": "mia",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "mia-config",
+    "portOffset": 0
+  },
+  {
+    "name": "frikortegenandel",
+    "appConfigGroupId": "no.helsedir.frikort",
+    "appConfigArtifactId": "frikortegenandel-config",
+    "portOffset": 0
+  },
+  {
+    "name": "tps-admin",
+    "appConfigGroupId": "fylles.ut.siden",
+    "appConfigArtifactId": "fylles.ut.siden",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:informasjonsplattform",
+      "applications": []
+    },
+    "portOffset": 6
+  },
+  {
+    "name": "pam-kandidatsok",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-kandidatsok",
+    "portOffset": 0
+  },
+  {
+    "name": "frikortvedtak",
+    "appConfigGroupId": "no.helsedir.frikort",
+    "appConfigArtifactId": "frikortvedtak",
+    "portOffset": 0
+  },
+  {
+    "name": "veiviserarbeidsgiver",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "syfo-rapportering",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-rapportering-config",
+    "portOffset": 3
+  },
+  {
+    "name": "pale",
+    "appConfigGroupId": "no.nav.pa",
+    "appConfigArtifactId": "pale",
+    "portOffset": 0
+  },
+  {
+    "name": "p2-selvbetjening-mottak",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "p2-selvbetjening-mottak",
+    "portOffset": 0
+  },
+  {
+    "name": "syfoservice",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfoservice-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "stillingsolr",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "stilling-solr-config",
+    "portOffset": 0
+  },
+  {
+    "name": "euresapi",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "euresapi-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "arena-nais-demo",
+    "appConfigGroupId": "no.nav.arena.nais.demo",
+    "appConfigArtifactId": "arena-nais-demo",
+    "portOffset": 0
+  },
+  {
+    "name": "restfssoppfoelgingsdialog",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "oppfoelgingsdialogrestfss-config",
+    "portOffset": 1
+  },
+  {
+    "name": "modiaflatefs-tekster",
+    "appConfigGroupId": "no.nav.brukerdialog",
+    "appConfigArtifactId": "modiaflatefs-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "airwatch-tool",
+    "appConfigGroupId": "n/a",
+    "appConfigArtifactId": "n/a",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadrefusjondagligreise-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadrefusjondagligreise-tekster",
+    "portOffset": 91
+  },
+  {
+    "name": "soknaddagpenger-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknaddagpenger-tekster",
+    "portOffset": 97
+  },
+  {
+    "name": "grafana",
+    "appConfigGroupId": "n/a",
+    "appConfigArtifactId": "n/a",
+    "portOffset": 0
+  },
+  {
+    "name": "nais-test",
+    "appConfigGroupId": "nais-test",
+    "appConfigArtifactId": "nais-test",
+    "portOffset": 0
+  },
+  {
+    "name": "fastlegefront",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "fastlegefront-config",
+    "portOffset": 1
+  },
+  {
+    "name": "eia",
+    "appConfigGroupId": "no.nav.eia2",
+    "appConfigArtifactId": "eia-message-processor-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:eia",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "syfosoknadvarsel",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosoknadvarsel",
+    "portOffset": 0
+  },
+  {
+    "name": "brukerprofil",
+    "appConfigGroupId": "no.nav.leren",
+    "appConfigArtifactId": "brukerprofil",
+    "portOffset": 0
+  },
+  {
+    "name": "paop",
+    "appConfigGroupId": "no.nav.paop",
+    "appConfigArtifactId": "paop",
+    "portOffset": 0
+  },
+  {
+    "name": "syfobeskjed",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "syfobeskjed-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:syfo",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "personopplysninger-backend",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "personopplysninger-backend",
+    "portOffset": 0
+  },
+  {
+    "name": "jboss-testapp",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "jboss-testapp-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "dagpenger-innsikt",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "rina",
+    "appConfigGroupId": "no.nav.eux",
+    "appConfigArtifactId": "rina",
+    "portOffset": 0
+  },
+  {
+    "name": "varseltjeneste-dittnav",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "varseltjeneste-dittnav",
+    "portOffset": 0
+  },
+  {
+    "name": "cmsnavno",
+    "appConfigGroupId": "no.nav.portal.enonic",
+    "appConfigArtifactId": "cms-navno",
+    "portOffset": 0
+  },
+  {
+    "name": "syfo-tilgangskontroll",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-tilgangskontroll-config",
+    "portOffset": 2
+  },
+  {
+    "name": "person-identhendelse-lager",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-identhendelse-lager",
+    "portOffset": 0
+  },
+  {
+    "name": "nais-testapp",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "statistikkforsykmelder",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "statistikkforsykmelder-config",
+    "portOffset": 0
+  },
+  {
+    "name": "serviceoppfoelgingsdialog",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "oppfoelgingsdialogservice-config",
+    "portOffset": 0
+  },
+  {
+    "name": "designmanual",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "designmanual-config",
+    "portOffset": 0
+  },
+  {
+    "name": "rettskildenesolr",
+    "appConfigGroupId": "no.nav.solr",
+    "appConfigArtifactId": "rettskildene-solr-appconfig",
+    "portOffset": 1
+  },
+  {
+    "name": "OpenAM",
+    "appConfigGroupId": "no.nav.esso",
+    "appConfigArtifactId": "openam",
+    "portOffset": 0
+  },
+  {
+    "name": "sikkerhetsnivaa",
+    "appConfigGroupId": "no.nav.sikkerhetsnivaa",
+    "appConfigArtifactId": "sikkerhetsnivaa",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbpersonfs",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbpersonfs-config",
+    "portOffset": 1
+  },
+  {
+    "name": "miasolr",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "miasolr-config",
+    "portOffset": 0
+  },
+  {
+    "name": "eux-helloeu-app",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "nais",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-cv-match-indexer",
+    "appConfigGroupId": "no.nav.arbeid.pam",
+    "appConfigArtifactId": "pam-cv-match-indexer",
+    "portOffset": 0
+  },
+  {
+    "name": "ada",
+    "appConfigGroupId": "no.nav.ada",
+    "appConfigArtifactId": "no.nav.ada-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:hyllevare",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "skjera",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "skjera",
+    "portOffset": 7
+  },
+  {
+    "name": "syfoinntektsmelding",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfoinntektsmelding",
+    "portOffset": 0
+  },
+  {
+    "name": "nora",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "nora",
+    "portOffset": 1
+  },
+  {
+    "name": "pam-oppslag",
+    "appConfigGroupId": "no.nav.arbeid.oppslag",
+    "appConfigArtifactId": "pam-oppslag",
+    "portOffset": 0
+  },
+  {
+    "name": "arbeidssokerregistrering",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "personkort",
+    "appConfigGroupId": "no.nav.personkort",
+    "appConfigArtifactId": "personkort-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:personkortene",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "navit-rekruttering",
+    "appConfigGroupId": "no.nav.navit.rekruttering",
+    "appConfigArtifactId": "navit-rekruttering-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-peolpiy",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-peolpiy-config",
+    "portOffset": 11
+  },
+  {
+    "name": "exstream-sybaba",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-sybaba-config",
+    "portOffset": 1040
+  },
+  {
+    "name": "brukerinforest",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "brukerinforest-config",
+    "portOffset": 0
+  },
+  {
+    "name": "medl2",
+    "appConfigGroupId": "no.nav.medl",
+    "appConfigArtifactId": "medl2-config",
+    "portOffset": 1
+  },
+  {
+    "name": "pam-kandidatsok-veileder",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-kandidatsok-veileder",
+    "portOffset": 0
+  },
+  {
+    "name": "service-gw-router-fss",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "service-gw-router-fss-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:service-gw-fss",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "dokopp",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokopp",
+    "portOffset": 0
+  },
+  {
+    "name": "xmlstilling-admin",
+    "appConfigGroupId": "no.nav.sbl.xmlstilling",
+    "appConfigArtifactId": "xmlstilling-admin-config",
+    "portOffset": 0
+  },
+  {
+    "name": "postnummer-service",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "oxalis",
+    "appConfigGroupId": "no.nav.aksesspunkt",
+    "appConfigArtifactId": "oxalis-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "innloggingsinfo-tekster",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "innloggingsinfo-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "abacpdp",
+    "appConfigGroupId": "no.nav.abac",
+    "appConfigArtifactId": "abacpdp-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "eridanus",
+    "appConfigGroupId": "no.nav.poc",
+    "appConfigArtifactId": "eridanus-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "dolly",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "dolly",
+    "portOffset": 0
+  },
+  {
+    "name": "dokumentdistribusjon",
+    "appConfigGroupId": "no.nav.dokdist",
+    "appConfigArtifactId": "dokdist-config",
+    "portOffset": 0
+  },
+  {
+    "name": "veiledningarbeidssoker",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veiledningarbeidssoker-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-adreg",
+    "appConfigGroupId": "no.nav.pam.adreg",
+    "appConfigArtifactId": "pam-adreg-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "miasolr-sbs",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "miasolr-config",
+    "portOffset": 0
+  },
+  {
+    "name": "syfoveilederoppgaver",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfoveilederoppgaver-config",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbveileder",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbveileder-config",
+    "portOffset": 3
+  },
+  {
+    "name": "service-gw-pep-fss",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "service-gw-pep-fss-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:service-gw-fss",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "pam-arena",
+    "appConfigGroupId": "no.nav.arbeid.arena",
+    "appConfigArtifactId": "pam-arena-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "skanningmottak",
+    "appConfigGroupId": "no.nav.skanningmottak",
+    "appConfigArtifactId": "skanningmottak-config",
+    "portOffset": 0
+  },
+  {
+    "name": "kafka2jms-maalekort",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "maalekort",
+    "portOffset": 0
+  },
+  {
+    "name": "varsel",
+    "appConfigGroupId": "no.nav.varsel",
+    "appConfigArtifactId": "varsel-config",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhl",
+    "appConfigGroupId": "no.rtv.kuhl",
+    "appConfigArtifactId": "rtv-kuhl-appconfig",
+    "portOffset": 1
+  },
+  {
+    "name": "kuhr-sapo",
+    "appConfigGroupId": "no.nav.helse",
+    "appConfigArtifactId": "kuhr-sapo",
+    "portOffset": 0
+  },
+  {
+    "name": "foreldrepenger-selvbetjening-oppslag",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "foreldrepenger-selvbetjening-oppslag",
+    "portOffset": 0
+  },
+  {
+    "name": "veiviserarbeidssoker",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veiviserarbeidssoker-config",
+    "portOffset": 1
+  },
+  {
+    "name": "forenklet-deploy",
+    "appConfigGroupId": "forenklet-deploy",
+    "appConfigArtifactId": "forenklet-deploy",
+    "portOffset": 0
+  },
+  {
+    "name": "sera",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "sera",
+    "portOffset": 0
+  },
+  {
+    "name": "skanning",
+    "appConfigGroupId": "no.nav.skanning",
+    "appConfigArtifactId": "skanning",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:vedtak",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "syfosmmottak",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosmmottak",
+    "portOffset": 0
+  },
+  {
+    "name": "syfosmgsak",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosmgsak",
+    "portOffset": 0
+  },
+  {
+    "name": "unleashproxy",
+    "appConfigGroupId": "unleashproxy",
+    "appConfigArtifactId": "unleashproxy",
+    "portOffset": 0
+  },
+  {
+    "name": "distribusjonvarsel",
+    "appConfigGroupId": "no.nav.dok.varselmal",
+    "appConfigArtifactId": "distribusjonvarsel",
+    "portOffset": 96
+  },
+  {
+    "name": "eux-bucbucket",
+    "appConfigGroupId": "no.nav.eux.bucbucket",
+    "appConfigArtifactId": "eux-bucbucket",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbmalverk",
+    "appConfigGroupId": "veilarbmalverk",
+    "appConfigArtifactId": "veilarbmalverk",
+    "portOffset": 0
+  },
+  {
+    "name": "dokdistkanal",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokdistkanal",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-peolsedb",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-peolsedb-config",
+    "portOffset": 9
+  },
+  {
+    "name": "norg",
+    "appConfigGroupId": "no.nav.norg",
+    "appConfigArtifactId": "nav-norg-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:informasjonsplattform",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "presys",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "api-registry-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "api-registry-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 5
+  },
+  {
+    "name": "utbetalingsoversikt-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "utbetalingsoversikt-tekster",
+    "portOffset": 1
+  },
+  {
+    "name": "kafka2jms-barnehageliste",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "barnehageliste",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbstepup",
+    "appConfigGroupId": " ",
+    "appConfigArtifactId": " ",
+    "portOffset": 0
+  },
+  {
+    "name": "motetekster",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-tekster",
+    "applicationGroup": {
+      "name": "motemodul",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "api-management",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "api-management-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhr-tps-oppdateringer",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhr-tps-oppdateringer-gammel-avhengighet-artifact",
+    "portOffset": 0
+  },
+  {
+    "name": "stillinger",
+    "appConfigGroupId": "no.nav.sbl.stillinger",
+    "appConfigArtifactId": "stillinger-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Nav stillingssok",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "pam-arbeidssokerprofil",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-arbeidssokerprofil",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbpersonflatefs",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbpersonflatefs-config",
+    "portOffset": 3
+  },
+  {
+    "name": "security-token-service",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "security-token-service",
+    "portOffset": 0
+  },
+  {
+    "name": "bankkontonummerkanal",
+    "appConfigGroupId": "no.nav.altinn.kanal",
+    "appConfigArtifactId": "bankkontonummerkanal",
+    "portOffset": 0
+  },
+  {
+    "name": "dsop-kontroll",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "dsop-kontroll",
+    "portOffset": 0
+  },
+  {
+    "name": "altut-t09t14",
+    "appConfigGroupId": "no.nav.altut.t09t14",
+    "appConfigArtifactId": "nav-altut-t09t14-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:altut",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "sts-fss",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "sts-fss-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "tp",
+    "appConfigGroupId": "no.nav.tp-layers.config",
+    "appConfigArtifactId": "nav-config-fellesregister-tp",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:informasjonsplattform",
+      "applications": []
+    },
+    "portOffset": 5
+  },
+  {
+    "name": "syfoservice-tekster",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-tekster",
+    "portOffset": 4
+  },
+  {
+    "name": "restoppfoelgingsdialog",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "oppfoelgingsdialogrest-config",
+    "portOffset": 0
+  },
+  {
+    "name": "badkitty",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "betsys-agresso-integrasjonskomponent",
+    "appConfigGroupId": "no.nav.oko.betsys.agresso.integrasjonskomponent",
+    "appConfigArtifactId": "betsys-agresso-integrasjonskomponent",
+    "portOffset": 0
+  },
+  {
+    "name": "syfofront",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-front-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:syfo",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "pam-cv-api",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-cv-api",
+    "portOffset": 0
+  },
+  {
+    "name": "tpsws",
+    "appConfigGroupId": "no.nav.config.tpsws",
+    "appConfigArtifactId": "nav-config-fellesregister-tpsws",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:tpsws",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "service-gw-pep-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "service-gw-pep-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:service-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "vault",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "medl",
+    "appConfigGroupId": "no.nav.medl-layers.config",
+    "appConfigArtifactId": "nav-config-pensjon-medl",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:informasjonsplattform",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "melosys",
+    "appConfigGroupId": "no.nav.melosys",
+    "appConfigArtifactId": "melosys-aura-config",
+    "portOffset": 0
+  },
+  {
+    "name": "ondemandbrev",
+    "appConfigGroupId": "no.nav.odbrev",
+    "appConfigArtifactId": "odbrev-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:administrative losninger",
+      "applications": []
+    },
+    "portOffset": 6
+  },
+  {
+    "name": "pensjon-patchstatus",
+    "appConfigGroupId": "no.nav.patchstatus",
+    "appConfigArtifactId": "pensjon-patchstatus",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarboppfolgingproxy",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarboppfolgingproxy-config",
+    "portOffset": 11
+  },
+  {
+    "name": "veiledningarbeidssoker-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veiledningarbeidssoker-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "eux-app",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "nais",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-janzz",
+    "appConfigGroupId": "no.nav.arbeid.janzz",
+    "appConfigArtifactId": "pam-janzz",
+    "portOffset": 0
+  },
+  {
+    "name": "person-feed",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-feed",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-annonse-admin",
+    "appConfigGroupId": "no.nav.arbeid.admin",
+    "appConfigArtifactId": "pam-annonse-admin-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-jobbprofil",
+    "appConfigGroupId": "-",
+    "appConfigArtifactId": "-",
+    "portOffset": 0
+  },
+  {
+    "name": "sandkasse",
+    "appConfigGroupId": "no.nav.sandkasse",
+    "appConfigArtifactId": "sandkasse-config",
+    "portOffset": 0
+  },
+  {
+    "name": "presys-frontend",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "pensjon-mottak",
+    "appConfigGroupId": "no.nav.eessi",
+    "appConfigArtifactId": "pensjon-mottak",
+    "portOffset": 0
+  },
+  {
+    "name": "sikkerhetslytter-gw",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "sikkerhetslytter-gw-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "taitest",
+    "appConfigGroupId": "no.nav.kes",
+    "appConfigArtifactId": "taitest-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "sakogbehandling",
+    "appConfigGroupId": "no.nav.leren",
+    "appConfigArtifactId": "sakogbehandling",
+    "portOffset": 0
+  },
+  {
+    "name": "sts-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "sts-sbs-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-peolput",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-peolput-config",
+    "portOffset": 1
+  },
+  {
+    "name": "testbrukere",
+    "appConfigGroupId": "testbrukere",
+    "appConfigArtifactId": "testbrukere",
+    "portOffset": 0
+  },
+  {
+    "name": "basta",
+    "appConfigGroupId": "no.nav.aura.basta",
+    "appConfigArtifactId": "basta-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "flue",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "flue-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "frikortsak",
+    "appConfigGroupId": "no.helsedir.frikort",
+    "appConfigArtifactId": "frikortsak-config",
+    "portOffset": 0
+  },
+  {
+    "name": "hendelser",
+    "appConfigGroupId": "no.nav.leren",
+    "appConfigArtifactId": "hendelser",
+    "portOffset": 0
+  },
+  {
+    "name": "altinnstub",
+    "appConfigGroupId": "no.nav.os.eskatt.altinnstub",
+    "appConfigArtifactId": "altinnstub",
+    "portOffset": 0
+  },
+  {
+    "name": "empty-bpm",
+    "appConfigGroupId": "no.nav.kes",
+    "appConfigArtifactId": "empty-bpm-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 5
+  },
+  {
+    "name": "meldekortadmin",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "meldekortadmin",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-elasticsearch_admin",
+    "appConfigGroupId": "-",
+    "appConfigArtifactId": "-",
+    "portOffset": 0
+  },
+  {
+    "name": "xmlstilling-admin-tekster",
+    "appConfigGroupId": "no.nav.sbl.xmlstilling",
+    "appConfigArtifactId": "xmlstilling-admin-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "medsok-solr",
+    "appConfigGroupId": "no.nav.sbl.medsok",
+    "appConfigArtifactId": "nav-sbl-medsok-solr-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "soknad-kontantstotte-api",
+    "appConfigGroupId": "soknad-kontantstotte-api",
+    "appConfigArtifactId": "soknad-kontantstotte-api",
+    "portOffset": 0
+  },
+  {
+    "name": "arena-nais-aptest",
+    "appConfigGroupId": "no.nav.arena.nais.demo",
+    "appConfigArtifactId": "arena-nais-aptest",
+    "portOffset": 0
+  },
+  {
+    "name": "juneapp",
+    "appConfigGroupId": "n/a",
+    "appConfigArtifactId": "n/a",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbperson",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbperson-config",
+    "portOffset": 0
+  },
+  {
+    "name": "eksternapp-skatt-folkeregisteret",
+    "appConfigGroupId": "no.nav.datapower.eksternapp",
+    "appConfigArtifactId": "eksternapp-skatt-folkeregisteret-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "navnosolr",
+    "appConfigGroupId": "no.nav.solr",
+    "appConfigArtifactId": "nav-no-solr-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "inntektskomponenten",
+    "appConfigGroupId": "no.nav.inntektskomponenten",
+    "appConfigArtifactId": "inntektskomponenten-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:inntektskomponenten",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "apus",
+    "appConfigGroupId": "no.nav.stjerneeksempel.apus",
+    "appConfigArtifactId": "apus-config",
+    "portOffset": 0
+  },
+  {
+    "name": "sifk",
+    "appConfigGroupId": "no.nav.sbl.sifk",
+    "appConfigArtifactId": "sifk-config",
+    "portOffset": 1
+  },
+  {
+    "name": "person-freg-endring",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-freg-endring",
+    "portOffset": 0
+  },
+  {
+    "name": "saksoversikt",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "saksoversikt-config",
+    "portOffset": 0
+  },
+  {
+    "name": "fullmakt",
+    "appConfigGroupId": "no.nav.fullmakt",
+    "appConfigArtifactId": "fullmakt-config",
+    "portOffset": 4
+  },
+  {
+    "name": "popp",
+    "appConfigGroupId": "no.nav.popp",
+    "appConfigArtifactId": "popp-appconfig",
+    "portOffset": 1
+  },
+  {
+    "name": "soknad-kontantstotte",
+    "appConfigGroupId": "soknad-kontantstotte",
+    "appConfigArtifactId": "soknad-kontantstotte",
+    "portOffset": 0
+  },
+  {
+    "name": "moteoversiktfront",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "moteoversiktfssfront-config",
+    "portOffset": 1
+  },
+  {
+    "name": "person-forvalter",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-forvalter",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhrasyncproc",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhr-asynkron-prosesser-auraconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "abacadmin",
+    "appConfigGroupId": "no.nav.abac",
+    "appConfigArtifactId": "abacadmin-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pdf-gen-svg",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "pdf-gen-svg",
+    "portOffset": 0
+  },
+  {
+    "name": "gjenlevende-selvbetjening-api",
+    "appConfigGroupId": "no.nav.pensjon.gjenlevende",
+    "appConfigArtifactId": "gjenlevende-selvbetjening-api",
+    "portOffset": 0
+  },
+  {
+    "name": "helsetrygdkort-api",
+    "appConfigGroupId": "helsetrygdkort-api",
+    "appConfigArtifactId": "helsetrygdkort-api",
+    "portOffset": 0
+  },
+  {
+    "name": "saposervices",
+    "appConfigGroupId": "no.nav.sapo",
+    "appConfigArtifactId": "sapo-services-config",
+    "portOffset": 0
+  },
+  {
+    "name": "nom-ansatte",
+    "appConfigGroupId": "no.nav.nom",
+    "appConfigArtifactId": "nom-ansatte",
+    "portOffset": 0
+  },
+  {
+    "name": "melosys-web",
+    "appConfigGroupId": "no.nav.melosys-web",
+    "appConfigArtifactId": "melosys-web-config",
+    "portOffset": 0
+  },
+  {
+    "name": "sensu-api",
+    "appConfigGroupId": "no.nav.aura.sensu-api",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "kendemo",
+    "appConfigGroupId": "no.nav.ken.test",
+    "appConfigArtifactId": "kendemo",
+    "portOffset": 0
+  },
+  {
+    "name": "fpsakproto",
+    "appConfigGroupId": "no.nav.foreldrepenger.prototype",
+    "appConfigArtifactId": "build-config",
+    "portOffset": 0
+  },
+  {
+    "name": "nav-frontend-ikoner",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "nav-frontend-ikoner",
+    "portOffset": 0
+  },
+  {
+    "name": "norg2-frontend",
+    "appConfigGroupId": "no.nav.norg-frontend",
+    "appConfigArtifactId": "norg2-frontend",
+    "portOffset": 0
+  },
+  {
+    "name": "sigrun",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "sigrun",
+    "portOffset": 0
+  },
+  {
+    "name": "fptilbake",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "foreldrepengerbrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "foreldrepengerbrev",
+    "portOffset": 102
+  },
+  {
+    "name": "nav-frontend-ikoner-backend",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "nav-frontend-ikoner-backend",
+    "portOffset": 0
+  },
+  {
+    "name": "utbetalingsfeilbehandler",
+    "appConfigGroupId": "no.nav.oppfolging",
+    "appConfigArtifactId": "utbetalingsfeilbehandler-config",
+    "portOffset": 0
+  },
+  {
+    "name": "dokaudit",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokaudit",
+    "portOffset": 0
+  },
+  {
+    "name": "bprof",
+    "appConfigGroupId": "no.nav.bprof",
+    "appConfigArtifactId": "nav-bprof-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:informasjonsplattform",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "dokumentinfo",
+    "appConfigGroupId": "no.nav.dokumentinfo",
+    "appConfigArtifactId": "dokumentinfo",
+    "portOffset": 0
+  },
+  {
+    "name": "gosysbrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "gosysbrev",
+    "portOffset": 108
+  },
+  {
+    "name": "drek-skd-stub",
+    "appConfigGroupId": "no.nav.drek",
+    "appConfigArtifactId": "drek-skd-stub-config",
+    "portOffset": 5
+  },
+  {
+    "name": "dokreport",
+    "appConfigGroupId": "no.nav.dokument",
+    "appConfigArtifactId": "dokreport-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "ezbrev-frontend",
+    "appConfigGroupId": "nais:ezbrev-frontend",
+    "appConfigArtifactId": "ezbrev-frontend",
+    "portOffset": 0
+  },
+  {
+    "name": "jon-sbs",
+    "appConfigGroupId": "no.nav.mads",
+    "appConfigArtifactId": "mads",
+    "portOffset": 0
+  },
+  {
+    "name": "kafka2jms-oppfolgingsplan",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "oppfolgingsplan",
+    "portOffset": 0
+  },
+  {
+    "name": "frontendlogger",
+    "appConfigGroupId": "frontendlogger",
+    "appConfigArtifactId": "frontendlogger",
+    "portOffset": 0
+  },
+  {
+    "name": "syfolpsmock",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfolpsmock",
+    "portOffset": 0
+  },
+  {
+    "name": "plaster",
+    "appConfigGroupId": "no.nav.aura.plaster",
+    "appConfigArtifactId": "plaster-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "veivisersosialhjelp-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veivisersosialhjelp-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "meldekort2",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "meldekort2",
+    "portOffset": 0
+  },
+  {
+    "name": "marwin",
+    "appConfigGroupId": "no.nav.marwin",
+    "appConfigArtifactId": "nav-marwin-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pesyssolr",
+    "appConfigGroupId": "no.nav.pesys-solr",
+    "appConfigArtifactId": "pesys-solr-appconfig",
+    "portOffset": 1
+  },
+  {
+    "name": "dokmotaltinn",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokmotaltinn",
+    "portOffset": 0
+  },
+  {
+    "name": "mininnboks-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "mininnboks-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "syfosmjoark",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosmjoark",
+    "portOffset": 0
+  },
+  {
+    "name": "saksoversikt-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "saksoversikt-tekster",
+    "portOffset": 100
+  },
+  {
+    "name": "urbrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "urbrev",
+    "portOffset": 109
+  },
+  {
+    "name": "syfotekster",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-tekster",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:syfo",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "digisos-test",
+    "appConfigGroupId": "digisos-test",
+    "appConfigArtifactId": "digisos-test",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadbilstonad",
+    "appConfigGroupId": "no.nav.sbl.soknadbilstonad",
+    "appConfigArtifactId": "soknadbilstonad-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "motefront",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "mote-front-appconfig",
+    "applicationGroup": {
+      "name": "motemodul",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "betsys-ur",
+    "appConfigGroupId": "no.nav.betsys-ur",
+    "appConfigArtifactId": "betsys-ur",
+    "portOffset": 0
+  },
+  {
+    "name": "digital-kontaktinformasjon",
+    "appConfigGroupId": "no.nav.fellesregister.dkif",
+    "appConfigArtifactId": "dkif-config",
+    "portOffset": 0
+  },
+  {
+    "name": "cppa-gw-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "cppa-gw-sbs-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "fp-uttak-service",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "fp-uttak-service",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadaap",
+    "appConfigGroupId": "no.nav.sbl.soknadaap",
+    "appConfigArtifactId": "aap-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "person-tps-mottak",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-tps-mottak",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadsosialhjelp-server",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "soknadsosialhjelp-server",
+    "portOffset": 0
+  },
+  {
+    "name": "syfomotebehov",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfomotebehov",
+    "portOffset": 0
+  },
+  {
+    "name": "sendsoknad",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "sendsoknad-config",
+    "portOffset": 0
+  },
+  {
+    "name": "emottak-t1-asynch",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-t1t-asynch-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "aareg-web",
+    "appConfigGroupId": "no.nav.aareg-web",
+    "appConfigArtifactId": "aareg-web-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pinpoint",
+    "appConfigGroupId": "pinpoint",
+    "appConfigArtifactId": "pinpoint",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-syolba",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-syolba-config",
+    "portOffset": 1020
+  },
+  {
+    "name": "eessi-fagmodul-frontend",
+    "appConfigGroupId": "no.nav.eessi",
+    "appConfigArtifactId": "eessi-fagmodul-frontend",
+    "portOffset": 0
+  },
+  {
+    "name": "freg-mq-metrics",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "freg-mq-metrics",
+    "portOffset": 0
+  },
+  {
+    "name": "spiderdashboard",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "spider-dashboard",
+    "portOffset": 0
+  },
+  {
+    "name": "varseloppgave",
+    "appConfigGroupId": "no.nav.varseloppgave",
+    "appConfigArtifactId": "varseloppgave-config",
+    "portOffset": 0
+  },
+  {
+    "name": "eessi-pensjon-frontend-ui",
+    "appConfigGroupId": "no.nav.eessi",
+    "appConfigArtifactId": "eessi-pensjon-frontend-ui",
+    "portOffset": 0
+  },
+  {
+    "name": "person-tracking",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-tracking-app",
+    "portOffset": 0
+  },
+  {
+    "name": "esb",
+    "appConfigGroupId": "no.nav.esb",
+    "appConfigArtifactId": "esb-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "dialogstyring",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "dialogstyring-config",
+    "portOffset": 0
+  },
+  {
+    "name": "ezbrev",
+    "appConfigGroupId": "no.nav.brevogarkiv",
+    "appConfigArtifactId": "ez-brev-config",
+    "portOffset": 0
+  },
+  {
+    "name": "medsok",
+    "appConfigGroupId": "no.nav.sbl.medsok",
+    "appConfigArtifactId": "nav-sbl-medsok-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "tps-proxy",
+    "appConfigGroupId": "N/A",
+    "appConfigArtifactId": "N/A",
+    "portOffset": 0
+  },
+  {
+    "name": "tortuga-loot",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "eksempelapp-jms-jee7",
+    "appConfigGroupId": "no.nav.kes",
+    "appConfigArtifactId": "eksempelapp-jms-jee7-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "signering",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "signering-tjeneste-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "sam",
+    "appConfigGroupId": "no.nav.sam",
+    "appConfigArtifactId": "sam-appconfig",
+    "portOffset": 2
+  },
+  {
+    "name": "person-testdata",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-testdata",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-pebalav",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-pebalav-config",
+    "portOffset": 0
+  },
+  {
+    "name": "esso-ver",
+    "appConfigGroupId": "no.nav.aura.esso",
+    "appConfigArtifactId": "esso-ver-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "testhub",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "testhub",
+    "portOffset": 0
+  },
+  {
+    "name": "syfosminfotrygd",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosminfotrygd",
+    "portOffset": 0
+  },
+  {
+    "name": "esb-virksomhet",
+    "appConfigGroupId": "no.nav.esb.esb",
+    "appConfigArtifactId": "esb-virksomhet-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 6
+  },
+  {
+    "name": "kuhrsar",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhrsar-auraconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "iawebnav",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "iaweb-nav-config",
+    "portOffset": 0
+  },
+  {
+    "name": "cmsadminsbs",
+    "appConfigGroupId": "no.nav.portal.enonic",
+    "appConfigArtifactId": "cms-admin-sbs",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-jobbprofil-api",
+    "appConfigGroupId": "no.nav.arbeid.jobbprofil-api",
+    "appConfigArtifactId": "pam-jobbprofil-api",
+    "portOffset": 0
+  },
+  {
+    "name": "modiaeventdistribution",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "modiaeventdistribution-config",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadinnsending",
+    "appConfigGroupId": "no.nav.sbl.soknadinnsending",
+    "appConfigArtifactId": "soknadinnsending-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "betsam",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "betsam-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "fpoppdrag",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "person-oppslag",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-oppslag",
+    "portOffset": 0
+  },
+  {
+    "name": "esb-pensjon",
+    "appConfigGroupId": "no.nav.esb.esb",
+    "appConfigArtifactId": "esb-pensjon-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 9
+  },
+  {
+    "name": "altinnkanal-2",
+    "appConfigGroupId": "no.nav.altinnkanal",
+    "appConfigArtifactId": "altinnkanal-2",
+    "portOffset": 0
+  },
+  {
+    "name": "iawebsolr",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "iaweb-solr-config",
+    "portOffset": 0
+  },
+  {
+    "name": "predator",
+    "appConfigGroupId": "no.nav.predator",
+    "appConfigArtifactId": "predator",
+    "portOffset": 0
+  },
+  {
+    "name": "aura-jenkins",
+    "appConfigGroupId": "aura",
+    "appConfigArtifactId": "aura",
+    "portOffset": 0
+  },
+  {
+    "name": "os-eskatt",
+    "appConfigGroupId": "no.nav.os-eskatt",
+    "appConfigArtifactId": "app-config",
+    "portOffset": 0
+  },
+  {
+    "name": "fpmock",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "syfomottak",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfomottak",
+    "portOffset": 0
+  },
+  {
+    "name": "euresapi-tekster",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "euresapi-tekster",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-portal",
+    "appConfigGroupId": "no.nav.arbeid.portal",
+    "appConfigArtifactId": "pam-portal-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pamesadmin",
+    "appConfigGroupId": "-",
+    "appConfigArtifactId": "-",
+    "portOffset": 0
+  },
+  {
+    "name": "eksempelapp-hendelse-jee7",
+    "appConfigGroupId": "no.nav.kes",
+    "appConfigArtifactId": "eksempelapp-hendelse-jee7-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhr-sar-api",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhr-sar-api-gammel-avhengighet-artifact",
+    "portOffset": 0
+  },
+  {
+    "name": "sbl-frikort",
+    "appConfigGroupId": "no.nav.sbl.frikort",
+    "appConfigArtifactId": "nav-sbl-frikort-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "bris-login-poc",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "gosys-nais",
+    "appConfigGroupId": "no.nav.gosys",
+    "appConfigArtifactId": "nav-gosys",
+    "portOffset": 2
+  },
+  {
+    "name": "juridisklogg",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "juridisklogg-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "modiasyforest",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "modia-syforest-config",
+    "applicationGroup": {
+      "name": "syfofss",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "veilarbaktivitetsplanfs-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "veilarbaktivitetsplanfs-tekster",
+    "portOffset": 97
+  },
+  {
+    "name": "aktivitetsplan",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "aktivitetsplan-config",
+    "portOffset": 0
+  },
+  {
+    "name": "bpm",
+    "appConfigGroupId": "no.nav.bpm",
+    "appConfigArtifactId": "bpm-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "veilarbdirigent",
+    "appConfigGroupId": "veilarbdirigent",
+    "appConfigArtifactId": "veilarbdirigent",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-peolpap",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-peolpap-config",
+    "portOffset": 10
+  },
+  {
+    "name": "varseltjeneste-mocks",
+    "appConfigGroupId": "no.nav.varsel",
+    "appConfigArtifactId": "varseltjeneste-mocks",
+    "portOffset": 0
+  },
+  {
+    "name": "mqpocjboss",
+    "appConfigGroupId": "no.nav.kes",
+    "appConfigArtifactId": "mqpocjboss-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "microscopium",
+    "appConfigGroupId": "no.nav.stjerneeksempel.microscopium",
+    "appConfigArtifactId": "microscopium-config",
+    "portOffset": 0
+  },
+  {
+    "name": "syfosoknad",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosoknad",
+    "portOffset": 0
+  },
+  {
+    "name": "fpsoknad-oppslag",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "fpsoknad-oppslag",
+    "portOffset": 0
+  },
+  {
+    "name": "oppdrag",
+    "appConfigGroupId": "no.nav.oppdrag",
+    "appConfigArtifactId": "nav-oppdrag-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:administrative losninger",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "varseltjeneste-altinn",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "varseltjeneste-altinn",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-blob",
+    "appConfigGroupId": "no.nav.pam",
+    "appConfigArtifactId": "pam-blob",
+    "portOffset": 0
+  },
+  {
+    "name": "vefasrest",
+    "appConfigGroupId": "no.nav.aksesspunkt",
+    "appConfigArtifactId": "vefasrest-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-nss-admin",
+    "appConfigGroupId": "no.nav.pam",
+    "appConfigArtifactId": "pam-nss-admin",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhr-opne-data",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhr-opne-data",
+    "portOffset": 0
+  },
+  {
+    "name": "fpsoknad-mottak",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "fpsoknad-mottak",
+    "portOffset": 0
+  },
+  {
+    "name": "ereg-solr",
+    "appConfigGroupId": "no.nav.ereg.solr.enhetssok",
+    "appConfigArtifactId": "ereg-solr-enhetssok-config",
+    "portOffset": 0
+  },
+  {
+    "name": "esb-env-conf",
+    "appConfigGroupId": "no.nav.maven.support",
+    "appConfigArtifactId": "esb-enviroment-configuration",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "data-lineage-registry",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "data-lineage-registry",
+    "portOffset": 0
+  },
+  {
+    "name": "fplos",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "altut3",
+    "appConfigGroupId": "no.nav.altut.altut3",
+    "appConfigArtifactId": "nav-altut3-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:altut",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "fasit-frontend",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "fasit-frontend",
+    "portOffset": 9
+  },
+  {
+    "name": "veilarbportefoljeindeks",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbportefoljeindeks-config",
+    "portOffset": 0
+  },
+  {
+    "name": "spider",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "spider-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-kandidatprofil-api",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-kandidatprofil-api",
+    "portOffset": 0
+  },
+  {
+    "name": "fpinfo",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "oppgavevarsel",
+    "appConfigGroupId": "no.nav.dok.varselmal",
+    "appConfigArtifactId": "oppgavevarsel",
+    "portOffset": 100
+  },
+  {
+    "name": "gjenlevende-selvbetjening-frontend",
+    "appConfigGroupId": "no.nav.pensjon.gjenlevende",
+    "appConfigArtifactId": "gjenlevende-selvbetjening-frontend",
+    "portOffset": 0
+  },
+  {
+    "name": "dittnav",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "dittnav-config",
+    "portOffset": 0
+  },
+  {
+    "name": "esproxy",
+    "appConfigGroupId": "no.nav.arbeid.arena.pam",
+    "appConfigArtifactId": "esproxy",
+    "portOffset": 0
+  },
+  {
+    "name": "ruting",
+    "appConfigGroupId": "no.nav.ruting",
+    "appConfigArtifactId": "ruting-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:gosys og ruting",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "data-lineage-graph",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "datalineagegraph",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-biol",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-biol-config",
+    "portOffset": 4
+  },
+  {
+    "name": "jobbsokerkompetanse",
+    "appConfigGroupId": "jobbsokerkompetanse",
+    "appConfigArtifactId": "jobbsokerkompetanse",
+    "portOffset": 0
+  },
+  {
+    "name": "pesysbrev01",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "pesysbrev01",
+    "portOffset": 107
+  },
+  {
+    "name": "syfosmpapirmottak",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosmpapirmottak",
+    "portOffset": 0
+  },
+  {
+    "name": "gjenlevende-selvbetjening-backend",
+    "appConfigGroupId": "no.nav.pensjon.gjenlevende",
+    "appConfigArtifactId": "gjenlevende-selvbetjening-backend",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbazureadproxy",
+    "appConfigGroupId": "veilarbazureadproxy",
+    "appConfigArtifactId": "veilarbazureadproxy",
+    "portOffset": 0
+  },
+  {
+    "name": "bidragskalkulator",
+    "appConfigGroupId": "no.nav.bidragskalkulator",
+    "appConfigArtifactId": "bidragskalkulator-appconfig",
+    "portOffset": 4
+  },
+  {
+    "name": "jboss-delay-testapp",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "jboss-delay-testapp-appconfig",
+    "portOffset": 1
+  },
+  {
+    "name": "pam-elasticsearch",
+    "appConfigGroupId": "-",
+    "appConfigArtifactId": "-",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbregistrering",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbregistrering",
+    "portOffset": 0
+  },
+  {
+    "name": "digital-kontaktinfo",
+    "appConfigGroupId": "N/A",
+    "appConfigArtifactId": "N/A",
+    "portOffset": 0
+  },
+  {
+    "name": "brevserver",
+    "appConfigGroupId": "no.nav.brevserver",
+    "appConfigArtifactId": "brevserver-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:administrative losninger",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "inntektstub",
+    "appConfigGroupId": "no.nav.inntektskomponenten",
+    "appConfigArtifactId": "inntektstub-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:inntektskomponenten",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "okosynk",
+    "appConfigGroupId": "no.nav.okosynk",
+    "appConfigArtifactId": "okosynk-config",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadsveiviseradmin",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadsveiviseradmin",
+    "portOffset": 0
+  },
+  {
+    "name": "veientilarbeid",
+    "appConfigGroupId": " ",
+    "appConfigArtifactId": " ",
+    "portOffset": 0
+  },
+  {
+    "name": "utbetalingsmelding",
+    "appConfigGroupId": "no.nav.utbetalingsmelding",
+    "appConfigArtifactId": "app-config",
+    "portOffset": 1
+  },
+  {
+    "name": "eessi-pensjon-frontend-api",
+    "appConfigGroupId": "no.nav.eessi",
+    "appConfigArtifactId": "eessi-pensjon-frontend-api",
+    "portOffset": 0
+  },
+  {
+    "name": "trafikanten-sbs",
+    "appConfigGroupId": "no.nav.trafikanten",
+    "appConfigArtifactId": "trafikanten-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:selvbetjening WAS",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "api-gw-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "api-gw-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "sykefravaersoppfoelgingfront",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "sykefravaersoppfoelgingfront",
+    "portOffset": 1
+  },
+  {
+    "name": "betsys",
+    "appConfigGroupId": "no.nav.betsys",
+    "appConfigArtifactId": "app-config",
+    "portOffset": 0
+  },
+  {
+    "name": "varselinnboks",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "varselinnboks-config",
+    "portOffset": 0
+  },
+  {
+    "name": "xmlstilling-ws",
+    "appConfigGroupId": "no.nav.sbl.xmlstilling",
+    "appConfigArtifactId": "xmlstilling-ws-config",
+    "portOffset": 0
+  },
+  {
+    "name": "jobblogg",
+    "appConfigGroupId": "no.nav.sbl.jobblogg",
+    "appConfigArtifactId": "jobblogg-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Nav login-tjenester 1",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "dagpenger-soknad-oppslag",
+    "appConfigGroupId": "dagpenger",
+    "appConfigArtifactId": "soknad-oppslag",
+    "portOffset": 0
+  },
+  {
+    "name": "ada-kurs",
+    "appConfigGroupId": "no.nav.ada-kurs",
+    "appConfigArtifactId": "no.nav.ada-kurs-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:hyllevare",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "melosysbrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "melosysbrev",
+    "portOffset": 110
+  },
+  {
+    "name": "moterest",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "mote-rest-appconfig",
+    "applicationGroup": {
+      "name": "motemodul",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "gosys",
+    "appConfigGroupId": "no.nav.gosys",
+    "appConfigArtifactId": "gosys-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:gosys og ruting",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "syfosmregler",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosmregler",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadforeldrepenger-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadforeldrepenger-tekster",
+    "portOffset": 99
+  },
+  {
+    "name": "ur-iso",
+    "appConfigGroupId": "no.nav.ur-iso",
+    "appConfigArtifactId": "app-config",
+    "portOffset": 0
+  },
+  {
+    "name": "infotrygd-facade",
+    "appConfigGroupId": "no.nav.infotrygd.infotrygd-facade",
+    "appConfigArtifactId": "infotrygd-facade-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "loginservice",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "arbeid-identsynk",
+    "appConfigGroupId": "no.nav.sbl.identsynk",
+    "appConfigArtifactId": "arbeid-identsynk-config",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadtiltakspenger",
+    "appConfigGroupId": "no.nav.sbl.soknadtiltakspenger",
+    "appConfigArtifactId": "soknadtiltakspenger-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 6
+  },
+  {
+    "name": "personopplysninger-api",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "personopplysninger-api",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-peolpup",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-peolpup-config",
+    "portOffset": 20
+  },
+  {
+    "name": "altut2",
+    "appConfigGroupId": "no.nav.altut.altut2",
+    "appConfigArtifactId": "nav-altut2-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:altut",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "dokkonv",
+    "appConfigGroupId": "no.nav.dokkonv",
+    "appConfigArtifactId": "dokkonv-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-ad",
+    "appConfigGroupId": "no.nav.pam.ad",
+    "appConfigArtifactId": "pam-ad",
+    "portOffset": 0
+  },
+  {
+    "name": "mot",
+    "appConfigGroupId": "no.nav.mot-layers.config",
+    "appConfigArtifactId": "nav-config-okonomi-mot-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:administrative losninger",
+      "applications": []
+    },
+    "portOffset": 5
+  },
+  {
+    "name": "kursadmin",
+    "appConfigGroupId": "no.nav.portal.kurs",
+    "appConfigArtifactId": "kurs-admin-appconfig",
+    "portOffset": 2
+  },
+  {
+    "name": "gsak",
+    "appConfigGroupId": "no.nav.gsak",
+    "appConfigArtifactId": "gsak-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:gsak og gsynk",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-syol",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-syol-config",
+    "portOffset": 1090
+  },
+  {
+    "name": "soknadsosialhjelp",
+    "appConfigGroupId": "no.nav.sbl.soknadsosialhjelp",
+    "appConfigArtifactId": "soknadsosialhjelp-config",
+    "portOffset": 8
+  },
+  {
+    "name": "eessi-fagmodul",
+    "appConfigGroupId": "no.nav.eessi",
+    "appConfigArtifactId": "eessi-fagmodul",
+    "portOffset": 0
+  },
+  {
+    "name": "unleash",
+    "appConfigGroupId": "unleash",
+    "appConfigArtifactId": "unleash",
+    "portOffset": 0
+  },
+  {
+    "name": "soknad-aap-utland-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknad-aap-utland-tekster",
+    "portOffset": 94
+  },
+  {
+    "name": "feature",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "feature",
+    "portOffset": 1
+  },
+  {
+    "name": "eve",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "eve-config",
+    "portOffset": 5
+  },
+  {
+    "name": "aktivitetsplan-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "aktivitetsplan-tekster",
+    "portOffset": 98
+  },
+  {
+    "name": "eksternapp-skatt-datasamarbeid",
+    "appConfigGroupId": "no.nav.datapower.eksternapp",
+    "appConfigArtifactId": "eksternapp-skatt-datasamarbeid-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "loginservice-isso",
+    "appConfigGroupId": "no.nav.security",
+    "appConfigArtifactId": "loginservice-isso",
+    "portOffset": 0
+  },
+  {
+    "name": "ezbrev-frontend-v2",
+    "appConfigGroupId": "no.nav.ezbrev-frontend",
+    "appConfigArtifactId": "ezbrev-frontend-v2",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarblogin",
+    "appConfigGroupId": "no.nav.brukerdialog",
+    "appConfigArtifactId": "veilarblogin-config",
+    "portOffset": 9
+  },
+  {
+    "name": "arena-nais-simple-demo",
+    "appConfigGroupId": "no.nav.arena.nais.demo",
+    "appConfigArtifactId": "arena-nais-simple-demo",
+    "portOffset": 0
+  },
+  {
+    "name": "ida",
+    "appConfigGroupId": "no.nav.aura.ida",
+    "appConfigArtifactId": "ida-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "syfosmregister",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfosmregister",
+    "portOffset": 0
+  },
+  {
+    "name": "modiapersonoversikt",
+    "appConfigGroupId": "no.nav.oppfolging",
+    "appConfigArtifactId": "modiapersonoversikt",
+    "portOffset": 0
+  },
+  {
+    "name": "utbetalingsoversikt",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "utbetalingsoversikt-config",
+    "portOffset": 0
+  },
+  {
+    "name": "pip-tpforhold",
+    "appConfigGroupId": "no.nav.pip-tpforhold",
+    "appConfigArtifactId": "pip-tpforhold",
+    "portOffset": 0
+  },
+  {
+    "name": "soknad-kontantstotte-proxy",
+    "appConfigGroupId": "soknad-kontantstotte-proxy",
+    "appConfigArtifactId": "soknad-kontantstotte-proxy",
+    "portOffset": 0
+  },
+  {
+    "name": "fpsaksrvmock",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "fpsaksrvmock",
+    "portOffset": 0
+  },
+  {
+    "name": "tiltakinfo",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "enonictekstressurs-api",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "enonictekstressurs-api",
+    "portOffset": 0
+  },
+  {
+    "name": "varseltjeneste-router",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "varseltjeneste-router",
+    "portOffset": 0
+  },
+  {
+    "name": "exstream-gosys-lpdf",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-gosys-lpdf-config",
+    "portOffset": 1001
+  },
+  {
+    "name": "nav-solr-sok",
+    "appConfigGroupId": "nav-solr-sok",
+    "appConfigArtifactId": "nav-solr-sok-config",
+    "portOffset": 0
+  },
+  {
+    "name": "foreldrepengesoknad-api",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "foreldrepengesoknad-api",
+    "portOffset": 0
+  },
+  {
+    "name": "fpsak",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "build-config",
+    "portOffset": 0
+  },
+  {
+    "name": "varseltjeneste",
+    "appConfigGroupId": "no.nav.kes",
+    "appConfigArtifactId": "varsel-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-annonsemottak",
+    "appConfigGroupId": "no.nav.pam.annonsemottak",
+    "appConfigArtifactId": "pam-annonsemottak",
+    "portOffset": 0
+  },
+  {
+    "name": "syfoproxymock",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfoproxymock",
+    "portOffset": 0
+  },
+  {
+    "name": "tpconfig",
+    "appConfigGroupId": "no.nav.tpconfig",
+    "appConfigArtifactId": "tpconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "frikorttjenester",
+    "appConfigGroupId": "no.helsedir.frikort",
+    "appConfigArtifactId": "frikort-tjenester-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "moteadmin",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "moteadmin-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "jon-fss",
+    "appConfigGroupId": "no.nav.mads",
+    "appConfigArtifactId": "mads",
+    "portOffset": 0
+  },
+  {
+    "name": "pip-tpleverandoer",
+    "appConfigGroupId": "no.nav.pip-tpleverandoer",
+    "appConfigArtifactId": "pip-tpleverandoer",
+    "portOffset": 0
+  },
+  {
+    "name": "cmsnavet",
+    "appConfigGroupId": "no.nav.portal.enonic",
+    "appConfigArtifactId": "cms-navet",
+    "portOffset": 0
+  },
+  {
+    "name": "eresept-m30",
+    "appConfigGroupId": "no.nav.eresept.m30",
+    "appConfigArtifactId": "eresept-m30-app",
+    "portOffset": 0
+  },
+  {
+    "name": "foreldrepengeoversikt",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "foreldrepengeoversikt",
+    "portOffset": 0
+  },
+  {
+    "name": "kafka-message-viewer",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "kafka-message-viewer",
+    "portOffset": 0
+  },
+  {
+    "name": "integrasjonspunkt",
+    "appConfigGroupId": "no.difi.meldingsutveksling",
+    "appConfigArtifactId": "integrasjonspunkt",
+    "portOffset": 0
+  },
+  {
+    "name": "digisos-demo",
+    "appConfigGroupId": "digisos-demo",
+    "appConfigArtifactId": "digisos-demo",
+    "portOffset": 0
+  },
+  {
+    "name": "trafikanten-fss",
+    "appConfigGroupId": "no.nav.trafikanten",
+    "appConfigArtifactId": "trafikanten-fss-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:pesys",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "helserefusjoner-kuhr",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "helserefusjoner-kuhr",
+    "portOffset": 0
+  },
+  {
+    "name": "partner-gw-router-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "partner-gw-router-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:partner-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "innloggingslinje",
+    "appConfigGroupId": "no.nav.sbl.felles.innloggingslinje",
+    "appConfigArtifactId": "innloggingslinje-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "emottak-t1-synch",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-t1t-synch-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "tortuga-hoi",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "emottak-synch",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-synch-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "navetsolr",
+    "appConfigGroupId": "no.nav.navet-solr",
+    "appConfigArtifactId": "navet-solr-appconfig",
+    "portOffset": 3
+  },
+  {
+    "name": "kodeverksmapper",
+    "appConfigGroupId": "no.nav.kodeverksmapper",
+    "appConfigArtifactId": "kodeverksmapper-config",
+    "portOffset": 0
+  },
+  {
+    "name": "eresept-utbetaling",
+    "appConfigGroupId": "no.nav.eresept.utbetaling",
+    "appConfigArtifactId": "eresept-utbetaling-app",
+    "portOffset": 0
+  },
+  {
+    "name": "betsystestkomponent",
+    "appConfigGroupId": "no.nav.betsystestkomponent",
+    "appConfigArtifactId": "betsystestkomponent-config",
+    "portOffset": 0
+  },
+  {
+    "name": "axsys-poc",
+    "appConfigGroupId": "no.nav.registre",
+    "appConfigArtifactId": "axsys-poc",
+    "portOffset": 0
+  },
+  {
+    "name": "soknad-pdf-generator",
+    "appConfigGroupId": "soknad-pdf-generator",
+    "appConfigArtifactId": "soknad-pdf-generator",
+    "portOffset": 0
+  },
+  {
+    "name": "dokmotfordeling",
+    "appConfigGroupId": "no.nav.dokmotfordeling",
+    "appConfigArtifactId": "dokmotfordeling",
+    "portOffset": 0
+  },
+  {
+    "name": "ehandelkanal",
+    "appConfigGroupId": "no.nav.ehandel-kanal",
+    "appConfigArtifactId": "nav-ehandel-kanal-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "oida",
+    "appConfigGroupId": "no.nav.aura.oida",
+    "appConfigArtifactId": "oida-config",
+    "portOffset": 0
+  },
+  {
+    "name": "aareg-core",
+    "appConfigGroupId": "no.nav.aareg-core",
+    "appConfigArtifactId": "aareg-core-config",
+    "portOffset": 0
+  },
+  {
+    "name": "datavarehus",
+    "appConfigGroupId": "ligger ikke i nexus enda",
+    "appConfigArtifactId": "ligger ikke i nexus enda",
+    "portOffset": 0
+  },
+  {
+    "name": "dvhservices",
+    "appConfigGroupId": "no.nav.dvh.dvhservices",
+    "appConfigArtifactId": "dvhservices-config",
+    "portOffset": 0
+  },
+  {
+    "name": "webhookproxy",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "dokprod",
+    "appConfigGroupId": "no.nav.dokprod",
+    "appConfigArtifactId": "dokprod-config",
+    "portOffset": 0
+  },
+  {
+    "name": "cmsadminfss",
+    "appConfigGroupId": "no.nav.portal.enonic",
+    "appConfigArtifactId": "cms-admin-fss",
+    "portOffset": 0
+  },
+  {
+    "name": "virgo-provider",
+    "appConfigGroupId": "no.nav.stjerneeksempel.virgo",
+    "appConfigArtifactId": "virgo-provider-jboss-config",
+    "portOffset": 0
+  },
+  {
+    "name": "eresept-m18",
+    "appConfigGroupId": "no.nav.eresept.m18",
+    "appConfigArtifactId": "eresept-m18",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-cv",
+    "appConfigGroupId": "no.nav.arbeid.cv",
+    "appConfigArtifactId": "pam-cv-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "brevarkivstub",
+    "appConfigGroupId": "no.nav.brevogarkiv",
+    "appConfigArtifactId": "brevarkivstub-config",
+    "portOffset": 0
+  },
+  {
+    "name": "poppreg",
+    "appConfigGroupId": "no.nav.pensjon",
+    "appConfigArtifactId": "pensjon-fss-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "kodeverkviewer",
+    "appConfigGroupId": "no.nav.fellessystemer",
+    "appConfigArtifactId": "kodeverkviewer-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "esb-auth-conf",
+    "appConfigGroupId": "no.nav.maven.support",
+    "appConfigArtifactId": "esb-authorization-configuration",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "nais-nfs",
+    "appConfigGroupId": "no.nav.nais-nfs",
+    "appConfigArtifactId": "nais-nfs",
+    "portOffset": 0
+  },
+  {
+    "name": "modiabrukerdialog",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "modiabrukerdialog-config",
+    "portOffset": 0
+  },
+  {
+    "name": "syfomock",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfomock-config",
+    "portOffset": 1
+  },
+  {
+    "name": "bisys-dependency-mock",
+    "appConfigGroupId": "no.nav.bidrag",
+    "appConfigArtifactId": "bidrag-dependency-mock-config",
+    "portOffset": 0
+  },
+  {
+    "name": "fastlegerest",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "fastlegerest-config",
+    "portOffset": 0
+  },
+  {
+    "name": "Altinnstuberino",
+    "appConfigGroupId": "no.nav.os.eskatt.altinnstub",
+    "appConfigArtifactId": "altinnstub",
+    "portOffset": 0
+  },
+  {
+    "name": "raybrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "raybrev",
+    "portOffset": 105
+  },
+  {
+    "name": "krr-stub",
+    "appConfigGroupId": "n/a",
+    "appConfigArtifactId": "n/a",
+    "portOffset": 0
+  },
+  {
+    "name": "edag-gw",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "edag-gw-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "arbeid-OpenAmConfigGammelPlattform",
+    "appConfigGroupId": "no.nav.sbl.arbeid",
+    "appConfigArtifactId": "nav-sbl-arbeid-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhrsapoadmin",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhrsapoadmin-gammel-avhengighet-artifact",
+    "portOffset": 0
+  },
+  {
+    "name": "emottak-tokt",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-tokt-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 5
+  },
+  {
+    "name": "syfounleash",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfounleash",
+    "portOffset": 0
+  },
+  {
+    "name": "modiaflatefs",
+    "appConfigGroupId": "no.nav.brukerdialog",
+    "appConfigArtifactId": "modiaflatefs-config",
+    "portOffset": 10
+  },
+  {
+    "name": "dokdistskatt",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokdistskatt",
+    "portOffset": 0
+  },
+  {
+    "name": "dokumentfordeling",
+    "appConfigGroupId": "no.nav.dokumentfordeling",
+    "appConfigArtifactId": "dokumentfordeling",
+    "portOffset": 0
+  },
+  {
+    "name": "aktoerid",
+    "appConfigGroupId": "no.nav.aktoerId",
+    "appConfigArtifactId": "aktoerId-config",
+    "portOffset": 0
+  },
+  {
+    "name": "fpmock2",
+    "appConfigGroupId": "N/A",
+    "appConfigArtifactId": "N/A",
+    "portOffset": 0
+  },
+  {
+    "name": "pam-kandidatsok-api",
+    "appConfigGroupId": "no.nav.arbeid",
+    "appConfigArtifactId": "pam-kandidatsok-api",
+    "portOffset": 0
+  },
+  {
+    "name": "dokprodbatch",
+    "appConfigGroupId": "no.nav.dokprod",
+    "appConfigArtifactId": "dokprod-batch-config",
+    "portOffset": 0
+  },
+  {
+    "name": "sobproxy",
+    "appConfigGroupId": "no.nav.leren",
+    "appConfigArtifactId": "sobproxy",
+    "portOffset": 0
+  },
+  {
+    "name": "ereg",
+    "appConfigGroupId": "no.nav.ereg",
+    "appConfigArtifactId": "ereg-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "pus-pact-broker",
+    "appConfigGroupId": "pus-pact-broker",
+    "appConfigArtifactId": "pus-pact-broker",
+    "portOffset": 0
+  },
+  {
+    "name": "pamesnode",
+    "appConfigGroupId": "-",
+    "appConfigArtifactId": "-",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhrtimedproc",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhr-timed-prosesser-auraconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "person-freg-personendring",
+    "appConfigGroupId": "no.nav.person",
+    "appConfigArtifactId": "person-freg-personendring",
+    "portOffset": 0
+  },
+  {
+    "name": "bisys-batch",
+    "appConfigGroupId": "no.nav.bidrag",
+    "appConfigArtifactId": "bisys-batch-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:vedtak",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "eresept-npr",
+    "appConfigGroupId": "no.nav.eresept.npr",
+    "appConfigArtifactId": "eresept-npr-app",
+    "portOffset": 0
+  },
+  {
+    "name": "frikortborger",
+    "appConfigGroupId": "no.helsedir.frikort",
+    "appConfigArtifactId": "frikortborger-config",
+    "portOffset": 0
+  },
+  {
+    "name": "coregroups",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "coregroups-appconfig",
+    "portOffset": 4
+  },
+  {
+    "name": "veilarbaktivitetproxy",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbaktivitetproxy-config",
+    "portOffset": 2
+  },
+  {
+    "name": "kuhr-robot-eli",
+    "appConfigGroupId": "no.nav.helse",
+    "appConfigArtifactId": "kuhr-robot-eli",
+    "portOffset": 0
+  },
+  {
+    "name": "inst",
+    "appConfigGroupId": "no.nav.inst-layers.config",
+    "appConfigArtifactId": "nav-config-fellesregister-inst",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:informasjonsplattform",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "utbetaldata",
+    "appConfigGroupId": "no.nav.utbetaldata",
+    "appConfigArtifactId": "nav-utbetaldata-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "nav-diagnostics",
+    "appConfigGroupId": "no.nav.diagnostics",
+    "appConfigArtifactId": "nav-diagnostics-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:diverse",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "oppgave",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "oppgave",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadrefusjondagligreise",
+    "appConfigGroupId": "no.nav.sbl.soknadrefusjondagligreise",
+    "appConfigArtifactId": "soknadrefusjondagligreise-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 7
+  },
+  {
+    "name": "sbs-tekstressurs-api",
+    "appConfigGroupId": "nav.no.sbl",
+    "appConfigArtifactId": "sbs-tekstressurs-api",
+    "portOffset": 0
+  },
+  {
+    "name": "saksoversikt-nais",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "saksoversikt",
+    "portOffset": 0
+  },
+  {
+    "name": "betsys-oebs",
+    "appConfigGroupId": "no.nav.betsys-oebs",
+    "appConfigArtifactId": "app-config",
+    "portOffset": 0
+  },
+  {
+    "name": "spberegning",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "move-integrasjonspunkt",
+    "appConfigGroupId": "no.difi.meldingsutveksling",
+    "appConfigArtifactId": "move-integrasjonspunkt",
+    "portOffset": 0
+  },
+  {
+    "name": "sigrun-skd-stub",
+    "appConfigGroupId": "no.nav.sigrun",
+    "appConfigArtifactId": "sigrun-skd-stub",
+    "portOffset": 0
+  },
+  {
+    "name": "was-testapp",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "was-testapp-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "tortuga-testapi",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "kuhrhauk",
+    "appConfigGroupId": "no.nav.helse.kuhr",
+    "appConfigArtifactId": "kuhrhauk-auraconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbportefolje",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbportefolje-config",
+    "portOffset": 0
+  },
+  {
+    "name": "soknaddagpenger",
+    "appConfigGroupId": "no.nav.sbl.soknaddagpenger",
+    "appConfigArtifactId": "soknaddagpenger-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "kontaktregisterdifi",
+    "appConfigGroupId": "no.nav.kontaktregister-difi",
+    "appConfigArtifactId": "nav-kontaktregister-difi-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "microscopium-bd03",
+    "appConfigGroupId": "no.nav.dialogarena.microscopium",
+    "appConfigArtifactId": "microscopium-bd03-config",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadtilleggsstonader",
+    "appConfigGroupId": "no.nav.sbl.soknadtilleggsstonader",
+    "appConfigArtifactId": "soknadtilleggsstonader-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 5
+  },
+  {
+    "name": "aktoerregister",
+    "appConfigGroupId": "no.nav.aktoerregister",
+    "appConfigArtifactId": "aktoerregister-config",
+    "portOffset": 7
+  },
+  {
+    "name": "fasit",
+    "appConfigGroupId": "no.nav.aura.fasit",
+    "appConfigArtifactId": "fasit-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "tps-innsyn",
+    "appConfigGroupId": "N/A",
+    "appConfigArtifactId": "N/A",
+    "portOffset": 0
+  },
+  {
+    "name": "mobilstilling",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "mobilstilling-config",
+    "portOffset": 0
+  },
+  {
+    "name": "docker-testapp",
+    "appConfigGroupId": "no.nav.aura",
+    "appConfigArtifactId": "docker-testapp-appconfig",
+    "portOffset": 10
+  },
+  {
+    "name": "exstream-gosys-bali",
+    "appConfigGroupId": "no.nav.dok.exstream",
+    "appConfigArtifactId": "exstream-gosys-bali-config",
+    "portOffset": 1002
+  },
+  {
+    "name": "hawtio",
+    "appConfigGroupId": "no.nav",
+    "appConfigArtifactId": "hawtio-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "prosess-pensjon",
+    "appConfigGroupId": "no.nav.esb.prosess",
+    "appConfigArtifactId": "prosess-pensjon-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:esb",
+      "applications": []
+    },
+    "portOffset": 7
+  },
+  {
+    "name": "syfoagfront",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfoagfront-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:syfo",
+      "applications": []
+    },
+    "portOffset": 3
+  },
+  {
+    "name": "veilarbtiltakinfo",
+    "appConfigGroupId": "veilarbtiltakinfo",
+    "appConfigArtifactId": "veilarbtiltakinfo",
+    "portOffset": 0
+  },
+  {
+    "name": "test-login",
+    "appConfigGroupId": "test-login",
+    "appConfigArtifactId": "test-login",
+    "portOffset": 0
+  },
+  {
+    "name": "partner-gw-pep-sbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "partner-gw-pep-sbs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:partner-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "soknadforeldrepenger",
+    "appConfigGroupId": "no.nav.sbl.soknadforeldrepenger",
+    "appConfigArtifactId": "soknadforeldrepenger-config",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Soknadsdialoger",
+      "applications": []
+    },
+    "portOffset": 2
+  },
+  {
+    "name": "joark",
+    "appConfigGroupId": "no.nav.joark",
+    "appConfigArtifactId": "joark-appconfig",
+    "portOffset": 0
+  },
+  {
+    "name": "varseltjeneste-receipt-router",
+    "appConfigGroupId": "no.nav.integrasjon",
+    "appConfigArtifactId": "varseltjeneste-reciept-router",
+    "portOffset": 0
+  },
+  {
+    "name": "modiasyfofront",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "modiasyfofront-config",
+    "applicationGroup": {
+      "name": "syfofss",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "helse-utbetaling",
+    "appConfigGroupId": "no.nav.eresept.helse",
+    "appConfigArtifactId": "helse-utbetaling-app",
+    "portOffset": 0
+  },
+  {
+    "name": "pepgwsbs",
+    "appConfigGroupId": "no.nav.datapower",
+    "appConfigArtifactId": "pep-gw-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:datapower-sbs",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "trekk",
+    "appConfigGroupId": "no.nav.maskinelle-trekk",
+    "appConfigArtifactId": "trekk-config",
+    "portOffset": 0
+  },
+  {
+    "name": "Innloggingsinfo",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "innloggingsinfo-config",
+    "portOffset": 1
+  },
+  {
+    "name": "veilarbinnhold",
+    "appConfigGroupId": "veilarbinnhold",
+    "appConfigArtifactId": "veilarbinnhold",
+    "portOffset": 0
+  },
+  {
+    "name": "dokarkivsed",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "dokarkivsed",
+    "portOffset": 0
+  },
+  {
+    "name": "pesysbrev",
+    "appConfigGroupId": "no.nav.dok.metaforcemal",
+    "appConfigArtifactId": "pesysbrev",
+    "portOffset": 106
+  },
+  {
+    "name": "pam-index",
+    "appConfigGroupId": "no.nav.arbeid.index",
+    "appConfigArtifactId": "pam-index",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadtiltakspenger-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadtiltakspenger-tekster",
+    "portOffset": 93
+  },
+  {
+    "name": "freg-token-provider",
+    "appConfigGroupId": "no.nav.freg",
+    "appConfigArtifactId": "freg-token-provider",
+    "portOffset": 0
+  },
+  {
+    "name": "ezbrev-backend",
+    "appConfigGroupId": "no.nav.ezbrev",
+    "appConfigArtifactId": "ezbrev-backend",
+    "portOffset": 0
+  },
+  {
+    "name": "aktivitetsplan-felles-fss",
+    "appConfigGroupId": "aktivitetsplan-felles-fss",
+    "appConfigArtifactId": "aktivitetsplan-felles-fss",
+    "portOffset": 0
+  },
+  {
+    "name": "draco",
+    "appConfigGroupId": "no.nav.stjerneeksempel.draco",
+    "appConfigArtifactId": "draco-config",
+    "portOffset": 0
+  },
+  {
+    "name": "helsetrygdkort-saksbehandling",
+    "appConfigGroupId": "helsetrygdkort-saksbehandling",
+    "appConfigArtifactId": "helsetrygdkort-saksbehandling",
+    "portOffset": 0
+  },
+  {
+    "name": "altut-fm",
+    "appConfigGroupId": "no.nav.altut-fm",
+    "appConfigArtifactId": "nav-altut-fm-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:altut",
+      "applications": []
+    },
+    "portOffset": 0
+  },
+  {
+    "name": "joarkadmin",
+    "appConfigGroupId": "nais",
+    "appConfigArtifactId": "joarkadmin",
+    "portOffset": 0
+  },
+  {
+    "name": "veilarbarena",
+    "appConfigGroupId": "no.nav.fo",
+    "appConfigArtifactId": "veilarbarena",
+    "portOffset": 0
+  },
+  {
+    "name": "kurs",
+    "appConfigGroupId": "no.nav.portal.kurs",
+    "appConfigArtifactId": "kurs-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:Nav aapne tjenester 1",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "emottak-asynch",
+    "appConfigGroupId": "no.nav.emottak",
+    "appConfigArtifactId": "nav-emottak-asynch-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:elektronisk samhandling",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "syforest",
+    "appConfigGroupId": "no.nav.syfo",
+    "appConfigArtifactId": "syfo-rest-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:syfo",
+      "applications": []
+    },
+    "portOffset": 1
+  },
+  {
+    "name": "eksternapp-altinn",
+    "appConfigGroupId": "no.nav.datapower.eksternapp",
+    "appConfigArtifactId": "eksternapp-altinn-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:rest-api-gw-sbs",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "henvendelsesarkiv",
+    "appConfigGroupId": "no.nav.sbl.dialogarena",
+    "appConfigArtifactId": "henvendelsesarkiv-config",
+    "portOffset": 0
+  },
+  {
+    "name": "soknadaap-tekster",
+    "appConfigGroupId": "no.nav.sbl",
+    "appConfigArtifactId": "soknadaap-tekster",
+    "portOffset": 98
+  },
+  {
+    "name": "engangsstonad",
+    "appConfigGroupId": "no.nav.foreldrepenger",
+    "appConfigArtifactId": "engangsstonad",
+    "portOffset": 0
+  },
+  {
+    "name": "norg2",
+    "appConfigGroupId": "no.nav.norg",
+    "appConfigArtifactId": "norg2-config",
+    "portOffset": 0
+  },
+  {
+    "name": "landoppgjor",
+    "appConfigGroupId": "no.nav.landoppgj",
+    "appConfigArtifactId": "landoppgj-appconfig",
+    "applicationGroup": {
+      "name": "applikasjonsgruppe:helfo",
+      "applications": []
+    },
+    "portOffset": 4
+  },
+  {
+    "name": "pam-ledige-stillinger",
+    "appConfigGroupId": "no.nav.arbeid.ledigestillinger",
+    "appConfigArtifactId": "pam-ledige-stillinger",
+    "portOffset": 0
+  },
+  {
+    "name": "aktivitetsplan-felles",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  },
+  {
+    "name": "fpabonnent",
+    "appConfigGroupId": "na",
+    "appConfigArtifactId": "na",
+    "portOffset": 0
+  }
+]
