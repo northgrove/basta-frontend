@@ -11,9 +11,7 @@ class History extends Component {
     super(props)
     this.state = {
       filter: '',
-      nTotalOrders: 1000,
-      nFilterResults: 100,
-      filteredOrderHistory: []
+      nFilterResults: 100
     }
   }
 
@@ -48,21 +46,6 @@ class History extends Component {
     })
   }
 
-  paceFiltering(nFilteredOrders) {
-    console.log('1')
-    // const nTotalOrders = 1000
-    const { orderHistory } = this.props
-    const orders = orderHistory.slice(0, this.state.nTotalOrders)
-    this.renderItems(nFilteredOrders, orders)
-    if (this.state.filteredOrderHistory.length < this.state.nFilterResults) {
-      console.log('should increase')
-      this.setState({
-        nTotalOrders: this.state.nTotalOrders + (this.state.nTotalOrders + 1000)
-      })
-      this.renderItems(nFilteredOrders, orders)
-    }
-  }
-
   renderItems(nFilteredOrders, orderHistory) {
     const { filter } = this.state
     // const { orderHistory } = this.props
@@ -75,7 +58,7 @@ class History extends Component {
 
   componentDidMount() {
     const { dispatch, orderHistory } = this.props
-    dispatch(getOrderHistory(200))
+    dispatch(getOrderHistory(1000))
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -83,7 +66,7 @@ class History extends Component {
       this.props.orderHistory !== prevProps.orderHistory ||
       this.state.filter !== prevState.filter
     ) {
-      this.paceFiltering(100)
+      this.applyFilter(this.props.orderHistory, this.state.filter)
     }
   }
 

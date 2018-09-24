@@ -9,9 +9,11 @@ import {
 export default (
   state = {
     orderHistory: [],
+    filteredOrderHistory: [],
     statusLog: [],
     order: {},
     orderHistoryCompleted: false,
+    totalOrders: 0,
     requestFailed: false,
     requestStatus: ''
   },
@@ -31,7 +33,7 @@ export default (
     case HISTORY_RECEIVED:
       return {
         ...state,
-        orderHistory: state.orderHistory.concat(formatPayload(action.value)),
+        orderHistory: state.orderHistory.concat(action.value),
         requestFailed: false,
         requestStatus: 'Order history partially complete'
       }
