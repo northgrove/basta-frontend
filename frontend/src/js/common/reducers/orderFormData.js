@@ -9,7 +9,7 @@ export default (
     environments: {
       fetching: false,
       error: null,
-      data: null
+      data: []
     }
   },
   action
@@ -23,7 +23,7 @@ export default (
         environments: {
           fetching: true,
           error: null,
-          data: null
+          data: []
         }
       }
     case ENVIRONMENTS_RECEIVED:
@@ -41,7 +41,7 @@ export default (
         environments: {
           fetching: false,
           error: action.error,
-          data: null
+          data: []
         }
       }
     default:

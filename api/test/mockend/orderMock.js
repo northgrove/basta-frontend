@@ -4,7 +4,7 @@ const statusLog = require('../mockdata/statuslog.json')
 const orderCreated = require('../mockdata/orderCreated.json')
 
 const paginate = (pageId, pageSize, data) => {
-  if (pageSize > 200) throw 'Page size out of bounds (200 Max value)'
+  if (pageSize > 1000) throw 'Page size out of bounds (200 Max value)'
   const startIndex = pageId * pageSize
   const endIndex = startIndex + pageSize
   return data.slice(startIndex, endIndex)

@@ -8,7 +8,6 @@ import {
 } from '../actionTypes'
 
 export function* fetchEnvironments(action) {
-  console.log(action)
   yield put({ type: ENVIRONMENTS_FETCHING })
   try {
     let environments = yield call(getUrl, '/rest/v1/fasit/environments')

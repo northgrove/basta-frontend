@@ -41,10 +41,12 @@ export class OrderForm extends Component {
   }
   componentDidMount() {
     const { dispatch } = this.props
+    dispatch(fetchEnvironments(this.state.environmentClass))
   }
 
   render() {
     const orderFields = this.orderFields
+    console.log(this.props)
     const { dispatch } = this.props
     return (
       <div>
@@ -111,7 +113,7 @@ export class OrderForm extends Component {
                       label={orderField.label}
                       value={this.state[orderFieldKey]}
                       description={orderField.description}
-                      alternatives={orderField.alternatives}
+                      alternatives={this.props.orderFormData.environments.data}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )
