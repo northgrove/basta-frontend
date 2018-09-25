@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { OrderCheckBox, OrderNumberBox, OrderTextBox, OrderButtonGroup } from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
-import { fetchEnvironments } from '../actionCreators'
+import { fetchApplications, fetchEnvironments } from '../actionCreators'
 import { submitForm } from '../../containers/order/actionCreators'
 import { withRouter } from 'react-router-dom'
 import connect from 'react-redux/es/connect/connect'
@@ -39,16 +39,17 @@ export class OrderForm extends Component {
     }
     return true
   }
+
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchEnvironments(this.state.environmentClass))
+    dispatch(fetchApplications())
   }
+
   componentDidUpdate(prevProps, prevState) {
     const { dispatch } = this.props
-    if (this.state.environmentClass) {
-      if (this.state.environmentClass != prevState.environmentClass) {
-        dispatch(fetchEnvironments(this.state.environmentClass))
-      }
+    if (this.state.environmentClass && this.state.environmentClass != prevState.environmentClass) {
+      dispatch(fetchEnvironments(this.state.environmentClass))
     }
   }
 
@@ -114,13 +115,38 @@ export class OrderForm extends Component {
                     />
                   )
                 case 'dropDown':
+                  if (orderField.alternatives === 'fetchEnvironments') {
+                    return (
+                      <OrderDropDown
+                        key={orderFieldKey}
+                        label={orderField.label}
+                        value={this.state[orderFieldKey]}
+                        description={orderField.description}
+                        alternatives={this.props.orderFormData.environments.data}
+                        onChange={v => this.handleChange(orderFieldKey, v)}
+                      />
+                    )
+                  }
+
+                  if (orderField.alternatives === 'fetchApplications') {
+                    return (
+                      <OrderDropDown
+                        key={orderFieldKey}
+                        label={orderField.label}
+                        value={this.state[orderFieldKey]}
+                        description={orderField.description}
+                        alternatives={this.props.orderFormData.applications.data}
+                        onChange={v => this.handleChange(orderFieldKey, v)}
+                      />
+                    )
+                  }
                   return (
                     <OrderDropDown
                       key={orderFieldKey}
                       label={orderField.label}
                       value={this.state[orderFieldKey]}
                       description={orderField.description}
-                      alternatives={this.props.orderFormData.environments.data}
+                      alternatives={orderField.alternatives}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )
