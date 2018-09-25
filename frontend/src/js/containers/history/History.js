@@ -74,7 +74,7 @@ class History extends Component {
 
   componentDidMount() {
     const { dispatch, orderHistory } = this.props
-    dispatch(getOrderHistory(1000))
+    dispatch(getOrderHistory(200))
   }
 
   componentDidUpdate(prevProps, prevState) {

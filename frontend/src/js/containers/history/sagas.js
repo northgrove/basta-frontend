@@ -1,11 +1,15 @@
-import { takeEvery, put, fork, call } from 'redux-saga/effects'
+import { takeEvery, put, fork, call, select } from 'redux-saga/effects'
+import { getOrders, getTotalOrders } from './selectors'
+import { tagOrders, filterOrders, sliceOrders, formatOrders } from './filters'
 import { getUrl } from '../../common/utils'
 import {
   HISTORY_REQUEST,
   HISTORY_FETCHING,
   HISTORY_RECEIVED,
   HISTORY_COMPLETE,
-  HISTORY_REQUEST_FAILED
+  HISTORY_REQUEST_FAILED,
+  HISTORY_APPLY_FILTER,
+  HISTORY_APPLY_FILTER_COMPLETE
 } from './actionTypes'
 
 const delay = millis => {
@@ -44,6 +48,22 @@ export function* getOrderHistory(action) {
   }
 }
 
+export function* applyOrderHistoryFilter(action) {
+  console.log('filter', action)
+  let orders = yield select(getOrders)
+  console.log(orders)
+  try {
+    orders = yield call(tagOrders, orders)
+    orders = yield call(filterOrders, orders, action.filter)
+    orders = yield call(sliceOrders, orders, action.nMaxResults)
+    orders = yield call(formatOrders, orders)
+    yield put({ type: HISTORY_APPLY_FILTER_COMPLETE, orders })
+  } catch (err) {
+    throw err
+  }
+}
+
 export function* watcHistory() {
   yield fork(takeEvery, HISTORY_REQUEST, getOrderHistory)
+  yield fork(takeEvery, HISTORY_APPLY_FILTER, applyOrderHistoryFilter)
 }

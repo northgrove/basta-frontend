@@ -7,6 +7,7 @@ import history from '../common/history'
 import { withRouter } from 'react-router-dom'
 import { initializeApplication, userLogout } from '../common/actionCreators'
 import { closeNavMenu, toggleNavMenu } from './navMenu/actionCreators'
+import { getOrderHistory } from './history/actionCreators'
 import NavMenu from './navMenu/NavMenu'
 import NavUserMenu from './navMenu/NavUserMenu'
 import Login from '../containers/login/Login'
@@ -23,6 +24,7 @@ class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(initializeApplication())
+    dispatch(getOrderHistory(1000))
     moment.locale('nb')
   }
 
