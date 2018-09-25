@@ -43,10 +43,17 @@ export class OrderForm extends Component {
     const { dispatch } = this.props
     dispatch(fetchEnvironments(this.state.environmentClass))
   }
+  componentDidUpdate(prevProps, prevState) {
+    const { dispatch } = this.props
+    if (this.state.environmentClass) {
+      if (this.state.environmentClass != prevState.environmentClass) {
+        dispatch(fetchEnvironments(this.state.environmentClass))
+      }
+    }
+  }
 
   render() {
     const orderFields = this.orderFields
-    console.log(this.props)
     const { dispatch } = this.props
     return (
       <div>

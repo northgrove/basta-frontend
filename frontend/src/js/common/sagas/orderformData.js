@@ -11,7 +11,7 @@ export function* fetchEnvironments(action) {
   yield put({ type: ENVIRONMENTS_FETCHING })
   try {
     let environments = yield call(getUrl, '/rest/v1/fasit/environments')
-    let filteredEnvironments = yield environments
+    let filteredEnvironments = environments
       .filter(environment => {
         return environment.envClass === action.environmentClass
       })
