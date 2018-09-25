@@ -1,4 +1,4 @@
-import { takeEvery, put, fork, call, select } from 'redux-saga/effects'
+import { takeEvery, put, fork, call, select, take } from 'redux-saga/effects'
 import { getOrders, getTotalOrders } from './selectors'
 import { tagOrders, filterOrders, sliceOrders, formatOrders } from './filters'
 import { getUrl } from '../../common/utils'
@@ -50,9 +50,11 @@ export function* getOrderHistory(action) {
 
 export function* applyOrderHistoryFilter(action) {
   console.log('filter', action)
-  let orders = yield select(getOrders)
-  console.log(orders)
   try {
+    yield take(['HISTORY_RECEIVED'])
+    let orders = yield select(getOrders)
+    console.log('er det noe her', orders)
+
     orders = yield call(tagOrders, orders)
     orders = yield call(filterOrders, orders, action.filter)
     orders = yield call(sliceOrders, orders, action.nMaxResults)
