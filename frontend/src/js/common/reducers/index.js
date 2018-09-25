@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux'
 import user from './user'
 import initialize from './initialize'
 import navMenu from '../../containers/navMenu/reducer'
-import history from '../../containers/history/reducers'
+import orderHistory from '../../containers/history/reducers'
 import order from '../../containers/order/reducers'
 
 const rootReducer = combineReducers({
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   navMenu,
   user,
   initialize,
-  history,
+  orderHistory,
   order
 })
 
