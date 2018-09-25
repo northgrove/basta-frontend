@@ -5,14 +5,17 @@ import initialize from './initialize'
 import navMenu from '../../containers/navMenu/reducer'
 import orderHistory from '../../containers/history/reducers'
 import order from '../../containers/order/reducers'
+import orderFormData from './orderFormData'
 
 const rootReducer = combineReducers({
   routing: routerReducer,
   navMenu,
   user,
   initialize,
-  orderHistory,
-  order
+  history,
+  order,
+  orderFormData,
+  orderHistory
 })
 
 export default rootReducer

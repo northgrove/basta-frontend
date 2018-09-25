@@ -13,12 +13,12 @@ const orderFields = {
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'development', value: 'utvikling' },
-      { label: 'test', value: 'test' },
-      { label: 'PreProd', value: 'preprod' },
-      { label: 'Production', value: 'prod', access: ['ROLE_PROD'] }
+      { label: 'development', value: 'u' },
+      { label: 'test', value: 't' },
+      { label: 'PreProd', value: 'q' },
+      { label: 'Production', value: 'p', access: ['ROLE_PROD'] }
     ],
-    value: 'utvikling'
+    value: 'u'
   },
   zone: {
     label: 'Zone',
