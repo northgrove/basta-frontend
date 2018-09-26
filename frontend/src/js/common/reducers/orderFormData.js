@@ -1,4 +1,7 @@
 import {
+  APPLICATIONS_REQUEST_FAILED,
+  APPLICATIONS_RECEIVED,
+  APPLICATIONS_FETCHING,
   ENVIRONMENTS_REQUEST_FAILED,
   ENVIRONMENTS_RECEIVED,
   ENVIRONMENTS_FETCHING
@@ -10,11 +13,45 @@ export default (
       fetching: false,
       error: null,
       data: []
+    },
+    applications: {
+      fetching: false,
+      error: null,
+      data: []
     }
   },
   action
 ) => {
   switch (action.type) {
+    // APPLICATIONS
+
+    case APPLICATIONS_FETCHING:
+      return {
+        ...state,
+        applications: {
+          fetching: true,
+          error: null,
+          data: []
+        }
+      }
+    case APPLICATIONS_RECEIVED:
+      return {
+        ...state,
+        applications: {
+          fetching: false,
+          error: null,
+          data: action.value
+        }
+      }
+    case APPLICATIONS_REQUEST_FAILED:
+      return {
+        ...state,
+        applications: {
+          fetching: false,
+          error: action.error,
+          data: []
+        }
+      }
     // ENVIRONMENTS
 
     case ENVIRONMENTS_FETCHING:

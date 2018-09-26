@@ -33,15 +33,13 @@ const orderFields = {
   environmentName: {
     label: 'Environment',
     description: '',
-    fieldType: 'dropDown',
-    alternatives: ['a', 'b', 'c', 'd', 'e'],
+    fieldType: 'environments',
     value: ''
   },
   applicationMappingName: {
     label: 'Application',
     description: '',
-    fieldType: 'dropDown',
-    alternatives: ['a', 'b', 'c', 'd', 'e'],
+    fieldType: 'applications',
     value: ''
   },
   serverCount: {

@@ -2,7 +2,8 @@ import {
   USER_PROFILE_REQUEST,
   INITIALIZE_APPLICATION,
   USER_LOGOUT,
-  ENVIRONMENTS_REQUEST
+  ENVIRONMENTS_REQUEST,
+  APPLICATIONS_REQUEST
 } from '../actionTypes'
 
 export const fetchUserProfile = () => {
@@ -18,4 +19,7 @@ export const initializeApplication = () => {
 
 export const fetchEnvironments = environmentClass => {
   return { type: ENVIRONMENTS_REQUEST, environmentClass }
+}
+export const fetchApplications = () => {
+  return { type: APPLICATIONS_REQUEST }
 }
