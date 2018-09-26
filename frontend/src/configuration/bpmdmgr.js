@@ -1,14 +1,14 @@
-const title = 'WebSphere MQ'
-const description = 'Queue'
-const image = require('../img/orderTypes/mq.png')
+const description = 'Deployment Manager'
+const title = 'BPM'
+const image = require('../img/orderTypes/websphere.png')
 const orderFields = {
   environmentClass: {
     label: 'Env. class',
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'development', value: 'u' },
-      { label: 'test', value: 't' },
+      { label: 'Development', value: 'u' },
+      { label: 'Test', value: 't' },
       { label: 'PreProd', value: 'q' },
       { label: 'Production', value: 'p' }
     ],
@@ -18,18 +18,6 @@ const orderFields = {
     label: 'Environment',
     description: '',
     fieldType: 'environments',
-    value: ''
-  },
-  applicationMappingName: {
-    label: 'Application',
-    description: '',
-    fieldType: 'applications',
-    value: ''
-  },
-  name: {
-    label: 'Queue name',
-    fieldType: 'text',
-    description: 'Name of queue',
     value: ''
   }
 }

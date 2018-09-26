@@ -77,39 +77,39 @@ const orderTypes = [
     description: 'Topic',
     image: mqImage,
     tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/create/wstopic',
-    access: ['random']
+    url: '/create/mqtopic'
+    //    access: ['random']
   },
   {
     title: 'WebSphere MQ',
     description: 'Queue',
     image: mqImage,
     tags: ['mq', 'queue', 'websphere', 'ibm'],
-    url: '/create/wsqueue'
+    url: '/create/mqqueue'
   },
   {
     title: 'WebSphere MQ',
     description: 'Channel',
     image: mqImage,
     tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/create/wschannel',
-    access: ['Random']
+    url: '/create/mqchannel'
+    //    access: ['Random']
   },
   {
     title: 'IApp Tools',
     description: 'Available via VPN',
     image: iappImage,
     tags: ['developer', 'tools', 'iapp', 'jenkins', 'vpn'],
-    url: '/create/iapptools',
-    access: [roles.ROLE_OPERATIONS, roles.ROLE_PROD_OPERATIONS]
+    url: '/create/iapptools'
+    //    access: [roles.ROLE_OPERATIONS, roles.ROLE_PROD_OPERATIONS]
   },
   {
     title: 'Devillo Tools',
     description: 'Jenkins etc. in Devillo',
     image: developertoolsImage,
     tags: ['developer', 'tools', 'devillo', 'jenkins'],
-    url: '/create/developertools',
-    access: ['Random']
+    url: '/create/developertools'
+    //   access: ['Random']
   },
 
   {
@@ -166,21 +166,21 @@ const orderTypes = [
     description: 'for Service user',
     image: securityImage,
     tags: ['certificate', 'pki', 'credential', 'ad'],
-    url: '/create/servicecerficate'
+    url: '/create/certificate'
   },
   {
     title: 'Credentials',
     description: 'for Service user',
     image: securityImage,
     tags: ['service', 'user', 'credential', 'ad'],
-    url: '/create/serviceuser'
+    url: '/create/credential'
   },
   {
     title: 'Liberty',
     description: 'Application server',
     image: libertyImage,
     tags: ['server', 'node', 'was', 'liberty', 'application', 'websphere'],
-    url: '/create/libertynode'
+    url: '/create/liberty'
   },
   {
     title: 'WildFly',

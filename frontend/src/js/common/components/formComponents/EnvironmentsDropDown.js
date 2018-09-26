@@ -20,7 +20,7 @@ export class EnvironmentsDropDown extends Component {
   }
   componentDidUpdate(prevProps, prevState, ss) {
     const { environmentClass, environments } = this.props
-    if (environmentClass != prevProps.environmentClass) {
+    if (environments != prevProps.environments || environmentClass != prevProps.environmentClass) {
       let filteredEnvironments = this.filterEnvironments(environments, environmentClass)
       this.setState({ filteredEnvironments })
     }

@@ -1,14 +1,14 @@
-const title = 'WebSphere MQ'
-const description = 'Queue'
-const image = require('../img/orderTypes/mq.png')
+const title = 'OpenAM'
+const description = 'Server'
+const image = require('../img/orderTypes/openam.png')
 const orderFields = {
   environmentClass: {
     label: 'Env. class',
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'development', value: 'u' },
-      { label: 'test', value: 't' },
+      { label: 'Development', value: 'u' },
+      { label: 'Test', value: 't' },
       { label: 'PreProd', value: 'q' },
       { label: 'Production', value: 'p' }
     ],
@@ -20,17 +20,13 @@ const orderFields = {
     fieldType: 'environments',
     value: ''
   },
-  applicationMappingName: {
-    label: 'Application',
-    description: '',
-    fieldType: 'applications',
-    value: ''
-  },
-  name: {
-    label: 'Queue name',
-    fieldType: 'text',
-    description: 'Name of queue',
-    value: ''
+  serverCount: {
+    label: 'Servers',
+    description: 'Virtual Servers',
+    fieldType: 'number',
+    min: 1,
+    max: 8,
+    value: 1
   }
 }
 module.exports = {

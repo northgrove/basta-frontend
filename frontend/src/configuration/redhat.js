@@ -1,16 +1,22 @@
-const description = 'Application Server'
-const title = 'Websphere'
-const image = require('../img/orderTypes/websphere.png')
+const title = 'Red Hat'
+const description = 'Linux'
+const image = require('../img/orderTypes/redhat.png')
 const orderFields = {
+  nodeType: {
+    value: 'REDHAT'
+  },
+  classification: {
+    value: { type: 'custom' }
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'Development', value: 'u' },
-      { label: 'Test', value: 't' },
+      { label: 'development', value: 'u' },
+      { label: 'test', value: 't' },
       { label: 'PreProd', value: 'q' },
-      { label: 'Production', value: 'p' }
+      { label: 'Production', value: 'p', access: ['ROLE_PROD'] }
     ],
     value: 'u'
   },
@@ -24,19 +30,14 @@ const orderFields = {
     ],
     value: 'fss'
   },
-  environmentName: {
-    label: 'Environment',
+  osType: {
+    label: 'OS version',
     description: '',
-    fieldType: 'environments',
-    value: ''
+    fieldType: 'buttonGroup',
+    alternatives: [{ label: 'RHEL 7.0', value: 'rhel70' }, { label: 'RHEL 8.0', value: 'rhel80' }],
+    value: 'rhel80'
   },
-  applicationMappingName: {
-    label: 'Application',
-    description: '',
-    fieldType: 'applications',
-    value: ''
-  },
-  servers: {
+  serverCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
@@ -44,7 +45,7 @@ const orderFields = {
     max: 8,
     value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
@@ -60,7 +61,7 @@ const orderFields = {
     max: 32,
     value: 2
   },
-  disk: {
+  extraDisk: {
     label: 'Extra disk',
     description: 'GB',
     fieldType: 'number',
@@ -68,12 +69,22 @@ const orderFields = {
     max: 100,
     value: 0
   },
-  wasVersion: {
-    label: 'WAS version',
+  eapVersion: {
+    label: 'EAP version',
     description: '',
     fieldType: 'buttonGroup',
-    alternatives: [{ label: 'WAS 8', value: 'was8' }, { label: 'WAS 9', value: 'was9' }],
-    value: 'was9'
+    alternatives: [{ label: 'EAP 6', value: 'EAP6' }, { label: 'EAP 7', value: 'EAP7' }],
+    value: 'EAP6'
+  },
+  javaVersion: {
+    label: 'Java version',
+    description: '',
+    fieldType: 'buttonGroup',
+    alternatives: [
+      { label: 'OpenJDK 7', value: 'OpenJDK7' },
+      { label: 'OpenJDK 8', value: 'OpenJDK8' }
+    ],
+    value: 'OpenJDK7'
   },
   description: {
     label: 'Description',
@@ -81,9 +92,9 @@ const orderFields = {
     fieldType: 'text',
     value: ''
   },
-  custom: {
-    label: 'Custom',
-    description: 'Classify this server as custom',
+  ibm: {
+    label: 'IBM',
+    description: 'Will install ILMT agent',
     fieldType: 'checkBox',
     value: false
   }

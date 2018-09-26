@@ -1,5 +1,5 @@
 const title = 'WebSphere MQ'
-const description = 'Queue'
+const description = 'Channel'
 const image = require('../img/orderTypes/mq.png')
 const orderFields = {
   environmentClass: {
@@ -24,12 +24,6 @@ const orderFields = {
     label: 'Application',
     description: '',
     fieldType: 'applications',
-    value: ''
-  },
-  name: {
-    label: 'Queue name',
-    fieldType: 'text',
-    description: 'Name of queue',
     value: ''
   }
 }

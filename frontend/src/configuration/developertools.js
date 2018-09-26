@@ -39,12 +39,6 @@ const orderFields = {
     description: 'What is this server used for?',
     fieldType: 'text',
     value: ''
-  },
-  ibm: {
-    label: 'IBM software',
-    description: 'Will install ILMT monitoring agent',
-    fieldType: 'checkBox',
-    value: false
   }
 }
 module.exports = {

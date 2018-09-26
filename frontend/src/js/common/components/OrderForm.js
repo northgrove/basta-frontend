@@ -88,6 +88,7 @@ export class OrderForm extends Component {
                       key={orderFieldKey}
                       label={orderField.label}
                       value={this.state[orderFieldKey]}
+                      placeholder={orderField.description}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )
