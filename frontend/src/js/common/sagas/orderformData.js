@@ -27,14 +27,7 @@ export function* fetchEnvironments(action) {
   yield put({ type: ENVIRONMENTS_FETCHING })
   try {
     let environments = yield call(getUrl, '/rest/v1/fasit/environments')
-    let filteredEnvironments = environments
-      .filter(environment => {
-        return environment.envClass === action.environmentClass
-      })
-      .map(env => {
-        return env.name
-      })
-    yield put({ type: ENVIRONMENTS_RECEIVED, value: filteredEnvironments })
+    yield put({ type: ENVIRONMENTS_RECEIVED, value: environments })
   } catch (err) {
     yield put({ type: ENVIRONMENTS_REQUEST_FAILED, err })
   }
