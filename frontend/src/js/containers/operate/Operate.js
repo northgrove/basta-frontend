@@ -69,28 +69,28 @@ const orderTypes = [
     description: 'Service user in AD',
     image: securityImage,
     tags: ['ad', 'service', 'user'],
-    url: '/operate/ad'
+    url: '/operate/credentials'
   },
   {
     title: 'MQ',
     description: 'Topics',
     image: mqImage,
     tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/operate/mqtopic'
+    url: '/operate/mqtopics'
   },
   {
     title: 'MQ',
     description: 'channel',
     image: mqImage,
     tags: ['mq', 'channel', 'websphere', 'ibm'],
-    url: '/operate/mqchannel'
+    url: '/operate/mqchannels'
   },
   {
     title: 'MQ',
     description: 'Queue',
     image: mqImage,
     tags: ['mq', 'queue', 'websphere', 'ibm'],
-    url: '/operate/mqqueue'
+    url: '/operate/mqqueues'
   }
 ]
 Operate.propTypes = {}

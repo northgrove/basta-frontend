@@ -1,3 +1,4 @@
+// Create forms
 import iapptools from './iapptools'
 import developertools from './developertools'
 import jbossnode from './jbossnode'
@@ -21,7 +22,15 @@ import oracle from './oracle'
 import windows from './windows'
 import bigip from './bigip'
 
+// Operate forms
+import nodes from './nodes'
+import credentials from './credentials'
+import mqtopics from './mqtopics'
+import mqchannels from './mqchannels'
+import mqqueues from './mqqueues'
+
 module.exports = {
+  // Create
   iapptools,
   developertools,
   jbossnode,
@@ -43,5 +52,12 @@ module.exports = {
   bigip,
   mqtopic,
   mqchannel,
-  mqqueue
+  mqqueue,
+
+  // Operate
+  nodes,
+  credentials,
+  mqtopics,
+  mqchannels,
+  mqqueues
 }
