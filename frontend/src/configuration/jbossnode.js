@@ -39,8 +39,7 @@ const orderFields = {
   applicationMappingName: {
     label: 'Application',
     description: '',
-    fieldType: 'dropDown',
-    alternatives: ['a'],
+    fieldType: 'applications',
     value: ''
   },
   serverCount: {

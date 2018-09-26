@@ -5,7 +5,8 @@ import {
   OrderNumberBox,
   OrderTextBox,
   OrderButtonGroup,
-  EnvironmentsDropDown
+  EnvironmentsDropDown,
+  ApplicationsDropDown
 } from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
@@ -119,6 +120,15 @@ export class OrderForm extends Component {
                       label={orderField.label}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                       environmentClass={this.state.environmentClass}
+                      value={this.state[orderFieldKey]}
+                    />
+                  )
+                case 'applications':
+                  return (
+                    <ApplicationsDropDown
+                      key={orderFieldKey}
+                      label={orderField.label}
+                      onChange={v => this.handleChange(orderFieldKey, v)}
                       value={this.state[orderFieldKey]}
                     />
                   )
