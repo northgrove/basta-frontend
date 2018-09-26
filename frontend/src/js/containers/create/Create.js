@@ -74,14 +74,6 @@ export class Create extends Component {
 const orderTypes = [
   {
     title: 'WebSphere MQ',
-    description: 'Topic',
-    image: mqImage,
-    tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/create/mqtopic'
-    //    access: ['random']
-  },
-  {
-    title: 'WebSphere MQ',
     description: 'Queue',
     image: mqImage,
     tags: ['mq', 'queue', 'websphere', 'ibm'],

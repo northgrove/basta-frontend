@@ -73,13 +73,6 @@ const orderTypes = [
   },
   {
     title: 'MQ',
-    description: 'Topics',
-    image: mqImage,
-    tags: ['mq', 'topic', 'websphere', 'ibm'],
-    url: '/operate/mqtopics'
-  },
-  {
-    title: 'MQ',
     description: 'channel',
     image: mqImage,
     tags: ['mq', 'channel', 'websphere', 'ibm'],
