@@ -35,15 +35,15 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm test
-      - ? run
-        name: Copy files for Docker image
-        command: |
-          mkdir -p ${distDir}
-          cp -r api/src ${distDir}
-          cd ${distDir} && cp ../../package.json . && npm install --production && cd -
-          npm install && npm run build || exit 1
-          cp -r dist ${distDir}
-          cp Dockerfile ${dockerDir}
+      - run:
+          name: Copy files for Docker image
+          command: |
+            mkdir -p ${distDir}
+            cp -r api/src ${distDir}
+            cd ${distDir} && cp ../../package.json . && npm install --production && cd -
+            npm install && npm run build || exit 1
+            cp -r dist ${distDir}
+            cp Dockerfile ${dockerDir}
       - run:
           name: Login to Dockerhub
           command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
