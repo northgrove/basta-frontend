@@ -17,6 +17,7 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - setup_remote_docker
       - checkout
 
       # Download and cache dependencies
@@ -33,5 +34,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
       - run: npm test
+      - run:
+          name: Login to Dockerhub
+          command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
+      - run:
+          name: Build Docker container
+          command: docker build -t navikt/basta-frontend:canary .
+      - run:
+          name: Push canary Docker container
+          command: docker push navikt/basta-frontend:canary
