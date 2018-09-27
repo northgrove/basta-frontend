@@ -1,13 +1,8 @@
-const description = 'Application Server'
-const title = 'Wildfly'
-const image = require('../img/orderTypes/wildfly.png')
+// TODO: Have to add functionality to fetch databasename and fasitalias, as well as a field to retrieve databasetype from OEM
+const title = 'Database'
+const description = 'Oracle'
+const image = require('../img/orderTypes/oracle.png')
 const orderFields = {
-  nodeType: {
-    value: 'WILDFLY'
-  },
-  classification: {
-    value: { type: 'standard' }
-  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -42,37 +37,17 @@ const orderFields = {
     fieldType: 'applications',
     value: ''
   },
-  serverCount: {
-    label: 'Servers',
-    description: 'Virtual Servers',
-    fieldType: 'number',
-    min: 1,
-    max: 8,
-    value: 1
+  databasename: {
+    label: 'Database name',
+    fieldType: 'text',
+    description: 'fetching from OEM...',
+    value: ''
   },
-  cpuCount: {
-    label: 'Cpu',
-    description: 'Virtual sockets',
-    fieldType: 'number',
-    min: 1,
-    max: 4,
-    value: 1
-  },
-  memory: {
-    label: 'Memory',
-    description: 'GB',
-    fieldType: 'number',
-    min: 2,
-    max: 32,
-    value: 2
-  },
-  extraDisk: {
-    label: 'Extra disk',
-    description: 'GB',
-    fieldType: 'number',
-    min: 0,
-    max: 100,
-    value: 0
+  databasetype: {
+    label: 'Database type',
+    fieldType: 'text',
+    description: 'fetching from OEM...',
+    value: ''
   }
 }
 module.exports = {

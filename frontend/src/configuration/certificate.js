@@ -1,9 +1,6 @@
-const title = 'WebSphere MQ'
-const description = 'Queue'
-const image = require('../img/orderTypes/mq.png')
-const infobox = {
-  header: 'What '
-}
+const title = 'Certificate'
+const description = 'for service user'
+const image = require('../img/orderTypes/security.png')
 const orderFields = {
   environmentClass: {
     label: 'Env. class',
@@ -13,26 +10,25 @@ const orderFields = {
       { label: 'development', value: 'u' },
       { label: 'test', value: 't' },
       { label: 'PreProd', value: 'q' },
-      { label: 'Production', value: 'p' }
+      { label: 'Production', value: 'p', access: ['ROLE_PROD'] }
     ],
     value: 'u'
   },
-  environmentName: {
-    label: 'Environment',
+  zone: {
+    label: 'Zone',
     description: '',
-    fieldType: 'environments',
-    value: ''
+    fieldType: 'buttonGroup',
+    alternatives: [
+      { label: 'Fagsystemsone', value: 'fss' },
+      { label: 'iApp', value: 'iapp' },
+      { label: 'Selvbetjeningssone', value: 'sbs' }
+    ],
+    value: 'fss'
   },
   applicationMappingName: {
     label: 'Application',
     description: '',
     fieldType: 'applications',
-    value: ''
-  },
-  name: {
-    label: 'Queue name',
-    fieldType: 'text',
-    description: 'Name of queue',
     value: ''
   }
 }

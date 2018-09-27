@@ -12,7 +12,7 @@ class History extends Component {
     super(props)
     this.state = {
       filter: '',
-      nMaxResults: 100
+      nMaxResults: 30
     }
   }
 
@@ -23,7 +23,7 @@ class History extends Component {
   }
 
   onBottom() {
-    this.setState({ nMaxResults: this.state.nMaxResults + 100 })
+    this.setState({ nMaxResults: this.state.nMaxResults + 20 })
   }
 
   componentDidMount() {
@@ -33,14 +33,22 @@ class History extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.filter !== prevState.filter) {
+    const { dispatch } = this.props
+    const { filter, nMaxResults } = this.state
+    if (
+      this.state.filter !== prevState.filter ||
+      this.state.nMaxResults !== prevState.nMaxResults
+    ) {
+      dispatch(applyOrderHistoryFilter(filter, nMaxResults))
     }
+  }
+
+  componentWillUpdate(prevProps) {
+    if (prevProps !== this.props) console.log('1')
   }
 
   render() {
     const { filteredOrderHistory } = this.props
-    console.log(this.props)
-
     return (
       <div>
         <BottomScrollListener onBottom={() => this.onBottom()} />

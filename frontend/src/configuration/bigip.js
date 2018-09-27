@@ -1,13 +1,7 @@
 const description = 'Application Server'
-const title = 'Wildfly'
-const image = require('../img/orderTypes/wildfly.png')
+const title = 'Jboss'
+const image = require('../img/orderTypes/big-ip.png')
 const orderFields = {
-  nodeType: {
-    value: 'WILDFLY'
-  },
-  classification: {
-    value: { type: 'standard' }
-  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -42,37 +36,35 @@ const orderFields = {
     fieldType: 'applications',
     value: ''
   },
-  serverCount: {
-    label: 'Servers',
-    description: 'Virtual Servers',
-    fieldType: 'number',
-    min: 1,
-    max: 8,
-    value: 1
+  //TODO: Fetch from backend
+  manager: {
+    label: 'Virtual server',
+    description: '',
+    fieldType: 'dropDown',
+    alternatives: ['a', 'b', 'c', 'd', 'e'],
+    value: ''
   },
-  cpuCount: {
-    label: 'Cpu',
-    description: 'Virtual sockets',
-    fieldType: 'number',
-    min: 1,
-    max: 4,
-    value: 1
+  matchingType: {
+    label: 'Matching type',
+    description: '',
+    fieldType: 'buttonGroup',
+    alternatives: [
+      { label: 'Context root', value: 'context' },
+      { label: 'Hostname', value: 'hostname' }
+    ],
+    value: 'context'
   },
-  memory: {
-    label: 'Memory',
-    description: 'GB',
-    fieldType: 'number',
-    min: 2,
-    max: 32,
-    value: 2
+  roots: {
+    label: 'Context root(s)',
+    description: 'Add context roots',
+    fieldType: 'text',
+    value: ''
   },
-  extraDisk: {
-    label: 'Extra disk',
-    description: 'GB',
-    fieldType: 'number',
-    min: 0,
-    max: 100,
-    value: 0
+  hostname: {
+    label: 'VS hostname / DNS',
+    description: 'Hostname of the virutal server',
+    fieldType: 'text',
+    value: ''
   }
 }
 module.exports = {

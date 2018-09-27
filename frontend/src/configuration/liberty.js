@@ -1,16 +1,19 @@
 const description = 'Application Server'
-const title = 'Websphere'
-const image = require('../img/orderTypes/websphere.png')
+const title = 'Liberty '
+const image = require('../img/orderTypes/liberty.png')
 const orderFields = {
+  nodeType: {
+    value: 'LIBERTY'
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'Development', value: 'u' },
-      { label: 'Test', value: 't' },
+      { label: 'development', value: 'u' },
+      { label: 'test', value: 't' },
       { label: 'PreProd', value: 'q' },
-      { label: 'Production', value: 'p' }
+      { label: 'Production', value: 'p', access: ['ROLE_PROD'] }
     ],
     value: 'u'
   },
@@ -36,7 +39,7 @@ const orderFields = {
     fieldType: 'applications',
     value: ''
   },
-  servers: {
+  serverCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
@@ -44,7 +47,7 @@ const orderFields = {
     max: 8,
     value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
@@ -60,26 +63,13 @@ const orderFields = {
     max: 32,
     value: 2
   },
-  disk: {
+  extraDisk: {
     label: 'Extra disk',
     description: 'GB',
     fieldType: 'number',
     min: 0,
     max: 100,
     value: 0
-  },
-  wasVersion: {
-    label: 'WAS version',
-    description: '',
-    fieldType: 'buttonGroup',
-    alternatives: [{ label: 'WAS 8', value: 'was8' }, { label: 'WAS 9', value: 'was9' }],
-    value: 'was9'
-  },
-  description: {
-    label: 'Description',
-    description: 'What is this server used for?',
-    fieldType: 'text',
-    value: ''
   },
   custom: {
     label: 'Custom',

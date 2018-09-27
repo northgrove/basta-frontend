@@ -1,9 +1,6 @@
-const title = 'WebSphere MQ'
-const description = 'Queue'
+const title = 'MQ queue operations'
+const description = 'Start, stop or delete'
 const image = require('../img/orderTypes/mq.png')
-const infobox = {
-  header: 'What '
-}
 const orderFields = {
   environmentClass: {
     label: 'Env. class',
@@ -17,22 +14,19 @@ const orderFields = {
     ],
     value: 'u'
   },
-  environmentName: {
-    label: 'Environment',
+  // Todo: Fetch from backend
+  manager: {
+    label: 'Queue manager',
     description: '',
-    fieldType: 'environments',
-    value: ''
-  },
-  applicationMappingName: {
-    label: 'Application',
-    description: '',
-    fieldType: 'applications',
+    fieldType: 'dropDown',
+    alternatives: ['a', 'b', 'c', 'd', 'e'],
     value: ''
   },
   name: {
-    label: 'Queue name',
-    fieldType: 'text',
-    description: 'Name of queue',
+    label: 'Name',
+    description: '',
+    fieldType: 'dropDown',
+    alternatives: ['a', 'b', 'c', 'd', 'e'],
     value: ''
   }
 }

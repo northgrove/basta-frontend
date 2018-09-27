@@ -1,5 +1,5 @@
-const description = 'Node'
-const title = 'Jboss Application Server'
+const description = 'Application Server'
+const title = 'Jboss'
 const image = require('../img/orderTypes/jboss.png')
 const orderFields = {
   nodeType: {
