@@ -10,7 +10,6 @@ import bpmdmgr from './bpmdmgr'
 import wasnode from './wasnode'
 import wasdmgr from './wasdmgr'
 import mqqueue from './mqqueue'
-import mqtopic from './mqtopic'
 import mqchannel from './mqchannel'
 import credential from './credential'
 import certificate from './certificate'
@@ -25,7 +24,6 @@ import bigip from './bigip'
 // Operate forms
 import nodes from './nodes'
 import credentials from './credentials'
-import mqtopics from './mqtopics'
 import mqchannels from './mqchannels'
 import mqqueues from './mqqueues'
 
@@ -50,14 +48,12 @@ module.exports = {
   oracle,
   windows,
   bigip,
-  mqtopic,
   mqchannel,
   mqqueue,
 
   // Operate
   nodes,
   credentials,
-  mqtopics,
   mqchannels,
   mqqueues
 }
