@@ -30,18 +30,13 @@ class History extends Component {
   }
 
   onBottom() {
-    this.setState({ nMaxResults: this.state.nMaxResults + 20 })
+    this.setState({ nMaxResults: this.state.nMaxResults + 10 })
   }
 
   componentDidMount() {
     const { dispatch } = this.props
     const { filter, nMaxResults } = this.state
     dispatch(applyOrderHistoryFilter(filter))
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { dispatch } = this.props
-    const { nMaxResults, filter } = this.state
   }
 
   render() {
