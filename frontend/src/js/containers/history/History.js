@@ -4,7 +4,8 @@ import PageHeading from '../../common/components/PageHeading'
 import BottomScrollListener from '../../common/components/BottomScrollListener'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import OrderFilter from '../../common/components/OrderFilter'
+import { tagOrders, filterOrders, formatOrders } from './filters'
+import HistoryFilter from '../../common/components/HistoryFilter'
 import OrderList from './order-list/OrderList'
 
 class History extends Component {
@@ -12,14 +13,20 @@ class History extends Component {
     super(props)
     this.state = {
       filter: '',
-      nMaxResults: 30
+      nMaxResults: 20
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  filterString(filter) {
-    this.setState({
-      filter
-    })
+  handleSubmit(event) {
+    const { dispatch } = this.props
+    event.preventDefault()
+    dispatch(applyOrderHistoryFilter(this.state.filter))
+  }
+
+  handleChange(event) {
+    this.setState({ filter: event.target.value })
   }
 
   onBottom() {
@@ -29,22 +36,12 @@ class History extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     const { filter, nMaxResults } = this.state
-    dispatch(applyOrderHistoryFilter(filter, nMaxResults))
+    dispatch(applyOrderHistoryFilter(filter))
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { dispatch } = this.props
-    const { filter, nMaxResults } = this.state
-    if (
-      this.state.filter !== prevState.filter ||
-      this.state.nMaxResults !== prevState.nMaxResults
-    ) {
-      dispatch(applyOrderHistoryFilter(filter, nMaxResults))
-    }
-  }
-
-  componentWillUpdate(prevProps) {
-    if (prevProps !== this.props) console.log('1')
+    const { nMaxResults, filter } = this.state
   }
 
   render() {
@@ -53,8 +50,11 @@ class History extends Component {
       <div>
         <BottomScrollListener onBottom={() => this.onBottom()} />
         <PageHeading icon="fa-history" heading="Order history" description="" />
-        <OrderFilter onChange={e => this.filterString(e)} />
-        <OrderList orderHistory={filteredOrderHistory} />
+        <HistoryFilter
+          handleSubmit={event => this.handleSubmit(event)}
+          handleChange={event => this.handleChange(event)}
+        />
+        <OrderList orderHistory={filteredOrderHistory.slice(0, this.state.nMaxResults)} />
       </div>
     )
   }

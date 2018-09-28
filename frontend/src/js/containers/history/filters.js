@@ -35,9 +35,14 @@ export const formatOrders = orders => {
       orderDescription: formatString(e.orderDescription),
       orderOperation: formatString(e.orderOperation),
       orderType: e.orderType,
-      updated: formatTimestamp(e.updated)
+      updated: formatTimestamp(e.updated),
+      tags: buildTags(e)
     }
   })
+}
+
+export const sliceAllData = (data, n) => {
+  return data.slice(0, n)
 }
 
 const filterArray = (array, filter) => {
@@ -53,7 +58,7 @@ const filterArray = (array, filter) => {
 
 const formatTimestamp = number => {
   if (number) {
-    return moment(number).format('llll')
+    return moment(number).format('lll')
   }
 }
 

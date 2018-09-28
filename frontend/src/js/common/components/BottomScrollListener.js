@@ -12,7 +12,7 @@ export class BottomScrollListener extends Component {
 
   handleOnScroll() {
     const scrollNode = document.scrollingElement || document.documentElement
-    if (scrollNode.scrollHeight - 50 <= scrollNode.scrollTop + window.innerHeight) {
+    if (scrollNode.scrollHeight - 200 <= scrollNode.scrollTop + window.innerHeight) {
       this.props.onBottom()
     }
   }

@@ -1,13 +1,9 @@
-import { formatPayload } from '../../common/formatPayload'
+import { formatOrders } from './filters'
 import {
   HISTORY_FETCHING,
   HISTORY_RECEIVED,
   HISTORY_COMPLETE,
   HISTORY_REQUEST_FAILED,
-  HISTORY_APPLY_FILTER_SLICE,
-  HISTORY_APPLY_FILTER_TAG,
-  HISTORY_APPLY_FILTER_FILTER,
-  HISTORY_APPLY_FILTER_FORMAT,
   HISTORY_APPLY_FILTER_COMPLETE
 } from './actionTypes'
 
@@ -63,23 +59,6 @@ export default (
         ...state,
         filteredOrderHistory: action.orders
       }
-    case HISTORY_APPLY_FILTER_SLICE:
-      return {
-        ...state
-      }
-    case HISTORY_APPLY_FILTER_TAG:
-      return {
-        ...state
-      }
-    case HISTORY_APPLY_FILTER_FILTER:
-      return {
-        ...state
-      }
-    case HISTORY_APPLY_FILTER_FORMAT:
-      return {
-        ...state
-      }
-
     default:
       return state
   }
