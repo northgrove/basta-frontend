@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { tagOrders, filterOrders, formatOrders } from './filters'
 import HistoryFilter from '../../common/components/HistoryFilter'
 import OrderList from './order-list/OrderList'
+import HistoryCounter from './history-counter/HistoryCounter'
 
 class History extends Component {
   constructor(props) {
@@ -40,11 +41,15 @@ class History extends Component {
   }
 
   render() {
-    const { filteredOrderHistory } = this.props
+    const { filteredOrderHistory, totalOrders } = this.props
+    const { nMaxResults } = this.state
     return (
       <div>
         <BottomScrollListener onBottom={() => this.onBottom()} />
-        <PageHeading icon="fa-history" heading="Order history" description="" />
+        <div className="history-header">
+          <PageHeading icon="fa-history" heading="Order history" description="" />
+          <HistoryCounter totalOrders={totalOrders} displayingOrders={nMaxResults} />
+        </div>
         <HistoryFilter
           handleSubmit={event => this.handleSubmit(event)}
           handleChange={event => this.handleChange(event)}
@@ -57,12 +62,14 @@ class History extends Component {
 
 History.propTypes = {
   dispatch: propTypes.func.isRequired,
-  filteredOrderHistory: propTypes.array.isRequired
+  filteredOrderHistory: propTypes.array.isRequired,
+  totalOrders: propTypes.number.isRequired
 }
 
 const mapStateToProps = state => {
   return {
-    filteredOrderHistory: state.orderHistory.filteredOrderHistory
+    filteredOrderHistory: state.orderHistory.filteredOrderHistory,
+    totalOrders: state.orderHistory.totalOrders
   }
 }
 
