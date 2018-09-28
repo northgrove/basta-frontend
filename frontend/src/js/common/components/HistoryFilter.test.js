@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { HistoryFilter } from './OrderFilter'
+import { HistoryFilter } from './HistoryFilter'
 
 describe('(Component) HistoryFilter', () => {
   const wrapper = shallow(<HistoryFilter />)
