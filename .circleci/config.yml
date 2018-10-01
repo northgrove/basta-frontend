@@ -33,7 +33,7 @@ jobs:
             version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
             echo $version
             newVersion=$((version+1))
-            export RELEASE_VERSION="$newVersion.0.0"
+            echo 'export RELEASE_VERSION="$newVersion.0.0"' >> $BASH_ENV
 
       - run: npm install
 
