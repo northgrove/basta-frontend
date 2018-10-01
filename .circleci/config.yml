@@ -54,11 +54,11 @@ jobs:
       - run:
           name: Push canary Docker container
           command: docker push navikt/basta-frontend:canary
-      - ? run
-        name: 'Git tag and update version'
-        command: |
-          npm version ${RELEASE_VERSION}
-          git commit -am "Setting release version $RELEASE_VERSION [skip ci]" .
-          git tag -a basta-frontend-${RELEASE_VERSION} -m 'basta-frontend-${RELEASE_VERSION}'
-          git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
-          git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+      - run:
+          name: 'Git tag and update version'
+          command: |
+            npm version ${RELEASE_VERSION}
+            git commit -am "Setting release version $RELEASE_VERSION [skip ci]" .
+            git tag -a basta-frontend-${RELEASE_VERSION} -m 'basta-frontend-${RELEASE_VERSION}'
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
