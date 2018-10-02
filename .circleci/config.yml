@@ -27,14 +27,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name: Get release version
-          command: |
-            version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
-            echo $version
-            newVersion=$((version+1))
-            echo 'export RELEASE_VERSION="$newVersion.0.0"' >> $BASH_ENV
-
       - run: npm install
 
       - save_cache:
@@ -53,15 +45,19 @@ jobs:
           name: Build Docker container
           command: |
             echo "hei $RELEASE_VERSION" 
-            docker build -t navikt/basta-frontend:$RELEASE_VERSION .
+
       - run:
           name: Push canary Docker container
-          command: docker push navikt/basta-frontend:canary
+          ? command
       - run:
-          name: 'Git tag and update version'
+          name: 'Release, tag and build Docker'
           command: |
-            npm version ${RELEASE_VERSION}
-            git commit -am "Setting release version $RELEASE_VERSION [skip ci]" .
-            git tag -a basta-frontend-${RELEASE_VERSION} -m 'basta-frontend-${RELEASE_VERSION}'
+            version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
+            newVersion=$((version+1))
+            npm version ${newVersion}
+            git commit -am "Setting release version $newVersion [skip ci]" .
+            git tag -a basta-frontend-${newVersion} -m 'basta-frontend-${newVersion}'
             git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
             git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+            docker build -t navikt/basta-frontend:$newVersion .
+            docker push navikt/basta-frontend:newVersion
