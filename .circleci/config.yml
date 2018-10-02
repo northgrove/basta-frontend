@@ -47,7 +47,10 @@ jobs:
           command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
       - run:
           name: 'Release, tag and build Docker'
+          environment:
+            CURRENT_VERSION: $(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
           command: |
+            echo $CURRENT_VERSION
             version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
             newVersion=$((version+1))
             semVer="$newVersion.0.0"
