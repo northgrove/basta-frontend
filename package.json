@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "9.0.0",
+  "version": "12.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
