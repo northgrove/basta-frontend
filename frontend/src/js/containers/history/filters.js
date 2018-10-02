@@ -23,10 +23,6 @@ export const filterOrders = (orders, filter) => {
   return filteredArray
 }
 
-export const sliceOrders = (orders, n) => {
-  return orders.slice(0, n)
-}
-
 export const formatOrders = orders => {
   return orders.map(e => {
     return {
@@ -39,10 +35,6 @@ export const formatOrders = orders => {
       tags: buildTags(e)
     }
   })
-}
-
-export const sliceAllData = (data, n) => {
-  return data.slice(0, n)
 }
 
 const filterArray = (array, filter) => {

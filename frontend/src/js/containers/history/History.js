@@ -4,12 +4,11 @@ import PageHeading from '../../common/components/PageHeading'
 import BottomScrollListener from '../../common/components/BottomScrollListener'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { tagOrders, filterOrders, formatOrders } from './filters'
 import HistoryFilter from '../../common/components/HistoryFilter'
 import OrderList from './order-list/OrderList'
 import HistoryCounter from './history-counter/HistoryCounter'
 
-class History extends Component {
+export class History extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -61,9 +60,9 @@ class History extends Component {
 }
 
 History.propTypes = {
-  dispatch: propTypes.func.isRequired,
-  filteredOrderHistory: propTypes.array.isRequired,
-  totalOrders: propTypes.number.isRequired
+  dispatch: propTypes.func,
+  filteredOrderHistory: propTypes.array,
+  totalOrders: propTypes.number
 }
 
 const mapStateToProps = state => {

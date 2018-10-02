@@ -18,8 +18,8 @@ export const HistoryFilter = props => {
 }
 
 HistoryFilter.propTypes = {
-  handleSubmit: propTypes.func.isRequired,
-  handleChange: propTypes.func.isRequired
+  handleSubmit: propTypes.func,
+  handleChange: propTypes.func
 }
 
 export default HistoryFilter
