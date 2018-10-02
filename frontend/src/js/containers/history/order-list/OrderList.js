@@ -5,16 +5,18 @@ import Spinner from '../../../common/components/Spinner'
 
 const OrderList = props => {
   const { orderHistory } = props
-  // console.log(orderHistory)
-  if (orderHistory.length === 0) return <Spinner />
+  if (orderHistory.length === 0)
+    return (
+      <center>
+        <Spinner />
+      </center>
+    )
   return <div className="orderListContainer">{renderList(orderHistory)}</div>
 }
 
 const renderList = orders => {
   let orderList = []
-  if (orders.length >= 1) {
-    // console.log('1000')
-
+  if (orders.length > -1) {
     orders.forEach((e, i) => {
       orderList.push(
         <div key={i}>
@@ -22,8 +24,6 @@ const renderList = orders => {
         </div>
       )
     })
-  } else {
-    // console.log('do nothing')
   }
   return orderList
 }
