@@ -16,7 +16,6 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
 
@@ -31,39 +30,30 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      #- run: npm install
+      - run: npm install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      #- run: npm test
-      #- run:
-      #    name: Build docker image
-      #    command: docker build -t navikt/basta-frontend:canary .
-      #- run:
-      #    name: Login to Dockerhub
-      #    command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
+      - run: npm test
+      - run:
+          name: Build docker image
+          command: docker build -t navikt/basta-frontend:canary .
+      - run:
+          name: Login to Dockerhub
+          command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
       - run:
           name: 'Release, tag and build Docker'
-          environment:
-            #CURRENT_VERSION: $(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
-            #BANAN: KAKe
           command: |
-            #echo $BANAN
-            #echo $CURRENT_VERSION
-            export BANAN=KREM
             export VERSION=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
             export NEW_VERSION=$((VERSION+1))
             export SEM_VER="$NEW_VERSION.0.0"
-            echo $VERSION
-            echo $SEM_VER
-            #npm version $semVer
-            #echo $semver
-            #git commit -am "Setting release version $semVer [skip ci]" .
-            #git tag -a basta-frontend-${semVer} -m 'basta-frontend-${semVer}'
-            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
-            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
-            #docker build -t navikt/basta-frontend:$semVer .
-            #docker push navikt/basta-frontend:$semVer
+            npm version $SEM_VER
+            git commit -am "Setting release version $SEM_VER [skip ci]" .
+            git tag -a basta-frontend-$SEM_VER -m 'basta-frontend-$SEM_VER'
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+            docker build -t navikt/basta-frontend:$SEM_VER .
+            docker push navikt/basta-frontend:$SEM_VER
