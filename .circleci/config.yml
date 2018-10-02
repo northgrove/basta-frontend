@@ -42,14 +42,6 @@ jobs:
           name: Login to Dockerhub
           command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
       - run:
-          name: Build Docker container
-          command: |
-            echo "hei $RELEASE_VERSION" 
-
-      - run:
-          name: Push canary Docker container
-          ? command
-      - run:
           name: 'Release, tag and build Docker'
           command: |
             version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
