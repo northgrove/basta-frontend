@@ -52,8 +52,8 @@ jobs:
             export SEM_VER="$NEW_VERSION.0.0"
             npm version $SEM_VER
             git commit -am "Setting release version $SEM_VER [skip ci]" .
-            git tag -a basta-frontend-$SEM_VER -m 'basta-frontend-$SEM_VER'
-            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
-            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+            #git tag -a basta-frontend-$SEM_VER -m 'basta-frontend-$SEM_VER'
+            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
+            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
             docker build -t navikt/basta-frontend:$SEM_VER .
             docker push navikt/basta-frontend:$SEM_VER
