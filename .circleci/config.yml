@@ -38,9 +38,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm test
-      - run:
-          name: Build docker image
-          command: docker build -t navikt/basta-frontend:canary .
+
       - run:
           name: Login to Dockerhub
           command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
