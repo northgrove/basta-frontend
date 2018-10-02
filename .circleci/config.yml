@@ -46,10 +46,11 @@ jobs:
           command: |
             version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
             newVersion=$((version+1))
-            npm version ${newVersion}
-            git commit -am "Setting release version $newVersion [skip ci]" .
-            git tag -a basta-frontend-${newVersion} -m 'basta-frontend-${newVersion}'
+            semVer="$newVersion.0.0"
+            npm version ${semVer}
+            git commit -am "Setting release version $semVer [skip ci]" .
+            git tag -a basta-frontend-${semVer} -m 'basta-frontend-${semVer}'
             git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
             git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
-            docker build -t navikt/basta-frontend:$newVersion .
-            docker push navikt/basta-frontend:newVersion
+            docker build -t navikt/basta-frontend:$semVer .
+            docker push navikt/basta-frontend:$semVer
