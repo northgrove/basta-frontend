@@ -53,11 +53,12 @@ jobs:
           command: |
             #echo $BANAN
             #echo $CURRENT_VERSION
-            export version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
-            export newVersion=$((version+1))
-            export semVer="$newVersion.0.0"
-            echo $version
-            echo $semVer
+            export BANAN=KREM
+            export VERSION=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
+            export NEW_VERSION=$((VERSION+1))
+            export SEM_VER="$NEW_VERSION.0.0"
+            echo $VERSION
+            echo $SEM_VER
             #npm version $semVer
             #echo $semver
             #git commit -am "Setting release version $semVer [skip ci]" .
