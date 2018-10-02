@@ -5,6 +5,10 @@
 version: 2
 jobs:
   build:
+    environment:
+      EMAIL: noreply@nav.no
+      GIT_AUTHOR_NAME: CircleCI
+      GIT_COMMITTER_NAME: CircleCI
     docker:
       # specify the version you desire here
       - image: circleci/node:10.9
@@ -12,7 +16,6 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
 
@@ -42,8 +45,12 @@ jobs:
           name: Login to Dockerhub
           command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
       - run:
-          name: Build Docker container
-          command: docker build -t navikt/basta-frontend:canary .
-      - run:
-          name: Push canary Docker container
-          command: docker push navikt/basta-frontend:canary
+          name: 'Release, tag and build Docker'
+          command: |
+            export VERSION=npm version major -m "Setting release version from circle ci [skip ci]" | cut -d"v" -f2
+
+            git tag -a basta-frontend-$VERSION -m 'basta-frontend-$VERSION'
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+            docker build -t navikt/basta-frontend:$VERSION .
+            docker push navikt/basta-frontend:$VERSION
