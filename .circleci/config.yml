@@ -51,7 +51,7 @@ jobs:
             version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
             newVersion=$((version+1))
             semVer="$newVersion.0.0"
-            npm version ${semVer}
+            npm version $semVer
             echo $semver
             git commit -am "Setting release version $semVer [skip ci]" .
             git tag -a basta-frontend-${semVer} -m 'basta-frontend-${semVer}'
