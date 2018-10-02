@@ -31,34 +31,36 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      #- run: npm install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm test
-      - run:
-          name: Build docker image
-          command: docker build -t navikt/basta-frontend:canary .
-      - run:
-          name: Login to Dockerhub
-          command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
+      #- run: npm test
+      #- run:
+      #    name: Build docker image
+      #    command: docker build -t navikt/basta-frontend:canary .
+      #- run:
+      #    name: Login to Dockerhub
+      #    command: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USER" --password-stdin
       - run:
           name: 'Release, tag and build Docker'
           environment:
             CURRENT_VERSION: $(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
+            BANAN: KAKe
           command: |
+            echo $BANAN
             echo $CURRENT_VERSION
             version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
             newVersion=$((version+1))
             semVer="$newVersion.0.0"
-            npm version $semVer
-            echo $semver
-            git commit -am "Setting release version $semVer [skip ci]" .
-            git tag -a basta-frontend-${semVer} -m 'basta-frontend-${semVer}'
-            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
-            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
-            docker build -t navikt/basta-frontend:$semVer .
-            docker push navikt/basta-frontend:$semVer
+            #npm version $semVer
+            #echo $semver
+            #git commit -am "Setting release version $semVer [skip ci]" .
+            #git tag -a basta-frontend-${semVer} -m 'basta-frontend-${semVer}'
+            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
+            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+            #docker build -t navikt/basta-frontend:$semVer .
+            #docker push navikt/basta-frontend:$semVer
