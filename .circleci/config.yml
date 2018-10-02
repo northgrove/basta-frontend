@@ -48,14 +48,16 @@ jobs:
       - run:
           name: 'Release, tag and build Docker'
           environment:
-            CURRENT_VERSION: $(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
-            BANAN: KAKe
+            #CURRENT_VERSION: $(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
+            #BANAN: KAKe
           command: |
-            echo $BANAN
-            echo $CURRENT_VERSION
-            version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
-            newVersion=$((version+1))
-            semVer="$newVersion.0.0"
+            #echo $BANAN
+            #echo $CURRENT_VERSION
+            export version=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
+            export newVersion=$((version+1))
+            export semVer="$newVersion.0.0"
+            echo $version
+            echo $semVer
             #npm version $semVer
             #echo $semver
             #git commit -am "Setting release version $semVer [skip ci]" .
