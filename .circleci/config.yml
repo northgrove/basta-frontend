@@ -5,6 +5,10 @@
 version: 2
 jobs:
   build:
+    environment:
+      EMAIL: noreply@nav.no
+      GIT_AUTHOR_NAME: CircleCI
+      GIT_COMMITTER_NAME: CircleCI
     docker:
       # specify the version you desire here
       - image: circleci/node:10.9
@@ -48,6 +52,7 @@ jobs:
             newVersion=$((version+1))
             semVer="$newVersion.0.0"
             npm version ${semVer}
+            echo $semver
             git commit -am "Setting release version $semVer [skip ci]" .
             git tag -a basta-frontend-${semVer} -m 'basta-frontend-${semVer}'
             git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
