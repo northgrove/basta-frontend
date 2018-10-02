@@ -47,15 +47,10 @@ jobs:
       - run:
           name: 'Release, tag and build Docker'
           command: |
-            export VERSION=$(npm version | grep basta-frontend | cut -d"'" -f4 | cut -d"." -f1)
-            export NEW_VERSION=$((VERSION+1))
-            export SEM_VER="$NEW_VERSION.0.0"
-            npm version $SEM_VER
-            git status
-            git commit -am "Setting release version $SEM_VER [skip ci]" .
+            export VERSION=npm version major -m "Setting release version from circle ci [skip ci] | cut -d"v" -f2"
 
-            #git tag -a basta-frontend-$SEM_VER -m 'basta-frontend-$SEM_VER'
-            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
-            #git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
-            docker build -t navikt/basta-frontend:$SEM_VER .
-            docker push navikt/basta-frontend:$SEM_VER
+            git tag -a basta-frontend-$VERSION -m 'basta-frontend-$VERSION'
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git --tags"
+            git push  --set-upstream https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/navikt/basta-frontend.git master"
+            docker build -t navikt/basta-frontend:$VERSION .
+            docker push navikt/basta-frontend:$VERSION
