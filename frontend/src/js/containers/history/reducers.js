@@ -1,4 +1,3 @@
-import { formatOrders } from './filters'
 import {
   HISTORY_FETCHING,
   HISTORY_RECEIVED,

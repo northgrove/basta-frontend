@@ -2,9 +2,10 @@
 import React from 'react'
 const request = require('request-promise')
 import { api } from '../../../../api/src/config/config'
-let ms_access_token = ''
+// let ms_access_token = ''
 
 export const getUrl = url => {
+  console.log('hey ho saga test', url)
   const init = {
     credentials: 'include',
     method: 'GET'
@@ -20,6 +21,7 @@ export const getUrl = url => {
     }
   })
 }
+
 export const postForm = (url, form) => {
   let headers = { 'Content-Type': 'application/json' }
   return fetch(url, {
