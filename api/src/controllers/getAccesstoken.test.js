@@ -26,7 +26,8 @@ const mstoken = nock('https://login.microsoftonline.com')
 
 test('Simulerer getToken fra azure AD', async () => {
   const jau = await token.getAccessToken(
-    'https://login.microsoftonline.com/navq.onmicrosoft.com/oauth2/token/'
+    'https://login.microsoftonline.com/navq.onmicrosoft.com/oauth2/token/',
+    '1.2.3.4'
   )
   expect(jau).toContain('testtoken')
 })
