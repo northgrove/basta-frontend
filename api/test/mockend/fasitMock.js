@@ -1,6 +1,9 @@
 const applications = require('../mockdata/applications.json')
 const environments = require('../mockdata/environments.json')
-
+const mq_u = require('../mockdata/mq_u.json')
+const mq_t = require('../mockdata/mq_t.json')
+const mq_q = require('../mockdata/mq_q.json')
+const mq_p = require('../mockdata/mq_p.json')
 exports.getApplications = () => {
   return (req, res) => {
     res.status(200).json(applications)
@@ -10,5 +13,25 @@ exports.getApplications = () => {
 exports.getEnvironments = () => {
   return (req, res) => {
     res.status(200).json(environments)
+  }
+}
+
+exports.getResources = () => {
+  return (req, res) => {
+    const envClass = req.query.envClass
+    switch (envClass) {
+      case 'u':
+        res.status(200).json(mq_u)
+        break
+      case 't':
+        res.status(200).json(mq_t)
+        break
+      case 'q':
+        res.status(200).json(mq_q)
+        break
+      case 'p':
+        res.status(200).json(mq_p)
+        break
+    }
   }
 }
