@@ -3,10 +3,12 @@ const token = require('./getAccesstoken')
 const { tokenURI } = require('../config/passportConfig')
 const { defaultPhoto } = require('./defaultPhoto')
 
-exports.getUserPhoto = async ({ userUpn, accessToken }) => {
+exports.getUserPhoto = async ({ userUpn, refreshToken }) => {
   let userPhoto = ''
   let aToken = ''
-
+  const resource = 'https://graph.microsoft.com'
+  const accessToken = await token.getAccessTokenUser(tokenURI, refreshToken, resource)
+  console.log('token: ', accessToken)
   return request
     .get({
       headers: { 'content-type': 'image/jpg' },
@@ -19,6 +21,7 @@ exports.getUserPhoto = async ({ userUpn, accessToken }) => {
       return userPhoto
     })
     .catch(err => {
+      console.log(err)
       userPhoto = defaultPhoto
       return userPhoto
     })

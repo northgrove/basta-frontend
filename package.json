@@ -16,11 +16,13 @@
       "node_modules"
     ]
   },
-  "version": "14.0.0",
+  "version": "18.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "azure-ad-jwt": "^1.1.0",
+    "azure-jwt-verify": "^1.0.0",
     "better-npm-run": "^0.1.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
@@ -106,7 +108,8 @@
     "frontend": "better-npm-run dev-frontend",
     "api": "better-npm-run dev-api",
     "offline": "better-npm-run dev-offline",
-    "mockend": "better-npm-run dev-mockend"
+    "mockend": "better-npm-run dev-mockend",
+    "auth": "better-npm-run auth"
   },
   "betterScripts": {
     "start": {
@@ -148,6 +151,12 @@
       "command": "nodemon api/test/mockend/mock-backend.js",
       "env": {
         "NODE_ENV": "offline"
+      }
+    },
+    "auth": {
+      "command": "nodemon api/AADauth/auth-backend.js",
+      "env": {
+        "NODE_ENV": "development"
       }
     },
     "build": {

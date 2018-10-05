@@ -37,6 +37,8 @@ router.get(`/token`, auth.ensureAuthenticated(), token.getToken())
 
 router.get(`/tokenuser`, auth.ensureAuthenticated(), token.getTokenUser())
 
+router.get(`/auth`, auth.ensureAuthenticated(), token.verifyToken())
+
 //router.get(`${api}/orders/:id/`, auth.ensureAuthenticated(), order.getOrder())
 
 //router.post(`${api}/orders/:type/`, auth.ensureAuthenticated(), order.postOrder())
