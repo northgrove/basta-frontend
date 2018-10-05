@@ -5,7 +5,6 @@ import { api } from '../../../../api/src/config/config'
 // let ms_access_token = ''
 
 export const getUrl = url => {
-  console.log('hey ho saga test', url)
   const init = {
     credentials: 'include',
     method: 'GET'

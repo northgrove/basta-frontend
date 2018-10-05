@@ -29,7 +29,7 @@ export function* getPartialHistory(action, pageId) {
   if (value.length > 0) {
     pageId++
     yield put({ type: HISTORY_RECEIVED, value })
-    yield call(delay, 250)
+    yield call(delay, 200)
     yield getPartialHistory(action, pageId)
   } else {
     yield put({ type: HISTORY_COMPLETE })
