@@ -1,4 +1,3 @@
-// import React from 'react'
 import { select, call } from 'redux-saga/effects'
 import { expectSaga } from 'redux-saga-test-plan'
 import { applyOrderHistoryFilter, getOrderHistory } from './sagas'
@@ -47,7 +46,7 @@ it('(History view sagas - applyOrderHistoryFilter) dispatches with filter, selec
       requestFailed: false,
       requestStatus: ''
     })
-    .run()
+    .silentRun()
 })
 
 it('(History view sagas - getOrderHistory) fetches orders from backend with correct pagination', () => {

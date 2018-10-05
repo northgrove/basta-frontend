@@ -1,10 +1,10 @@
 import React from 'react'
+import { host, port } from '../../../../../api/src/config/config'
 const bastaLogo = require('../../../img/basta.png')
 const navLogo = require('../../../img/nav.png')
 
 const Login = props => {
   const { pathname } = props.location
-  console.log(pathname)
   return (
     <div className="login-background">
       <div className="login-container">
@@ -18,7 +18,7 @@ const Login = props => {
             <center> Authenticate by loggin into NAV's single sign-on provider. </center>
           </div>
           <div>
-            <a className="login-box-btn" href={`http://localhost:8080/login${pathname}`}>
+            <a className="login-box-btn" href={`http://${host}:${port}/login${pathname}`}>
               <center> Continue </center>
             </a>
           </div>
