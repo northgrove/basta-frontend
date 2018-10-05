@@ -30,6 +30,7 @@ router.post(`/rest/orders/:type/`, orderMock.postOrder())
 router.get(`/rest/orders/:id/statuslog`, orderMock.getStatusLog())
 router.get(`/rest/v1/fasit/environments`, fasitMock.getEnvironments())
 router.get(`/rest/v1/fasit/applications`, fasitMock.getApplications())
+router.get(`/rest/v1/fasit/resources`, fasitMock.getResources())
 
 // ERROR HANDLING
 app.use((err, req, res, next) => {

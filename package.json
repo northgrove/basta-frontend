@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "13.0.0",
+  "version": "17.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
@@ -94,6 +94,7 @@
     "redux-devtools-extension": "^2.13.5",
     "redux-mock-store": "^1.5.3",
     "redux-saga": "^0.16.0",
+    "redux-saga-test-plan": "^3.7.0",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.6.2",
     "sinon": "^6.3.4"

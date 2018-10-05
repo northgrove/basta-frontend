@@ -40,6 +40,7 @@ export class MqQueue extends Component {
 
   render() {
     const { user } = this.props
+    console.log(this.state)
     return (
       <div>
         <div className="orderForm">
