@@ -29,7 +29,7 @@ export function* getPartialHistory(action, pageId) {
   if (value.length > 0) {
     pageId++
     yield put({ type: HISTORY_RECEIVED, value })
-    yield call(delay, 250)
+    yield call(delay, 200)
     yield getPartialHistory(action, pageId)
   } else {
     yield put({ type: HISTORY_COMPLETE })
@@ -48,7 +48,7 @@ export function* getOrderHistory(action) {
   }
 }
 
-export function* expandOrderHistory(action) {
+export function* applyOrderHistoryFilter(action) {
   let orders = yield select(getOrders)
   if (orders.length > 0) {
     orders = yield call(formatOrders, orders)
@@ -65,5 +65,5 @@ export function* expandOrderHistory(action) {
 
 export function* watcHistory() {
   yield fork(takeEvery, HISTORY_REQUEST, getOrderHistory)
-  yield fork(takeLatest, HISTORY_APPLY_FILTER, expandOrderHistory)
+  yield fork(takeLatest, HISTORY_APPLY_FILTER, applyOrderHistoryFilter)
 }

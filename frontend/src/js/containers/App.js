@@ -24,8 +24,13 @@ class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(initializeApplication())
-    dispatch(getOrderHistory(1000))
-    moment.locale('nb')
+    moment.locale('no-nb')
+  }
+
+  componentDidUpdate(prevProps) {
+    const { dispatch, user } = this.props
+    if (prevProps.user.isUserAuthenticated !== user.isUserAuthenticated && user.isUserAuthenticated)
+      dispatch(getOrderHistory(1000))
   }
 
   render() {
