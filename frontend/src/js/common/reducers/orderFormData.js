@@ -1,4 +1,7 @@
 import {
+  RESOURCES_REQUEST_FAILED,
+  RESOURCES_RECEIVED,
+  RESOURCES_FETCHING,
   APPLICATIONS_REQUEST_FAILED,
   APPLICATIONS_RECEIVED,
   APPLICATIONS_FETCHING,
@@ -18,6 +21,16 @@ export default (
       fetching: false,
       error: null,
       data: []
+    },
+    resources: {
+      fetching: false,
+      error: null,
+      data: {
+        u: [],
+        t: [],
+        q: [],
+        p: []
+      }
     }
   },
   action
@@ -50,6 +63,35 @@ export default (
           fetching: false,
           error: action.error,
           data: []
+        }
+      }
+    // RESOURCES
+
+    case RESOURCES_FETCHING:
+      return {
+        ...state,
+        resources: {
+          fetching: true,
+          error: null,
+          data: state.resources.data
+        }
+      }
+    case RESOURCES_RECEIVED:
+      return {
+        ...state,
+        resources: {
+          fetching: false,
+          error: null,
+          data: { ...state.resources.data, [action.envClass]: action.value }
+        }
+      }
+    case RESOURCES_REQUEST_FAILED:
+      return {
+        ...state,
+        resources: {
+          fetching: false,
+          error: action.error,
+          data: state.resources.data
         }
       }
     // ENVIRONMENTS

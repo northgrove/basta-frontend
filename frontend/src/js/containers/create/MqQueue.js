@@ -6,6 +6,7 @@ import {
   OrderTextBox,
   OrderButtonGroup,
   EnvironmentsDropDown,
+  QueueManagerDropDown,
   ApplicationsDropDown
 } from '../../common/components/formComponents'
 import connect from 'react-redux/es/connect/connect'
@@ -40,7 +41,6 @@ export class MqQueue extends Component {
 
   render() {
     const { user } = this.props
-    console.log(this.state)
     return (
       <div>
         <div className="orderForm">
@@ -80,6 +80,14 @@ export class MqQueue extends Component {
               placeholder={orderFields.name.description}
               onChange={v => this.handleChange(name, v)}
             />
+            <QueueManagerDropDown
+              key={'queueName'}
+              label={orderFields.queueManager.label}
+              onChange={v => this.handleChange('queueName', v)}
+              envClass={this.state.environmentClass}
+              envName={this.state.environmentName}
+              value={this.state['queueName']}
+            />
           </div>
           <div className="orderFormSubmitButton">Submit</div>
         </div>
@@ -116,6 +124,10 @@ const orderFields = {
     label: 'Queue name',
     fieldType: 'text',
     description: 'Name of queue',
+    value: ''
+  },
+  queueManager: {
+    label: 'Queue manager',
     value: ''
   }
 }

@@ -3,6 +3,7 @@ import {
   INITIALIZE_APPLICATION,
   USER_LOGOUT,
   ENVIRONMENTS_REQUEST,
+  RESOURCES_REQUEST,
   APPLICATIONS_REQUEST
 } from '../actionTypes'
 
@@ -22,4 +23,7 @@ export const fetchEnvironments = environmentClass => {
 }
 export const fetchApplications = () => {
   return { type: APPLICATIONS_REQUEST }
+}
+export const fetchResources = envClass => {
+  return { type: RESOURCES_REQUEST, envClass }
 }
