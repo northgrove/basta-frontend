@@ -7,6 +7,7 @@ import { getOrders } from './selectors'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { throwError } from 'redux-saga-test-plan/providers'
 import { getUrl } from '../../common/utils'
+import moment from 'moment'
 
 it('(History view sagas - applyOrderHistoryFilter) dispatches with filter, selects all orders from history, formats them, and returns order matching filter', () => {
   const action = { filter: 'JBOSS' }
@@ -19,9 +20,9 @@ it('(History view sagas - applyOrderHistoryFilter) dispatches with filter, selec
       filteredOrderHistory: [
         {
           id: 24402,
-          created: 'Aug 15, 2018 8:37 AM',
+          created: moment(1534315029884).format('lll'),
           createdBy: 'srvfasit',
-          updated: 'Aug 15, 2018 8:37 AM',
+          updated: moment(1534315061586).format('lll'),
           updatedBy: 'srvOrchestrator',
           updatedByDisplayName: 'Service User',
           createdByDisplayName: 'Service User',
