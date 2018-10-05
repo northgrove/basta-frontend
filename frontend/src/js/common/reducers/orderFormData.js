@@ -1,4 +1,7 @@
 import {
+  SCOPED_RESOURCE_REQUEST_FAILED,
+  SCOPED_RESOURCE_RECEIVED,
+  SCOPED_RESOURCE_FETCHING,
   RESOURCES_REQUEST_FAILED,
   RESOURCES_RECEIVED,
   RESOURCES_FETCHING,
@@ -31,6 +34,11 @@ export default (
         q: [],
         p: []
       }
+    },
+    scopedresources: {
+      fetching: false,
+      error: null,
+      data: []
     }
   },
   action
@@ -94,8 +102,36 @@ export default (
           data: state.resources.data
         }
       }
-    // ENVIRONMENTS
+    // SCOPED_RESOURCE
 
+    case SCOPED_RESOURCE_FETCHING:
+      return {
+        ...state,
+        scopedresources: {
+          fetching: true,
+          error: null,
+          data: []
+        }
+      }
+    case SCOPED_RESOURCE_RECEIVED:
+      return {
+        ...state,
+        scopedresources: {
+          fetching: false,
+          error: null,
+          data: action.value
+        }
+      }
+    case SCOPED_RESOURCE_REQUEST_FAILED:
+      return {
+        ...state,
+        scopedresources: {
+          fetching: false,
+          error: action.error,
+          data: []
+        }
+      }
+    // ENVIRONMENTS
     case ENVIRONMENTS_FETCHING:
       return {
         ...state,

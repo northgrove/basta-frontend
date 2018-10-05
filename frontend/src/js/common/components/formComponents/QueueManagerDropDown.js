@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import connect from 'react-redux/es/connect/connect'
 import ReactTooltip from 'react-tooltip'
 import Select from 'react-select'
-import { fetchResources } from '../../actionCreators'
+import { fetchResources, fetchScopedResources } from '../../actionCreators'
 
 export class QueueManagerDropDown extends Component {
   constructor(props) {
@@ -15,11 +15,24 @@ export class QueueManagerDropDown extends Component {
     dispatch(fetchResources('t'))
     dispatch(fetchResources('q'))
     dispatch(fetchResources('p'))
+    dispatch(fetchScopedResources('p', 'p', 'franz'))
+  }
+  componentDidUpdate(prevProps, prevState, ss) {
+    console.log(prevProps)
   }
 
   render() {
-    const { label, value, onChange, description, resources, envClass, envName } = this.props
-    console.log(resources[envClass])
+    const {
+      label,
+      value,
+      onChange,
+      description,
+      resources,
+      envClass,
+      envName,
+      scopedresources
+    } = this.props
+    console.log(scopedresources)
 
     return (
       <div className="formComponentGrid">
@@ -48,7 +61,8 @@ QueueManagerDropDown.propTypes = {}
 
 const mapStateToProps = state => {
   return {
-    resources: state.orderFormData.resources.data
+    resources: state.orderFormData.resources.data,
+    scopedresources: state.orderFormData.scopedresources.data
   }
 }
 export default connect(mapStateToProps)(QueueManagerDropDown)

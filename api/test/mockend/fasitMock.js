@@ -40,20 +40,21 @@ exports.getResources = () => {
           res.status(200).json(bestmatch_p)
           break
       }
-    }
-    switch (envClass) {
-      case 'u':
-        res.status(200).json(mq_u)
-        break
-      case 't':
-        res.status(200).json(mq_t)
-        break
-      case 'q':
-        res.status(200).json(mq_q)
-        break
-      case 'p':
-        res.status(200).json(mq_p)
-        break
+    } else {
+      switch (envClass) {
+        case 'u':
+          res.status(200).json(mq_u)
+          break
+        case 't':
+          res.status(200).json(mq_t)
+          break
+        case 'q':
+          res.status(200).json(mq_q)
+          break
+        case 'p':
+          res.status(200).json(mq_p)
+          break
+      }
     }
   }
 }
