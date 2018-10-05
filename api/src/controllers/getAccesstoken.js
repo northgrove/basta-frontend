@@ -3,12 +3,12 @@ const config = require('../config/passportConfig')
 const { UserMongoSchema } = require('../models/userMongoSchema')
 let ms_access_token = ''
 
-exports.getAccessToken = async tokenURI => {
+exports.getAccessToken = async (tokenURI, resource) => {
   let parameters = ''
   try {
     parameters = {
       client_id: process.env['BASTAAZURECONFIG_CLIENTID'],
-      resource: config.resourceURL,
+      resource: resource, //process.env['BASTAAZURECONFIG_CLIENTID'],//config.resourceURL,
       redirect_uri: process.env['BASTAAZURECONFIG_CALLBACKURI'],
       grant_type: 'client_credentials',
       client_secret: process.env['BASTAAZURECONFIG_CLIENTSECRET']
@@ -30,12 +30,12 @@ exports.getAccessToken = async tokenURI => {
   }
 }
 
-exports.getAccessTokenUser = async (tokenURI, refreshToken, req) => {
+exports.getAccessTokenUser = async (tokenURI, refreshToken, resource) => {
   let parameters = ''
   try {
     parameters = {
       client_id: process.env['BASTAAZURECONFIG_CLIENTID'],
-      resource: process.env['BASTAAZURECONFIG_CLIENTID'],
+      resource: resource, // process.env['BASTAAZURECONFIG_CLIENTID'],
       redirect_uri: process.env['BASTAAZURECONFIG_CALLBACKURI'],
       grant_type: 'refresh_token',
       refresh_token: refreshToken,
@@ -47,6 +47,7 @@ exports.getAccessTokenUser = async (tokenURI, refreshToken, req) => {
       body
     ) {
       ms_access_token = JSON.parse(body).access_token
+      /*
       UserMongoSchema.findOneAndUpdate(
         { 'azure.id': req.user.azure.id },
         { 'azure.accessToken': ms_access_token },
@@ -55,6 +56,7 @@ exports.getAccessTokenUser = async (tokenURI, refreshToken, req) => {
           return ms_access_token
         }
       )
+      */
 
       // console.log('access token: ', ms_access_token)
     })

@@ -4,7 +4,7 @@ exports.responseType = 'code id_token'
 exports.responseMode = 'form_post'
 exports.redirectUrl = process.env['BASTAAZURECONFIG_CALLBACKURI']
 exports.passReqToCallback = true
-exports.scope = 'profile offline_access user.read'
+exports.scope = 'profile offline_access'
 exports.validateIssuer = true
 exports.resourceURL = 'https://graph.microsoft.com'
 
