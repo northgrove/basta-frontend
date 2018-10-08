@@ -10,6 +10,7 @@ import {
   ApplicationsDropDown
 } from '../../common/components/formComponents'
 import connect from 'react-redux/es/connect/connect'
+
 const mqImage = require('../../../img/orderTypes/mq.png')
 
 export class MqQueue extends Component {
@@ -21,9 +22,21 @@ export class MqQueue extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState, ss) {
+    console.log(this.state.environmentClass)
+    const { environmentClass, environmentName } = this.state
+    if (prevState.environmentClass != environmentClass) {
+      this.setState({ environmentName: '' })
+      this.setState({ applicationMappingName: '' })
+    }
+    if (prevState.environmentName != environmentName) {
+      this.setState({ applicationMappingName: '' })
+    }
+  }
+
   handleChange(field, value) {
     const orderField = orderFields[field]
-    if (value < orderField.min || value > orderField.max) {
+    if ((orderField.min && value < orderField.min) || value > orderField.max) {
       orderField.valid = false
     } else {
       orderField.valid = true
@@ -71,14 +84,14 @@ export class MqQueue extends Component {
               key={'applicationMappingName'}
               label={orderFields.applicationMappingName.label}
               onChange={v => this.handleChange('applicationMappingName', v)}
-              value={this.state['applicationMappingName']}
+              value={this.state.applicationMappingName}
             />
             <OrderTextBox
               key={'name'}
               label={orderFields.name.label}
               value={this.state[name]}
               placeholder={orderFields.name.description}
-              onChange={v => this.handleChange(name, v)}
+              onChange={v => this.handleChange('name', v)}
             />
             <QueueManagerDropDown
               key={'queueName'}
@@ -86,6 +99,7 @@ export class MqQueue extends Component {
               onChange={v => this.handleChange('queueName', v)}
               envClass={this.state.environmentClass}
               envName={this.state.environmentName}
+              application={this.state.applicationMappingName}
               value={this.state['queueName']}
             />
           </div>
@@ -95,6 +109,7 @@ export class MqQueue extends Component {
     )
   }
 }
+
 const orderFields = {
   environmentClass: {
     label: 'Env. class',
@@ -122,7 +137,6 @@ const orderFields = {
   },
   name: {
     label: 'Queue name',
-    fieldType: 'text',
     description: 'Name of queue',
     value: ''
   },

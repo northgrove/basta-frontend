@@ -10,15 +10,22 @@ export class QueueManagerDropDown extends Component {
     super(props)
   }
   componentDidMount() {
-    const { dispatch } = this.props
+    const { dispatch, envClass, envName, application } = this.props
     dispatch(fetchResources('u'))
     dispatch(fetchResources('t'))
     dispatch(fetchResources('q'))
     dispatch(fetchResources('p'))
-    dispatch(fetchScopedResources('p', 'p', 'franz'))
+    dispatch(fetchScopedResources(envClass, envName, application))
   }
   componentDidUpdate(prevProps, prevState, ss) {
-    console.log(prevProps)
+    const { envName, envClass, application } = this.props
+    if (
+      prevProps.envName != envName ||
+      prevProps.envClass != envClass ||
+      prevProps.application != application
+    ) {
+      console.log('fetching scoped')
+    }
   }
 
   render() {
@@ -32,7 +39,6 @@ export class QueueManagerDropDown extends Component {
       envName,
       scopedresources
     } = this.props
-    console.log(scopedresources)
 
     return (
       <div className="formComponentGrid">
