@@ -10,11 +10,15 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const router = require('./routes/index')
 const proxy = require('http-proxy-middleware')
+const helmet = require('helmet')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
 
 const app = express()
 app.use(logger('dev'))
+
+// HELMET
+app.use(helmet())
 
 // CORS
 
@@ -40,7 +44,7 @@ app.set('trust proxy', 1)
 app.use(
   session({
     secret: sessionSecret,
-    cookie: { maxAge: 3000000 },
+    cookie: { maxAge: 30000000 },
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({

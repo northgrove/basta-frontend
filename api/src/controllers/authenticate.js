@@ -44,8 +44,9 @@ exports.authenticateAzureCallback = () => {
 exports.ensureAuthenticated = () => {
   return (req, res, next) => {
     if (req.isAuthenticated()) return next()
-    res.statusMessage = 'Not authenticated'
-    res.status(401).end()
+    //res.statusMessage = 'Not authenticated'
+    //res.status(401).end()
+    res.redirect('/login')
   }
 }
 
