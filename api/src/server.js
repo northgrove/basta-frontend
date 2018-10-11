@@ -45,7 +45,7 @@ app.use(
     saveUninitialized: false,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      clear_interval: '10000'
+      clear_interval: '1000000'
     })
   })
 )
