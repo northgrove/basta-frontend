@@ -1,5 +1,5 @@
 const passport = require('passport')
-
+const { logoutURL } = require('../config/passportConfig')
 // AZURE AUTHENTICATE
 
 exports.authenticateAzure = () => {
@@ -55,9 +55,15 @@ exports.ensureAuthenticated = () => {
 exports.logout = () => {
   return (req, res) => {
     try {
-      req.session.destroy(err => {
-        res.status(200).redirect('/')
-      })
+      res.redirect(logoutURL)
+      req.logout()
+      req.session.destroy()
+      //req.session.destroy(err => {
+      //res.status(200).redirect('/')
+      //})
+      //res.send(200)
+
+      //res.redirect(logoutURL)
     } catch (err) {
       res.status(500).send(err)
       return `ERROR during logout: ${err}`
