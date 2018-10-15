@@ -10,6 +10,7 @@ import {
   ApplicationsDropDown
 } from '../../common/components/formComponents'
 import connect from 'react-redux/es/connect/connect'
+import OrderDropDown from '../../common/components/formComponents/OrderDropDown'
 
 const mqImage = require('../../../img/orderTypes/mq.png')
 
@@ -94,16 +95,32 @@ export class MqQueue extends Component {
               placeholder={orderFields.name.description}
               onChange={v => this.handleChange('name', v)}
             />
+            <OrderDropDown
+              key={'maxSize'}
+              label={orderFields.maxSize.label}
+              value={this.state.maxSize}
+              alternatives={orderFields.maxSize.alternatives}
+              onChange={v => this.handleChange('maxSize', v)}
+            />
             {environmentName && applicationMappingName && name ? (
-              <QueueManagerDropDown
-                key={'queueName'}
-                label={orderFields.queueManager.label}
-                onChange={v => this.handleChange('queueName', v)}
-                envClass={this.state.environmentClass}
-                envName={this.state.environmentName}
-                application={this.state.applicationMappingName}
-                value={this.state['queueName']}
-              />
+              <div>
+                <QueueManagerDropDown
+                  key={'queueName'}
+                  label={orderFields.queueManager.label}
+                  onChange={v => this.handleChange('queueName', v)}
+                  envClass={this.state.environmentClass}
+                  envName={this.state.environmentName}
+                  application={this.state.applicationMappingName}
+                  value={this.state['queueName']}
+                />
+                <OrderDropDown
+                  key={'maxSize'}
+                  label={orderFields.maxSize.label}
+                  value={this.state.maxSize}
+                  alternatives={orderFields.maxSize.alternatives}
+                  onChange={v => this.handleChange('maxSize', v)}
+                />
+              </div>
             ) : null}
           </div>
           <div className="orderFormSubmitButton">Submit</div>
@@ -151,11 +168,20 @@ const orderFields = {
     label: 'Max size',
     alternatives: [
       { label: '4 Mb', value: '4' },
-      { label: 'test', value: 't' },
-      { label: 'PreProd', value: 'q' },
-      { label: 'Production', value: 'p' }
+      { label: '10 MB', value: '10' },
+      { label: '20 MB', value: '20' },
+      { label: '100 MB', value: '100' }
     ],
     value: '4'
+  },
+  depth: {
+    label: 'Queue depth',
+    alternatives: [
+      { label: '1000', value: '1000' },
+      { label: '5000', value: '5000' },
+      { label: '10 000', value: '10000' }
+    ],
+    value: '5000'
   }
 }
 MqQueue.propTypes = {
