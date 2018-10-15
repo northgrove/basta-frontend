@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "28.0.0",
+  "version": "29.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
