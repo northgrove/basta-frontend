@@ -12,6 +12,7 @@ export const HistoryFilter = props => {
           onChange={handleChange}
           placeholder="Filter..."
         />
+        {/* TODO:<input className="orderFilterSubmitBtn" type="submit" value="Filtrer" /> */}
       </form>
     </div>
   )
