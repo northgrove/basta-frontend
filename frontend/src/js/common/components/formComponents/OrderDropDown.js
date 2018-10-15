@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip'
 
 export const OrderDropDown = props => {
   const { label, description, value, alternatives, onChange } = props
-  console.log(alternatives)
+  const options = mapToOptions(alternatives)
   return (
     <div className="formComponentGrid">
       <div className="formComponentLabel">
@@ -20,8 +20,8 @@ export const OrderDropDown = props => {
       <div className="formComponentField">
         <div className="formComponentDropdownField">
           <Select
-            options={mapToOptions(alternatives)}
-            setValue={value}
+            options={options}
+            value={findOption(options, value)}
             onChange={e => onChange(e.value)}
           />
           <div className="formComponentDescription">{description}</div>
@@ -37,6 +37,9 @@ const mapToOptions = alternatives => {
     : alternatives.map(alt => {
         return { label: alt, value: alt }
       })
+}
+const findOption = (options, value) => {
+  return options.find(o => o.value === value)
 }
 
 OrderDropDown.propTypes = {
