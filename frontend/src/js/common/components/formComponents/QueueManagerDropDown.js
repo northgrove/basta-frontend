@@ -24,6 +24,7 @@ export class QueueManagerDropDown extends Component {
       prevProps.envClass != envClass ||
       prevProps.application != application
     ) {
+      this.setState()
       dispatch(fetchScopedResources(envClass, envName, application))
     }
   }
@@ -39,17 +40,16 @@ export class QueueManagerDropDown extends Component {
       envName,
       scopedresources
     } = this.props
+    console.log('scoped=', scopedresources)
+    const options = mapToOptions(scopedresources)
+    const selected = findOption(options, value)
 
     return (
       <div className="formComponentGrid">
         <div className="formComponentLabel">{label}</div>
         <div className="formComponentField">
-          <div className="formComponentDropdownField">
-            <Select
-              //              options={mapToOptions(resources)}
-              setValue={value}
-              onChange={e => onChange(e.value)}
-            />
+          <div className="formComponentQueueManagerDropdownField">
+            <Select options={options} value={selected} onChange={e => onChange(e.value)} />
             <div className="formComponentDescription">{description}</div>
           </div>
         </div>
@@ -58,10 +58,27 @@ export class QueueManagerDropDown extends Component {
     )
   }
 }
-const mapToOptions = alternatives => {
-  return alternatives.map(alt => {
-    return { label: alt, value: alt }
+const mapToOptions = scopedResources => {
+  return scopedResources.map(res => {
+    console.log(res)
+    let hostname = res.properties.find(prop => {
+      return prop.name === 'hostname'
+    }).value
+    let port = res.properties.find(prop => {
+      return prop.name === 'port'
+    }).value
+    let name = res.properties.find(prop => {
+      return prop.name === 'name'
+    }).value
+    let label = `mq://${hostname}:${port}/${name} (${res.alias}) \n Fasit alias: ${res.alias}`
+    let value = `mq://${hostname}:${port}/${name}`
+    let display = `${res.alias} (${name})`
+    return { label, value, display }
   })
+}
+const findOption = (options, value) => {
+  const selected = options.find(o => o.value === value)
+  return selected ? { label: selected.display, value: selected.value } : null
 }
 QueueManagerDropDown.propTypes = {}
 

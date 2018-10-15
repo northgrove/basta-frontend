@@ -26,11 +26,10 @@ export class MqQueue extends Component {
   componentDidUpdate(prevProps, prevState, ss) {
     const { environmentClass, environmentName } = this.state
     if (prevState.environmentClass != environmentClass) {
-      this.setState({ environmentName: '' })
-      this.setState({ applicationMappingName: '' })
+      this.setState({ environmentName: '', applicationMappingName: '', queueManager: '' })
     }
     if (prevState.environmentName != environmentName) {
-      this.setState({ applicationMappingName: '' })
+      this.setState({ applicationMappingName: '', queueManager: '' })
     }
   }
 
@@ -94,17 +93,17 @@ export class MqQueue extends Component {
               placeholder={orderFields.name.description}
               onChange={v => this.handleChange('name', v)}
             />
+            <QueueManagerDropDown
+              key={'queueManager'}
+              label={orderFields.queueManager.label}
+              onChange={v => this.handleChange('queueManager', v)}
+              envClass={this.state.environmentClass}
+              envName={this.state.environmentName}
+              application={this.state.applicationMappingName}
+              value={this.state['queueManager']}
+            />
             {environmentName && applicationMappingName && name ? (
               <div>
-                <QueueManagerDropDown
-                  key={'queueName'}
-                  label={orderFields.queueManager.label}
-                  onChange={v => this.handleChange('queueName', v)}
-                  envClass={this.state.environmentClass}
-                  envName={this.state.environmentName}
-                  application={this.state.applicationMappingName}
-                  value={this.state['queueName']}
-                />
                 <OrderTextBox
                   key={'alias'}
                   label={orderFields.alias.label}
