@@ -3,7 +3,6 @@ import connect from 'react-redux/es/connect/connect'
 import history from '../../common/history'
 import Spinner from '../../common/components/Spinner'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 
 export class Order extends Component {
   constructor(props) {
