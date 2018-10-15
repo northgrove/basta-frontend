@@ -18,13 +18,13 @@ export class QueueManagerDropDown extends Component {
     dispatch(fetchScopedResources(envClass, envName, application))
   }
   componentDidUpdate(prevProps, prevState, ss) {
-    const { envName, envClass, application } = this.props
+    const { dispatch, envName, envClass, application } = this.props
     if (
       prevProps.envName != envName ||
       prevProps.envClass != envClass ||
       prevProps.application != application
     ) {
-      console.log('fetching scoped')
+      dispatch(fetchScopedResources(envClass, envName, application))
     }
   }
 

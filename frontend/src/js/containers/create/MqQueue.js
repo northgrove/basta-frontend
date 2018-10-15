@@ -54,6 +54,7 @@ export class MqQueue extends Component {
 
   render() {
     const { user } = this.props
+    const { name, environmentName, applicationMappingName } = this.state
     return (
       <div>
         <div className="orderForm">
@@ -93,15 +94,17 @@ export class MqQueue extends Component {
               placeholder={orderFields.name.description}
               onChange={v => this.handleChange('name', v)}
             />
-            <QueueManagerDropDown
-              key={'queueName'}
-              label={orderFields.queueManager.label}
-              onChange={v => this.handleChange('queueName', v)}
-              envClass={this.state.environmentClass}
-              envName={this.state.environmentName}
-              application={this.state.applicationMappingName}
-              value={this.state['queueName']}
-            />
+            {environmentName && applicationMappingName && name ? (
+              <QueueManagerDropDown
+                key={'queueName'}
+                label={orderFields.queueManager.label}
+                onChange={v => this.handleChange('queueName', v)}
+                envClass={this.state.environmentClass}
+                envName={this.state.environmentName}
+                application={this.state.applicationMappingName}
+                value={this.state['queueName']}
+              />
+            ) : null}
           </div>
           <div className="orderFormSubmitButton">Submit</div>
         </div>
@@ -143,6 +146,16 @@ const orderFields = {
   queueManager: {
     label: 'Queue manager',
     value: ''
+  },
+  maxSize: {
+    label: 'Max size',
+    alternatives: [
+      { label: '4 Mb', value: '4' },
+      { label: 'test', value: 't' },
+      { label: 'PreProd', value: 'q' },
+      { label: 'Production', value: 'p' }
+    ],
+    value: '4'
   }
 }
 MqQueue.propTypes = {
