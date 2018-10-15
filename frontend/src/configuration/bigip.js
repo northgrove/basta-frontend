@@ -42,7 +42,7 @@ const orderFields = {
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
-    value: ''
+    value: 'a'
   },
   matchingType: {
     label: 'Matching type',

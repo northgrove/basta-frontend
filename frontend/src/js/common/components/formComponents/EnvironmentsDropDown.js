@@ -44,7 +44,7 @@ export class EnvironmentsDropDown extends Component {
           <div className="formComponentDropdownField">
             <Select
               options={mapToOptions(this.state.filteredEnvironments)}
-              setValue={value}
+              value={value ? { label: value, value } : null}
               onChange={e => onChange(e.value)}
             />
             <div className="formComponentDescription">{description}</div>
