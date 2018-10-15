@@ -24,7 +24,6 @@ export class QueueManagerDropDown extends Component {
       prevProps.envClass != envClass ||
       prevProps.application != application
     ) {
-      this.setState()
       dispatch(fetchScopedResources(envClass, envName, application))
     }
   }
@@ -40,7 +39,6 @@ export class QueueManagerDropDown extends Component {
       envName,
       scopedresources
     } = this.props
-    console.log('scoped=', scopedresources)
     const options = mapToOptions(scopedresources)
     const selected = findOption(options, value)
 
@@ -59,8 +57,8 @@ export class QueueManagerDropDown extends Component {
   }
 }
 const mapToOptions = scopedResources => {
-  return scopedResources.map(res => {
-    console.log(res)
+  let resources = {}
+  scopedResources.forEach(res => {
     let hostname = res.properties.find(prop => {
       return prop.name === 'hostname'
     }).value
@@ -70,10 +68,21 @@ const mapToOptions = scopedResources => {
     let name = res.properties.find(prop => {
       return prop.name === 'name'
     }).value
-    let label = `mq://${hostname}:${port}/${name} (${res.alias}) \n Fasit alias: ${res.alias}`
-    let value = `mq://${hostname}:${port}/${name}`
-    let display = `${res.alias} (${name})`
-    return { label, value, display }
+    let mqAddress = `mq://${hostname}:${port}/${name}`
+    let key = hostname.replace(/\./g, '_')
+    if (!resources[key]) {
+      resources[key] = {}
+      resources[key].aliases = []
+      resources[key].hostname = mqAddress
+      resources[key].name = name
+    }
+    resources[key].aliases.push(res.alias)
+  })
+  return Object.keys(resources).map(key => {
+    const resource = resources[key]
+    const aliasString = resource.aliases.join(', ')
+    const label = `${resource.hostname} (${resource.name}) \n Fasit alias: ${aliasString}`
+    return { label, value: resource.hostname, display: `${aliasString} (${resource.name})` }
   })
 }
 const findOption = (options, value) => {
