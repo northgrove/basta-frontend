@@ -20,7 +20,7 @@ const delay = millis => {
 
 export function* pollSessionWorker(action) {
   try {
-    yield call(delay, 10000)
+    yield call(delay, 4000) // breaks jest if over 5s total
     yield call(getUrl, `${url}/user/session`)
     yield put({ type: USER_SESSION_ACTIVE })
   } catch (err) {

@@ -68,7 +68,7 @@ it('(Saga - logoutUser) GETs user logout endpoint and updates user session local
       isUserAuthenticated: false,
       isFetching: false,
       requestFailed: false,
-      requestStatus: ''
+      requestStatus: 'Session expired'
     })
     .run()
 })
