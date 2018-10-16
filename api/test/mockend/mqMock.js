@@ -5,8 +5,8 @@ const mq_clusters_p = require('../mockdata/mq_clusters_p.json')
 
 exports.getClusters = () => {
   return (req, res) => {
-    const envClass = req.query.envClass
-    switch (envClass) {
+    const environmentClass = req.query.environmentClass
+    switch (environmentClass) {
       case 'u':
         res.status(200).json(mq_clusters_u)
         break

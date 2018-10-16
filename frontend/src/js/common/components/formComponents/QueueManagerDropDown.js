@@ -11,10 +11,6 @@ export class QueueManagerDropDown extends Component {
   }
   componentDidMount() {
     const { dispatch, envClass, envName, application } = this.props
-    dispatch(fetchResources('u'))
-    dispatch(fetchResources('t'))
-    dispatch(fetchResources('q'))
-    dispatch(fetchResources('p'))
     dispatch(fetchScopedResources(envClass, envName, application))
   }
   componentDidUpdate(prevProps, prevState, ss) {

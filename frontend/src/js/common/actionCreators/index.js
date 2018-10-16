@@ -5,7 +5,9 @@ import {
   ENVIRONMENTS_REQUEST,
   RESOURCES_REQUEST,
   APPLICATIONS_REQUEST,
-  SCOPED_RESOURCE_REQUEST
+  SCOPED_RESOURCE_REQUEST,
+  MQCLUSTERS_REQUEST,
+  MQCLUSTERS_RECEIVED
 } from '../actionTypes'
 
 export const fetchUserProfile = () => {
@@ -30,4 +32,10 @@ export const fetchResources = envClass => {
 }
 export const fetchScopedResources = (envClass, environment, application) => {
   return { type: SCOPED_RESOURCE_REQUEST, envClass, environment, application }
+}
+export const fetchMqClusters = (environmentClass, queueManager) => {
+  return { type: MQCLUSTERS_REQUEST, environmentClass, queueManager }
+}
+export const clearMqClusters = () => {
+  return { type: MQCLUSTERS_RECEIVED, value: [] }
 }

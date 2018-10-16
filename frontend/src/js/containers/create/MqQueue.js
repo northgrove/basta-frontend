@@ -7,10 +7,12 @@ import {
   OrderButtonGroup,
   EnvironmentsDropDown,
   QueueManagerDropDown,
+  MqClusterCheckBox,
   ApplicationsDropDown
 } from '../../common/components/formComponents'
 import connect from 'react-redux/es/connect/connect'
 import OrderDropDown from '../../common/components/formComponents/OrderDropDown'
+import { fetchMqClusters } from '../../common/actionCreators'
 
 const mqImage = require('../../../img/orderTypes/mq.png')
 
@@ -24,7 +26,15 @@ export class MqQueue extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, ss) {
-    const { environmentClass, environmentName, name, mqName, applicationMappingName } = this.state
+    const {
+      environmentClass,
+      environmentName,
+      name,
+      mqName,
+      applicationMappingName,
+      queueManager
+    } = this.state
+    const { dispatch } = this.props
     if (prevState.environmentClass != environmentClass) {
       this.setState({
         environmentName: '',
@@ -66,6 +76,7 @@ export class MqQueue extends Component {
   render() {
     const { user } = this.props
     const { name, environmentName, applicationMappingName } = this.state
+    console.log(this.state.queueManager)
     return (
       <div>
         <div className="orderForm">
@@ -149,7 +160,10 @@ export class MqQueue extends Component {
                   description={orderFields.backout.description}
                   onChange={v => this.handleChange('backout', v)}
                 />
-                <OrderCheckBox
+                <MqClusterCheckBox
+                  queueManager={this.state.queueManager}
+                  environmentClass={this.state.environmentClass}
+                  environmentName={this.state.environmentName}
                   key={'exposed'}
                   label={orderFields.exposed.label}
                   value={this.state['exposed']}

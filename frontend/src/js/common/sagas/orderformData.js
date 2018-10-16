@@ -58,7 +58,7 @@ export function* fetchMqClusters(action) {
       getUrl,
       `/rest/v1/mq/clusters?environmentClass=${
         action.environmentClass
-      }&queueManager=${encodeURIComponent(action.mqName)}`
+      }&queueManager=${encodeURIComponent(action.queueManager)}`
     )
     yield put({ type: MQCLUSTERS_RECEIVED, value: resources })
   } catch (err) {
