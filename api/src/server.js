@@ -14,7 +14,13 @@ require('./config/passport')(passport)
 const { startApp } = require('./startApp')
 
 const app = express()
-app.use(logger('dev'))
+app.use(
+  logger('dev', {
+    skip: function(req, res) {
+      return req.url === '/isAlive' || req.url === '/api/v1/user/session'
+    }
+  })
+)
 
 // CORS
 
