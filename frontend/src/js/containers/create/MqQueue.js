@@ -76,7 +76,6 @@ export class MqQueue extends Component {
   render() {
     const { user } = this.props
     const { name, environmentName, applicationMappingName } = this.state
-    console.log(this.state.queueManager)
     return (
       <div>
         <div className="orderForm">

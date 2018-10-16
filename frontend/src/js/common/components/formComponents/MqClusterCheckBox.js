@@ -20,7 +20,7 @@ export class MqClusterCheckBox extends Component {
   }
 
   guessClusterName() {
-    const { environmentClass, environmentName } = this.state
+    const { environmentClass, environmentName } = this.props
     if (environmentClass === 'u') {
       return 'NL.DEV.D1.CLUSTER'
     }
@@ -32,9 +32,20 @@ export class MqClusterCheckBox extends Component {
     }
     return `NL.${envs[environmentClass]}.${environmentName.toUpperCase()}.CLUSTER`
   }
+  buildDescription() {
+    const { description, queueManager, clusters } = this.props
+    if (!queueManager) {
+      return description
+    }
+    if (clusters.find(name => name === this.guessClusterName())) {
+      return description
+    }
+    return null
+
+    // clusters.find(name => name === this.guessClusterName()) ? 'found cluster' : description}
+  }
   render() {
-    const { label, value, description, onChange, clusters } = this.props
-    console.log(clusters)
+    const { label, value, description, onChange, environmentName } = this.props
     return (
       <div className="formComponentGrid">
         <div className="formComponentLabel">
@@ -51,7 +62,17 @@ export class MqClusterCheckBox extends Component {
             <input type="checkbox" checked={value} />
             <span className="formComponentCheckBox" onClick={() => onChange(!value)} />
           </div>
-          <div className="formComponentDescription">{description}</div>
+          <div className="formComponentDescription">
+            {this.buildDescription() ? (
+              this.buildDescription()
+            ) : (
+              <div className="mqwarningContainer">
+                {' '}
+                <i className="fa fa-warning mqwarning" /> No cluster registered for{' '}
+                {environmentName} on the selected queue manager
+              </div>
+            )}
+          </div>
         </div>
         <ReactTooltip />
       </div>
