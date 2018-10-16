@@ -1,6 +1,10 @@
 import { takeEvery, put, fork, call } from 'redux-saga/effects'
 import { getUrl, getUserPhoto } from '../utils'
 import {
+  MQCLUSTERS_REQUEST,
+  MQCLUSTERS_FETCHING,
+  MQCLUSTERS_REQUEST_FAILED,
+  MQCLUSTERS_RECEIVED,
   SCOPED_RESOURCE_REQUEST,
   SCOPED_RESOURCE_FETCHING,
   SCOPED_RESOURCE_REQUEST_FAILED,
@@ -46,7 +50,21 @@ export function* fetchResources(action) {
     yield put({ type: RESOURCES_REQUEST_FAILED, err })
   }
 }
-
+// https://basta.adeo.no/rest/v1/mq/clusters?environmentClass=p&queueManager=mq:%2F%2Fd26apvl126.test.local:1412%2FMTLCLIENT01
+export function* fetchMqClusters(action) {
+  yield put({ type: MQCLUSTERS_FETCHING })
+  try {
+    let resources = yield call(
+      getUrl,
+      `/rest/v1/mq/clusters?environmentClass=${
+        action.environmentClass
+      }&queueManager=${encodeURIComponent(action.mqName)}`
+    )
+    yield put({ type: MQCLUSTERS_RECEIVED, value: resources })
+  } catch (err) {
+    yield put({ type: MQCLUSTERS_REQUEST_FAILED, err })
+  }
+}
 export function* fetchApplications() {
   yield put({ type: APPLICATIONS_FETCHING })
   try {
@@ -75,4 +93,5 @@ export function* watchOrderData() {
   yield fork(takeEvery, APPLICATIONS_REQUEST, fetchApplications)
   yield fork(takeEvery, RESOURCES_REQUEST, fetchResources)
   yield fork(takeEvery, SCOPED_RESOURCE_REQUEST, fetchScopedResource)
+  yield fork(takeEvery, MQCLUSTERS_REQUEST, fetchMqClusters)
 }
