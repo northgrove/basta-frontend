@@ -23,7 +23,7 @@ export class ApplicationsDropDown extends Component {
           <div className="formComponentDropdownField">
             <Select
               options={mapToOptions(applications)}
-              setValue={value}
+              value={value ? { label: value, value } : null}
               onChange={e => onChange(e.value)}
             />
             <div className="formComponentDescription">{description}</div>

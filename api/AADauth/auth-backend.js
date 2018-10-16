@@ -1,10 +1,11 @@
-'use strict'
 const express = require('express')
 const router = express.Router()
 const logger = require('morgan')
 const bodyParser = require('body-parser')
-const orderMock = require('./orderMock')
-const fasitMock = require('./fasitMock')
+const token = require('./auth-getToken')
+
+//var aad = require('azure-ad-jwt');
+
 const app = express()
 app.use(logger('dev'))
 
@@ -22,15 +23,7 @@ const cors = function(req, res, next) {
 app.use(cors)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use('/', router)
-router.get('/rest/orders', orderMock.getAllOrders())
-router.get(`/rest/orders/page/:pageId/:pageSize/:toDate/:fromDate`, orderMock.getOrders())
-router.get(`/rest/orders/:id/`, orderMock.getOrder())
-router.post(`/rest/orders/:type/`, orderMock.postOrder())
-router.get(`/rest/orders/:id/statuslog`, orderMock.getStatusLog())
-router.get(`/rest/v1/fasit/environments`, fasitMock.getEnvironments())
-router.get(`/rest/v1/fasit/applications`, fasitMock.getApplications())
-router.get(`/rest/v1/fasit/resources`, fasitMock.getResources())
+// app.use('/', router)
 
 // ERROR HANDLING
 app.use((err, req, res, next) => {
@@ -42,14 +35,16 @@ app.use((err, req, res, next) => {
 
 // STARTUP
 const host = 'localhost'
-const port = 6996
+const port = 5050
 try {
-  console.log(`Starting Basta mock backend`)
+  console.log(`Starting Basta AAD Auth backend`)
   app.listen(port, () => {
     console.log(`Done. I am listening on ${host}:${port}`)
   })
 } catch (err) {
   throw new Error('Error starting express server:', err)
 }
+
+app.get('/auth', token.getToken())
 
 module.exports = app

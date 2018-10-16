@@ -4,9 +4,15 @@ exports.responseType = 'code id_token'
 exports.responseMode = 'form_post'
 exports.redirectUrl = process.env['BASTAAZURECONFIG_CALLBACKURI']
 exports.passReqToCallback = true
-exports.scope = 'profile offline_access user.read'
+exports.scope = 'profile offline_access'
 exports.validateIssuer = true
 exports.resourceURL = 'https://graph.microsoft.com'
+exports.useCookieInsteadOfSession = true
+exports.cookieEncryptionKeys = [
+  { key: '12345678901234567890123456789012', iv: '123456789012' },
+  { key: 'abcdefghijklmnopqrstuvwxyzabcdef', iv: 'abcdefghijkl' }
+]
+exports.nonceLifetime = 36000
 
 if (process.env['NODE_ENV'] === 'production') {
   exports.identityMetadata =

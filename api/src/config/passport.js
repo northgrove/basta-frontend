@@ -62,7 +62,15 @@ module.exports = passport => {
             if (user) {
               console.log('user found in DB: ' + user.azure.upn)
               // console.log(accessToken)
-              return done(null, user, req.session.redirectUrl, accessToken)
+              // console.log(refreshToken)
+              user.azure.refreshToken = refreshToken
+              user.azure.accessToken = accessToken
+              user.save(err => {
+                if (err) {
+                  throw err
+                }
+                return done(null, user, req.session.redirectUrl, accessToken)
+              })
             } else {
               // console.log(accessToken)
               arrRoles = getroles.matchRoles({

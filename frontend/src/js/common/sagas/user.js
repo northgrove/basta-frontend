@@ -27,9 +27,9 @@ export function* logoutUser() {
   try {
     yield call(getUrl, `${url}/auth/logout`)
     //TODO more stuff happning before logout?
-    yield put({ USE_SESSION_EXPIRED })
+    yield put({ type: USER_SESSION_EXPIRED })
   } catch (err) {
-    yield put({ type: USER_PROFILE_REQUEST_FAILED })
+    yield put({ type: USER_PROFILE_REQUEST_FAILED, err })
   }
 }
 

@@ -6,7 +6,7 @@ exports.getUserProfile = () => {
   return async (req, res) => {
     const userPhoto = await msgraph.getUserPhoto({
       userUpn: req.user.azure.upn,
-      accessToken: req.user.azure.accessToken
+      refreshToken: req.user.azure.refreshToken
     })
     const user = {
       userName: req.user.azure.upn,

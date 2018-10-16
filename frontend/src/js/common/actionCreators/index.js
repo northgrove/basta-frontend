@@ -3,7 +3,9 @@ import {
   INITIALIZE_APPLICATION,
   USER_LOGOUT,
   ENVIRONMENTS_REQUEST,
-  APPLICATIONS_REQUEST
+  RESOURCES_REQUEST,
+  APPLICATIONS_REQUEST,
+  SCOPED_RESOURCE_REQUEST
 } from '../actionTypes'
 
 export const fetchUserProfile = () => {
@@ -22,4 +24,10 @@ export const fetchEnvironments = environmentClass => {
 }
 export const fetchApplications = () => {
   return { type: APPLICATIONS_REQUEST }
+}
+export const fetchResources = envClass => {
+  return { type: RESOURCES_REQUEST, envClass }
+}
+export const fetchScopedResources = (envClass, environment, application) => {
+  return { type: SCOPED_RESOURCE_REQUEST, envClass, environment, application }
 }
