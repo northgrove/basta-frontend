@@ -24,12 +24,24 @@ export class MqQueue extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, ss) {
-    const { environmentClass, environmentName } = this.state
+    const { environmentClass, environmentName, name, mqName, applicationMappingName } = this.state
     if (prevState.environmentClass != environmentClass) {
-      this.setState({ environmentName: '', applicationMappingName: '', queueManager: '' })
+      this.setState({
+        environmentName: '',
+        applicationMappingName: '',
+        queueManager: '',
+        mqName: '',
+        alias: ''
+      })
     }
     if (prevState.environmentName != environmentName) {
       this.setState({ applicationMappingName: '', queueManager: '' })
+    }
+    if (prevState.name != name || prevState.applicationMappingName != applicationMappingName) {
+      this.setState({
+        mqName: `${environmentName.toUpperCase()}_${applicationMappingName.toUpperCase()}.${name.toUpperCase()}`,
+        alias: `${applicationMappingName}_${name}`
+      })
     }
   }
 
@@ -93,17 +105,17 @@ export class MqQueue extends Component {
               placeholder={orderFields.name.description}
               onChange={v => this.handleChange('name', v)}
             />
-            <QueueManagerDropDown
-              key={'queueManager'}
-              label={orderFields.queueManager.label}
-              onChange={v => this.handleChange('queueManager', v)}
-              envClass={this.state.environmentClass}
-              envName={this.state.environmentName}
-              application={this.state.applicationMappingName}
-              value={this.state['queueManager']}
-            />
             {environmentName && applicationMappingName && name ? (
               <div>
+                <QueueManagerDropDown
+                  key={'queueManager'}
+                  label={orderFields.queueManager.label}
+                  onChange={v => this.handleChange('queueManager', v)}
+                  envClass={this.state.environmentClass}
+                  envName={this.state.environmentName}
+                  application={this.state.applicationMappingName}
+                  value={this.state['queueManager']}
+                />
                 <OrderTextBox
                   key={'alias'}
                   label={orderFields.alias.label}
