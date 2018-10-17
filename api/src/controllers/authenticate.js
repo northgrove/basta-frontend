@@ -33,6 +33,7 @@ exports.authenticateAzureCallback = () => {
         successRedirect: req.session.redirectUrl || '/',
         failureRedirect: '/error'
       })(req, res, next)
+      console.log('response', req)
     } catch (err) {
       throw `ERROR during authentication: ${err}`
     }
@@ -43,10 +44,11 @@ exports.authenticateAzureCallback = () => {
 
 exports.ensureAuthenticated = () => {
   return (req, res, next) => {
+    console.log(req.isAuthenticated())
     if (req.isAuthenticated()) return next()
-    //res.statusMessage = 'Not authenticated'
-    //res.status(401).end()
-    res.redirect('/login')
+    res.statusMessage = 'Not authenticated'
+    res.status(401).end()
+    //res.redirect('/login')
   }
 }
 
@@ -55,15 +57,12 @@ exports.ensureAuthenticated = () => {
 exports.logout = () => {
   return (req, res) => {
     try {
-      res.redirect(logoutURL)
-      req.logout()
-      req.session.destroy()
-      //req.session.destroy(err => {
-      //res.status(200).redirect('/')
-      //})
-      //res.send(200)
-
-      //res.redirect(logoutURL)
+      // req.session.destroy()
+      req.session.destroy(err => {
+        req.logout()
+        res.redirect(logoutURL)
+        //res.status(200)
+      })
     } catch (err) {
       res.status(500).send(err)
       return `ERROR during logout: ${err}`

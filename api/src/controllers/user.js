@@ -4,16 +4,17 @@ const msgraph = require('../controllers/msgraph')
 
 exports.getUserProfile = () => {
   return async (req, res) => {
+    console.log(req.session)
     const userPhoto = await msgraph.getUserPhoto({
-      userUpn: req.user.azure.upn,
-      refreshToken: req.user.azure.refreshToken
+      userUpn: req.session.upn,
+      refreshToken: req.session.refreshToken
     })
     const user = {
-      userName: req.user.azure.upn,
-      firstName: req.user.azure.firstName,
-      lastName: req.user.azure.lastName,
-      displayName: req.user.azure.displayName,
-      roles: req.user.roles,
+      userName: req.session.upn,
+      firstName: req.session.firstName,
+      lastName: req.session.lastName,
+      displayName: req.session.displayName,
+      roles: req.session.roles,
       photo: userPhoto
     }
     res.status(200).send(user)
@@ -22,6 +23,7 @@ exports.getUserProfile = () => {
 
 exports.userSessionLookup = () => {
   return (req, res) => {
+    console.log(req.session)
     res.status(200).send({
       session: 'active'
     })

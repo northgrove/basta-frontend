@@ -6,8 +6,9 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
+const session = require('cookie-session')
+const cookie = require('js-cookie')
+//const MongoStore = require('connect-mongo')(session)
 const router = require('./routes/index')
 const proxy = require('http-proxy-middleware')
 const helmet = require('helmet')
@@ -40,7 +41,7 @@ app.use(bodyParser.json())
 app.use(cookieParser(sessionSecret))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
-
+/*
 app.use(
   session({
     secret: sessionSecret,
@@ -53,7 +54,13 @@ app.use(
     })
   })
 )
-
+*/
+app.use(
+  session({
+    name: 'basta',
+    keys: ['key1', 'key2']
+  })
+)
 app.use(passport.initialize())
 app.use(passport.session())
 

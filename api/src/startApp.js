@@ -9,7 +9,7 @@ const startServer = app => {
     console.log(`API VERSION:             ${api}`)
   })
 }
-
+/*
 const connectMongoDb = () => {
   const db = mongoose.connection
   db.on('error', console.error.bind(console, 'connection error:'))
@@ -24,11 +24,11 @@ const connectMongoDb = () => {
     }
   )
 }
-
+*/
 exports.startApp = app => {
   try {
     startServer(app)
-    connectMongoDb()
+    //connectMongoDb()
   } catch (err) {
     throw new Error('Error starting express server:', err)
   }

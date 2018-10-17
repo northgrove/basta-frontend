@@ -1,6 +1,6 @@
 exports.clientID = process.env['BASTAAZURECONFIG_CLIENTID']
 exports.clientSecret = process.env['BASTAAZURECONFIG_CLIENTSECRET']
-exports.responseType = 'code id_token'
+exports.responseType = 'code'
 exports.responseMode = 'form_post'
 exports.redirectUrl = process.env['BASTAAZURECONFIG_CALLBACKURI']
 exports.passReqToCallback = true
