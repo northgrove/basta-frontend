@@ -5,6 +5,7 @@ const logger = require('morgan')
 const bodyParser = require('body-parser')
 const orderMock = require('./orderMock')
 const fasitMock = require('./fasitMock')
+const mqMock = require('./mqMock')
 const app = express()
 app.use(logger('dev'))
 
@@ -31,6 +32,7 @@ router.get(`/rest/orders/:id/statuslog`, orderMock.getStatusLog())
 router.get(`/rest/v1/fasit/environments`, fasitMock.getEnvironments())
 router.get(`/rest/v1/fasit/applications`, fasitMock.getApplications())
 router.get(`/rest/v1/fasit/resources`, fasitMock.getResources())
+router.get(`/rest/v1/mq/clusters`, mqMock.getClusters())
 
 // ERROR HANDLING
 app.use((err, req, res, next) => {

@@ -8,7 +8,13 @@ const proxy = require('http-proxy-middleware')
 const { startApp } = require('./startApp')
 
 const app = express()
-app.use(logger('dev'))
+app.use(
+  logger('dev', {
+    skip: function(req, res) {
+      return req.url === '/isAlive' || req.url === '/api/v1/user/session'
+    }
+  })
+)
 
 // CORS
 const cors = function(req, res, next) {

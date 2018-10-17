@@ -8,6 +8,9 @@ import {
   APPLICATIONS_REQUEST_FAILED,
   APPLICATIONS_RECEIVED,
   APPLICATIONS_FETCHING,
+  MQCLUSTERS_REQUEST_FAILED,
+  MQCLUSTERS_RECEIVED,
+  MQCLUSTERS_FETCHING,
   ENVIRONMENTS_REQUEST_FAILED,
   ENVIRONMENTS_RECEIVED,
   ENVIRONMENTS_FETCHING
@@ -34,6 +37,11 @@ export default (
         q: [],
         p: []
       }
+    },
+    clusters: {
+      fetching: false,
+      error: null,
+      data: []
     },
     scopedresources: {
       fetching: false,
@@ -128,6 +136,34 @@ export default (
         scopedresources: {
           fetching: false,
           error: action.error,
+          data: []
+        }
+      }
+    // MQ Clusters
+    case MQCLUSTERS_FETCHING:
+      return {
+        ...state,
+        clusters: {
+          fetching: true,
+          error: null,
+          data: []
+        }
+      }
+    case MQCLUSTERS_RECEIVED:
+      return {
+        ...state,
+        clusters: {
+          fetching: false,
+          error: null,
+          data: action.value
+        }
+      }
+    case MQCLUSTERS_REQUEST_FAILED:
+      return {
+        ...state,
+        environments: {
+          fetching: false,
+          error: null,
           data: []
         }
       }

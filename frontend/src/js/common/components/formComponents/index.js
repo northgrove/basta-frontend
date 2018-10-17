@@ -6,11 +6,13 @@ import OrderDropDown from './OrderDropDown'
 import EnvironmentsDropDown from './EnvironmentsDropDown'
 import ApplicationsDropDown from './ApplicationsDropDown'
 import QueueManagerDropDown from './QueueManagerDropDown'
+import MqClusterCheckBox from './MqClusterCheckBox'
 
 module.exports = {
   EnvironmentsDropDown,
   ApplicationsDropDown,
   QueueManagerDropDown,
+  MqClusterCheckBox,
   OrderNumberBox,
   OrderTextBox,
   OrderCheckBox,

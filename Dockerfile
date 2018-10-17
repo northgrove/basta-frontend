@@ -2,8 +2,6 @@ FROM node:10-alpine as builder
 WORKDIR /home/app
 
 COPY ./package.* ./
-RUN npm install
-
 COPY ./ ./
 RUN npm run build
 

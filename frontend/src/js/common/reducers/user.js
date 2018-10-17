@@ -51,7 +51,8 @@ export default (
       return {
         ...state,
         userProfile: {},
-        isUserAuthenticated: false
+        isUserAuthenticated: false,
+        requestStatus: 'Session expired'
       }
     default:
       return state
