@@ -33,7 +33,6 @@ exports.authenticateAzureCallback = () => {
         successRedirect: req.session.redirectUrl || '/',
         failureRedirect: '/error'
       })(req, res, next)
-      console.log('response', req)
     } catch (err) {
       throw `ERROR during authentication: ${err}`
     }
@@ -44,7 +43,6 @@ exports.authenticateAzureCallback = () => {
 
 exports.ensureAuthenticated = () => {
   return (req, res, next) => {
-    console.log(req.isAuthenticated())
     if (req.isAuthenticated()) return next()
     res.statusMessage = 'Not authenticated'
     res.status(401).end()

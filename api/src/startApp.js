@@ -9,22 +9,7 @@ const startServer = app => {
     console.log(`API VERSION:             ${api}`)
   })
 }
-/*
-const connectMongoDb = () => {
-  const db = mongoose.connection
-  db.on('error', console.error.bind(console, 'connection error:'))
-  db.once('open', () => {
-    console.log(`MONGODB URL:             ${mongoDb}`)
-  })
-  mongoose.Promise = require('bluebird')
-  mongoose.connect(
-    mongoDb,
-    {
-      useNewUrlParser: true
-    }
-  )
-}
-*/
+
 exports.startApp = app => {
   try {
     startServer(app)

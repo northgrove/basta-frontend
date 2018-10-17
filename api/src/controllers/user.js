@@ -23,7 +23,7 @@ exports.getUserProfile = () => {
 
 exports.userSessionLookup = () => {
   return (req, res) => {
-    console.log(req.session)
+    //console.log(req.session)
     res.status(200).send({
       session: 'active'
     })

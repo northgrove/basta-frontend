@@ -47,17 +47,6 @@ exports.getAccessTokenUser = async (tokenURI, refreshToken, resource) => {
       body
     ) {
       ms_access_token = JSON.parse(body).access_token
-      /*
-      UserMongoSchema.findOneAndUpdate(
-        { 'azure.id': req.user.azure.id },
-        { 'azure.accessToken': ms_access_token },
-        { new: true },
-        (err, rawResponse) => {
-          return ms_access_token
-        }
-      )
-      */
-
       // console.log('access token: ', ms_access_token)
     })
     return ms_access_token

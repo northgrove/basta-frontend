@@ -41,20 +41,7 @@ app.use(bodyParser.json())
 app.use(cookieParser(sessionSecret))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
-/*
-app.use(
-  session({
-    secret: sessionSecret,
-    cookie: { maxAge: 30000000 },
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      clear_interval: '1000000'
-    })
-  })
-)
-*/
+
 app.use(
   session({
     name: 'basta',
