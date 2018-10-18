@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "33.0.0",
+  "version": "35.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
@@ -28,7 +28,6 @@
     "body-parser": "^1.18.3",
     "common": "^0.2.5",
     "connect": "^3.6.6",
-    "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
@@ -38,7 +37,6 @@
     "husky": "^1.0.0-rc.13",
     "js-cookie": "^2.2.0",
     "moment": "^2.22.2",
-    "mongoose": "^5.2.8",
     "morgan": "^1.9.0",
     "nock": "^9.6.1",
     "passport": "^0.4.0",

@@ -1,6 +1,5 @@
 const request = require('request-promise')
 const config = require('../config/passportConfig')
-const { UserMongoSchema } = require('../models/userMongoSchema')
 let ms_access_token = ''
 
 exports.getAccessToken = async (tokenURI, resource) => {

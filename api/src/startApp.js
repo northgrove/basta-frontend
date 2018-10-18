@@ -1,5 +1,4 @@
-const { host, mongoDb, port, api } = require('./config/config')
-const mongoose = require('mongoose')
+const { host, port, api } = require('./config/config')
 
 const startServer = app => {
   console.log(`Starting Basta backend in ${process.env['NODE_ENV']} ...`)
@@ -13,7 +12,6 @@ const startServer = app => {
 exports.startApp = app => {
   try {
     startServer(app)
-    //connectMongoDb()
   } catch (err) {
     throw new Error('Error starting express server:', err)
   }
