@@ -35,7 +35,7 @@ module.exports = passport => {
   var findByOid = function(oid, fn) {
     for (var i = 0, len = users.length; i < len; i++) {
       var user = users[i]
-      console.log('we are using user: ', user.upn)
+      //console.log('we are using user: ', user.upn)
       if (user.oid === oid) {
         return fn(null, user)
       }
