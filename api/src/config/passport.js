@@ -25,10 +25,6 @@ module.exports = passport => {
   })
 
   passport.deserializeUser((oid, done) => {
-    // UserMongoSchema.findById(id, (err, user) => {
-    //   done(err, user)
-    // })
-
     findByOid(oid, function(err, user) {
       done(err, user)
     })
