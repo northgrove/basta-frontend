@@ -1,4 +1,6 @@
 exports.isAlive = () => {
+  console.log('calling isalive')
+
   return (req, res) => {
     res.status(200).end()
   }
