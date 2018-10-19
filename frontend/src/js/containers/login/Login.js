@@ -1,5 +1,5 @@
 import React from 'react'
-import { host, port } from '../../../../../api/src/config/config'
+//import { host, port } from '../../../../../api/src/config/config'
 const bastaLogo = require('../../../img/basta.png')
 const navLogo = require('../../../img/nav.png')
 
@@ -18,7 +18,7 @@ const Login = props => {
             <center> Authenticate by loggin into NAV's single sign-on provider. </center>
           </div>
           <div>
-            <a className="login-box-btn" href={`http://${host}:${port}/login${pathname}`}>
+            <a className="login-box-btn" href={`/login${pathname}`}>
               <center> Continue </center>
             </a>
           </div>
