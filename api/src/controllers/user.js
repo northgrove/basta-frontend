@@ -3,6 +3,8 @@ const msgraph = require('../controllers/msgraph')
 // USER SESSION
 
 exports.getUserProfile = () => {
+  console.log('getting user profile ')
+
   return async (req, res) => {
     console.log(req.session)
     const userPhoto = await msgraph.getUserPhoto({

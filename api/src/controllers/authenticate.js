@@ -3,6 +3,8 @@ const { logoutURL } = require('../config/passportConfig')
 // AZURE AUTHENTICATE
 
 exports.authenticateAzure = () => {
+  console.log('authenticatin azure')
+
   return (req, res, next) => {
     const concatUrl = params => {
       let string = ''
@@ -43,6 +45,8 @@ exports.authenticateAzureCallback = () => {
 
 exports.ensureAuthenticated = () => {
   return (req, res, next) => {
+    console.log('Ensure authenticated')
+
     if (req.isAuthenticated()) return next()
     res.statusMessage = 'Not authenticated'
     res.status(401).end()

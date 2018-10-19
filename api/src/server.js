@@ -56,7 +56,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // ROUTES
-
 app.use(express.static('./dist'))
 app.use('/rest/', proxy('/rest', { target: `${process.env.BASTA_BACKEND}` }))
 app.use('/', router)
