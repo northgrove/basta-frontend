@@ -1,4 +1,5 @@
 if (process.env['NODE_ENV'] === 'production') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
   exports.api = process.env['API_VERSION'] || '/api/v1'
   exports.host = process.env['HOST'] || 'localhost'
   exports.port = process.env['PORT'] || '8080'
