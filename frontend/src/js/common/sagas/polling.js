@@ -1,12 +1,10 @@
-import { put, call, take, takeEvery } from 'redux-saga/effects'
+import { put, call, takeEvery } from 'redux-saga/effects'
 import { getUrl } from '../utils'
 import { api } from '../../../../../api/src/config/config'
 import {
   USER_SESSION_POLLING_START,
-  USER_SESSION_POLLING,
   USER_SESSION_ACTIVE,
-  USER_SESSION_EXPIRED,
-  USER_SESSION_POLLING_STOP
+  USER_SESSION_EXPIRED
 } from '../actionTypes'
 
 const url = `${api}`
@@ -18,9 +16,9 @@ const delay = millis => {
   return promise
 }
 
-export function* pollSessionWorker(action) {
+export function* pollSessionWorker() {
   try {
-    yield call(delay, 4000) // breaks jest if over 5s total
+    yield call(delay, 4000)
     yield call(getUrl, `${url}/user/session`)
     yield put({ type: USER_SESSION_ACTIVE })
   } catch (err) {

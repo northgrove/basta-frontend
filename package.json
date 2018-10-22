@@ -138,14 +138,14 @@
       "command": "nodemon api/src/server.js",
       "env": {
         "NODE_ENV": "development",
-        "BASTA_BACKEND": "localhost:6996"
+        "BASTA_BACKEND": "http://localhost:6996"
       }
     },
     "dev-offline": {
       "command": "parcel frontend/src/index.html | nodemon api/test/server.js",
       "env": {
         "NODE_ENV": "offline",
-        "BASTA_BACKEND": "localhost:6996"
+        "BASTA_BACKEND": "http://localhost:6996"
       }
     },
     "dev-mockend": {

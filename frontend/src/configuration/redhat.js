@@ -34,8 +34,8 @@ const orderFields = {
     label: 'OS version',
     description: '',
     fieldType: 'buttonGroup',
-    alternatives: [{ label: 'RHEL 7.0', value: 'rhel70' }, { label: 'RHEL 8.0', value: 'rhel80' }],
-    value: 'rhel80'
+    alternatives: [{ label: 'RHEL 6.0', value: 'rhel60' }, { label: 'RHEL 7.0', value: 'rhel70' }],
+    value: 'rhel70'
   },
   serverCount: {
     label: 'Servers',
@@ -68,23 +68,6 @@ const orderFields = {
     min: 0,
     max: 100,
     value: 0
-  },
-  eapVersion: {
-    label: 'EAP version',
-    description: '',
-    fieldType: 'buttonGroup',
-    alternatives: [{ label: 'EAP 6', value: 'EAP6' }, { label: 'EAP 7', value: 'EAP7' }],
-    value: 'EAP6'
-  },
-  javaVersion: {
-    label: 'Java version',
-    description: '',
-    fieldType: 'buttonGroup',
-    alternatives: [
-      { label: 'OpenJDK 7', value: 'OpenJDK7' },
-      { label: 'OpenJDK 8', value: 'OpenJDK8' }
-    ],
-    value: 'OpenJDK7'
   },
   description: {
     label: 'Description',
