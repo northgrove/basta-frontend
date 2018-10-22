@@ -15,4 +15,9 @@ COPY --from=builder /home/app/node_modules/ ./node_modules/
 COPY --from=builder /home/app/dist/ ./dist/
 COPY ./api/src ./api/src
 
+COPY navcerts.crt /usr/local/share/ca-certificates/
+RUN apk add --no-cache ca-certificates
+RUN	update-ca-certificates
+
+ENV NODE_TLS_REJECT_UNAUTHORIZED=0
 CMD ["node", "api/src/server.js"]
