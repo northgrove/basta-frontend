@@ -33,11 +33,11 @@ class App extends Component {
       dispatch(
         getOrderHistory(
           1000,
+          moment('2013-01-01').valueOf(),
           moment()
             .add(1, 'days')
             .startOf('day')
-            .valueOf(),
-          moment('2013-01-01').valueOf()
+            .valueOf()
         )
       )
   }
