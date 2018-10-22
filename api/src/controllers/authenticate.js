@@ -19,7 +19,6 @@ exports.authenticateAzure = () => {
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
-        resourceURL: 'https://graph.microsoft.com',
         successRedirect: '/',
         failureRedirect: '/error'
       })(req, res, next)
