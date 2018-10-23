@@ -8,10 +8,13 @@ exports.scope = 'profile offline_access'
 exports.validateIssuer = true
 exports.resourceURL = 'https://graph.microsoft.com'
 exports.useCookieInsteadOfSession = true
-exports.cookieEncryptionKeys = [
-  { key: '12345678901234567890123456789012', iv: '123456789012' },
-  { key: 'abcdefghijklmnopqrstuvwxyzabcdef', iv: 'abcdefghijkl' }
-]
+const key1 = process.env['PASSPORTCOOKIE_KEY1']
+const key2 = process.env['PASSPORTCOOKIE_KEY2']
+const key3 = process.env['PASSPORTCOOKIE_KEY3']
+const key4 = process.env['PASSPORTCOOKIE_KEY4']
+const passportkey1 = { key: key1, iv: key3 }
+const passportkey2 = { key: key2, iv: key4 }
+exports.cookieEncryptionKeys = [passportkey1, passportkey2]
 exports.nonceLifetime = 36000
 
 if (process.env['NODE_ENV'] === 'production') {

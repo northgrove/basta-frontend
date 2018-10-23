@@ -12,6 +12,8 @@ const proxy = require('http-proxy-middleware')
 const helmet = require('helmet')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
+const bastacookie_key1 = process.env['BASTACOOKIE_KEY1']
+const bastacookie_key2 = process.env['BASTACOOKIE_KEY2']
 
 const app = express()
 app.use(
@@ -54,7 +56,7 @@ app.set('trust proxy', 1)
 app.use(
   session({
     name: 'basta',
-    keys: ['key1', 'key2']
+    keys: [bastacookie_key1, bastacookie_key2]
   })
 )
 app.use(passport.initialize())
