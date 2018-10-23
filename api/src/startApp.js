@@ -6,8 +6,6 @@ const startServer = app => {
     console.log(`SERVER HOSTNAME:         ${host}`)
     console.log(`PORT:                    ${port}`)
     console.log(`API VERSION:             ${api}`)
-    console.log(`ENV: `)
-    console.log(process.env)
   })
 }
 
