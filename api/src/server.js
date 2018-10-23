@@ -24,11 +24,18 @@ app.use(
 
 app.use(
   '/rest/',
-  proxy('/rest', { target: `${process.env.BASTA_BACKEND}`, secure: false, logLevel: 'debug' })
+  proxy('/rest', {
+    target: `${process.env.BASTA_BACKEND}`,
+    secure: false,
+    logLevel: 'debug',
+    onError: (err, req, res) => {
+      console.log('error in proxy', err)
+    }
+  })
 )
 
 // HELMET
-app.use(helmet())
+//app.use(helmet())
 
 // CORS
 
