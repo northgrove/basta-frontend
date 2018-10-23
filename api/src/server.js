@@ -59,7 +59,7 @@ app.use(passport.session())
 app.use(express.static('./dist'))
 app.use(
   '/rest/',
-  proxy('/rest', { target: `${process.env.BASTA_BACKEND}`, secure: false, logLevel: debug })
+  proxy('/rest', { target: `${process.env.BASTA_BACKEND}`, secure: false, logLevel: 'debug' })
 )
 app.use('/', router)
 
