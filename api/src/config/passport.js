@@ -70,9 +70,7 @@ module.exports = passport => {
               return done(err)
             }
             if (!user) {
-              arrRoles = getroles.matchRoles({
-                groups: profile._json.groups
-              })
+              arrRoles = getroles.matchRoles(profile._json.groups)
 
               users.push(profile)
 

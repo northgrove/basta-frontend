@@ -1,8 +1,8 @@
 let arrRoles = []
 
 // match groups in token to roles
-exports.matchRoles = ({ groups }) => {
-  // const groupsSplit = JSON.parse(groups)
+exports.matchRoles = groups => {
+  groups = JSON.parse(groups)
   groups.forEach(group => {
     Object.keys(roles).forEach(role => {
       if (roles[role].includes(group) && !arrRoles.includes(role)) {

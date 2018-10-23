@@ -13,12 +13,6 @@ export class NavUserMenu extends Component {
     const { user, userLogout, dispatch } = this.props
     const { displayMenu } = this.state
 
-    let roles
-    if (user.isUserAuthenticated) {
-      roles = user.userProfile.roles.join(', ')
-    } else {
-      roles = 'error'
-    }
     return (
       <div className="navUserMenu">
         <div className="navUserImage" onClick={() => this.setState({ displayMenu: !displayMenu })}>
@@ -31,8 +25,10 @@ export class NavUserMenu extends Component {
             </a>
             <hr />
             <p>
-              {' '}
-              Access: <br /> {roles}{' '}
+              Access: <br />{' '}
+              {user.isUserAuthenticated && user.userProfile.roles
+                ? user.userProfile.roles.join(', ')
+                : 'No roles found for user'}
             </p>
             <hr />
             <a
