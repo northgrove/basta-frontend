@@ -3,10 +3,7 @@ const { logoutURL } = require('../config/passportConfig')
 // AZURE AUTHENTICATE
 
 exports.authenticateAzure = () => {
-  console.log('authenticatin azure')
-
   return (req, res, next) => {
-    console.log('in auth azure callback')
     const concatUrl = params => {
       let string = ''
       Object.keys(params).forEach(e => {
@@ -15,7 +12,6 @@ exports.authenticateAzure = () => {
       return string.toString()
     }
     req.session.redirectUrl = concatUrl(req.params)
-    console.log('redirecting to ' + req.session.redirectUrl)
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
@@ -46,8 +42,6 @@ exports.authenticateAzureCallback = () => {
 
 exports.ensureAuthenticated = () => {
   return (req, res, next) => {
-    console.log('Ensure authenticated')
-
     if (req.isAuthenticated()) return next()
     res.statusMessage = 'Not authenticated'
     res.status(401).end()

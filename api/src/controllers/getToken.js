@@ -29,7 +29,6 @@ exports.verifyToken = () => {
       req.user.azure.refreshToken,
       'b36e92f3-d48b-473d-8f69-e7887457bd3f'
     )
-    console.log('jau: ', accessToken)
     return request
       .get({
         url: `http://localhost:5050/auth`,
