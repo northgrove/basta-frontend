@@ -9,6 +9,7 @@ import OrderForm from './components/OrderForm'
 import OrderDetails from '../containers/order/OrderDetails'
 import Order from '../containers/order/Order'
 import MqQueue from '../containers/create/MqQueue'
+import MqChannel from '../containers/create/MqChannel'
 
 // Routes
 export const Routes = () => {
@@ -21,6 +22,7 @@ export const Routes = () => {
       <Route path="/operate/:orderType" component={OrderForm} />
       <Route exact path="/create" component={Create} />
       <Route exact path="/create/mqqueue" component={MqQueue} />
+      <Route exact path="/create/mqchannel" component={MqChannel} />
       <Route path="/create/:orderType" component={OrderForm} />
       <Route path="*" component={NotFound} />
     </Switch>
