@@ -10,5 +10,5 @@ if (process.env['NODE_ENV'] === 'production') {
   exports.host = 'localhost'
   exports.port = 8080
   exports.sessionSecret = 'H3mligereEnnDetteBlirDetIkke!'
-  exports.cookieDomain = 'localhost'
+  exports.cookieDomain = ''
 }
