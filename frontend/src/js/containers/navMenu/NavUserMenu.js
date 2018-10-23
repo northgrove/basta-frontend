@@ -26,9 +26,15 @@ export class NavUserMenu extends Component {
             <hr />
             <p>
               Access: <br />{' '}
-              {user.isUserAuthenticated && user.userProfile.roles
-                ? user.userProfile.roles.join(', ')
-                : 'No roles found for user'}
+              {user.isUserAuthenticated && user.userProfile.roles ? (
+                <ul>
+                  {user.userProfile.roles.map(role => {
+                    return <li>{role}</li>
+                  })}
+                </ul>
+              ) : (
+                'No roles found for user'
+              )}
             </p>
             <hr />
             <a
