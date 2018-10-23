@@ -11,7 +11,6 @@ const libertyImage = require('../../../../img/orderTypes/liberty.png')
 const securityImage = require('../../../../img/orderTypes/security.png')
 const openamImage = require('../../../../img/orderTypes/openam.png')
 const redhatImage = require('../../../../img/orderTypes/redhat.png')
-const containerlinuxImage = require('../../../../img/orderTypes/containerlinux.png')
 const dbImage = require('../../../../img/orderTypes/oracle.png')
 const windowsImage = require('../../../../img/orderTypes/windows.png')
 const bigipImage = require('../../../../img/orderTypes/big-ip.png')
@@ -23,6 +22,11 @@ const unknown = require('../../../../img/basta.png')
 
 function imageType(orderDescription) {
   switch (orderDescription.toLowerCase()) {
+    case 'liberty nodes':
+      return libertyImage
+    case 'openam server':
+    case 'openam proxy':
+      return openamImage
     case 'was deployment manager':
     case 'was nodes':
     case 'was9 nodes':
@@ -52,7 +56,7 @@ function imageType(orderDescription) {
     case 'credential':
       return securityImage
     case 'lightweight linux':
-      return containerlinuxImage
+      return coreosImage
     default:
       return unknown
   }
