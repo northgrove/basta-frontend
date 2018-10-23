@@ -1,12 +1,11 @@
 'use strict'
-const { host, sessionSecret } = require('./config/config')
+const { host, sessionSecret, cookieDomain } = require('./config/config')
 const express = require('express')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const session = require('cookie-session')
-const cookie = require('js-cookie')
 const router = require('./routes/index')
 const proxy = require('http-proxy-middleware')
 const helmet = require('helmet')
@@ -63,7 +62,9 @@ app.set('trust proxy', 1)
 app.use(
   session({
     name: 'basta',
-    keys: [bastacookie_key1, bastacookie_key2]
+    keys: [bastacookie_key1, bastacookie_key2],
+    maxAge: 24 * 60 * 60 * 1000, // 24 timer
+    domain: cookieDomain
   })
 )
 app.use(passport.initialize())
