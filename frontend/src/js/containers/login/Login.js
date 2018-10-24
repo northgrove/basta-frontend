@@ -12,10 +12,10 @@ const Login = props => {
         <div className="login-box">
           <img className="login-nav-logo" src={navLogo} />
           <div className="login-box-header">
-            Single sign-on to <strong> NAV </strong>
+            Successfully <strong>logged out</strong>
           </div>
           <div className="login-box-body">
-            <center> Authenticate by loggin into NAV's single sign-on provider. </center>
+            <center> Ra-authenticate by logging into NAV's single sign-on provider. </center>
           </div>
           <div>
             <a className="login-box-btn" href={`/login${pathname}`}>
