@@ -11,7 +11,6 @@ const Log = props => {
       <div>
         {history.map(event => {
           function buildEventStatus(status) {
-            console.log(status)
             switch (status) {
               case 'info':
                 return <span className="fa fa-info-circle" />

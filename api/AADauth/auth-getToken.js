@@ -4,8 +4,6 @@ var azureJWT = require('azure-jwt-verify')
 exports.getToken = () => {
   return async (req, res) => {
     const passportconfig = 'https://login.microsoftonline.com/navq.onmicrosoft.com/oauth2/token'
-    console.log(passportconfig)
-    //console.log(req)
     // const accessToken = await token.getAccessTokenUser(passportconfig, req.user.azure.refresToken, 'b36e92f3-d48b-473d-8f69-e7887457bd3f')
     var jwtToken = req.headers.authorization.replace('Bearer ', '') // accessToken //.replace('Bearer ',''); //req.headers.authorization
     console.log(jwtToken)
@@ -20,8 +18,6 @@ exports.getToken = () => {
         //console.log(decoded)
         json = JSON.parse(decoded)
         const currentdate = new Date().getTime() / 1000
-        console.log(currentdate)
-        console.log(json.message.exp)
         if (currentdate > json.message.exp) {
           console.log('expired')
         }

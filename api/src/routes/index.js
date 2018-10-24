@@ -32,4 +32,6 @@ router.get(`/tokenuser`, auth.ensureAuthenticated(), token.getTokenUser())
 
 router.get(`/auth`, auth.ensureAuthenticated(), token.verifyToken())
 
+router.get('/', auth.ensureAuthenticated())
+
 module.exports = router

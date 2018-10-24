@@ -1,6 +1,6 @@
 import { HISTORY_REQUEST, HISTORY_APPLY_FILTER, HISTORY_EXPAND_FILTER_ARRAY } from './actionTypes'
 
-export const getOrderHistory = (pageSize, toDate, fromDate) => {
+export const getOrderHistory = (pageSize, fromDate, toDate) => {
   return { type: HISTORY_REQUEST, pageSize, toDate, fromDate }
 }
 

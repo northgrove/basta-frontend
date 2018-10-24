@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "43.0.0",
+  "version": "57.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
@@ -123,7 +123,7 @@
       "command": "better-npm-run mkdir && better-npm-run copy-fonts"
     },
     "dev-frontend": {
-      "command": "parcel frontend/src/index.html",
+      "command": "parcel frontend/src/index.html --public-url /static",
       "env": {
         "NODE_ENV": "development"
       }

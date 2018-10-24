@@ -64,17 +64,13 @@ module.exports = passport => {
         useCookieInsteadOfSession: useCookieInsteadOfSession
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
-        //console.log('req i passport', profile)
-        //console.log('session ', req.session)
         process.nextTick(() => {
           findByOid(profile.oid, function(err, user) {
             if (err) {
               return done(err)
             }
             if (!user) {
-              arrRoles = getroles.matchRoles({
-                groups: profile._json.groups
-              })
+              arrRoles = getroles.matchRoles(profile._json.groups)
 
               users.push(profile)
 
