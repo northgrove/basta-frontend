@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom'
 export class NavMenu extends Component {
   isActive(context) {
     let { location } = this.props
+    console.log(location)
     if (!location) {
-      return context === '/' ? 'active' : null
+      return context === '' ? 'active' : null
     }
     const path = location.pathname.split('/')[1]
     if (path === context) return 'active'
