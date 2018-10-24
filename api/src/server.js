@@ -21,7 +21,6 @@ app.use(
     }
   })
 )
-
 app.use(
   '/rest/',
   proxy('/rest', {
