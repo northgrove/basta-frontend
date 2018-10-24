@@ -130,7 +130,7 @@ const orderTypes = [
     description: 'CoreOS',
     image: containerlinuxImage,
     tags: ['linux', 'server', 'core os', 'container', 'node'],
-    url: '/create/coreos'
+    url: '/create/containerlinux'
   },
   {
     title: 'Red Hat',

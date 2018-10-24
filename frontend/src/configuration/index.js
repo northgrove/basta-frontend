@@ -16,7 +16,7 @@ import certificate from './certificate'
 import openamserver from './openamserver'
 import openamproxy from './openamproxy'
 import redhat from './redhat'
-import coreos from './coreos'
+import containerlinux from './containerlinux'
 import oracle from './oracle'
 import windows from './windows'
 import bigip from './bigip'
@@ -44,7 +44,7 @@ module.exports = {
   openamserver,
   openamproxy,
   redhat,
-  coreos,
+  containerlinux,
   oracle,
   windows,
   bigip,

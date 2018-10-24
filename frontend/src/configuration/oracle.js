@@ -3,6 +3,9 @@ const title = 'Database'
 const description = 'Oracle'
 const image = require('../img/orderTypes/oracle.png')
 const orderFields = {
+  nodeType: {
+    value: 'DB_ORACLE'
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -31,19 +34,25 @@ const orderFields = {
     fieldType: 'environments',
     value: ''
   },
-  applicationMappingName: {
+  applicationName: {
     label: 'Application',
     description: '',
     fieldType: 'applications',
     value: ''
   },
-  databasename: {
+  databaseName: {
     label: 'Database name',
     fieldType: 'text',
     description: 'fetching from OEM...',
     value: ''
   },
-  databasetype: {
+  fasitAlias: {
+    label: 'Fasit alias',
+    fieldType: 'text',
+    description: 'molasses',
+    value: ''
+  },
+  selectedTemplate: {
     label: 'Database type',
     fieldType: 'text',
     description: 'fetching from OEM...',

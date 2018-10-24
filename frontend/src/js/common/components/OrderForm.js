@@ -55,6 +55,7 @@ export class OrderForm extends Component {
   render() {
     const orderFields = this.orderFields
     const { dispatch } = this.props
+    console.log(this.state)
     return (
       <div>
         <div className="orderForm">

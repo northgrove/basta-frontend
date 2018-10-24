@@ -75,7 +75,7 @@ const orderFields = {
     fieldType: 'text',
     value: ''
   },
-  ibm: {
+  ibmSw: {
     label: 'IBM',
     description: 'Will install ILMT agent',
     fieldType: 'checkBox',

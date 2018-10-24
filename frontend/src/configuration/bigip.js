@@ -1,5 +1,5 @@
-const description = 'Application Server'
-const title = 'Jboss'
+const description = 'Load Balancer Config'
+const title = 'BIG-IP'
 const image = require('../img/orderTypes/big-ip.png')
 const orderFields = {
   environmentClass: {
@@ -30,21 +30,21 @@ const orderFields = {
     fieldType: 'environments',
     value: ''
   },
-  applicationMappingName: {
+  application: {
     label: 'Application',
     description: '',
     fieldType: 'applications',
     value: ''
   },
   //TODO: Fetch from backend
-  manager: {
+  virtualserver: {
     label: 'Virtual server',
     description: '',
     fieldType: 'dropDown',
     alternatives: ['a', 'b', 'c', 'd', 'e'],
     value: 'a'
   },
-  matchingType: {
+  matchingTypes: {
     label: 'Matching type',
     description: '',
     fieldType: 'buttonGroup',
@@ -54,7 +54,7 @@ const orderFields = {
     ],
     value: 'context'
   },
-  roots: {
+  contextroots: {
     label: 'Context root(s)',
     description: 'Add context roots',
     fieldType: 'text',

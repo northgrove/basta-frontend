@@ -2,6 +2,9 @@ const description = 'Deployment Manager'
 const title = 'Websphere'
 const image = require('../img/orderTypes/websphere.png')
 const orderFields = {
+  nodeType: {
+    value: 'WAS_DEPLOYMENT_MANAGER'
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',

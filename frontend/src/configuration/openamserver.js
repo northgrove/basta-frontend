@@ -2,6 +2,9 @@ const title = 'OpenAM'
 const description = 'Server'
 const image = require('../img/orderTypes/openam.png')
 const orderFields = {
+  zone: {
+    value: 'sbs'
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
