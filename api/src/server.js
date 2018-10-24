@@ -1,4 +1,5 @@
 'use strict'
+
 const { host, sessionSecret, cookieDomain } = require('./config/config')
 const express = require('express')
 const logger = require('morgan')
@@ -11,8 +12,6 @@ const proxy = require('http-proxy-middleware')
 const helmet = require('helmet')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
-const bastacookie_key1 = process.env['BASTACOOKIE_KEY1']
-const bastacookie_key2 = process.env['BASTACOOKIE_KEY2']
 
 const app = express()
 app.use(
@@ -62,7 +61,7 @@ app.set('trust proxy', 1)
 app.use(
   session({
     name: 'basta',
-    keys: [bastacookie_key1, bastacookie_key2],
+    keys: [`${process.env['BASTACOOKIE_KEY1']}`, `${process.env['BASTACOOKIE_KEY2']}`],
     maxAge: 24 * 60 * 60 * 1000, // 24 timer
     domain: cookieDomain
   })
@@ -78,7 +77,6 @@ app.use('/', router)
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: './dist' })
 })
-
 // ERROR HANDLING
 
 app.use((err, req, res, next) => {
