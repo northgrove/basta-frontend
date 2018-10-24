@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
 
 // Proxy all API calls to orders to Basta java backend
-app.use('/rest', proxy('/rest', { target: `http://${process.env.BASTA_BACKEND}` }))
+app.use('/rest', proxy('/rest', { target: `${process.env.BASTA_BACKEND}` }))
 app.use('/', router)
 app.use(express.static('./dist'))
 app.get('*', (req, res) => {
