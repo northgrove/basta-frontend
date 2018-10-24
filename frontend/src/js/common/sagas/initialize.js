@@ -13,7 +13,7 @@ export function* initializeApplication() {
   switch (result.type) {
     case 'USER_PROFILE_RECEIVED':
       yield put({ type: APPLICATION_READY })
-      yield put({ type: USER_SESSION_POLLING_START })
+      //      yield put({ type: USER_SESSION_POLLING_START })
       break
     case 'USER_PROFILE_REQUEST_FAILED':
       yield put({ type: APPLICATION_READY })

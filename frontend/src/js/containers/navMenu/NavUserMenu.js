@@ -24,7 +24,7 @@ export class NavUserMenu extends Component {
               {user.userProfile.userName}
             </a>
             <hr />
-            <p>
+            <div>
               Access: <br />{' '}
               {user.isUserAuthenticated && user.userProfile.roles ? (
                 <ul>
@@ -35,7 +35,7 @@ export class NavUserMenu extends Component {
               ) : (
                 'No roles found for user'
               )}
-            </p>
+            </div>
             <hr />
             <a
               className="navUserMenu-signout"
