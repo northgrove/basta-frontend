@@ -16,7 +16,7 @@
       "node_modules"
     ]
   },
-  "version": "58.0.0",
+  "version": "60.0.0",
   "description": "ny frontend til basta",
   "main": "src/index.js",
   "dependencies": {
@@ -142,7 +142,7 @@
       }
     },
     "dev-offline": {
-      "command": "parcel frontend/src/index.html | nodemon api/test/server.js",
+      "command": "parcel frontend/src/index.html --public-url /static | nodemon api/test/server.js",
       "env": {
         "NODE_ENV": "offline",
         "BASTA_BACKEND": "http://localhost:6996"
@@ -161,7 +161,7 @@
       }
     },
     "build": {
-      "command": "rimraf dist/ && parcel build frontend/src/index.html",
+      "command": "rimraf dist/ && parcel build frontend/src/index.html --public-url /static",
       "env": {
         "NODE_ENV": "production"
       }
