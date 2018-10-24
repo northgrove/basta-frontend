@@ -26,7 +26,8 @@ app.use(
   '/rest/',
   proxy('/rest', {
     target: `${process.env.BASTA_BACKEND}`,
-    secure: false,
+    secure: true,
+    changeOrigin: true,
     logLevel: 'debug',
     onError: (err, req, res) => {
       console.log('error in proxy', err)
