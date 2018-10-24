@@ -14,7 +14,6 @@ const {
   useCookieInsteadOfSession
 } = require('./passportConfig')
 const getroles = require('../controllers/getroles')
-const jwtdecode = require('jwt-decode')
 const finduser = require('./findUser')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 let arrRoles = ''
