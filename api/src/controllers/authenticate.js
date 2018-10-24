@@ -43,9 +43,9 @@ exports.authenticateAzureCallback = () => {
 exports.ensureAuthenticated = () => {
   return (req, res, next) => {
     if (req.isAuthenticated()) return next()
-    res.statusMessage = 'Not authenticated'
-    res.status(401).end()
-    //res.redirect('/login')
+    //res.statusMessage = 'Not authenticated'
+    //res.status(401).end()
+    res.redirect('/login')
   }
 }
 
@@ -54,13 +54,15 @@ exports.ensureAuthenticated = () => {
 exports.logout = () => {
   return (req, res) => {
     try {
-      // req.session.destroy()
-      req.session.destroy(err => {
-        req.logout()
-        res.redirect(logoutURL)
-        //res.status(200)
-      })
+      req.logout()
+      res.redirect(logoutURL)
+      req.session = null
+      //req.session.destroy(err => {
+
+      //res.status(200)
+      //})
     } catch (err) {
+      console.log(err)
       res.status(500).send(err)
       return `ERROR during logout: ${err}`
     }
