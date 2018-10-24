@@ -29,7 +29,7 @@ export class NavUserMenu extends Component {
               {user.isUserAuthenticated && user.userProfile.roles ? (
                 <ul>
                   {user.userProfile.roles.map(role => {
-                    return <li>{role}</li>
+                    return <li key={role}>{role}</li>
                   })}
                 </ul>
               ) : (
