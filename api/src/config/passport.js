@@ -14,8 +14,10 @@ const {
   useCookieInsteadOfSession
 } = require('./passportConfig')
 const getroles = require('../controllers/getroles')
+const finduser = require('./findUser')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
 let arrRoles = ''
+let tokenExpire = ''
 
 module.exports = passport => {
   // (DE)SERIALIZE USER
@@ -25,23 +27,10 @@ module.exports = passport => {
   })
 
   passport.deserializeUser((oid, done) => {
-    findByOid(oid, function(err, user) {
+    finduser.findByOid(oid, function(err, user) {
       done(err, user)
     })
   })
-
-  var users = []
-
-  var findByOid = function(oid, fn) {
-    for (var i = 0, len = users.length; i < len; i++) {
-      var user = users[i]
-      //console.log('we are using user: ', user.upn)
-      if (user.oid === oid) {
-        return fn(null, user)
-      }
-    }
-    return fn(null, null)
-  }
 
   // AZURE AD LOGIN STRATEGY
 
@@ -65,33 +54,57 @@ module.exports = passport => {
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
         process.nextTick(() => {
-          findByOid(profile.oid, function(err, user) {
+          /*const atSplit = accessToken.split('.')
+          console.log(accessToken)
+          const atDecoded = Buffer.from(atSplit[1], 'base64').toString()
+          console.log('decoded: ', atDecoded)
+          console.log('profile ', profile)
+          */
+          finduser.findByOid(profile.oid, function(err, user) {
             if (err) {
+              console.log('error: ', err)
               return done(err)
             }
+            console.log('user1 :', user)
             if (!user) {
+              const now = new Date()
+              console.log(now)
+              const tokenExpire = Date.parse(now) //.setMinutes(now.getMinutes() + 1);
+              console.log(Date.parse(now))
+              console.log(tokenExpire)
               arrRoles = getroles.matchRoles(profile._json.groups)
 
-              users.push(profile)
-
-              let newUser = profile
+              let newUser = {}
+              newUser.oid = profile.oid
               newUser.upn = profile.upn
-              newUser.displayName = profile.name.displayName
+              newUser.displayName = profile.displayName
               newUser.firstName = profile.name.givenName
               newUser.lastName = profile.name.familyName
               newUser.roles = arrRoles
               newUser.refreshToken = refreshToken
+              newUser.accessToken = accessToken
+              newUser.tokenExpire = tokenExpire
+              finduser.users.push(newUser)
 
               req.session.userid = profile.oid
               req.session.upn = profile.upn
               req.session.firstName = profile.name.givenName
               req.session.lastName = profile.name.familyName
-              req.session.displayName = profile.name.displayName
+              req.session.displayName = profile.displayName
               req.session.roles = arrRoles
               req.session.refreshToken = refreshToken
-
+              //console.log('session: ', req.session)
+              //console.log('newuser: ', newUser)
               return done(null, newUser)
             }
+            //console.log('user: ', user)
+            req.session.userid = user.oid
+            req.session.upn = user.upn
+            req.session.firstName = user.name.givenName
+            req.session.lastName = user.name.familyName
+            req.session.displayName = user.displayName
+            req.session.roles = arrRoles
+            req.session.refreshToken = refreshToken
             return done(null, user)
           })
         })
