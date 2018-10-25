@@ -4,12 +4,18 @@ const request = require('request-promise')
 import { api } from '../../../../api/src/config/config'
 // let ms_access_token = ''
 
+const NO_CONTENT = 204
+
 export const getUrl = url => {
   const init = {
     credentials: 'include',
     method: 'GET'
   }
   return fetch(url, init).then(res => {
+    if (res.status === NO_CONTENT) {
+      return []
+    }
+
     if (res.ok) {
       const json = res.json().then(json => {
         return json
