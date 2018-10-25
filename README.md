@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/navikt/basta-frontend.svg?style=svg)](https://circleci.com/gh/navikt/basta-frontend)
 [![Known Vulnerabilities](https://snyk.io/test/github/navikt/basta-frontend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/navikt/basta-frontend?targetFile=package.json)
+[![](https://codescene.io/projects/3541/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/3541/jobs/latest-successful/results)
 
 # Basta frontend
 

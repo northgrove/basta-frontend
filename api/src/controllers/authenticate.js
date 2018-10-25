@@ -1,5 +1,7 @@
 const passport = require('passport')
 const { logoutURL } = require('../config/passportConfig')
+const sjekkToken = require('./sjekkToken')
+
 // AZURE AUTHENTICATE
 
 exports.authenticateAzure = () => {
@@ -15,6 +17,7 @@ exports.authenticateAzure = () => {
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
+        // resourceURL: 'b36e92f3-d48b-473d-8f69-e7887457bd3f',
         successRedirect: '/',
         failureRedirect: '/error'
       })(req, res, next)
@@ -41,10 +44,16 @@ exports.authenticateAzureCallback = () => {
 // AUTHENTICATION CHECK
 
 exports.ensureAuthenticated = () => {
-  return (req, res, next) => {
-    if (req.isAuthenticated()) return next()
+  return async (req, res, next) => {
+    console.log('auth:  ', req.isAuthenticated())
+    if (req.isAuthenticated()) {
+      // console.log('oid: ', req.session.userid)
+      sjekkToken.sjekkToken(req.session.userid, req.session.refreshToken)
+      return next()
+    }
     //res.statusMessage = 'Not authenticated'
     //res.status(401).end()
+
     res.redirect('/login')
   }
 }

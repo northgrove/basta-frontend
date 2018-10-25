@@ -30,7 +30,7 @@ export function* fetchScopedResource(action) {
       getUrl,
       `/rest/v1/fasit/resources?application=${action.application}&envClass=${
         action.envClass
-      }&environment=${action.environment}$type=QueueManager&bestmatch=true`
+      }&environment=${action.environment}&type=QueueManager&bestmatch=true`
     )
     yield put({ type: SCOPED_RESOURCE_RECEIVED, value: resources })
   } catch (err) {
