@@ -35,7 +35,7 @@ app.use(
 )
 
 // HELMET
-//app.use(helmet())
+app.use(helmet())
 
 // CORS
 
