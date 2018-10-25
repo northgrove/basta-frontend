@@ -19,6 +19,7 @@ exports.getAllOrders = () => {
 exports.getOrders = () => {
   return async (req, res) => {
     let requestedData
+
     try {
       requestedData = await paginate(
         parseInt(req.params.pageId),

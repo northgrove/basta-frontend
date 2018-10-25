@@ -42,6 +42,7 @@ export class History extends Component {
   render() {
     const { filteredOrderHistory, totalOrders } = this.props
     const { nMaxResults } = this.state
+
     return (
       <div>
         <BottomScrollListener onBottom={() => this.onBottom()} />

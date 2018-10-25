@@ -26,6 +26,7 @@ export function* getPartialHistory(action, pageId) {
     getUrl,
     `rest/orders/page/${pageId}/${action.pageSize}/${action.fromDate}/${action.toDate}`
   )
+
   if (value.length > 0) {
     pageId++
     yield put({ type: HISTORY_RECEIVED, value })
@@ -44,6 +45,8 @@ export function* getOrderHistory(action) {
   try {
     yield getPartialHistory(action, pageId)
   } catch (err) {
+    console.log('Errrrr', err)
+
     yield put({ type: HISTORY_REQUEST_FAILED, err })
   }
 }
