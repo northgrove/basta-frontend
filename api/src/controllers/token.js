@@ -49,11 +49,15 @@ exports.verifyToken = () => {
 }
 
 exports.validateRefreshAndGetToken = async (userid, refreshToken, resource) => {
+  let oldAccessToken = ''
   const now = new Date()
-  const user = finduser.findByOid(userid, async function(err, user) {})
+  const user = await finduser.findByOid(userid, async function(err, user) {
+    return user
+  })
+  //console.log('user ', user)
   try {
     oldAccessToken = user.tokens.find(token => token.resource === resource).accesstoken
-  } catch {
+  } catch (err) {
     oldAccessToken = false
   }
   if (user && !oldAccessToken) {
