@@ -49,8 +49,11 @@ exports.ensureAuthenticated = () => {
     if (req.isAuthenticated()) {
       // console.log('oid: ', req.session.userid)
       resource = 'b36e92f3-d48b-473d-8f69-e7887457bd3f'
-      token.validateRefreshAndGetToken(req.session.userid, req.session.refreshToken, resource)
-      // token.validateRefreshAndGetToken(req.session.userid, req.session.refreshToken, 'https://graph.microsoft.com')
+      const bastaToken = await token.validateRefreshAndGetToken(
+        req.session.userid,
+        req.session.refreshToken,
+        resource
+      )
       return next()
     }
     //res.statusMessage = 'Not authenticated'

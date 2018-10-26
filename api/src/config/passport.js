@@ -11,7 +11,8 @@ const {
   validateIssuer,
   loggingLevel,
   cookieEncryptionKeys,
-  useCookieInsteadOfSession
+  useCookieInsteadOfSession,
+  nonceLifetime
 } = require('./passportConfig')
 const getroles = require('../controllers/getroles')
 const finduser = require('./findUser')
@@ -51,7 +52,8 @@ module.exports = passport => {
         validateIssuer: validateIssuer,
         loggingLevel: loggingLevel,
         cookieEncryptionKeys: cookieEncryptionKeys,
-        useCookieInsteadOfSession: useCookieInsteadOfSession
+        useCookieInsteadOfSession: useCookieInsteadOfSession,
+        nonceLifetime: nonceLifetime
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
         if (!profile.oid) {

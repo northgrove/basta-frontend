@@ -48,64 +48,49 @@ exports.verifyToken = () => {
   }
 }
 
-exports.validateRefreshAndGetToken = (userid, refreshToken, resource) => {
+exports.validateRefreshAndGetToken = async (userid, refreshToken, resource) => {
   const now = new Date()
-  finduser.findByOid(userid, async function(err, user) {
-    //console.log('user: ', user)
-    try {
-      oldAccessToken = user.tokens.find(token => token.resource === resource).accesstoken
-    } catch {
-      oldAccessToken = false
+  const user = finduser.findByOid(userid, async function(err, user) {})
+  try {
+    oldAccessToken = user.tokens.find(token => token.resource === resource).accesstoken
+  } catch {
+    oldAccessToken = false
+  }
+  if (user && !oldAccessToken) {
+    console.log('found user but no existing accesstoken for ', resource)
+    console.log('Getting new accessToken for', resource)
+    const newAccessToken = await token.getAccessTokenUser(config.tokenURI, refreshToken, resource)
+    exp = JSON.parse(exports.decodeToken(newAccessToken)).exp
+    if (!user.tokens) {
+      user.tokens = []
     }
-    if (user && !oldAccessToken) {
-      console.log('found user but no existing accesstoken for ', resource)
+    user.tokens.push({ resource: resource, accesstoken: newAccessToken, exp: exp })
+
+    return newAccessToken
+  }
+  if (user && oldAccessToken) {
+    console.log('found user and existing accesstoken for', resource)
+    const oldtokenExpire = user.tokens.find(token => token.resource === resource).exp
+    console.log(
+      'accessToken expire',
+      new Date(oldtokenExpire * 1000) + ' = ' + (oldtokenExpire * 1000 - Date.parse(now)) + ' ms'
+    )
+    if (oldtokenExpire * 1000 < Date.parse(now)) {
       const newAccessToken = await token.getAccessTokenUser(config.tokenURI, refreshToken, resource)
-      exp = JSON.parse(exports.decodeToken(newAccessToken)).exp //now.setMinutes(now.getMinutes() + 55)
-      user.tokens = [{ resource: resource, accesstoken: newAccessToken, exp: exp }]
-
-      finduser.users.push(user.tokens)
-      return newAccessToken
-    }
-    if (user && oldAccessToken) {
-      console.log('found user and existing accesstoken for', resource)
-      const oldtokenExpire = user.tokens.find(token => token.resource === resource).exp
-      console.log(
-        'accessToken expire',
-        new Date(oldtokenExpire * 1000) + ' = ' + (oldtokenExpire * 1000 - Date.parse(now)) + ' ms'
-      )
-      //console.log('user: ', user)
-
-      if (oldtokenExpire * 1000 < Date.parse(now)) {
-        //console.log('tokenExpire: ', req.session.tokenExpire)
-        //resource = 'b36e92f3-d48b-473d-8f69-e7887457bd3f'
-        //console.log('tokenuri: ', tokenURI)
-        const newAccessToken = await token.getAccessTokenUser(
-          config.tokenURI,
-          refreshToken,
-          resource
-        )
-        //console.log('oldaccesstoken: ', user.accessToken)
-        // console.log('newAccesstoken2: ', newAccessToken)
-        console.log('Getting new accessToken for', resource)
-        //console.log(newAccessToken)
-        //console.log(JSON.parse(exports.decodeToken(newAccessToken)).exp)
-        exp = JSON.parse(exports.decodeToken(newAccessToken)).exp //now.setMinutes(now.getMinutes() + 55)
-        user.tokens = [{ resource: resource, accesstoken: newAccessToken, exp: exp }]
-
-        finduser.users.push(user.tokens)
-        //console.log('user1: ', user)
-        //console.log('toekns: ', user.tokens)
-        //const accessToken = user.tokens.find(token => token.resource === resource).accesstoken
-        //console.log(tokentest)
-        return newAccessToken
-      } else {
-        console.log('token stil valid for', resource)
+      console.log('Getting new accessToken for', resource)
+      exp = JSON.parse(exports.decodeToken(newAccessToken)).exp
+      if (!user.tokens) {
+        user.tokens = []
       }
-    }
+      user.tokens.push({ resource: resource, accesstoken: newAccessToken, exp: exp })
 
-    return oldAccessToken
-  })
-  return 'error'
+      return newAccessToken
+    } else {
+      console.log('token stil valid for', resource)
+    }
+  }
+
+  return oldAccessToken
 }
 
 exports.decodeToken = encodedToken => {
