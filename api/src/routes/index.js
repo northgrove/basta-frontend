@@ -4,7 +4,7 @@ const auth = require('../controllers/authenticate')
 const user = require('../controllers/user')
 const health = require('../controllers/health')
 const selftest = require('../controllers/selftest')
-const token = require('../controllers/getToken')
+const token = require('../controllers/token')
 const { api } = require('../config/config')
 
 // APPLICATION HEALTH

@@ -1,6 +1,6 @@
 const passport = require('passport')
 const { logoutURL } = require('../config/passportConfig')
-const sjekkToken = require('./sjekkToken')
+const token = require('./token')
 
 // AZURE AUTHENTICATE
 
@@ -48,7 +48,12 @@ exports.ensureAuthenticated = () => {
     console.log('auth:  ', req.isAuthenticated())
     if (req.isAuthenticated()) {
       // console.log('oid: ', req.session.userid)
-      sjekkToken.sjekkToken(req.session.userid, req.session.refreshToken)
+      resource = 'b36e92f3-d48b-473d-8f69-e7887457bd3f'
+      const bastaToken = await token.validateRefreshAndGetToken(
+        req.session.userid,
+        req.session.refreshToken,
+        resource
+      )
       return next()
     }
     //res.statusMessage = 'Not authenticated'
