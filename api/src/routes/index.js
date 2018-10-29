@@ -10,8 +10,6 @@ const { api } = require('../config/config')
 // APPLICATION HEALTH
 router.get('/isalive', health.isAlive())
 
-router.get('/selftest', health.selftest())
-
 router.get('/metrics', health.metrics())
 
 // AUTHENTICATION
