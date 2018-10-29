@@ -54,7 +54,6 @@ exports.validateRefreshAndGetToken = async (userid, refreshToken, resource) => {
   const user = await finduser.findByOid(userid, async function(err, user) {
     return user
   })
-  //console.log('user ', user)
   try {
     oldAccessToken = user.tokens.find(token => token.resource === resource).accesstoken
   } catch (err) {
