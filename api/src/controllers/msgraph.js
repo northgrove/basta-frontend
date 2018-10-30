@@ -16,7 +16,7 @@ exports.getUserPhoto = async ({ userId, refreshToken, userUpn }) => {
       auth: { bearer: accessToken }
     })
     .then(response => {
-      userPhoto = 'data:image/jpg;base64,' + new Buffer(response).toString('base64')
+      userPhoto = 'data:image/jpg;base64,' + new Buffer.from(response).toString('base64')
 
       return userPhoto
     })
