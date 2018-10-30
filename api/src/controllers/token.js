@@ -7,7 +7,7 @@ exports.getToken = () => {
   return async (req, res) => {
     const accessToken = await token.getAccessToken(
       config.tokenURI,
-      'b36e92f3-d48b-473d-8f69-e7887457bd3f'
+      process.env['BASTAAZURECONFIG_CLIENTID']
     )
     res.send(accessToken)
   }
@@ -17,7 +17,7 @@ exports.getTokenUser = () => {
     const accessToken = await token.getAccessTokenUser(
       config.tokenURI,
       req.session.refreshToken,
-      'b36e92f3-d48b-473d-8f69-e7887457bd3f'
+      process.env['BASTAAZURECONFIG_CLIENTID']
     )
     res.send(accessToken)
   }
@@ -28,7 +28,7 @@ exports.verifyToken = () => {
     const accessToken = await token.getAccessTokenUser(
       config.tokenURI,
       req.session.refreshToken,
-      'b36e92f3-d48b-473d-8f69-e7887457bd3f'
+      process.env['BASTAAZURECONFIG_CLIENTID']
     )
     return request
       .get({
