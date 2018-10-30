@@ -5,7 +5,10 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const router = require('./routes/')
 const proxy = require('http-proxy-middleware')
+const prometheus = require('prom-client')
 const { startApp } = require('./startApp')
+
+prometheus.collectDefaultMetrics()
 
 const app = express()
 app.use(

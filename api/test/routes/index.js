@@ -9,8 +9,6 @@ const { api } = require('../config')
 
 router.get('/isalive', health.isAlive())
 
-router.get('/selftest', health.selftest())
-
 router.get('/metrics', health.metrics())
 
 // USER
