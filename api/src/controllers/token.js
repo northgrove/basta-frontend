@@ -16,7 +16,7 @@ exports.getTokenUser = () => {
   return async (req, res) => {
     const accessToken = await token.getAccessTokenUser(
       config.tokenURI,
-      req.user.azure.refreshToken,
+      req.session.refreshToken,
       'b36e92f3-d48b-473d-8f69-e7887457bd3f'
     )
     res.send(accessToken)
@@ -27,7 +27,7 @@ exports.verifyToken = () => {
   return async (req, res) => {
     const accessToken = await token.getAccessTokenUser(
       config.tokenURI,
-      req.user.azure.refreshToken,
+      req.session.refreshToken,
       'b36e92f3-d48b-473d-8f69-e7887457bd3f'
     )
     return request
