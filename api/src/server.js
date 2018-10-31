@@ -8,28 +8,19 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const session = require('cookie-session')
 const router = require('./routes/index')
-const proxy = require('http-proxy-middleware')
 const helmet = require('helmet')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
+const proxy = require('./controllers/proxy')
+//const proxy = require('http-proxy-middleware')
+const token = require('./controllers/token')
+const auth = require('./controllers/authenticate')
 
 const app = express()
 app.use(
   logger('dev', {
     skip: function(req, res) {
       return req.url.toLowerCase() === '/isalive' || req.url === '/api/v1/user/session'
-    }
-  })
-)
-app.use(
-  '/rest/',
-  proxy('/rest', {
-    target: `${process.env.BASTA_BACKEND}`,
-    secure: true,
-    changeOrigin: true,
-    logLevel: 'debug',
-    onError: (err, req, res) => {
-      console.log('error in proxy', err)
     }
   })
 )
@@ -70,7 +61,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // ROUTES
-app.use('/static', express.static('./dist'))
+app.use('/rest/', auth.ensureAuthenticated(), proxy.attachToken(), proxy.doProxy())
+
+app.use('/static', auth.ensureAuthenticated(), express.static('./dist'))
 
 app.use('/', router)
 
