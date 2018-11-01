@@ -5,8 +5,9 @@ const msgraph = require('../controllers/msgraph')
 exports.getUserProfile = () => {
   return async (req, res) => {
     const userPhoto = await msgraph.getUserPhoto({
-      userUpn: req.session.upn,
-      refreshToken: req.session.refreshToken
+      userId: req.session.userid,
+      refreshToken: req.session.refreshToken,
+      userUpn: req.session.upn
     })
     const user = {
       userName: req.session.upn,
@@ -16,6 +17,7 @@ exports.getUserProfile = () => {
       roles: req.session.roles,
       photo: userPhoto
     }
+    //console.log(user)
     res.status(200).send(user)
   }
 }

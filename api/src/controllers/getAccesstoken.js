@@ -46,6 +46,7 @@ exports.getAccessTokenUser = async (tokenURI, refreshToken, resource) => {
       body
     ) {
       ms_access_token = JSON.parse(body).access_token
+
       // console.log('access token: ', ms_access_token)
     })
     return ms_access_token

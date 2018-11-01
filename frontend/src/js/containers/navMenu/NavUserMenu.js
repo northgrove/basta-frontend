@@ -24,18 +24,18 @@ export class NavUserMenu extends Component {
               {user.userProfile.userName}
             </a>
             <hr />
-            <p>
+            <div>
               Access: <br />{' '}
               {user.isUserAuthenticated && user.userProfile.roles ? (
                 <ul>
                   {user.userProfile.roles.map(role => {
-                    return <li>{role}</li>
+                    return <li key={role}>{role}</li>
                   })}
                 </ul>
               ) : (
                 'No roles found for user'
               )}
-            </p>
+            </div>
             <hr />
             <a
               className="navUserMenu-signout"

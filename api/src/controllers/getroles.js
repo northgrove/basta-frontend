@@ -20,7 +20,7 @@ const roles = {
     'cd3983f1-fbc1-4c33-9f31-f7a40e422ccd'
   ], //0000-GA-env-config-TestAdmin, 0000-GA-BASTA_SUPERUSER
   ROLE_OPERATIONS: ['6283f2bd-8bb5-4d13-ae38-974e1bcc1aad', 'cd3983f1-fbc1-4c33-9f31-f7a40e422ccd'], //0000-GA-env-config-TestAdmin, 0000-GA-BASTA_SUPERUSER
-  ROLE_USER: ['928636f4-fd0d-4149-978e-a6fb68bb19de'], //All ad users
+  ROLE_USER: ['928636f4-fd0d-4149-978e-a6fb68bb19de', 'c10e6466-4d28-4467-8e93-43cacfbcff92'], //All ad users
   TEST1: ['xxx', 'yyy'],
   TEST2: ['yyy']
 }

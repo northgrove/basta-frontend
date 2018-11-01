@@ -1,5 +1,7 @@
 const passport = require('passport')
 const { logoutURL } = require('../config/passportConfig')
+const token = require('./token')
+
 // AZURE AUTHENTICATE
 
 exports.authenticateAzure = () => {
@@ -15,6 +17,7 @@ exports.authenticateAzure = () => {
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
+        // resourceURL: process.env['BASTAAZURECONFIG_CLIENTID'],
         successRedirect: '/',
         failureRedirect: '/error'
       })(req, res, next)
@@ -41,10 +44,21 @@ exports.authenticateAzureCallback = () => {
 // AUTHENTICATION CHECK
 
 exports.ensureAuthenticated = () => {
-  return (req, res, next) => {
-    if (req.isAuthenticated()) return next()
+  return async (req, res, next) => {
+    console.log('auth:  ', req.isAuthenticated())
+    if (req.isAuthenticated()) {
+      // console.log('oid: ', req.session.userid)
+      resource = process.env['BASTAAZURECONFIG_CLIENTID']
+      /*      const bastaToken = await token.validateRefreshAndGetToken(
+        req.session.userid,
+        req.session.refreshToken,
+        resource
+      ) */
+      return next()
+    }
     //res.statusMessage = 'Not authenticated'
     //res.status(401).end()
+
     res.redirect('/login')
   }
 }

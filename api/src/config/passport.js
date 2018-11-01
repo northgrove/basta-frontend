@@ -11,11 +11,15 @@ const {
   validateIssuer,
   loggingLevel,
   cookieEncryptionKeys,
-  useCookieInsteadOfSession
+  useCookieInsteadOfSession,
+  nonceLifetime
 } = require('./passportConfig')
 const getroles = require('../controllers/getroles')
+const finduser = require('./findUser')
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
+const token = require('../controllers/token')
 let arrRoles = ''
+let tokenExpire = ''
 
 module.exports = passport => {
   // (DE)SERIALIZE USER
@@ -25,23 +29,10 @@ module.exports = passport => {
   })
 
   passport.deserializeUser((oid, done) => {
-    findByOid(oid, function(err, user) {
+    finduser.findByOid(oid, function(err, user) {
       done(err, user)
     })
   })
-
-  var users = []
-
-  var findByOid = function(oid, fn) {
-    for (var i = 0, len = users.length; i < len; i++) {
-      var user = users[i]
-      //console.log('we are using user: ', user.upn)
-      if (user.oid === oid) {
-        return fn(null, user)
-      }
-    }
-    return fn(null, null)
-  }
 
   // AZURE AD LOGIN STRATEGY
 
@@ -61,37 +52,49 @@ module.exports = passport => {
         validateIssuer: validateIssuer,
         loggingLevel: loggingLevel,
         cookieEncryptionKeys: cookieEncryptionKeys,
-        useCookieInsteadOfSession: useCookieInsteadOfSession
+        useCookieInsteadOfSession: useCookieInsteadOfSession,
+        nonceLifetime: nonceLifetime
       },
       (req, iss, sub, profile, accessToken, refreshToken, done) => {
+        if (!profile.oid) {
+          return done(new Error('No oid found'), null)
+        }
         process.nextTick(() => {
-          findByOid(profile.oid, function(err, user) {
+          finduser.findByOid(profile.oid, function(err, user) {
             if (err) {
+              console.log('error: ', err)
               return done(err)
             }
             if (!user) {
               arrRoles = getroles.matchRoles(profile._json.groups)
 
-              users.push(profile)
-
-              let newUser = profile
+              let newUser = {}
+              newUser.oid = profile.oid
               newUser.upn = profile.upn
-              newUser.displayName = profile.name.displayName
+              newUser.displayName = profile.displayName
               newUser.firstName = profile.name.givenName
               newUser.lastName = profile.name.familyName
               newUser.roles = arrRoles
               newUser.refreshToken = refreshToken
+              finduser.users.push(newUser)
 
               req.session.userid = profile.oid
               req.session.upn = profile.upn
               req.session.firstName = profile.name.givenName
               req.session.lastName = profile.name.familyName
-              req.session.displayName = profile.name.displayName
+              req.session.displayName = profile.displayName
               req.session.roles = arrRoles
               req.session.refreshToken = refreshToken
-
               return done(null, newUser)
             }
+
+            req.session.userid = user.oid
+            req.session.upn = user.upn
+            req.session.firstName = user.firstName
+            req.session.lastName = user.lastName
+            req.session.displayName = user.displayName
+            req.session.roles = arrRoles
+            req.session.refreshToken = refreshToken
             return done(null, user)
           })
         })

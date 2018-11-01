@@ -1,15 +1,10 @@
 const logger = require('morgan')
+const prometheus = require('prom-client')
+const request = require('request-promise')
 
 exports.isAlive = () => {
   return (req, res) => {
     res.status(200).end()
-  }
-}
-
-exports.selftest = () => {
-  return (req, res) => {
-    // TODO
-    res.status(200).send('Ok!')
   }
 }
 

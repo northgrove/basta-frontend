@@ -4,13 +4,6 @@ exports.isAlive = () => {
   }
 }
 
-exports.selftest = () => {
-  return (req, res) => {
-    // TODO
-    res.status(200).send('Ok!')
-  }
-}
-
 exports.metrics = () => {
   return (req, res) => {
     res.set('Content-Type', prometheus.register.contentType)

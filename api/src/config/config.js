@@ -4,7 +4,7 @@ if (process.env['NODE_ENV'] === 'production') {
   exports.host = process.env['HOST'] || 'localhost'
   exports.port = process.env['PORT'] || '8080'
   exports.sessionSecret = process.env['SESSION_SECRET'] || 'H3mligereEnnDetteBlirDetIkke!'
-  exports.cookieDomain = 'nais.io'
+  exports.cookieDomain = ''
 } else if (process.env['NODE_ENV'] === 'development' || process.env['NODE_ENV'] === 'offline') {
   exports.api = '/api/v1'
   exports.host = 'localhost'
