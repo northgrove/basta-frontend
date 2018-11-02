@@ -11,8 +11,8 @@ const orderFields = {
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'development', value: 'u' },
-      { label: 'test', value: 't' },
+      { label: 'Development', value: 'u' },
+      { label: 'Test', value: 't' },
       { label: 'PreProd', value: 'q' },
       { label: 'Production', value: 'p', access: ['ROLE_PROD'] }
     ],
@@ -42,19 +42,19 @@ const orderFields = {
   },
   databaseName: {
     label: 'Database name',
-    fieldType: 'text',
-    description: 'fetching from OEM...',
+    fieldType: 'databaseName',
+    description: '',
     value: ''
   },
   fasitAlias: {
     label: 'Fasit alias',
     fieldType: 'text',
-    description: 'molasses',
+    description: '',
     value: ''
   },
   selectedTemplate: {
     label: 'Database type',
-    fieldType: 'text',
+    fieldType: 'dbTemplates',
     description: 'fetching from OEM...',
     value: ''
   }

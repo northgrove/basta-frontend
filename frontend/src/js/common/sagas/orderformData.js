@@ -20,7 +20,11 @@ import {
   APPLICATIONS_REQUEST,
   APPLICATIONS_FETCHING,
   APPLICATIONS_REQUEST_FAILED,
-  APPLICATIONS_RECEIVED
+  APPLICATIONS_RECEIVED,
+  DBTEMPLATES_REQUEST,
+  DBTEMPLATES_FETCHING,
+  DBTEMPLATES_REQUEST_FAILED,
+  DBTEMPLATES_RECEIVED
 } from '../actionTypes'
 
 export function* fetchScopedResource(action) {
@@ -87,11 +91,25 @@ export function* fetchEnvironments(action) {
     yield put({ type: ENVIRONMENTS_REQUEST_FAILED, err })
   }
 }
-
+// https://basta.adeo.no/rest/v1/oracledb/templates?environmentClass=p&zone=fss
+export function* fetchDbTemplates(action) {
+  console.log(action)
+  yield put({ type: DBTEMPLATES_FETCHING })
+  try {
+    let environments = yield call(
+      getUrl,
+      `/rest/v1/oracledb/templates?environmentClass=${action.environmentClass}&zone=${action.zone}`
+    )
+    yield put({ type: DBTEMPLATES_RECEIVED, value: environments })
+  } catch (err) {
+    yield put({ type: DBTEMPLATES_REQUEST_FAILED, err })
+  }
+}
 export function* watchOrderData() {
   yield fork(takeEvery, ENVIRONMENTS_REQUEST, fetchEnvironments)
   yield fork(takeEvery, APPLICATIONS_REQUEST, fetchApplications)
   yield fork(takeEvery, RESOURCES_REQUEST, fetchResources)
   yield fork(takeEvery, SCOPED_RESOURCE_REQUEST, fetchScopedResource)
   yield fork(takeEvery, MQCLUSTERS_REQUEST, fetchMqClusters)
+  yield fork(takeEvery, DBTEMPLATES_REQUEST, fetchDbTemplates)
 }

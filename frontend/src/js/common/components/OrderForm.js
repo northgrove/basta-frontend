@@ -6,7 +6,8 @@ import {
   OrderTextBox,
   OrderButtonGroup,
   EnvironmentsDropDown,
-  ApplicationsDropDown
+  ApplicationsDropDown,
+  OrderDbTemplateDropDown
 } from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
@@ -47,15 +48,49 @@ export class OrderForm extends Component {
     return true
   }
 
+  trimToLength(string, length) {
+    if (string.length <= length) {
+      return string
+    } else {
+      return string.slice(0, length)
+    }
+  }
+
+  removeIllegalCharacters(string) {
+    return string.replace(/[^A-Za-z0-9_]/g, '')
+  }
+
+  setSpecializedTexts(prevState) {
+    // Specialized rules for oracle db order form
+
+    if (
+      (this.state.nodeType === 'DB_ORACLE' &&
+        this.state.applicationName !== prevState.applicationName) ||
+      this.state.environmentName !== prevState.environmentName
+    ) {
+      const dbName = `${this.state.applicationName}_${this.state.environmentName}`
+      this.setState({
+        databaseName: this.trimToLength(this.removeIllegalCharacters(dbName.toUpperCase()), 28),
+        fasitAlias: `${this.state.applicationName}DB`
+      })
+    }
+  }
+
   componentDidMount() {
     const { dispatch } = this.props
     //dispatch(fetchApplications())
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state !== prevState) {
+      this.setSpecializedTexts(prevState)
+    }
+  }
+
   render() {
+    // this.setSpecializedTexts()
     const orderFields = this.orderFields
     const { dispatch } = this.props
-    console.log(this.state)
     return (
       <div>
         <div className="orderForm">
@@ -91,6 +126,22 @@ export class OrderForm extends Component {
                       value={this.state[orderFieldKey]}
                       placeholder={orderField.description}
                       onChange={v => this.handleChange(orderFieldKey, v)}
+                    />
+                  )
+                //Field for oracle db with input formatting
+                case 'databaseName':
+                  return (
+                    <OrderTextBox
+                      key={orderFieldKey}
+                      label={orderField.label}
+                      value={this.state[orderFieldKey]}
+                      placeholder={orderField.description}
+                      onChange={v =>
+                        this.handleChange(
+                          orderFieldKey,
+                          this.trimToLength(this.removeIllegalCharacters(v.toUpperCase()), 28)
+                        )
+                      }
                     />
                   )
                 case 'checkBox':
@@ -134,6 +185,15 @@ export class OrderForm extends Component {
                       value={this.state[orderFieldKey]}
                     />
                   )
+                case 'dbTemplates':
+                  return (
+                    <OrderDbTemplateDropDown
+                      key={orderFieldKey}
+                      label={orderField.label}
+                      onChange={v => this.handleChange(orderFieldKey, v)}
+                      value={this.state[orderFieldKey]}
+                    />
+                  )
                 case 'dropDown':
                   return (
                     <OrderDropDown
@@ -145,7 +205,6 @@ export class OrderForm extends Component {
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )
-
                 default:
                   if (orderField.fieldType) {
                     console.log(
