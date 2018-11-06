@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import connect from 'react-redux/es/connect/connect'
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 import moment from 'moment'
 
 import PageHeading from '../../common/components/PageHeading'
@@ -14,14 +12,38 @@ import { getOrder, getStatusLog } from './actionCreators'
 export class OrderDetails extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      time: 0,
+      monitoring: true
+    }
   }
 
   componentDidMount() {
     const { order, dispatch } = this.props
+    this.interval = setInterval(() => this.setState({ time: this.state.time + 1 }), 1000)
     if (!order.data) {
       dispatch(getOrder(this.props.match.params.orderId))
       dispatch(getStatusLog(this.props.match.params.orderId))
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+  componentDidUpdate(prevProps, prevState, ss) {
+    const { order, dispatch } = this.props
+    const { time, monitoring } = this.state
+    if (order.details.data) {
+      if (order.details.data.status === 'PROCESSING' && monitoring && time > 20) {
+        this.setState({ time: 0 })
+        dispatch(getStatusLog(this.props.match.params.orderId))
+      }
+    }
+  }
+
+  toggleMonitoring() {
+    this.setState({ monitoring: !this.state.monitoring })
   }
 
   render() {
@@ -44,7 +66,13 @@ export class OrderDetails extends Component {
         <div className="orderDetails">
           <Results data={details.data.resultDetails} type={details.data.orderType} />
           <Request data={details.data} />
-          <Log data={statuslog} />
+          {details.data.status === 'PROCESSING' ? (
+            <Log
+              data={statuslog}
+              monitoring={this.state.monitoring}
+              toggleMonitoring={() => this.toggleMonitoring()}
+            />
+          ) : null}
         </div>
       </div>
     ) : (

@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Spinner from '../../common/components/Spinner'
+import MonitorButton from './MonitorButton'
 import moment from 'moment'
 
 const Log = props => {
-  const { data } = props
+  const { data, toggleMonitoring, monitoring } = props
 
   function logBody(history) {
     return (
@@ -54,6 +55,7 @@ const Log = props => {
       <div className="panel panel-default">
         <div className="panel-heading">
           <i className="fa fa-history" /> Log
+          <MonitorButton toggleMonitoring={toggleMonitoring} monitoring={monitoring} />
         </div>
         {data.fetching ? <Spinner /> : logBody(data.data)}
       </div>
