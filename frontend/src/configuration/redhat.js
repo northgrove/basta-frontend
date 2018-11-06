@@ -3,7 +3,7 @@ const description = 'Linux'
 const image = require('../img/orderTypes/redhat.png')
 const orderFields = {
   nodeType: {
-    value: 'REDHAT'
+    value: 'PLAIN_LINUX'
   },
   classification: {
     value: { type: 'custom' }

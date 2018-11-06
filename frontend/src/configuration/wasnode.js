@@ -2,6 +2,9 @@ const description = 'Application Server'
 const title = 'Websphere'
 const image = require('../img/orderTypes/websphere.png')
 const orderFields = {
+  nodeType: {
+    value: 'WAS_NODES'
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -36,7 +39,7 @@ const orderFields = {
     fieldType: 'applications',
     value: ''
   },
-  servers: {
+  serverCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
@@ -44,7 +47,7 @@ const orderFields = {
     max: 8,
     value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
@@ -60,7 +63,7 @@ const orderFields = {
     max: 32,
     value: 2
   },
-  disk: {
+  extraDisk: {
     label: 'Extra disk',
     description: 'GB',
     fieldType: 'number',
@@ -72,8 +75,8 @@ const orderFields = {
     label: 'WAS version',
     description: '',
     fieldType: 'buttonGroup',
-    alternatives: [{ label: 'WAS 8', value: 'was8' }, { label: 'WAS 9', value: 'was9' }],
-    value: 'was9'
+    alternatives: [{ label: 'WAS 8', value: 'WAS8' }, { label: 'WAS 9', value: 'WAS9' }],
+    value: 'WAS9'
   },
   description: {
     label: 'Description',
@@ -81,7 +84,7 @@ const orderFields = {
     fieldType: 'text',
     value: ''
   },
-  custom: {
+  classification: {
     label: 'Custom',
     description: 'Classify this server as custom',
     fieldType: 'checkBox',

@@ -2,6 +2,9 @@ const title = 'Windows'
 const description = 'Server'
 const image = require('../img/orderTypes/windows.png')
 const orderFields = {
+  osType: {
+    value: 'win2012'
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -25,13 +28,13 @@ const orderFields = {
     ],
     value: 'fss'
   },
-  serverType: {
+  middleWareType: {
     label: 'Server type',
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'Application (ap)', value: 'ap' },
-      { label: 'Information server (is)', value: 'is' }
+      { label: 'Application (ap)', value: 'windows_ap' },
+      { label: 'Information server (is)', value: 'windows_is' }
     ],
     value: 'ap'
   },

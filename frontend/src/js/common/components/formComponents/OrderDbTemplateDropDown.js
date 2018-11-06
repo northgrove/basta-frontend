@@ -15,14 +15,14 @@ export class OrderDbTemplateDropDown extends Component {
   }
 
   render() {
-    const { label, value, onChange, description, applications } = this.props
+    const { label, value, onChange, description, dbTemplates } = this.props
     return (
       <div className="formComponentGrid">
         <div className="formComponentLabel">{label}</div>
         <div className="formComponentField">
           <div className="formComponentDropdownField">
             <Select
-              options={mapToOptions(applications)}
+              options={mapToOptions(dbTemplates)}
               value={value ? { label: value, value } : null}
               onChange={e => onChange(e.value)}
             />
@@ -36,14 +36,14 @@ export class OrderDbTemplateDropDown extends Component {
 }
 const mapToOptions = alternatives => {
   return alternatives.map(alt => {
-    return { label: alt, value: alt }
+    return { label: alt.description, value: alt.name }
   })
 }
 OrderDbTemplateDropDown.propTypes = {}
 
 const mapStateToProps = state => {
   return {
-    applications: state.orderFormData.applications.data
+    dbTemplates: state.orderFormData.dbTemplates.data
   }
 }
 export default connect(mapStateToProps)(OrderDbTemplateDropDown)

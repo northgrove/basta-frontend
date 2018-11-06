@@ -11,7 +11,6 @@ import {
 } from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
-import { fetchApplications, fetchEnvironments } from '../actionCreators'
 import { submitForm } from '../../containers/order/actionCreators'
 import { withRouter } from 'react-router-dom'
 import connect from 'react-redux/es/connect/connect'
@@ -62,11 +61,11 @@ export class OrderForm extends Component {
 
   setSpecializedTexts(prevState) {
     // Specialized rules for oracle db order form
-
     if (
-      (this.state.nodeType === 'DB_ORACLE' &&
-        this.state.applicationName !== prevState.applicationName) ||
-      this.state.environmentName !== prevState.environmentName
+      this.state.nodeType === 'DB_ORACLE' &&
+      (this.state.applicationName !== prevState.applicationName ||
+        this.state.environmentName !== prevState.environmentName) &&
+      (this.state.environmentName && this.state.applicationName)
     ) {
       const dbName = `${this.state.applicationName}_${this.state.environmentName}`
       this.setState({
@@ -76,11 +75,6 @@ export class OrderForm extends Component {
     }
   }
 
-  componentDidMount() {
-    const { dispatch } = this.props
-    //dispatch(fetchApplications())
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state !== prevState) {
       this.setSpecializedTexts(prevState)
@@ -88,9 +82,9 @@ export class OrderForm extends Component {
   }
 
   render() {
-    // this.setSpecializedTexts()
     const orderFields = this.orderFields
     const { dispatch } = this.props
+    console.log(this.props.match.params.orderType)
     return (
       <div>
         <div className="orderForm">
