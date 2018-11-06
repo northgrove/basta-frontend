@@ -37,8 +37,7 @@ describe('Order filter function', () => {
   })
   it('should clear application, environmentname, queuemanager and alias when environmentClass changes', () => {
     wrapper.setState({ environmentClass: 'u' })
-    console.log(wrapper.state())
     expect(wrapper.state().applicationMappingName).toBe('')
-    expect(wrapper.state().applicationMappingName).toBe('x')
+    expect(wrapper.state().environmentName).toBe('')
   })
 })
