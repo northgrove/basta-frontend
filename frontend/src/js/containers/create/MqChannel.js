@@ -112,7 +112,7 @@ export class MqChannel extends Component {
               value={this.state.applicationMappingName}
             />
             {environmentName && applicationMappingName ? (
-              <div>
+              <div className={'subcomponents'}>
                 <QueueManagerDropDown
                   key={'queueManager'}
                   label={orderFields.queueManager.label}
