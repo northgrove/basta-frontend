@@ -5,7 +5,7 @@ import MonitorButton from './MonitorButton'
 import moment from 'moment'
 
 const Log = props => {
-  const { data, toggleMonitoring, monitoring } = props
+  const { data, toggleMonitoring, monitoring, processing } = props
 
   function logBody(history) {
     return (
@@ -55,7 +55,9 @@ const Log = props => {
       <div className="panel panel-default">
         <div className="panel-heading">
           <i className="fa fa-history" /> Log
-          <MonitorButton toggleMonitoring={toggleMonitoring} monitoring={monitoring} />
+          {processing ? (
+            <MonitorButton toggleMonitoring={toggleMonitoring} monitoring={monitoring} />
+          ) : null}
         </div>
         {data.fetching ? <Spinner /> : logBody(data.data)}
       </div>

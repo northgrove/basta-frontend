@@ -66,13 +66,12 @@ export class OrderDetails extends Component {
         <div className="orderDetails">
           <Results data={details.data.resultDetails} type={details.data.orderType} />
           <Request data={details.data} />
-          {details.data.status === 'PROCESSING' ? (
-            <Log
-              data={statuslog}
-              monitoring={this.state.monitoring}
-              toggleMonitoring={() => this.toggleMonitoring()}
-            />
-          ) : null}
+          <Log
+            processing={details.data.status === 'PROCESSING'}
+            data={statuslog}
+            monitoring={this.state.monitoring}
+            toggleMonitoring={() => this.toggleMonitoring()}
+          />
         </div>
       </div>
     ) : (
