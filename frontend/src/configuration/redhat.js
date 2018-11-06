@@ -3,7 +3,7 @@ const description = 'Linux'
 const image = require('../img/orderTypes/redhat.png')
 const orderFields = {
   nodeType: {
-    value: 'REDHAT'
+    value: 'PLAIN_LINUX'
   },
   classification: {
     value: { type: 'custom' }
@@ -75,7 +75,7 @@ const orderFields = {
     fieldType: 'text',
     value: ''
   },
-  ibm: {
+  ibmSw: {
     label: 'IBM',
     description: 'Will install ILMT agent',
     fieldType: 'checkBox',

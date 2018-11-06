@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const orderMock = require('./orderMock')
 const fasitMock = require('./fasitMock')
 const mqMock = require('./mqMock')
+const dbMock = require('./dbTemplateMock')
 const app = express()
 app.use(logger('dev'))
 
@@ -33,6 +34,7 @@ router.get(`/rest/v1/fasit/environments`, fasitMock.getEnvironments())
 router.get(`/rest/v1/fasit/applications`, fasitMock.getApplications())
 router.get(`/rest/v1/fasit/resources`, fasitMock.getResources())
 router.get(`/rest/v1/mq/clusters`, mqMock.getClusters())
+router.get(`/rest/v1/oracledb/templates`, dbMock.getTemplates())
 
 // ERROR HANDLING
 app.use((err, req, res, next) => {

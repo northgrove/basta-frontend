@@ -2,6 +2,21 @@ const description = 'Deployment Manager'
 const title = 'Websphere'
 const image = require('../img/orderTypes/websphere.png')
 const orderFields = {
+  nodeType: {
+    value: 'WAS_DEPLOYMENT_MANAGER'
+  },
+  serverCount: {
+    value: 1
+  },
+  cpuCount: {
+    value: 2
+  },
+  memory: {
+    value: 4
+  },
+  extraDisk: {
+    value: 10
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -34,8 +49,8 @@ const orderFields = {
     label: 'WAS version',
     description: '',
     fieldType: 'buttonGroup',
-    alternatives: [{ label: 'WAS 8', value: 'was8' }, { label: 'WAS 9', value: 'was9' }],
-    value: 'was9'
+    alternatives: [{ label: 'WAS 8', value: 'WAS8' }, { label: 'WAS 9', value: 'WAS9' }],
+    value: 'WAS9'
   }
 }
 module.exports = {

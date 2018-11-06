@@ -71,7 +71,7 @@ const orderFields = {
     max: 100,
     value: 0
   },
-  custom: {
+  classification: {
     label: 'Custom',
     description: 'Classify this server as custom',
     fieldType: 'checkBox',

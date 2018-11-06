@@ -13,7 +13,10 @@ import {
   MQCLUSTERS_FETCHING,
   ENVIRONMENTS_REQUEST_FAILED,
   ENVIRONMENTS_RECEIVED,
-  ENVIRONMENTS_FETCHING
+  ENVIRONMENTS_FETCHING,
+  DBTEMPLATES_REQUEST_FAILED,
+  DBTEMPLATES_RECEIVED,
+  DBTEMPLATES_FETCHING
 } from '../actionTypes'
 
 export default (
@@ -44,6 +47,11 @@ export default (
       data: []
     },
     scopedresources: {
+      fetching: false,
+      error: null,
+      data: []
+    },
+    dbTemplates: {
       fetching: false,
       error: null,
       data: []
@@ -190,6 +198,34 @@ export default (
       return {
         ...state,
         environments: {
+          fetching: false,
+          error: action.error,
+          data: []
+        }
+      }
+    // DBTEMPLATES
+    case DBTEMPLATES_FETCHING:
+      return {
+        ...state,
+        dbTemplates: {
+          fetching: true,
+          error: null,
+          data: []
+        }
+      }
+    case DBTEMPLATES_RECEIVED:
+      return {
+        ...state,
+        dbTemplates: {
+          fetching: false,
+          error: null,
+          data: action.value
+        }
+      }
+    case DBTEMPLATES_REQUEST_FAILED:
+      return {
+        ...state,
+        dbTemplates: {
           fetching: false,
           error: action.error,
           data: []

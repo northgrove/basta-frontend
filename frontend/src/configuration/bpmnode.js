@@ -2,6 +2,12 @@ const description = 'Node'
 const title = 'BPM'
 const image = require('../img/orderTypes/websphere.png')
 const orderFields = {
+  nodeType: {
+    value: 'BPM_NODES'
+  },
+  extraDisk: {
+    value: 10
+  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -20,7 +26,7 @@ const orderFields = {
     fieldType: 'environments',
     value: ''
   },
-  servers: {
+  serverCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
@@ -28,13 +34,13 @@ const orderFields = {
     max: 8,
     value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
     min: 1,
     max: 4,
-    value: 1
+    value: 4
   },
   memory: {
     label: 'Memory',
@@ -42,7 +48,7 @@ const orderFields = {
     fieldType: 'number',
     min: 2,
     max: 32,
-    value: 2
+    value: 16
   }
 }
 module.exports = {

@@ -1,9 +1,12 @@
-const title = 'CoreOS'
-const description = 'Container Linux'
+const title = 'Container Linux'
+const description = 'CoreOS'
 const image = require('../img/orderTypes/containerlinux.png')
 const orderFields = {
   nodeType: {
-    value: 'COREOS'
+    value: 'LIGHTWEIGHT_LINUX'
+  },
+  osType: {
+    value: 'coreos'
   },
   classification: {
     value: { type: 'custom' }
@@ -13,8 +16,8 @@ const orderFields = {
     description: '',
     fieldType: 'buttonGroup',
     alternatives: [
-      { label: 'development', value: 'u' },
-      { label: 'test', value: 't' },
+      { label: 'Development', value: 'u' },
+      { label: 'Test', value: 't' },
       { label: 'PreProd', value: 'q' },
       { label: 'Production', value: 'p', access: ['ROLE_PROD'] }
     ],
@@ -52,38 +55,21 @@ const orderFields = {
     fieldType: 'number',
     min: 2,
     max: 32,
-    value: 2
+    value: 1
   },
   extraDisk: {
-    label: 'Extra disk',
+    label: 'Disk til lagrings-node',
     description: 'GB',
     fieldType: 'number',
     min: 0,
-    max: 100,
+    max: 400,
     value: 0
   },
-  eapVersion: {
-    label: 'EAP version',
-    description: '',
-    fieldType: 'buttonGroup',
-    alternatives: [{ label: 'EAP 6', value: 'EAP6' }, { label: 'EAP 7', value: 'EAP7' }],
-    value: 'EAP6'
-  },
-  javaVersion: {
-    label: 'Java version',
-    description: '',
-    fieldType: 'buttonGroup',
-    alternatives: [
-      { label: 'OpenJDK 7', value: 'OpenJDK7' },
-      { label: 'OpenJDK 8', value: 'OpenJDK8' }
-    ],
-    value: 'OpenJDK7'
-  },
-  description: {
-    label: 'Description',
-    description: 'What is this server used for?',
-    fieldType: 'text',
-    value: ''
+  ibmSw: {
+    label: 'IBM',
+    description: 'Will install ILMT agent',
+    fieldType: 'checkBox',
+    value: false
   }
 }
 module.exports = {
