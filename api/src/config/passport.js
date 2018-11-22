@@ -65,14 +65,7 @@ module.exports = passport => {
               console.log('error: ', err)
               return done(err)
             }
-            console.log('user1 :', user)
             if (!user) {
-              /*              const now = new Date()
-              console.log(now)
-              const tokenExpire = Date.parse(now) //.setMinutes(now.getMinutes() + 1);
-              console.log(Date.parse(now))
-              console.log(tokenExpire)
-*/
               arrRoles = getroles.matchRoles(profile._json.groups)
 
               let newUser = {}
@@ -83,8 +76,6 @@ module.exports = passport => {
               newUser.lastName = profile.name.familyName
               newUser.roles = arrRoles
               newUser.refreshToken = refreshToken
-              //              newUser.accessToken = accessToken
-              //              newUser.tokenExpire = tokenExpire
               finduser.users.push(newUser)
 
               req.session.userid = profile.oid
@@ -94,19 +85,9 @@ module.exports = passport => {
               req.session.displayName = profile.displayName
               req.session.roles = arrRoles
               req.session.refreshToken = refreshToken
-              //console.log('session: ', req.session)
-              //console.log('newuser: ', newUser)
               return done(null, newUser)
             }
-            /*           try {
-              const decodedToken = token.decodeToken(user.accessToken)
-              console.log('decoedtoken exp: ', JSON.parse(decodedToken).exp)
-            }
-            catch {
-              console.log('token decode error')
-          }
-*/
-            //console.log('user: ', user)
+
             req.session.userid = user.oid
             req.session.upn = user.upn
             req.session.firstName = user.firstName

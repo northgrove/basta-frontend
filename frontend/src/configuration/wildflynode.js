@@ -5,9 +5,6 @@ const orderFields = {
   nodeType: {
     value: 'WILDFLY'
   },
-  classification: {
-    value: { type: 'standard' }
-  },
   environmentClass: {
     label: 'Env. class',
     description: '',
@@ -73,6 +70,12 @@ const orderFields = {
     min: 0,
     max: 100,
     value: 0
+  },
+  classification: {
+    label: 'Custom',
+    description: 'Classify this server as custom',
+    fieldType: 'checkBox',
+    value: false
   }
 }
 module.exports = {

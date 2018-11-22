@@ -2,7 +2,16 @@ const description = 'Developer tools available from laptops via VPN'
 const title = 'Order new Dev tool iApp server'
 const image = require('../img/orderTypes/devtools-iapp.png')
 const orderFields = {
-  servers: {
+  nodeType: {
+    value: 'PLAIN_LINUX'
+  },
+  environmentClass: {
+    value: 'p'
+  },
+  zone: {
+    value: 'iapp'
+  },
+  serverCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
@@ -10,7 +19,7 @@ const orderFields = {
     max: 8,
     value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
@@ -26,7 +35,7 @@ const orderFields = {
     max: 32,
     value: 2
   },
-  disk: {
+  extraDisk: {
     label: 'Extra disk',
     description: 'GB',
     fieldType: 'number',
@@ -40,7 +49,7 @@ const orderFields = {
     fieldType: 'text',
     value: ''
   },
-  ibm: {
+  ibmSw: {
     label: 'IBM software',
     description: 'Will install ILMT monitoring agent',
     fieldType: 'checkBox',

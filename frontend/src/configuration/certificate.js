@@ -25,7 +25,7 @@ const orderFields = {
     ],
     value: 'fss'
   },
-  applicationMappingName: {
+  application: {
     label: 'Application',
     description: '',
     fieldType: 'applications',

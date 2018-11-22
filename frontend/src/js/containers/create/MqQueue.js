@@ -116,7 +116,7 @@ export class MqQueue extends Component {
               onChange={v => this.handleChange('name', v)}
             />
             {environmentName && applicationMappingName && name ? (
-              <div>
+              <div className={'subcomponents'}>
                 <QueueManagerDropDown
                   key={'queueManager'}
                   label={orderFields.queueManager.label}

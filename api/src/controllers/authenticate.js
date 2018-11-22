@@ -17,7 +17,7 @@ exports.authenticateAzure = () => {
     try {
       passport.authenticate('azuread-openidconnect', {
         response: res,
-        // resourceURL: 'b36e92f3-d48b-473d-8f69-e7887457bd3f',
+        // resourceURL: process.env['BASTAAZURECONFIG_CLIENTID'],
         successRedirect: '/',
         failureRedirect: '/error'
       })(req, res, next)
@@ -48,7 +48,7 @@ exports.ensureAuthenticated = () => {
     console.log('auth:  ', req.isAuthenticated())
     if (req.isAuthenticated()) {
       // console.log('oid: ', req.session.userid)
-      resource = 'b36e92f3-d48b-473d-8f69-e7887457bd3f'
+      resource = process.env['BASTAAZURECONFIG_CLIENTID']
       /*      const bastaToken = await token.validateRefreshAndGetToken(
         req.session.userid,
         req.session.refreshToken,

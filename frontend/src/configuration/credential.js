@@ -25,19 +25,19 @@ const orderFields = {
     ],
     value: 'fss'
   },
-  applicationMappingName: {
+  application: {
     label: 'Application',
     description: '',
     fieldType: 'applications',
     value: ''
   },
-  abac: {
+  abacAccess: {
     label: 'ABAC',
     description: 'Adds user to ABAC pdp group in AD',
     fieldType: 'checkBox',
     value: false
   },
-  sts: {
+  stsAccess: {
     label: 'STS',
     description: 'Gives user access to read from STS',
     fieldType: 'checkBox',

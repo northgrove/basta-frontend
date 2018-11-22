@@ -22,20 +22,59 @@ export function* submitForm(action) {
   yield history.push('/order')
   try {
     switch (action.key) {
+      case 'bigip':
+        value = yield call(postFrom, `/rest/v1/bigip`, action.orders)
+        break
+      case 'bpmdmgr':
+        value = yield call(postFrom, `/rest/vm/orders/bpm/dmgr`, action.orders)
+        break
+      case 'bpmnode':
+        value = yield call(postFrom, `/rest/vm/orders/bpm/node`, action.orders)
+        break
+      case 'containerlinux':
+        value = yield call(postForm, `/rest/vm/orders/containerlinux`, action.orders)
+        break
       case 'iapptools':
-        value = yield call(postForm, `/rest/orders/iapptools`, action.orders)
+        value = yield call(postForm, `/rest/vm/orders/iapptools`, action.orders)
         break
       case 'developertools':
-        value = yield call(postForm, `/rest/orders/developertools`, action.orders)
+        value = yield call(postForm, `/rest/vm/orders/developertools`, action.orders)
         break
       case 'jbossnode':
-        value = yield call(postForm, `/rest/orders/jbossnode`, action.orders)
+        value = yield call(postForm, `/rest/vm/orders/jboss`, action.orders)
+        break
+      case 'liberty':
+        value = yield call(postForm, `/rest/vm/orders/liberty`, action.orders)
+        break
+      case 'redhat':
+        value = yield call(postForm, `rest/vm/orders/linux`, action.orders)
+        break
+      case 'openamproxy':
+        value = yield call(postForm, `/rest/vm/orders/openam/proxy`, action.orders)
+        break
+      case 'openamserver':
+        value = yield call(postForm, `/rest/vm/orders/openam/server`, action.orders)
+        break
+      case 'oracle':
+        value = yield call(postForm, `/rest/v1/oracledb`, action.orders)
+        break
+      case 'certificate':
+        value = yield call(postForm, `/rest/orders/serviceuser/certificate`, action.orders)
+        break
+      case 'credential':
+        value = yield call(postForm, `/rest/orders/serviceuser/credential`, action.orders)
+        break
+      case 'wasdmgr':
+        value = yield call(postForm, `/rest/vm/orders/was/dmgr`, action.orders)
         break
       case 'wasnode':
-        value = yield call(postForm, `/rest/orders/wasnode`, action.orders)
+        value = yield call(postForm, `/rest/vm/orders/wasnode`, action.orders)
         break
       case 'wildflynode':
-        value = yield call(postForm, `/rest/orders/wildflynode`, action.orders)
+        value = yield call(postForm, `/rest/vm/orders/wildflynode`, action.orders)
+        break
+      case 'windows':
+        value = yield call(postForm, `/rest/vm/orders/windows`, action.orders)
         break
     }
     yield put({ type: FORM_SUBMIT_SUCCESSFUL, value })

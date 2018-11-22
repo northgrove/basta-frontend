@@ -1,8 +1,14 @@
-const description = 'Developer tools available in Devillo'
-const title = 'Order new Devillo server'
+const description = 'Order new Devillo server'
+const title = 'Developer tools available in Devillo'
 const image = require('../img/orderTypes/devtools.png')
 const orderFields = {
-  servers: {
+  nodeType: {
+    value: 'DEV_TOOLS'
+  },
+  osType: {
+    value: 'rhel70'
+  },
+  serversCount: {
     label: 'Servers',
     description: 'Virtual Servers',
     fieldType: 'number',
@@ -10,7 +16,7 @@ const orderFields = {
     max: 8,
     value: 1
   },
-  cpu: {
+  cpuCount: {
     label: 'Cpu',
     description: 'Virtual sockets',
     fieldType: 'number',
@@ -26,7 +32,7 @@ const orderFields = {
     max: 32,
     value: 2
   },
-  disk: {
+  Extradisk: {
     label: 'Extra disk',
     description: 'GB',
     fieldType: 'number',
