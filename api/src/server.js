@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const session = require('cookie-session')
 const router = require('./routes/index')
+const prometheus = require('prom-client')
 const helmet = require('helmet')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
@@ -15,6 +16,8 @@ const { startApp } = require('./startApp')
 const proxy = require('./controllers/proxy')
 const token = require('./controllers/token')
 const auth = require('./controllers/authenticate')
+
+prometheus.collectDefaultMetrics()
 
 const app = express()
 app.use(

@@ -5,10 +5,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const router = require('./routes/')
 const proxy = require('http-proxy-middleware')
-const prometheus = require('prom-client')
 const { startApp } = require('./startApp')
-
-prometheus.collectDefaultMetrics()
 
 const app = express()
 app.use(
@@ -29,13 +26,15 @@ const cors = function(req, res, next) {
   )
   return next()
 }
+
+app.use('/rest', proxy('/rest', { target: `${process.env.BASTA_BACKEND}` }))
 app.use(cors)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
 
 // Proxy all API calls to orders to Basta java backend
-app.use('/rest', proxy('/rest', { target: `${process.env.BASTA_BACKEND}` }))
+
 app.use('/', router)
 app.use(express.static('./dist'))
 app.get('*', (req, res) => {
