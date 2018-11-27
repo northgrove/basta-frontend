@@ -11,8 +11,8 @@ const router = require('./routes/index')
 const helmet = require('helmet')
 require('./config/passport')(passport)
 const { startApp } = require('./startApp')
+
 const proxy = require('./controllers/proxy')
-//const proxy = require('http-proxy-middleware')
 const token = require('./controllers/token')
 const auth = require('./controllers/authenticate')
 
@@ -61,10 +61,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // ROUTES
+app.use('/static', express.static('./dist'))
 app.use('/rest/', auth.ensureAuthenticated(), proxy.attachToken(), proxy.doProxy())
-
-app.use('/static', auth.ensureAuthenticated(), express.static('./dist'))
-
 app.use('/', router)
 
 app.get('*', (req, res) => {
