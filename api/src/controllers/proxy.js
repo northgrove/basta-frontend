@@ -4,6 +4,7 @@ const token = require('./token')
 exports.doProxy = () => {
   return proxy('/rest', {
     target: `${process.env.BASTA_BACKEND}`,
+    onProxyReq: restream,
     secure: true,
     changeOrigin: true,
     logLevel: 'debug',
@@ -11,6 +12,15 @@ exports.doProxy = () => {
       console.log('error in proxy', err)
     }
   })
+}
+
+const restream = (proxyReq, req, res, options) => {
+  if (req.body) {
+    let bodyData = JSON.stringify(req.body)
+    proxyReq.setHeader('Content-Type', 'application/json')
+    proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData))
+    proxyReq.write(bodyData)
+  }
 }
 
 exports.attachToken = () => {
