@@ -5,9 +5,9 @@ const orderFields = {
   nodeType: {
     value: 'PLAIN_LINUX'
   },
-  classification: {
+  /* classification: {
     value: { type: 'custom' }
-  },
+  }, */
   environmentClass: {
     label: 'Env. class',
     description: '',
