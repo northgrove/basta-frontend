@@ -94,6 +94,7 @@
     "prefrontend": "better-npm-run prebuild",
     "frontend": "better-npm-run dev-frontend",
     "api": "better-npm-run dev-api",
+    "real-basta-backend": "better-npm-run dev-real-basta-backend",
     "offline": "better-npm-run dev-offline",
     "mockend": "better-npm-run dev-mockend",
     "auth": "better-npm-run auth",
@@ -126,7 +127,14 @@
       "command": "nodemon api/src/server.js",
       "env": {
         "NODE_ENV": "development",
-        "BASTA_BACKEND": "http://localhost:6996"
+        "BASTA_BACKEND": "http://localhost:1337"
+      }
+    },
+    "dev-real-basta-backend": {
+      "command": "nodemon api/src/server.js",
+      "env": {
+        "NODE_ENV": "development",
+        "BASTA_BACKEND": "http://localhost:1337"
       }
     },
     "dev-offline": {
