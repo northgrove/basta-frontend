@@ -10,7 +10,7 @@ import {
   MqClusterCheckBox,
   ApplicationsDropDown
 } from '../../common/components/formComponents'
-import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 import OrderDropDown from '../../common/components/formComponents/OrderDropDown'
 import { fetchMqClusters } from '../../common/actionCreators'
 

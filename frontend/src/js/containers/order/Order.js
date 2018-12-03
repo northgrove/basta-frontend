@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 import history from '../../common/history'
 import Spinner from '../../common/components/Spinner'
 import PropTypes from 'prop-types'
