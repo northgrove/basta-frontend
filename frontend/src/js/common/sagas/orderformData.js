@@ -1,4 +1,4 @@
-import { takeEvery, put, fork, call } from 'redux-saga/effects'
+import { takeEvery, takeLatest, put, fork, call } from 'redux-saga/effects'
 import { getUrl, getUserPhoto } from '../utils'
 import {
   MQCLUSTERS_REQUEST,
@@ -24,7 +24,11 @@ import {
   DBTEMPLATES_REQUEST,
   DBTEMPLATES_FETCHING,
   DBTEMPLATES_REQUEST_FAILED,
-  DBTEMPLATES_RECEIVED
+  DBTEMPLATES_RECEIVED,
+  VMLOOKUP_REQUEST,
+  VMLOOKUP_FETCHING,
+  VMLOOKUP_REQUEST_FAILED,
+  VMLOOKUP_RECEIVED
 } from '../actionTypes'
 
 export function* fetchScopedResource(action) {
@@ -96,15 +100,27 @@ export function* fetchDbTemplates(action) {
   console.log(action)
   yield put({ type: DBTEMPLATES_FETCHING })
   try {
-    let environments = yield call(
+    let templates = yield call(
       getUrl,
       `/rest/v1/oracledb/templates?environmentClass=${action.environmentClass}&zone=${action.zone}`
     )
-    yield put({ type: DBTEMPLATES_RECEIVED, value: environments })
+    yield put({ type: DBTEMPLATES_RECEIVED, value: templates })
   } catch (err) {
     yield put({ type: DBTEMPLATES_REQUEST_FAILED, err })
   }
 }
+
+export function* fetchVmInfo(action) {
+  console.log('skjer det noe', action)
+  yield put({ type: VMLOOKUP_FETCHING })
+  try {
+    let vmInfo = yield call(getUrl, `/rest/v1/servers?hostname=${action.hostname}`)
+    yield put({ type: VMLOOKUP_RECEIVED, value: vmInfo })
+  } catch (err) {
+    yield put({ type: VMLOOKUP_REQUEST_FAILED, err })
+  }
+}
+
 export function* watchOrderData() {
   yield fork(takeEvery, ENVIRONMENTS_REQUEST, fetchEnvironments)
   yield fork(takeEvery, APPLICATIONS_REQUEST, fetchApplications)
@@ -112,4 +128,5 @@ export function* watchOrderData() {
   yield fork(takeEvery, SCOPED_RESOURCE_REQUEST, fetchScopedResource)
   yield fork(takeEvery, MQCLUSTERS_REQUEST, fetchMqClusters)
   yield fork(takeEvery, DBTEMPLATES_REQUEST, fetchDbTemplates)
+  yield fork(takeLatest, VMLOOKUP_REQUEST, fetchVmInfo)
 }
