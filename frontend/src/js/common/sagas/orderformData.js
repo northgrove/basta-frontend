@@ -111,7 +111,7 @@ export function* fetchDbTemplates(action) {
 }
 
 export function* fetchVmInfo(action) {
-  console.log('skjer det noe', action)
+  console.log('fetch wm info', action)
   yield put({ type: VMLOOKUP_FETCHING })
   try {
     let vmInfo = yield call(getUrl, `/rest/v1/servers?hostname=${action.hostname}`)

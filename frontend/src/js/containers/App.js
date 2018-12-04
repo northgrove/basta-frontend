@@ -45,17 +45,17 @@ class App extends Component {
     if (time > 3600 && user.isUserAuthenticated) {
       dispatch(userLogout())
     }
-    if (prevProps.user.isUserAuthenticated !== user.isUserAuthenticated && user.isUserAuthenticated)
-      dispatch(
-        getOrderHistory(
-          1000,
-          moment('2013-01-01').valueOf(),
-          moment()
-            .add(1, 'days')
-            .startOf('day')
-            .valueOf()
-        )
-      )
+    // if (prevProps.user.isUserAuthenticated !== user.isUserAuthenticated && user.isUserAuthenticated)
+    //   dispatch(
+    //     getOrderHistory(
+    //       1000,
+    //       moment('2013-01-01').valueOf(),
+    //       moment()
+    //         .add(1, 'days')
+    //         .startOf('day')
+    //         .valueOf()
+    //     )
+    //   )
   }
 
   render() {

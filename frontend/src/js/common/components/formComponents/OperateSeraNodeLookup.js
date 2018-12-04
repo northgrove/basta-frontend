@@ -19,19 +19,16 @@ export class OperateSeraNodeLookup extends Component {
   handleChange(event) {
     const { dispatch } = this.props
     const { hostnames } = this.state
-    this.splitAndTrim(event.target.value)
+    this.splitMatchAndTrim(event.target.value)
     this.setState({ [event.target.name]: event.target.value })
-    hostnames.forEach(e => {
-      console.log(e)
-      if (e.length > 10) dispatch(fetchVmInfo(e))
-    })
   }
 
   findHostnames(hostnames) {}
 
-  splitAndTrim(hostnames) {
+  splitMatchAndTrim(hostnames) {
     const arr = hostnames.split(',').map(e => {
-      return e.trim()
+      const trimmed = e.trim()
+      if (trimmed.match(/^\w+\.\w+\.\w+$/)) return trimmed
     })
     this.setState({ hostnames: arr })
   }
@@ -45,10 +42,6 @@ export class OperateSeraNodeLookup extends Component {
         </div>
       )
     })
-  }
-
-  lookupSera(hostname) {
-    console.log(hostname)
   }
 
   render() {
@@ -85,6 +78,12 @@ export class OperateSeraNodeLookup extends Component {
 OperateSeraNodeLookup.propTypes = {}
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    vmsWithInfo: state.orderFormData.vmOperations.data
+  }
 }
 export default connect(mapStateToProps)(OperateSeraNodeLookup)
+
+// ^.+\..+\..+
+
+// ^\w+\.\w+\.\w+$|^\w+\.\w+\-\w+\.\w+$

@@ -2,16 +2,22 @@
 import React from 'react'
 const request = require('request-promise')
 import { api } from '../../../../api/src/config/config'
-// let ms_access_token = ''
 
 const NO_CONTENT = 204
 
+export const resolveOrigin = () => {
+  const url = new URL(window.location.href)
+  return url.origin
+}
+
 export const getUrl = url => {
+  // Small fix so js can fetch data regardless of current browser url
+  const origin = resolveOrigin()
   const init = {
     credentials: 'include',
     method: 'GET'
   }
-  return fetch(url, init).then(res => {
+  return fetch(`${origin}${url}`, init).then(res => {
     if (res.status === NO_CONTENT) {
       return []
     }

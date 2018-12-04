@@ -24,7 +24,7 @@ export function* getPartialHistory(action, pageId) {
 
   value = yield call(
     getUrl,
-    `rest/orders/page/${pageId}/${action.pageSize}/${action.fromDate}/${action.toDate}`
+    `/rest/orders/page/${pageId}/${action.pageSize}/${action.fromDate}/${action.toDate}`
   )
 
   if (value.length > 0) {

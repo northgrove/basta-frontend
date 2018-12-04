@@ -245,7 +245,8 @@ export default (
         ...state,
         vmOperations: {
           fetching: true,
-          error: null
+          error: null,
+          data: [...state.vmOperations.data]
         }
       }
     case VMLOOKUP_RECEIVED:
@@ -254,7 +255,7 @@ export default (
         vmOperations: {
           fetching: false,
           error: null,
-          data: { ...state.vmOperations.data.push(action.value) }
+          data: state.vmOperations.data.push(action.value)
         }
       }
     case VMLOOKUP_REQUEST_FAILED:
@@ -262,7 +263,8 @@ export default (
         ...state,
         vmOperations: {
           fetching: false,
-          error: action.error
+          error: action.error,
+          data: [...state.vmOperations.data]
         }
       }
     default:
