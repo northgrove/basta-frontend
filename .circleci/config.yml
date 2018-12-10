@@ -45,7 +45,7 @@ jobs:
       - run:
           name: 'Release, tag and build Docker'
           command: |
-            export VERSION=$(date "+%Y-%m-%d"-$CIRCLE_SHA1 )
+            export VERSION=$(date "+%Y-%m-%d")-$(git --no-pager log -1 --pretty=%h)
             echo $VERSION
             docker build -t navikt/basta-frontend:$VERSION .
             docker push navikt/basta-frontend:$VERSION
