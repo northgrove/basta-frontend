@@ -52,4 +52,4 @@ jobs:
             git clone https://${CIRCLE_PROJECT_USERNAME}:${GITHUB_TOKEN}@github.com/navikt/nais-yaml && cd nais-yaml
             sed -i 's/version.*/version\: '"${VERSION}"'/g' vars/basta-frontend.yaml
             git commit -am "Update basta-frontend to ${VERSION}"
-            git push
+            git push origin master
