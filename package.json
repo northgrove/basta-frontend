@@ -143,7 +143,7 @@
       "command": "nodemon api/src/server.js",
       "env": {
         "NODE_ENV": "development",
-        "BASTA_BACKEND": "http://localhost:1337"
+        "BASTA_BACKEND": "http://localhost:6996"
       }
     },
     "dev-real-basta-backend": {
