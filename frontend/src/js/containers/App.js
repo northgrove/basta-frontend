@@ -12,39 +12,24 @@ import NavMenu from './navMenu/NavMenu'
 import NavUserMenu from './navMenu/NavUserMenu'
 import Login from '../containers/login/Login'
 import moment from 'moment'
+import Services from '../common/components/Services'
 
 const bastaLogo = require('../../img/basta.png')
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      time: 0
-    }
-  }
-
   navigate(location) {
     if (location === 'History') location = '/'
     history.push(location.toLowerCase())
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.setState({ time: this.state.time + 1 }), 1000)
     const { dispatch } = this.props
     dispatch(initializeApplication())
     moment.locale('no-nb')
   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval)
-  }
-
   componentDidUpdate(prevProps, prevState, ss) {
-    const { time } = this.state
     const { dispatch, user } = this.props
-    if (time > 3600 && user.isUserAuthenticated) {
-      dispatch(userLogout())
-    }
     // if (prevProps.user.isUserAuthenticated !== user.isUserAuthenticated && user.isUserAuthenticated)
     //   dispatch(
     //     getOrderHistory(
@@ -89,6 +74,7 @@ class App extends Component {
           </nav>
           <div className="navRight" />
           <main onClick={() => this.props.dispatch(closeNavMenu())}>
+            <Services />
             <NavMenuSmall />
             <Routes />
           </main>

@@ -62,6 +62,7 @@ export default (
     vmOperations: {
       fetching: false,
       error: null,
+      lastQuery: null,
       data: []
     }
   },
@@ -255,7 +256,8 @@ export default (
         vmOperations: {
           fetching: false,
           error: null,
-          data: state.vmOperations.data.push(action.value)
+          lastQuery: action.query,
+          data: action.value
         }
       }
     case VMLOOKUP_REQUEST_FAILED:

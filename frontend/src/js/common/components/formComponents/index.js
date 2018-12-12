@@ -9,6 +9,7 @@ import QueueManagerDropDown from './QueueManagerDropDown'
 import MqClusterCheckBox from './MqClusterCheckBox'
 import OrderDbTemplateDropDown from './OrderDbTemplateDropDown'
 import OperateSeraNodeLookup from './OperateSeraNodeLookup'
+import NodeInformation from './NodeInformation'
 
 module.exports = {
   EnvironmentsDropDown,
@@ -21,5 +22,6 @@ module.exports = {
   OrderButtonGroup,
   OrderDropDown,
   OrderDbTemplateDropDown,
-  OperateSeraNodeLookup
+  OperateSeraNodeLookup,
+  NodeInformation
 }

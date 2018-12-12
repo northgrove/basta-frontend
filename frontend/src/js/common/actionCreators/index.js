@@ -51,6 +51,6 @@ export const fetchDbTemplates = (environmentClass, zone) => {
   return { type: DBTEMPLATES_REQUEST, environmentClass, zone }
 }
 
-export const fetchVmInfo = hostname => {
-  return { type: VMLOOKUP_REQUEST, hostname }
+export const fetchVmInfo = hostnames => {
+  return { type: VMLOOKUP_REQUEST, hostnames }
 }

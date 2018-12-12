@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ReactTooltip from 'react-tooltip'
+import { NodeInformation } from './NodeInformation'
 import Select from 'react-select'
 import { fetchVmInfo } from '../../actionCreators'
 
@@ -9,44 +10,50 @@ export class OperateSeraNodeLookup extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      input: '',
-      hostnames: []
+      input: ''
     }
   }
 
   componentDidMount() {}
 
-  handleChange(event) {
-    const { dispatch } = this.props
+  componentDidUpdate(prevProps, prevState) {
+    const { dispatch, vmInfoArr } = this.props
     const { hostnames } = this.state
+    if (prevState.hostnames !== hostnames) {
+      dispatch(fetchVmInfo(hostnames))
+    }
+  }
+
+  handleChange(event) {
     this.splitMatchAndTrim(event.target.value)
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  findHostnames(hostnames) {}
-
   splitMatchAndTrim(hostnames) {
-    const arr = hostnames.split(',').map(e => {
+    let set = new Set()
+    const arr = hostnames.split(',')
+    arr.forEach(e => {
       const trimmed = e.trim()
-      if (trimmed.match(/^\w+\.\w+\.\w+$/)) return trimmed
+      if (trimmed.match(/^\w+\.\w+\.\w+$/)) set.add(trimmed)
     })
-    this.setState({ hostnames: arr })
+    if (set.size > 0) this.setState({ hostnames: set })
   }
 
-  serverList() {
-    return this.state.hostnames.map((e, i) => {
-      return (
-        <div className="operationsServerEntry" key={i}>
-          {' '}
-          {e}{' '}
-        </div>
-      )
-    })
+  serverList(hostnames) {
+    let elements = []
+    if (hostnames) {
+      hostnames.forEach((e, i) => {
+        elements.push(<NodeInformation key={i} hostname={e} />)
+      })
+    }
+    return elements
   }
 
   render() {
     const { label, description, placeholder } = this.props
+    const { hostnames } = this.state
     console.log(this.state)
+    // console.log(vmInfoArr)
     return (
       <div className="formComponentGrid">
         <div className="formComponentLabel">
@@ -67,7 +74,7 @@ export class OperateSeraNodeLookup extends Component {
             value={this.state.input}
             onChange={e => this.handleChange(e)}
           />
-          <div className="operationsServerList">{this.serverList()}</div>
+          <div className="operationsServerList">{this.serverList(hostnames)}</div>
         </div>
         <ReactTooltip />
       </div>
@@ -79,7 +86,7 @@ OperateSeraNodeLookup.propTypes = {}
 
 const mapStateToProps = state => {
   return {
-    vmsWithInfo: state.orderFormData.vmOperations.data
+    vmInfoArr: state.orderFormData.vmOperations.data
   }
 }
 export default connect(mapStateToProps)(OperateSeraNodeLookup)
