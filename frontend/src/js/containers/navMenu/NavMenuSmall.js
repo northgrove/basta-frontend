@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 import { closeNavMenu } from './actionCreators'
 
 export class NavMenuSmall extends Component {

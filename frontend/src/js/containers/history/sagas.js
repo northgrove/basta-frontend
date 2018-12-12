@@ -1,6 +1,6 @@
 import { takeEvery, put, fork, call, select, take, takeLatest } from 'redux-saga/effects'
-import { getOrders, getTotalOrders } from './selectors'
-import { tagOrders, filterOrders, sliceOrders, formatOrders } from './filters'
+import { getOrders } from './selectors'
+import { filterOrders, formatOrders } from './filters'
 import { getUrl } from '../../common/utils'
 import {
   HISTORY_REQUEST,
@@ -21,12 +21,10 @@ const delay = millis => {
 
 export function* getPartialHistory(action, pageId) {
   let value = ''
-
   value = yield call(
     getUrl,
-    `rest/orders/page/${pageId}/${action.pageSize}/${action.fromDate}/${action.toDate}`
+    `/rest/orders/page/${pageId}/${action.pageSize}/${action.fromDate}/${action.toDate}`
   )
-
   if (value.length > 0) {
     pageId++
     yield put({ type: HISTORY_RECEIVED, value })
@@ -45,8 +43,6 @@ export function* getOrderHistory(action) {
   try {
     yield getPartialHistory(action, pageId)
   } catch (err) {
-    console.log('Errrrr', err)
-
     yield put({ type: HISTORY_REQUEST_FAILED, err })
   }
 }

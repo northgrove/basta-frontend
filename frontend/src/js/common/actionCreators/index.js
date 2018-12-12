@@ -8,7 +8,8 @@ import {
   SCOPED_RESOURCE_REQUEST,
   MQCLUSTERS_REQUEST,
   MQCLUSTERS_RECEIVED,
-  DBTEMPLATES_REQUEST
+  DBTEMPLATES_REQUEST,
+  VMLOOKUP_REQUEST
 } from '../actionTypes'
 
 export const fetchUserProfile = () => {
@@ -48,4 +49,8 @@ export const clearMqClusters = () => {
 
 export const fetchDbTemplates = (environmentClass, zone) => {
   return { type: DBTEMPLATES_REQUEST, environmentClass, zone }
+}
+
+export const fetchVmInfo = hostnames => {
+  return { type: VMLOOKUP_REQUEST, hostnames }
 }

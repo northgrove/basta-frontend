@@ -1,5 +1,6 @@
-import { takeEvery, put, fork, call } from 'redux-saga/effects'
-import { getUrl, getUserPhoto } from '../utils'
+import { takeEvery, takeLatest, put, fork, call, select } from 'redux-saga/effects'
+import { getUrl } from '../utils'
+import { getLastQuery } from './selectors'
 import {
   MQCLUSTERS_REQUEST,
   MQCLUSTERS_FETCHING,
@@ -24,7 +25,12 @@ import {
   DBTEMPLATES_REQUEST,
   DBTEMPLATES_FETCHING,
   DBTEMPLATES_REQUEST_FAILED,
-  DBTEMPLATES_RECEIVED
+  DBTEMPLATES_RECEIVED,
+  VMLOOKUP_REQUEST,
+  VMLOOKUP_DUPLICATE_REQUEST_CANCELLED,
+  VMLOOKUP_FETCHING,
+  VMLOOKUP_REQUEST_FAILED,
+  VMLOOKUP_RECEIVED
 } from '../actionTypes'
 
 export function* fetchScopedResource(action) {
@@ -91,20 +97,50 @@ export function* fetchEnvironments(action) {
     yield put({ type: ENVIRONMENTS_REQUEST_FAILED, err })
   }
 }
-// https://basta.adeo.no/rest/v1/oracledb/templates?environmentClass=p&zone=fss
+
 export function* fetchDbTemplates(action) {
   console.log(action)
   yield put({ type: DBTEMPLATES_FETCHING })
   try {
-    let environments = yield call(
+    let templates = yield call(
       getUrl,
       `/rest/v1/oracledb/templates?environmentClass=${action.environmentClass}&zone=${action.zone}`
     )
-    yield put({ type: DBTEMPLATES_RECEIVED, value: environments })
+    yield put({ type: DBTEMPLATES_RECEIVED, value: templates })
   } catch (err) {
     yield put({ type: DBTEMPLATES_REQUEST_FAILED, err })
   }
 }
+
+const createQuery = hostnames => {
+  let queryString = ''
+  hostnames.forEach(e => {
+    queryString += `hostname=${e}&`
+  })
+  return queryString
+}
+
+export function* fetchVmInfo(action) {
+  console.log('fetchVmInfo', action.hostnames)
+  const lastQuery = yield select(getLastQuery)
+  const newQuery = `/rest/v1/servers?${createQuery(action.hostnames)}`
+  if (newQuery === lastQuery) {
+    yield put({ type: VMLOOKUP_DUPLICATE_REQUEST_CANCELLED })
+  } else {
+    try {
+      yield put({ type: VMLOOKUP_FETCHING })
+      const vmInfo = yield call(getUrl, newQuery)
+      yield put({
+        type: VMLOOKUP_RECEIVED,
+        value: vmInfo,
+        query: `/rest/v1/servers?${createQuery(action.hostnames)}`
+      })
+    } catch (err) {
+      yield put({ type: VMLOOKUP_REQUEST_FAILED, err })
+    }
+  }
+}
+
 export function* watchOrderData() {
   yield fork(takeEvery, ENVIRONMENTS_REQUEST, fetchEnvironments)
   yield fork(takeEvery, APPLICATIONS_REQUEST, fetchApplications)
@@ -112,4 +148,5 @@ export function* watchOrderData() {
   yield fork(takeEvery, SCOPED_RESOURCE_REQUEST, fetchScopedResource)
   yield fork(takeEvery, MQCLUSTERS_REQUEST, fetchMqClusters)
   yield fork(takeEvery, DBTEMPLATES_REQUEST, fetchDbTemplates)
+  yield fork(takeLatest, VMLOOKUP_REQUEST, fetchVmInfo)
 }

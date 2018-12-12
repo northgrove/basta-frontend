@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import {
   OrderCheckBox,
@@ -10,7 +11,6 @@ import {
   MqClusterCheckBox,
   ApplicationsDropDown
 } from '../../common/components/formComponents'
-import connect from 'react-redux/es/connect/connect'
 import OrderDropDown from '../../common/components/formComponents/OrderDropDown'
 import { fetchMqClusters } from '../../common/actionCreators'
 

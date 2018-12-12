@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PageHeading from '../../common/components/PageHeading'
-import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 import OrderGrid from '../../common/components/OrderGrid'
 import OrderCard from '../../common/components/OrderCard'
 import OrderFilter from '../../common/components/OrderFilter'

@@ -16,7 +16,10 @@ import {
   ENVIRONMENTS_FETCHING,
   DBTEMPLATES_REQUEST_FAILED,
   DBTEMPLATES_RECEIVED,
-  DBTEMPLATES_FETCHING
+  DBTEMPLATES_FETCHING,
+  VMLOOKUP_REQUEST_FAILED,
+  VMLOOKUP_RECEIVED,
+  VMLOOKUP_FETCHING
 } from '../actionTypes'
 
 export default (
@@ -54,6 +57,12 @@ export default (
     dbTemplates: {
       fetching: false,
       error: null,
+      data: []
+    },
+    vmOperations: {
+      fetching: false,
+      error: null,
+      lastQuery: null,
       data: []
     }
   },
@@ -229,6 +238,35 @@ export default (
           fetching: false,
           error: action.error,
           data: []
+        }
+      }
+    // VM OPERATIONS LOOKUP
+    case VMLOOKUP_FETCHING:
+      return {
+        ...state,
+        vmOperations: {
+          fetching: true,
+          error: null,
+          data: [...state.vmOperations.data]
+        }
+      }
+    case VMLOOKUP_RECEIVED:
+      return {
+        ...state,
+        vmOperations: {
+          fetching: false,
+          error: null,
+          lastQuery: action.query,
+          data: action.value
+        }
+      }
+    case VMLOOKUP_REQUEST_FAILED:
+      return {
+        ...state,
+        vmOperations: {
+          fetching: false,
+          error: action.error,
+          data: [...state.vmOperations.data]
         }
       }
     default:

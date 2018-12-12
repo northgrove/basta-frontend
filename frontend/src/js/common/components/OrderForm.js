@@ -7,7 +7,8 @@ import {
   OrderButtonGroup,
   EnvironmentsDropDown,
   ApplicationsDropDown,
-  OrderDbTemplateDropDown
+  OrderDbTemplateDropDown,
+  OperateSeraNodeLookup
 } from './formComponents'
 import orderTypes from '../../../configuration/'
 import OrderDropDown from './formComponents/OrderDropDown'
@@ -196,6 +197,16 @@ export class OrderForm extends Component {
                       value={this.state[orderFieldKey]}
                       description={orderField.description}
                       alternatives={orderField.alternatives}
+                      onChange={v => this.handleChange(orderFieldKey, v)}
+                    />
+                  )
+                case 'seraLookup':
+                  return (
+                    <OperateSeraNodeLookup
+                      key={orderFieldKey}
+                      label={orderField.label}
+                      value={this.state[orderFieldKey]}
+                      placeholder={orderField.description}
                       onChange={v => this.handleChange(orderFieldKey, v)}
                     />
                   )
