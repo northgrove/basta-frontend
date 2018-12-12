@@ -10,9 +10,9 @@ export const NodeInformation = props => {
     </div>
   )
 }
-OrderNumberBox.propTypes = {
+NodeInformation.propTypes = {
   hostname: PropTypes.string.isRequired,
   key: PropTypes.number
 }
 
-export default OrderNumberBox
+export default NodeInformation
